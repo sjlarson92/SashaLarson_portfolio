@@ -1,0 +1,42 @@
+Project 1: Adventure Game
+
+1. Create a basic console game
+
+  1.1 Plan the game
+    a. decide on how long the game is (chapters/steps)
+          -Intro:
+            Greet player
+            How many player are there?
+            What are there names?
+            Are you ready "insert player names"?
+
+          -10 Chapters (which = 10 decisions by player)
+
+          -Plus ending/epilogue/cliffhanger
+
+    b. decide on a story (plot)
+        *CR(client requirement): game must allow up to 3 players at a time
+
+        -plot: Player wakes up in an abandon hospital. While they were in a coma the world has become overrun by
+        zombies, player must make choices in order to survive escaping the hospital. Will you make it?
+
+    c. write out the story(outline)
+        -story is written in plot.txt
+
+  1.2 Start coding
+    a. code each chapter
+        -set up and make sure everything is working properly
+        -run program by "python program name"
+        -create a main function
+          main function should be clean
+        -code little & test little!!
+          
+
+    b. link each chapter to next step
+
+2. Upgrade to Object Oriented Programming
+    *CR. make game accept up to 3 players
+
+    *CR. each player should have their own attributes (name/age/nickname)
+
+3. Upgrade to Web-based game(front + backend)

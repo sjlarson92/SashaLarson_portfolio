@@ -1,0 +1,33 @@
+.center {
+  text-align: center;
+}
+body {
+  background-color: #696969;
+  color: white;
+}
+
+div {
+  list-style-type: none;
+  padding-top: 2%;
+  font-size: 150%;
+  display: inline-block;;
+  text-align: center;
+  padding: 10px 10px;
+  margin: 10px;
+}
+
+#first {
+  background-color: blue;
+}
+
+#second {
+  background-color: pink;
+}
+
+#third {
+  background-color: red;
+}
+
+#fourth {
+  background-color: yellow;
+}

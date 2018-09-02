@@ -1,0 +1,20 @@
+p {
+  color: red;
+  font-family: fantasy;
+}
+/* this is how you edit text in html */
+table {
+  border: 5px solid black;
+}
+
+.tc1 {
+  border: 2px solid blue;
+}
+
+#t3 {
+  border: 5px dashed pink;
+}
+
+#t4 {
+  border: 5px solid purple;
+}

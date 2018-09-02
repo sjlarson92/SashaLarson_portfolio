@@ -1,0 +1,34 @@
+
+/* font: Raleway - already linked in html, so can use here */
+
+html {
+    font-size: 25px; /* 1rem = 10px - use rem */
+}
+
+body {
+  background-color: #191D32;
+}
+
+.intro {
+  background-color: #ffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  width: 40%;
+  margin:auto;
+  margin-top: 20%;
+  border-radius: 10%;
+
+}
+.border {
+  border-color: #E8D284;
+  border-style: solid;
+  padding: 5px;
+  width: 100%;
+}
+
+#first_truth, #second_truth, #lie {
+  margin: 10px 5px 10px 5px;
+}
