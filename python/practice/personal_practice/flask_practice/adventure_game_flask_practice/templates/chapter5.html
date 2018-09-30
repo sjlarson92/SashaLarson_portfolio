@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="play">
+    <div>
+      <h1> Chapter 5 </h1>
+      <div>
+        <div>
+          <p>
+            Player Choice is: {{ player_choice }}
+          </p>
+          {{ chapter }}
+        </div>
+        <br>
+        <form action = '/' method="post">
+          <label>
+            {{ question }}
+          </label>
+          <p>
+          <input type='radio' name='player_choice' value = 'A'/> {{ option1 }} <br>
+          <input type='radio' name='player_choice' value = 'B'/> {{ option2 }} <br>
+          </p>
+          <input type='submit' value='Next'/>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

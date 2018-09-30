@@ -108,3 +108,47 @@ ch3b_question = "Should you investigate?"
 ch3b_a = "Why do you keep wanting me to investigate suspicious shit!! No hell no!!"
 
 ch3b_b = "This could be the literal light at the end of this B Horror Film tunnel so yes!"
+
+ch4a = """ You decide that going out of your way to investigate a creepy room in a hospital is how people die. And no thank you, that's not what you're about.
+
+You turn around to continue your way down the hallway... but which direction where you going? It's difficult to tell when everything looks the same and there isn't any light."""
+
+ch4a_question = "Damnit not this again, which way do you go?"
+
+ch4a_a = "Right"
+
+ch4a_b = "Left"
+
+ch4b = """ You're gonna risk it for the biscuit!
+
+You have to squeeze through the open space of the door since it's jammed partially open and won't move.
+
+Once inside you can see the source of light is in fact a flash light. It's sitting in the lab of a nurse who is well... not alive to put it lightly. She's dead, very very dead as a matter of fact.
+
+She's sitting on the floor facing you, her eyes are clouded over and her arms hang limply at her sides. She's been dead for a while. Which makes you wonder how the flashlight battery isn't dead? (Author: Convenience!)
+
+On the bright side(pun totally intended) she doesn't need it anymore!"""
+
+ch4b_question = "Should you take that flashlight?"
+
+ch4b_a = "Well like you said she obviously doesn't need it right? So yea! Sorry Nurse Joy."
+
+ch4b_b = "Nope not worth it, I've seen this movie and no not happening. I'll just use my night vision thanks."
+
+ch5 = """Onwards adventurer!
+
+Anyway you head down the right side of the hallway.
+
+You walk cautiously forward, being careful of where you step.
+
+As you progress one of the rooms in the hallway catches your attention. The door is partially open and there is a light coming from inside.
+
+Wait what?! Deja Vu! How did that happen? This doesn't make sense.
+
+Maybe your trapped in an infinite loop? """
+
+ch5_question = "Should you investigate?"
+
+ch5a = "I see what you did their author lady. I don't have a choice do I? (Author:Nope!)"
+
+ch5b = "Ok I can do this. I'm a Champ! Here I go! BEAST MODE! (Author: ... well I like your enthusiasm)"

@@ -97,7 +97,22 @@ def chapter3():
     elif player_choice == 'B':
         return render_template('chapter3.html', title="Chapter 3", chapter = text.ch3b, player_choice = player_choice,  option1= text.ch3b_a, option2= text.ch3b_b, question = text.ch3b_question)
     else:
-        return render_template('chapter2.html', title="Chapter 2", chapter = "Error with player choice")
+        return render_template('chapter3.html', title="Chapter 3", chapter = "Error with player choice")
+
+@app.route('/chapters/4', methods=['POST'])
+def chapter4():
+    player_choice = request.form.get('player_choice')
+    if player_choice == 'A':
+        return render_template('chapter4.html', title="Chapter 4", chapter = text.ch4a, player_choice = player_choice, option1= text.ch4a_a, option2= text.ch4a_b, question = text.ch4a_question)
+    elif player_choice == 'B':
+        return render_template('chapter4.html', title="Chapter 4", chapter = text.ch4b, player_choice = player_choice,  option1= text.ch4b_a, option2= text.ch4b_b, question = text.ch4b_question)
+    else:
+        return render_template('chapter4.html', title="Chapter 4", chapter = "Error with player choice")
+
+@app.route('/chapters/5', methods=['POST'])
+def chapter5():
+    player_choice = request.form.get('player_choice')
+    return render_template('chapter5.html', title="Chapter 5", chapter = text.ch5, player_choice = player_choice, option1= text.ch5a, option2= text.ch5b, question = text.ch5_question)
 
 if __name__ == "__main__":
     app.run(debug = True)
