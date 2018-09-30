@@ -36,26 +36,6 @@ def instructions():
 def about():
     return render_template("about.html", about=text.summary, title="About")
 
-@app.route('/play')
-def play():
-    return render_template("play.html", title="Start Game")
-
-@app.route('/play/createplayer', methods=['POST'])
-def createplayer():
-    numPlayers = request.form.get('num_players')
-    return render_template("create_player.html", title="Create Player", numPlayers=numPlayers)
-
-@app.route('/chapters/0', methods=['post'])
-def chapter0():
-    player_name = request.form.get('player_name')
-    return render_template('chapter0.html', title="Chapter 0", player_name=player_name, chapter = text.ch0,  option1= text.ch0_a, option2= text.ch0_b)
-
-@app.route('/chapters/1', methods=['POST'])
-def chapter1():
-    player_choice = request.form.get('player_choice')
-    return render_template('chapter1.html', title="Chapter 1", player_name=player_name, chapter= text.ch1a)
-
-
 @app.route('/register', methods=["GET","POST"])
 def register():
     form = RegistrationForm()
@@ -75,9 +55,49 @@ def login():
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template("login.html", title="Login", form=form)
 
+@app.route('/play')
+def play():
+    return render_template("play.html", title="Start Game")
 
+@app.route('/play/createplayer', methods=['POST'])
+def createplayer():
+    numPlayers = request.form.get('num_players')
+    return render_template("create_player.html", title="Create Player", numPlayers = numPlayers)
 
+@app.route('/chapters/0', methods=['post'])
+def chapter0():
+    player_name = request.form.get('player_name')
+    return render_template('chapter0.html', title="Chapter 0", player_name = player_name, chapter = text.ch0,  option1= text.ch0_a, option2= text.ch0_b, question = text.ch0_question)
 
+@app.route('/chapters/1', methods=['POST'])
+def chapter1():
+    player_choice = request.form.get('player_choice')
+    if player_choice == 'A':
+        return render_template('chapter1.html', title="Chapter 1", chapter = text.ch1a, player_choice = player_choice, option1= text.ch1a_a, option2= text.ch1a_b, question = text.ch1a_question)
+    elif player_choice == 'B':
+        return render_template('chapter1.html', title="Chapter 1", chapter = text.ch1b, player_choice = player_choice,  option1= text.ch1b_a, option2= text.ch1b_b, question = text.ch1b_question)
+    else:
+        return render_template('chapter1.html', title="Chapter 1", chapter = "Error with player choice", player_choice = player_choice)
+
+@app.route('/chapters/2', methods=['POST'])
+def chapter2():
+    player_choice = request.form.get('player_choice')
+    if player_choice == 'A':
+        return render_template('chapter2.html', title="Chapter 2", chapter = text.ch2a, player_choice = player_choice, option1= text.ch2a_a, option2= text.ch2a_b, question = text.ch2a_question)
+    elif player_choice == 'B':
+        return render_template('gameover.html', title="Game Over", message = text.ch2b)
+    else:
+        return render_template('chapter2.html', title="Chapter 2", chapter = "Error with player choice")
+
+@app.route('/chapters/3', methods=['POST'])
+def chapter3():
+    player_choice = request.form.get('player_choice')
+    if player_choice == 'A':
+        return render_template('chapter3.html', title="Chapter 3", chapter = text.ch3a, player_choice = player_choice, option1= text.ch3a_a, option2= text.ch3a_b, question = text.ch3a_question)
+    elif player_choice == 'B':
+        return render_template('chapter3.html', title="Chapter 3", chapter = text.ch3b, player_choice = player_choice,  option1= text.ch3b_a, option2= text.ch3b_b, question = text.ch3b_question)
+    else:
+        return render_template('chapter2.html', title="Chapter 2", chapter = "Error with player choice")
 
 if __name__ == "__main__":
     app.run(debug = True)

@@ -5,6 +5,8 @@ Tread carefully through the halls of the hospital. Which paths to investigate. W
 directions = """How to play Zombie Game:
 Start the game and follow along the story as its told. Make your own decision on what to do next and let your choices set the path. Its up to you if you make it out alive."""
 
+
+
 ch0 = """ Ch. 0 - Well Shit
 
   Bang... bang .... bang
@@ -36,12 +38,73 @@ BANG! BAM!
 
 You look towards the door, where that ridiculous banging sound keeps coming from. You move closer to it. The banging continues and you hear another sound coming from the other side. Sounds like someone's groaning?"""
 
+ch0_question = "do you open the door?"
+
 ch0_a = """ Open door"""
 
 ch0_b = """ Hell no don't open that door"""
 
-ch1 = """ This is Chapter 1 """
+ch1a = """ Ch1. Let's open it! What's the worst that could happen?
 
-ch1_a = """ This is Ch. 1 Choice A"""
+You slowly walk towards the door, you unlock it placing your hand fully around the door knob when the banging suddenly stops. You hesitate... this is probably a bad idea.
 
-ch1_b = """ This is Ch. 1 Choice B"""
+Opening the door you see a dark hallway...
+"""
+ch1a_question = "Do you go into the hallway?"
+ch1a_a = """ It's an adventure"""
+
+ch1a_b = """ Maybe I should just hide in here..."""
+
+ch1b = """ You decide not to open the door. Someone obviously knows the stranger danger rule!
+
+Looking around the room you see a window. You try to open it but its jammed shut. Darn it! Looks like that door is your only way out. """
+
+ch1b_question = " Ready to venture into the beyond? "
+
+ch1b_a = """ It's an adventure? """
+
+ch1b_b = """ I don't want to but obviously the author is trying to create drama, so here I go. """
+
+ch2a = """ Alright! You can do this!
+
+You slowly open the door. Cautiously opening it and carefully peering into the hallway. It's dark and ominous. It kind of feels like a cheap B Horror movie. You proceed into the hallway to meet your fate. """
+
+ch2a_question = " You look right and then left. There's no one in sight. Looks like it's time to choose! "
+
+ch2a_a = "RIGHT!"
+
+ch2a_b = "LEFT!"
+
+ch2b = """You hate the author. Damn her! This is not what you wanted. You glare at the door and reluctantly turn the knob. Peering out into the hallway you see nothing but pitch darkness.
+
+Out of nowhere you are attacked by a monster and die.
+
+That's what happens when you fight with the author."""
+
+ch3a = """ Onwards adventurer! To the right... cause the right is always right...right?
+
+Anyway you head down the right side of the hallway. Which looks like any cliche post apocalyptic hospital ever. There are gurney's on their sides, dried blood splatters on the walls. The place is an absolute mess.
+
+You walk cautiously forward, being careful of where you step since you only have socks on.
+
+As you progress one of the rooms in the hallway catches your attention. The door is partially open and there is a light coming from inside. """
+
+ch3a_question = """ Should you investigate? """
+
+ch3a_a = "Why do you keep wanting me to investigate suspicious shit!! No I wanna go back to the my hospital room!!"
+
+ch3a_b = "This could be the literal light at the end of this B Horror Film tunnel so yes!"
+
+ch3b = """ You decide to turn left. This side of the hallway is almost identical to the right so there is hardly a difference at all to them.
+
+It looks like any cliche post apocalyptic hospital ever. There are gurney's on their sides, dried blood splatters on the walls. The place is an absolute mess.
+
+You walk cautiously forward, being careful of where you step since you only have socks on.
+
+As you progress one of the rooms in the hallway catches your attention. The door is partially open and there is a light coming from inside. """
+
+ch3b_question = "Should you investigate?"
+
+ch3b_a = "Why do you keep wanting me to investigate suspicious shit!! No hell no!!"
+
+ch3b_b = "This could be the literal light at the end of this B Horror Film tunnel so yes!"

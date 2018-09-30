@@ -11,11 +11,11 @@
         <br>
         <form action ='/chapters/1' method="post">
           <label>
-            {{ player_name }} do you open the door?
+            {{ player_name }} {{ question }}
           </label>
           <p>
-          <input type='radio' name='player_choice' id='option1'/> {{ option1 }} <br>
-          <input type='radio' name='player_choice' id='option2'/> {{ option2 }} <br>
+          <input type='radio' name='player_choice' value='A'/> {{ option1 }} <br>
+          <input type='radio' name='player_choice' value='B'/> {{ option2 }} <br>
           </p>
           <input type='submit' value='Next'/>
         </form>

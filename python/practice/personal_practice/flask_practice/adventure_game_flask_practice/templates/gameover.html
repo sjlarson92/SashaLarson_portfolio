@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="play">
+    <div>
+      <h1> Game Over! </h1>
+      <div>
+        <div>
+
+          {{ message }}
+        </div>
+        <br>
+        <form action ='/'>
+          <input type='submit' value='Return to Homepage'/>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
