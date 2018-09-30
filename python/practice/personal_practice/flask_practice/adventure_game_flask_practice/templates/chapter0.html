@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="play">
+    <div>
+      <h1> Zombie Game </h1>
+      <div>
+        <div>
+          {{ chapter }}
+        </div>
+        <br>
+        <form action ='/chapters/1' method="post">
+          <label>
+            {{ player_name }} do you open the door?
+          </label>
+          <p>
+          <input type='radio' name='player_choice' id='option1'/> {{ option1 }} <br>
+          <input type='radio' name='player_choice' id='option2'/> {{ option2 }} <br>
+          </p>
+          <input type='submit' value='Next'/>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="createplayer">
+    <div>
+      <h1> Zombie Game</h1>
+      <div>
+        <form action ='/chapters/0' method="post">
+          <label>
+            Player Name:
+          </label>
+          <input type='text' name='player_name'/>
+          <input type='submit' value='Start Game'/>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
