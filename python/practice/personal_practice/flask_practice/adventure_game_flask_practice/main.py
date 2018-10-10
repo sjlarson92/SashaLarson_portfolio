@@ -111,7 +111,7 @@ def register_error():
 
             return render_template('register2.html', user = user, error1 = error1)
 
-    return render_template({{ url_for('login') }}, user = user, password = password, verify_password = verify_password, email = email)
+    return render_template('login2.html', user = user, password = password, verify_password = verify_password, email = email)
 
 @app.route('/login', methods=["GET","POST"])
 def login():
@@ -185,7 +185,8 @@ def chapter4():
 @app.route('/chapters/5', methods=['POST'])
 def chapter5():
     player_choice = request.form.get('player_choice')
-    return render_template('chapter5.html', title="Chapter 5", chapter = text.ch5, player_choice = player_choice, option1= text.ch5a, option2= text.ch5b, question = text.ch5_question)
+    # return render_template('chapter5.html', title="Chapter 5", chapter = text.ch5, player_choice = player_choice, option1= text.ch5a, option2= text.ch5b, question = text.ch5_question)
+    return render_template('gameover.html', title="Game Over", message = text.ch5)
 
 if __name__ == "__main__":
     app.run(debug = True)

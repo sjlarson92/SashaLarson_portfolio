@@ -1,6 +1,18 @@
 {% extends "layout.html" %}
 
 {% block body %}
+ <h1> Login </h1>
+ <form action='/' method='get'>
+   <label> Username </label>
+   <input type="text" name="log_username"><br>
+   <label> Password </label>
+   <input type="password" name="log_password"><br>
+   <input type="submit" value="Submit">
+ </form>
+ <div >
+   <small>
+     Don't Have An Account? <a href="{{ url_for('register') }}">Register</a>
+   </small>
 
-
+ </div>
 {% endblock %}
