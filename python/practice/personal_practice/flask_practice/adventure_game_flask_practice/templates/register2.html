@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+  <h1> Register </h1>
+  <form action="/register" method="POST">
+
+    <label> Username </label>
+    <input type='text' name='username'><br>
+
+    <label> Password </label>
+    <input type='text' name='password'><br>
+
+    <label> Verify Password </label>
+    <input type='text' name='verify_password'><br>
+
+    <label> Email </label>
+    <input type='text' name='email'><br>
+  </form>
+  <div >
+    <small>
+      Already Have An Account? <a href="{{ url_for('login') }}">Login</a>
+    </small>
+
+  </div>
+
+{% endblock %}
