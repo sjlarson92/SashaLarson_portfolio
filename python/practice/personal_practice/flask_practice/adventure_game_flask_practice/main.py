@@ -72,6 +72,7 @@ def register_error():
             elif re.compile(r'\s').match(password):
                 error2 = "No spaces allowed in Password"
 
+                flash(error2, category='error')
                 return render_template ('register2.html', error2 = error2)
 
             else:
@@ -111,11 +112,31 @@ def register_error():
 
             return render_template('register2.html', user = user, error1 = error1)
 
+    flash('Registration Succesful!','success')
     return render_template('login2.html', user = user, password = password, verify_password = verify_password, email = email)
 
 @app.route('/login', methods=["GET","POST"])
 def login():
-    return render_template("login2.html")
+    user = request.form.get('username')
+    password = request.form.get('password')
+
+    return render_template("login2.html", user = user, password = password)
+
+@app.route('/login/error', methods=['get','post'])
+def login_error():
+    log_user = request.form.get('log_username')
+    log_password = request.form.get('log_password')
+    user = 'sjlarson92'
+    password = 'password'
+
+    if log_user == user and log_password == password:
+        flash('Login Successful', 'success')
+        return render_template('welcome.html', user = user)
+
+    else:
+        flash('Login was NOT sucessful', 'danger')
+        return render_template('login2.html')
+
 
 
     # the code below is for the login form with WTF
