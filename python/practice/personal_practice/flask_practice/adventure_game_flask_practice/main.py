@@ -38,7 +38,7 @@ def about():
 
 @app.route('/register', methods=["GET","POST"])
 def register():
-    return render_template("register2.html")
+    return render_template("register.html")
 
     #the code below is for the register form with WTF
     # form = RegistrationForm()
@@ -67,24 +67,24 @@ def register_error():
 
                 if email == "":
 
-                    return render_template('login.html', user = user)
+                    return redirect('/login', user = user)
 
             elif re.compile(r'\s').match(password):
                 error2 = "No spaces allowed in Password"
 
                 flash(error2, category='error')
-                return render_template ('register2.html', error2 = error2)
+                return render_template ('register.html', error2 = error2)
 
             else:
                 print('>>>>>>Passwords do not match:(')
                 error3 = "Passwords do not match"
 
-                return render_template('register2.html', user = user, error3 = error3)
+                return render_template('register.html', user = user, error3 = error3)
         else:
             print('>>>>>>There is no match for password:(')
             error2 = "Your password is incorrect"
 
-            return render_template('register2.html', user = user, error2 = error2)
+            return render_template('register.html', user = user, error2 = error2)
 
 
     else:
@@ -95,34 +95,34 @@ def register_error():
             error2 = "Please input password"
             error3 = "Please verify password"
 
-            return render_template('register2.html', error1 = error1, error2 = error2, error3 = error3)
+            return render_template('register.html', error1 = error1, error2 = error2, error3 = error3)
 
         elif len(user) < 3 or len(user) > 20:
             error1 = "Username must be between 3 to 20 characters long"
 
-            return render_template ('register2.html', error1 = error1)
+            return render_template ('register.html', error1 = error1)
 
         elif re.compile(r'\s').match(user):
             error1 = "No spaces allowed in Username"
 
-            return render_template ('register2.html', error1 = error1)
+            return render_template ('register.html', error1 = error1)
 
         else:
             error1 = "Your username is incorrect"
 
-            return render_template('register2.html', user = user, error1 = error1)
+            return render_template('register.html', user = user, error1 = error1)
 
     flash('Registration Succesful!','success')
-    return render_template('login2.html', user = user, password = password, verify_password = verify_password, email = email)
+    return redirect('/login')
 
-@app.route('/login', methods=["GET","POST"])
+@app.route('/login', methods=["GET"])
 def login():
     user = request.form.get('username')
     password = request.form.get('password')
 
-    return render_template("login2.html", user = user, password = password)
+    return render_template("login.html", user = user, password = password)
 
-@app.route('/login/error', methods=['get','post'])
+@app.route('/login/success', methods=['get','post'])
 def login_error():
     log_user = request.form.get('log_username')
     log_password = request.form.get('log_password')
@@ -135,7 +135,7 @@ def login_error():
 
     else:
         flash('Login was NOT sucessful', 'danger')
-        return render_template('login2.html')
+        return redirect('/login')
 
 
 
