@@ -14,17 +14,10 @@
 
 <hr/>
 
-{% if blogs|length == 0 %}
-<p>No Blogs Yet</p>
-
-{% else %}
-
   <ul>
     {% for blog in blogs %}
-    <li> {{blog.name}} </li>
+    <li> {{ blog }} </li>
     {% endfor %}
   </ul>
-
-{% endif %}
 
 {% endblock %}
