@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1> Blogs </h1>
+  <ul>
+    {% for blog in blogs %}
+    <li> {{ blog.name }} </li>
+    <li> {{ blog.post }}
+    {% endfor %}
+  </ul>
+
+{% endblock %}

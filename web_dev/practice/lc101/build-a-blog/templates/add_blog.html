@@ -2,22 +2,17 @@
 
 {% block content %}
   <h1> Add a Blog Entry </h1>
+  <div class="error">
+     {{ error }}
+  </div>
   <form method="post">
     <label> Title for New Blog:
       <input type="text" name="blog_name"/>
     </label><br>
     <label> Your New Blog:
-      <input type="text" name="blog_post"/>
+      <input class="textarea" type="text" name="blog_post"/>
     </label>
-    <input type="submit" value="Add Blog" />
+    <input type="submit" action="/index" value="Add Entry" />
   </form>
-
-<hr/>
-
-  <ul>
-    {% for blog in blogs %}
-    <li> {{ blog }} </li>
-    {% endfor %}
-  </ul>
 
 {% endblock %}
