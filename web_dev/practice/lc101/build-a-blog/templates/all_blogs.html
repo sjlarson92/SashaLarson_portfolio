@@ -5,8 +5,12 @@
 <h1> Blogs </h1>
   <ul>
     {% for blog in blogs %}
-    <li> {{ blog.name }} </li>
-    <li> {{ blog.post }}
+    <li>
+      <a href="/blog?id={{blog.id}}" > {{ blog.name }} </a>
+    </li>
+    <li>
+      {{ blog.post }}
+    </li>
     {% endfor %}
   </ul>
 

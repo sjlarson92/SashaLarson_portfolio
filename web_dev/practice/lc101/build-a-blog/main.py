@@ -40,6 +40,25 @@ def add_blog(name, post):
     val = (name, post)
     print('>>>> these are the values of the parameters: ', val)
     cursor.execute(insert_into_statement, val)
+    my_connection.commit() #this commits the added blog to the table in the database, without it the added blogs will disappear after the session ends
+
+@app.route('/')
+def home():
+    return ("This is the Homepage")
+
+@app.route('/blog', methods = ['GET'])
+def blog():
+    # blogs = get_blogs()
+    select_blog = "SELECT * FROM blog WHERE id=(%s)"
+    # print('this is the variable id:', request.args.get('id'))
+    key = request.args.get('id')
+    cursor.execute(select_blog, key)
+    blog = cursor.fetchall()
+    print('>>>>this is the blog variable:', blog)
+    name = blog[0][1]
+    post = blog[0][2]
+    print('>>>> this is the name variable: ', name)
+    return render_template("single_blog.html", title = 'Build a Blog', name = name, post = post)
 
 @app.route('/newpost', methods = ['GET', 'POST'])
 def index():
@@ -61,13 +80,11 @@ def index():
         return render_template("add_blog.html", title = 'Build a Blog')
     #research ORM and create class and be able to reflect data by property name
 
-@app.route('/blog', methods = ['GET'])
-def blog():
+@app.route('/allBlogs', methods = ['GET'])
+def allBlogs():
     blogs = get_blogs()
     # print(">>>>This is the data printed out:", blogs)
     return render_template("all_blogs.html", title = 'Build a Blog', blogs = blogs)
-
-@app.route('')    
 
 
 if __name__ == "__main__":
