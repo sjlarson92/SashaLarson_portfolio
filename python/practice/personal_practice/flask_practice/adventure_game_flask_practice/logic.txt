@@ -1,0 +1,10 @@
+Problem
+Game needs to iterate through players by the number of players during the game. Print out the appropriate chapter for each player and save their choice for the next chapter.
+
+
+step by step
+Use a for loop to iterate through each player
+
+
+
+solution

@@ -156,6 +156,7 @@ def play():
 @app.route('/play/createplayer', methods=['POST'])
 def createplayer():
     numPlayers = request.form.get('num_players')
+
     return render_template("create_player.html", title="Create Player", numPlayers = numPlayers)
 
 @app.route('/chapters/0', methods=['post'])
