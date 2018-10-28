@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect, render_template, url_for, flash
 import MySQLdb
+import re
 from models.blog import Blog
 
 app = Flask(__name__)
@@ -44,15 +45,17 @@ def add_blog(name, post):
 
 @app.route('/')
 def home():
-    return ("This is the Homepage")
+    return render_template("homepage.html", title = 'Build A Blog')
 
 @app.route('/blog', methods = ['GET'])
 def blog():
+    print("this is the blog method")
     # blogs = get_blogs()
     select_blog = "SELECT * FROM blog WHERE id=(%s)"
     # print('this is the variable id:', request.args.get('id'))
-    key = request.args.get('id')
-    cursor.execute(select_blog, key)
+    key = str(request.args.get('id'))
+    print(">>>>>this is the key type: ", type(key))
+    cursor.execute(select_blog, [key]) #variable key is in brackets to ensure that it is read correctly as a string
     blog = cursor.fetchall()
     print('>>>>this is the blog variable:', blog)
     name = blog[0][1]
@@ -60,21 +63,38 @@ def blog():
     print('>>>> this is the name variable: ', name)
     return render_template("single_blog.html", title = 'Build a Blog', name = name, post = post)
 
-@app.route('/newpost', methods = ['GET', 'POST'])
-def index():
+@app.route('/blog/created', methods= ['POST'])
+def created_blog():
+    # name = request.form.get('blog_name')
+    # post = request.form.get('blog_post')
+    # add_blog(name, post)
+    # print('>>>> this is the name variable: ', name)
+    # return render_template("single_blog.html", title = 'Build a Blog', name = name, post = post)
 
     if request.method == 'POST':
         name = request.form.get('blog_name')
         print('>>>>> blog name: ', name)
         post = request.form.get('blog_post')
-        if name == "" or post == "":
-            print(">>>>this message is before the flash message")
-            error = "Please complete form to add a blog post"
-            #flash('Please complete form to add a blog post')
-            return render_template('add_blog.html', error=error)
+
+        pattern = re.compile('^(\s|\S)*(\S)+(\s|\S)*$')
+        if pattern.match(name) and pattern.match(post):
+            print('>>>>>This post is good!')
+            add_blog(name, post) #call function to add blog
+            return render_template("single_blog.html", title = 'Build a Blog', name = name, post = post)
+        elif pattern.match(post):
+            print('>>>>>The title is empty')
+            error = "Please add a title to blog post"
+            return render_template('add_blog.html', error=error, post=post)
+        elif pattern.match(name):
+            error = "Please add a post to your blog"
+            return render_template('add_blog.html', error=error, name=name)
         else:
-            add_blog(name, post)#call function to add blog
-            return redirect(url_for('blog'))
+            print('>>>> both title and post are empty')
+            error = 'Please complete form to add a blog'
+            return render_template('add_blog.html', error=error)
+
+@app.route('/newpost', methods = ['GET'])
+def index():
 
     if request.method == 'GET':
         return render_template("add_blog.html", title = 'Build a Blog')

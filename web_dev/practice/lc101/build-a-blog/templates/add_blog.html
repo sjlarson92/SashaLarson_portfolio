@@ -5,14 +5,15 @@
   <div class="error">
      {{ error }}
   </div>
-  <form method="post">
+  <form action="/blog/created" method="post">
     <label> Title for New Blog:
-      <input type="text" name="blog_name"/>
+      <input type="text" name="blog_name" value="{{ name }}"/>
     </label><br>
     <label> Your New Blog:
-      <input class="textarea" type="text" name="blog_post"/>
+      <textarea value="{{post}}" name="blog_post"></textarea>
     </label>
-    <input type="submit" action="/index" value="Add Entry" />
+    <br>
+    <input type="submit" value="Add Entry" />
   </form>
 
 {% endblock %}
