@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1> Sign Up </h1>
+<form action="/register/error" method="POST">
+
+  <label> Username </label>
+  <input type='text' name='username' value= '{{ user }}' >{{ error1 }}<br>
+
+  <label> Password </label>
+  <input type='password' name='password'><br>
+
+  <label> Verify Password </label>
+  <input type='password' name='verify_password'> {{error3}} <br>
+
+  <label> Email </label>
+  <input type='text' name='email'> {{ error4 }} <br>
+  <input type='submit' value='Submit'/>
+</form>
+<div >
+  <small>
+    Already Have An Account? <a href="{{ url_for('login') }}">Login</a>
+  </small>
+
+</div>
+
+{% endblock %}
