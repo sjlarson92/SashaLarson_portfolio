@@ -13,7 +13,7 @@ class Blog:
         return self.blog_id
 
     def get_user_id(self):
-        return self.user_id    
+        return self.user_id
 
     def get_post(self):
         return self.post

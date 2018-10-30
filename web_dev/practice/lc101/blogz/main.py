@@ -1,20 +1,16 @@
 from flask import Flask, request, redirect, render_template, url_for, flash
-import MySQLdb
 import re
 from models.blog import Blog
-from models.users import User
+import models.users
+
+mu = models.users
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
-my_connection = MySQLdb.connect(host='localhost',
-                             database='blogz',
-                             user='sasha',
-                             password='password')
-
-cursor = my_connection.cursor()
+models.users.User
 
 title = 'Blogz'
+#test user in db sasha password
 
 @app.route('/')
 def index():
@@ -31,73 +27,34 @@ def register_error():
     verify_password = request.form.get('verify_password')
     email = request.form.get('email')
 
-    pattern = re.compile(r'^[a-zA-Z0-9]{3,20}$')
-    if pattern.match(user):
-        print('>>>>>There is a match for user!!!!!')
+    user_obj = mu.User(user,password, verify_password, email)
 
-        password_pattern = re.compile(r'^.{3,20}$')
-        if password_pattern.match(password):
-            print('>>>>>There is a match for password!!!!!')
+    response, username_error, password_error, email_error  = mu.userValidation(user_obj)
 
-            if password == verify_password:
-                print('>>>>>>The passwords match')
+    if response == False:
+        return render_template('signup.html', error1=username_error, error2=password_error, error3=email_error)
 
-                if email == "":
-
-                    return redirect('/login', user = user)
-
-            elif re.compile(r'\s').match(password):
-                error2 = "No spaces allowed in Password"
-
-                flash(error2, category='error')
-                return render_template ('signup.html', error2 = error2)
-
-            else:
-                print('>>>>>>Passwords do not match:(')
-                error3 = "Passwords do not match"
-
-                return render_template('signup.html', user = user, error3 = error3)
-        else:
-            print('>>>>>>There is no match for password:(')
-            error2 = "Your password is incorrect"
-
-            return render_template('signup.html', user = user, error2 = error2)
-
-
-    else:
-        print('>>>>>>There is no match for user:(')
-
-        if user == "" and password == "" and verify_password == "":
-            error1 = "Please input a username"
-            error2 = "Please input password"
-            error3 = "Please verify password"
-
-            return render_template('signup.html', error1 = error1, error2 = error2, error3 = error3)
-
-        elif len(user) < 3 or len(user) > 20:
-            error1 = "Username must be between 3 to 20 characters long"
-
-            return render_template ('signup.html', error1 = error1)
-
-        elif re.compile(r'\s').match(user):
-            error1 = "No spaces allowed in Username"
-
-            return render_template ('signup.html', error1 = error1)
-
-        else:
-            error1 = "Your username is incorrect"
-
-            return render_template('signup.html', user = user, error1 = error1)
-
-    flash('Registration Succesful!','success')
-    return redirect('/login')
+    return 'yay! sucess! This part of the website is under construction :D'
 
 @app.route('/login', methods=["GET"])
 def login():
-    # user = request.form.get('username')
-    # password = request.form.get('password')
 
     return render_template("login.html")
+
+@app.route('/login/success', methods=['get','post'])
+def login_error():
+    log_user = request.form.get('log_username')
+    log_password = request.form.get('log_password')
+    user = 'sjlarson92'
+    password = 'password'
+
+    if log_user == user and log_password == password:
+        flash('Login Successful', 'success') #flash does not work for some reason
+        return render_template('welcome.html', user = user)
+
+    else:
+        flash('Login was NOT sucessful', 'danger')
+        return redirect('/login')
 
 if __name__ == "__main__":
     app.run(debug = True)

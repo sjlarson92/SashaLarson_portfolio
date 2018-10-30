@@ -6,16 +6,28 @@
 <form action="/register/error" method="POST">
 
   <label> Username </label>
-  <input type='text' name='username' value= '{{ user }}' >{{ error1 }}<br>
+  <input type='text' name='username' value= '{{ user }}' >
+  {% if error1 %}
+    {{ error1 }}
+  {% endif %}
+  <br>
 
   <label> Password </label>
-  <input type='password' name='password'><br>
+  <input type='password' name='password'>
+  {% if error2 %}
+    {{ error2 }}
+  {% endif %}
+  <br>
 
   <label> Verify Password </label>
-  <input type='password' name='verify_password'> {{error3}} <br>
+  <input type='password' name='verify_password'><br>
 
   <label> Email </label>
-  <input type='text' name='email'> {{ error4 }} <br>
+  <input type='text' name='email'>
+  {% if error3 %}
+    {{ error3 }}
+  {% endif %}
+  <br>
   <input type='submit' value='Submit'/>
 </form>
 <div >
