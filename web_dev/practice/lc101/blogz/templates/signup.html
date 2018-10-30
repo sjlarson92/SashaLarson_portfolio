@@ -3,10 +3,10 @@
 {% block content %}
 
 <h1> Sign Up </h1>
-<form action="/register/error" method="POST">
+<form method="POST" id="sign_up_form" onsubmit="getUrl()">
 
   <label> Username </label>
-  <input type='text' name='username' value= '{{ user }}' >
+  <input type='text' name='username' value='{{ user }}' >
   {% if error1 %}
     {{ error1 }}
   {% endif %}
@@ -36,5 +36,13 @@
   </small>
 
 </div>
+
+<script type="text/javascript">
+  function getUrl(){
+    var action_src = "/blogs/" + document.getElementsByName("username")[0].value;
+    var sasha_form = document.getElementById('sign_up_form');
+    sasha_form.action = action_src ;
+  }
+</script>
 
 {% endblock %}

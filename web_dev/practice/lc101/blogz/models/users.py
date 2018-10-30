@@ -27,6 +27,15 @@ class User:
     def get_password(self):
         return self.password
 
+def addUserToDatabase(user):
+    try:
+        insert_into_statement = "INSERT INTO users (username, password, email) VALUES (%s, %s, %s)"
+        val = (user.username, user.password, user.email)
+        print('>>>> these are the values of the parameters: ', val)
+        cursor.execute(insert_into_statement, val)
+        my_connection.commit()
+    except:
+        return("Attempt to add user to database failed")
 def userValidation(user):
 
     def checkIfUserExists(username):
@@ -95,7 +104,7 @@ def userValidation(user):
             print('>> Email is empty')
             return False, 'Email is empty'
         else:
-            pattern = re.compile(r'^[a-zA-Z0-9]{3,20}$')
+            pattern = re.compile(r'^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$')
             if pattern.match(email):
                 print('>>> email meets the match criteria')
                 return True, ''

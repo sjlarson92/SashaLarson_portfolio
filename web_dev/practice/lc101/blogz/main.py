@@ -16,26 +16,6 @@ title = 'Blogz'
 def index():
     return render_template('index.html', title=title)
 
-@app.route('/signup', methods=['GET','POST'])
-def signup():
-    return render_template('signup.html', title='Sign Up')
-
-@app.route('/register/error', methods=['post'])
-def register_error():
-    user = request.form.get('username')
-    password = request.form.get('password')
-    verify_password = request.form.get('verify_password')
-    email = request.form.get('email')
-
-    user_obj = mu.User(user,password, verify_password, email)
-
-    response, username_error, password_error, email_error  = mu.userValidation(user_obj)
-
-    if response == False:
-        return render_template('signup.html', error1=username_error, error2=password_error, error3=email_error)
-
-    return 'yay! sucess! This part of the website is under construction :D'
-
 @app.route('/login', methods=["GET"])
 def login():
 
@@ -55,6 +35,38 @@ def login_error():
     else:
         flash('Login was NOT sucessful', 'danger')
         return redirect('/login')
+
+@app.route('/signup', methods=['GET','POST'])
+def signup():
+    return render_template('signup.html', title='Sign Up')
+
+# @app.route('/register/error', methods=['post'])
+# def register_error():
+
+
+@app.route('/blogs/<username>', methods = ['POST', 'GET'])
+def blogsByUsername(username):
+
+    if request.method == 'POST':
+        user = request.form.get('username')
+        password = request.form.get('password')
+        verify_password = request.form.get('verify_password')
+        email = request.form.get('email')
+
+        user_obj = mu.User(user,password, verify_password, email)
+
+        response, username_error, password_error, email_error  = mu.userValidation(user_obj)
+
+        if response == False:
+            return render_template('signup.html', error1=username_error, error2=password_error, error3=email_error, user=user)
+        else:
+            mu.addUserToDatabase(user_obj)
+            flash('User Sucessfully Created', 'Sucess')
+            return render_template('user_all_blogs.html', username=username)
+            #return 'yay! sucess! This part of the website is under construction :D'
+    elif request.method == 'GET':
+        return render_template('user_all_blogs.html', username=username)
+
 
 if __name__ == "__main__":
     app.run(debug = True)
