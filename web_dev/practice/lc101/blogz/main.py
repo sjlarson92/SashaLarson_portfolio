@@ -55,8 +55,8 @@ def signup():
 # @app.route('/register/error', methods=['post'])
 # def register_error():
 
-@app.route('/blog')
-def blog():
+@app.route('/blogs')
+def blogs():
     print('(IN BLOG) session user' ,session['user'])
     username = str(request.args.get('username'))
     print('>>> username in blog: %s' % username)
@@ -64,6 +64,11 @@ def blog():
     blogs = mb.get_blogs(username)
     print('>>> Sending user_all_blogs.html template')
     return render_template('user_all_blogs.html', username=username, blogs=blogs)
+
+@app.route('/blogs/all')
+def allBlogs():
+    blogs = mb.get_all_blogs()
+    return render_template('all_blogs.html', blogs=blogs)
 
 @app.route('/blogs/<username>', methods = ['POST', 'GET'])
 def blogsByUsername(username):

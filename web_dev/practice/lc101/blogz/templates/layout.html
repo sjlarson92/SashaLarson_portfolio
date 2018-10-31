@@ -34,7 +34,10 @@
           <a class="nav-link" href="/logout">Logout</a>
         </li>
         <li>
-          <a class="nav-link" href="/blog?username={{ session['user'] }}">My Blogs</a>
+          <a class="nav-link" href="/blogs?username={{ session['user'] }}">My Blogs</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/blogs/all">All Blogs</a>
         </li>
       {% endif %}
     </ul>

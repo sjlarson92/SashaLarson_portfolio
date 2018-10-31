@@ -63,6 +63,27 @@ def get_blogs(username):
 
     return blogs_list
 
+def get_all_blogs():
+    select_all_statement = "SELECT * FROM blogs"
+    cursor.execute(select_all_statement)
+    data = cursor.fetchall()
+
+    blogs_list = []
+
+    for row in data:
+        blog_id = row[0]
+        user_id = row[1]
+        title = row[2]
+        text = row[3]
+        print (">>>> this is data primary key", blog_id)
+        post = Blog(blog_id, user_id, title, text)
+
+        blogs_list.append(post)
+
+        # print(">>>>selected blogs: ", blogs)
+
+    return blogs_list    
+
 def add_blog(name, post):
     insert_into_statement = "INSERT INTO blogs (blog_name, blog_post) VALUES (%s, %s)"
     val = (name, post)
