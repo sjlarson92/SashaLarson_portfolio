@@ -82,7 +82,24 @@ def get_all_blogs():
 
         # print(">>>>selected blogs: ", blogs)
 
-    return blogs_list    
+    return blogs_list
+
+def get_single_blog(blog_id):
+    # blogs = get_blogs()
+    blog_id = blog_id
+    print(">>>> this is blog id: ", blog_id)
+    select_single_blog = "SELECT * FROM blogs WHERE blog_id=(%s)"
+    # print('this is the variable id:', request.args.get('id'))
+    #key = str(request.args.get('blog_id'))
+    print(">>>>>this is the key type: ", type(blog_id))
+    cursor.execute(select_single_blog, [blog_id]) #variable key is in brackets to ensure that it is read correctly as a string
+    blog = cursor.fetchall()
+    print('>>>>this is the blog variable:', blog)
+    name = blog[0][2]
+    post = blog[0][3]
+    print('>>>> this is the name variable: ', name)
+    print('>>>> this is the post variable: ', post)
+    return(name, post)
 
 def add_blog(name, post):
     insert_into_statement = "INSERT INTO blogs (blog_name, blog_post) VALUES (%s, %s)"

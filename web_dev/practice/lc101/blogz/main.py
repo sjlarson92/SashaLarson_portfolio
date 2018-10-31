@@ -55,7 +55,15 @@ def signup():
 # @app.route('/register/error', methods=['post'])
 # def register_error():
 
-@app.route('/blogs')
+@app.route('/singleblog/', methods = ['GET'])
+def blog():
+    blog_id = str(request.args.get('blog_id'))
+    print('This is the blog id: ', blog_id)
+
+    name, post = mb.get_single_blog(blog_id)
+    return render_template("single_blog.html", title = 'Build a Blog', name = name, post = post)
+
+@app.route('/blogs/')
 def blogs():
     print('(IN BLOG) session user' ,session['user'])
     username = str(request.args.get('username'))
