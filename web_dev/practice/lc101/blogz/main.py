@@ -15,9 +15,11 @@ title = 'Blogz'
 
 @app.before_request # this will run before every request to check if user is logged in
 def requireLogin():
+    print('--- VALIDATING IF USER IS LOGGER IN ---')
     allowed_routes = ['login', 'signup', 'loginAttempt', 'blogsByUsername', 'index'] #list of allowed routes user can access without being logged in
     if request.endpoint not in allowed_routes and 'user' not in session: # makes user log in if trying to go to a route not listed in allowed routes and will redirect them to login
         return redirect('/login')
+
 
 @app.route('/')
 def index():
@@ -40,7 +42,11 @@ def loginAttempt():
     else:
         print('>>> The response is True!')
         session['user'] = log_user
-        return redirect(url_for('blogsByUsername', username=log_user))
+        print('session user' ,session['user'])
+        blogs = mb.get_blogs(log_user)
+        print('>>> This is the login attempt to get blogs from user')
+        return render_template('user_all_blogs.html', username=log_user, blogs=blogs)
+        #return redirect(url_for('blogsByUsername', username=log_user), blogs=blogs)
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
@@ -49,6 +55,15 @@ def signup():
 # @app.route('/register/error', methods=['post'])
 # def register_error():
 
+@app.route('/blog')
+def blog():
+    print('(IN BLOG) session user' ,session['user'])
+    username = str(request.args.get('username'))
+    print('>>> username in blog: %s' % username)
+
+    blogs = mb.get_blogs(username)
+    print('>>> Sending user_all_blogs.html template')
+    return render_template('user_all_blogs.html', username=username, blogs=blogs)
 
 @app.route('/blogs/<username>', methods = ['POST', 'GET'])
 def blogsByUsername(username):

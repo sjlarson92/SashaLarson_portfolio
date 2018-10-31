@@ -32,9 +32,10 @@ class Blog:
 def get_blogs(username):
     username = username
     print('this is the username: ', username)
+    select_user_id = "SELECT user_id FROM users WHERE username=(%s)"
+
     select_all_statement = "SELECT * FROM blogs WHERE user_id=(%s)"
 
-    select_user_id = "SELECT user_id FROM users WHERE username=(%s)"
     #print('>>> this is the user object: ', user)
     cursor.execute(select_user_id, [username])
     result = cursor.fetchone()
@@ -49,14 +50,22 @@ def get_blogs(username):
     blogs_list = []
 
     for row in data:
-        id = row[0]
-        title = row[1]
-        text = row[2]
-        print (">>>> this is data primary key", id)
-        post = Blog(id, title, text)
+        blog_id = row[0]
+        user_id = row[1]
+        title = row[2]
+        text = row[3]
+        print (">>>> this is data primary key", blog_id)
+        post = Blog(blog_id, user_id, title, text)
 
         blogs_list.append(post)
 
         # print(">>>>selected blogs: ", blogs)
 
     return blogs_list
+
+def add_blog(name, post):
+    insert_into_statement = "INSERT INTO blogs (blog_name, blog_post) VALUES (%s, %s)"
+    val = (name, post)
+    print('>>>> these are the values of the parameters: ', val)
+    cursor.execute(insert_into_statement, val)
+    my_connection.commit() #this commits the added blog to the table in the database, without it the added blogs will disappear after the session ends
