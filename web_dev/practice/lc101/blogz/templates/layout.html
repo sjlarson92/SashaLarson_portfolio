@@ -27,8 +27,14 @@
       <li>
         <a class="nav-link" href="/login"> Login </a>
       </li>
+      {% if 'user' in session %}
+        <li>
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      {% endif %}
     </ul>
   </nav>
+
     {% block content %}
     {% endblock %}
 
