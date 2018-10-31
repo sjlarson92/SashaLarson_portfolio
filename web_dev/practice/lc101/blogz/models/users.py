@@ -130,60 +130,73 @@ def userValidation(user):
         else:
             return False, username_error, password_error, email_error
 
+def userLoginValidation(log_user, log_password):
+    log_user = log_user
+    log_password = log_password
+    def checkIfUserExists(username):
+        # check if user exists, if he does, we should return an error
+        print('>>> Checking if user exists')
+        sql_select_user = "SELECT * FROM users WHERE username=(%s)"
+        data = cursor.execute(sql_select_user, [username])
+        #data = cursor.fetchall()
 
+        print('>>> Data returned from DB: ', data)
+
+        if data != 0: # if there's at least one person with that username
+            print(">>> There's someone in the DB wit this name: ", username )
+            return True
+        else:
+            print(">>> There's no on in the DB with this username:", username)
+            return False
+
+    def checkUserPassword(log_user, log_password):
+        print('>>> Checking if password matches password in DB')
+        sql_select_password = "SELECT password FROM users where username=(%s)"
+        data = cursor.execute(sql_select_password, [log_user])
+        data = cursor.fetchone()
+        print('>>> Data returned from DB for password: ', data[0])
+        password = data[0]
+        if password == log_password:
+            print('>>> Passwords match!')
+            return True
+        else:
+            print('>>> Passwords do not match')
+            return False
+
+    # START HERE!
+    response = checkIfUserExists(log_user) # checking if user already exists
+    print('>>> 1st Response is: ', response)
+    if response == False:
+        print('>>> This username does not exist: ', log_user)
+        return False, 'Invalid Login please try again '
+    elif response == True:
+        print('>>> This username does exist: ', log_user)
+        response = checkUserPassword(log_user, log_password)
+        if response == False:
+            print('>>> The password is not correct', log_password)
+            return False, 'Invalid Login please try again'
+        elif response == True:
+            print('>>> The password is correct, log_password')
+            return True, ''    
+        #return True, ''
+
+
+
+        # print('>>>>>>>> STARTING USER INPUT VALIDATION >>>>>>>')
+        # username_response, username_error = usernameValidation(user.username)
+        # password_response, password_error = passwordValidation(user.password, user.verify_password)
+        # email_response, email_error = emailValidation(user.email)
         #
-        #         password_pattern = re.compile(r'^.{3,20}$')
-        #         if password_pattern.match(password):
-        #             print('>>>>>There is a match for password!!!!!')
+        # if username_response == True and password_response == True and email_response == True:
+        #     return True, 'Success', 'Success', 'Success'
+        # else:
+        #     return False, username_error, password_error, email_error
+
+
+        # if log_user == user and log_password == password:
+        #     flash('Login Successful', 'success') #flash does not work for some reason
+        #     return render_template('welcome.html', user = user)
         #
-        #             if password == verify_password:
-        #                 print('>>>>>>The passwords match')
-        #
-        #                 if email == "":
-        #
-        #                     return redirect('/login')
-        #
-        #             elif re.compile(r'\s').match(password):
-        #                 error2 = "No spaces allowed in Password"
-        #
-        #                 flash(error2, category='error')
-        #                 return render_template ('signup.html', error2 = error2)
-        #
-        #             else:
-        #                 print('>>>>>>Passwords do not match:(')
-        #                 error3 = "Passwords do not match"
-        #
-        #                 return render_template('signup.html', user = user, error3 = error3)
-        #         else:
-        #             print('>>>>>>There is no match for password:(')
-        #             error2 = "Your password does not meet the criteria"
-        #
-        #             return render_template('signup.html', user = user, error2 = error2)
-        #
-        #
-        #
-        #
-        #         if user == "" and password == "" and verify_password == "":
-        #             error1 = "Please input a username"
-        #             error2 = "Please input password"
-        #             error3 = "Please verify password"
-        #
-        #             return render_template('signup.html', error1 = error1, error2 = error2, error3 = error3)
-        #
-        #         elif len(user) < 3 or len(user) > 20:
-        #             error1 = "Username must be between 3 to 20 characters long"
-        #
-        #             return render_template ('signup.html', error1 = error1)
-        #
-        #         elif re.compile(r'\s').match(user):
-        #             error1 = "No spaces allowed in Username"
-        #
-        #             return render_template ('signup.html', error1 = error1)
-        #
-        #         else:
-        #             error1 = "Your username is incorrect"
-        #
-        #             return render_template('signup.html', user = user, error1 = error1)
-        #
-        # flash('Registration Succesful!','success')
-        # return redirect('/login')
+        # else:
+        #     flash('Login was NOT sucessful', 'danger')
+        #     return redirect('/login')

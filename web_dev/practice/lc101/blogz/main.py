@@ -21,20 +21,18 @@ def login():
 
     return render_template("login.html")
 
-@app.route('/login/success', methods=['get','post'])
-def login_error():
+@app.route('/login/attempt', methods=['post'])
+def loginAttempt():
     log_user = request.form.get('log_username')
     log_password = request.form.get('log_password')
-    user = 'sjlarson92'
-    password = 'password'
-
-    if log_user == user and log_password == password:
-        flash('Login Successful', 'success') #flash does not work for some reason
-        return render_template('welcome.html', user = user)
-
+    response, error = mu.userLoginValidation(log_user, log_password)
+    print('>>>> This is the repsonse from Login Validation', response)
+    if response == False:
+        print('>>> The repsonse is False')
+        return render_template('login.html', error=error)
     else:
-        flash('Login was NOT sucessful', 'danger')
-        return redirect('/login')
+        print('>>> The response is True!')
+        return redirect(url_for('blogsByUsername', username=log_user))
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
@@ -46,7 +44,7 @@ def signup():
 
 @app.route('/blogs/<username>', methods = ['POST', 'GET'])
 def blogsByUsername(username):
-
+    print('>>> this is the blogsByUsername function')
     if request.method == 'POST':
         user = request.form.get('username')
         password = request.form.get('password')
@@ -65,6 +63,7 @@ def blogsByUsername(username):
             return render_template('user_all_blogs.html', username=username)
             #return 'yay! sucess! This part of the website is under construction :D'
     elif request.method == 'GET':
+        print('>>> This is the beginning of the blogsByUsername GET method')
         return render_template('user_all_blogs.html', username=username)
 
 
