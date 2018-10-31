@@ -1,8 +1,9 @@
 from flask import Flask, request, redirect, render_template, url_for, flash, session
 import re
-from models.blog import Blog
 import models.users
+import models.blog
 
+mb = models.blog
 mu = models.users
 
 app = Flask(__name__)
@@ -14,7 +15,7 @@ title = 'Blogz'
 
 @app.before_request # this will run before every request to check if user is logged in
 def requireLogin():
-    allowed_routes = ['login', 'signup', 'loginAttempt', 'blogsByUsername'] #list of allowed routes user can access without being logged in
+    allowed_routes = ['login', 'signup', 'loginAttempt', 'blogsByUsername', 'index'] #list of allowed routes user can access without being logged in
     if request.endpoint not in allowed_routes and 'user' not in session: # makes user log in if trying to go to a route not listed in allowed routes and will redirect them to login
         return redirect('/login')
 
@@ -65,14 +66,18 @@ def blogsByUsername(username):
         if response == False:
             return render_template('signup.html', error1=username_error, error2=password_error, error3=email_error, user=user)
         else:
+            user = request.form.get('username')
             mu.addUserToDatabase(user_obj)
             session['user'] = user #this saves the user as logged in
-            flash('User Sucessfully Created', 'Sucess')
-            return render_template('user_all_blogs.html', username=username)
+            #flash('User Sucessfully Created', 'Sucess')
+            blogs = mb.get_blogs(user)
+            return render_template('user_all_blogs.html', username=username, blogs=blogs)
             #return 'yay! sucess! This part of the website is under construction :D'
     elif request.method == 'GET':
+        user = request.form.get('username')
+        blogs = mb.get_blogs(user)
         print('>>> This is the beginning of the blogsByUsername GET method')
-        return render_template('user_all_blogs.html', username=username)
+        return render_template('user_all_blogs.html', username=user, blogs=blogs)
 
 @app.route('/logout')
 def logout():

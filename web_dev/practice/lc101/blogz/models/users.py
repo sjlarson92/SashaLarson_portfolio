@@ -176,7 +176,7 @@ def userLoginValidation(log_user, log_password):
             print('>>> The password is not correct', log_password)
             return False, 'Invalid Login please try again'
         elif response == True:
-            print('>>> The password is correct, log_password')
+            print('>>> The password is correct', log_password)
             return True, ''
         #return True, ''
 

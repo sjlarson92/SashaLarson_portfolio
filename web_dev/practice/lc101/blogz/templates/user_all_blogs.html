@@ -2,4 +2,17 @@
 
 {% block content %}
 <h1> Welcome {{ username }} </h1>
+
+<h3> Blogs </h3>
+  <ul>
+    {% for blog in blogs %}
+    <li>
+      <a href="/blog?id={{blog.id}}" > {{ blog.name }} </a>
+    </li>
+    <li>
+      {{ blog.post }}
+    </li>
+    {% endfor %}
+  </ul>
+
 {% endblock %}
