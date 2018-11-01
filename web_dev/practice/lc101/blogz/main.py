@@ -107,6 +107,30 @@ def blogsByUsername(username):
         print('>>> This is the beginning of the blogsByUsername GET method')
         return render_template('user_all_blogs.html', username=user, blogs=blogs)
 
+@app.route('/addblog', methods=['GET', 'POST'])
+def addBlog():
+    if request.method == 'GET':
+        print('>>> this is the add blog get method')
+        return render_template('add_blog.html')
+    elif request.method == 'POST':
+        print('>>> this is the add blog post method')
+
+        print('(IN ADD BLOG) session user' ,session['user'])
+        username = session['user']
+        print('session username is: ', username)
+
+        blogname = request.form.get('blog_name')
+        print('>>> blogname is: ', blogname)
+
+        blogpost = request.form.get('blog_post')
+        print('>>> blogpost is: ', blogpost)
+
+        response = mb.add_blog(blogname, blogpost, username)
+        if response == True:
+            print('>>>you have succesffuly added your new blog')
+            return redirect('/')
+        else:
+            return('Attempt to add new blog failed')
 @app.route('/logout')
 def logout():
     del session['user']

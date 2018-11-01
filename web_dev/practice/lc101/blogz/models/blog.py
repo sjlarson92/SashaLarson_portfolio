@@ -101,9 +101,21 @@ def get_single_blog(blog_id):
     print('>>>> this is the post variable: ', post)
     return(name, post)
 
-def add_blog(name, post):
-    insert_into_statement = "INSERT INTO blogs (blog_name, blog_post) VALUES (%s, %s)"
-    val = (name, post)
+
+#YOU ARE HERE NEED TO FIND USERNAME CURRENTLY RETURNING NONE
+def add_blog(name, post, username):
+    username = username
+    print('>>> username is: ', username)
+    insert_into_statement = "INSERT INTO blogs (user_id, blog_name, blog_post) VALUES (%s, %s, %s)"
+    select_user_id = "SELECT user_id FROM users WHERE username=(%s)"
+    cursor.execute(select_user_id, [username])
+    result = cursor.fetchone()
+    print('>>> this is the result of user id: ', result[0])
+
+    user_id = str(result[0])
+
+    val = (user_id, name, post)
     print('>>>> these are the values of the parameters: ', val)
     cursor.execute(insert_into_statement, val)
     my_connection.commit() #this commits the added blog to the table in the database, without it the added blogs will disappear after the session ends
+    return True
