@@ -38,6 +38,7 @@ def loginAttempt():
     print('>>>> This is the repsonse from Login Validation', response)
     if response == False:
         print('>>> The repsonse is False')
+        flash(error, 'danger')
         return render_template('login.html', error=error)
     else:
         print('>>> The response is True!')
@@ -45,6 +46,7 @@ def loginAttempt():
         print('session user' ,session['user'])
         blogs = mb.get_blogs(log_user)
         print('>>> This is the login attempt to get blogs from user')
+        flash('Successfuly Logged In', 'success')
         return render_template('user_all_blogs.html', username=log_user, blogs=blogs)
         #return redirect(url_for('blogsByUsername', username=log_user), blogs=blogs)
 
@@ -128,12 +130,15 @@ def addBlog():
         response = mb.add_blog(blogname, blogpost, username)
         if response == True:
             print('>>>you have succesffuly added your new blog')
+            flash('Blog added successfuly', 'success')
             return redirect('/')
         else:
+            flash('Blog failed to add', 'danger')
             return('Attempt to add new blog failed')
 @app.route('/logout')
 def logout():
     del session['user']
+    flash('Succesffuly Logged out, Goodbye!', 'success')
     return redirect('/')
 
 if __name__ == "__main__":
