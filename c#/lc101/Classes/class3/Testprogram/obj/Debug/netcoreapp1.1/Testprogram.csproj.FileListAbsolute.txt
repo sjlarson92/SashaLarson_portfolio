@@ -1,0 +1,8 @@
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class3/Testprogram/bin/Debug/netcoreapp1.1/Testprogram.deps.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class3/Testprogram/bin/Debug/netcoreapp1.1/Testprogram.runtimeconfig.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class3/Testprogram/bin/Debug/netcoreapp1.1/Testprogram.runtimeconfig.dev.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class3/Testprogram/bin/Debug/netcoreapp1.1/Testprogram.dll
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class3/Testprogram/bin/Debug/netcoreapp1.1/Testprogram.pdb
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class3/Testprogram/obj/Debug/netcoreapp1.1/Testprogram.AssemblyInfo.cs
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class3/Testprogram/obj/Debug/netcoreapp1.1/Testprogram.dll
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class3/Testprogram/obj/Debug/netcoreapp1.1/Testprogram.pdb
