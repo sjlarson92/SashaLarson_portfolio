@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{56A0A280-DB0E-442D-A1CE-2D8C15EEB4D7}|Default">
+  <MonoDevelop.Ide.ItemProperties.src.TechJobsConsole PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/TechJobsConsole/Properties/AssemblyInfo.cs">
+    <Files>
+      <File FileName="src/TechJobsConsole/Properties/AssemblyInfo.cs" Line="20" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

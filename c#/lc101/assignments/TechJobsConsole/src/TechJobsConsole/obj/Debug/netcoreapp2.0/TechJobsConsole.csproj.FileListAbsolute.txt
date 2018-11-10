@@ -1,0 +1,9 @@
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsConsole/src/TechJobsConsole/bin/Debug/netcoreapp2.0/job_data.csv
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsConsole/src/TechJobsConsole/bin/Debug/netcoreapp2.0/TechJobsConsole.deps.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsConsole/src/TechJobsConsole/bin/Debug/netcoreapp2.0/TechJobsConsole.runtimeconfig.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsConsole/src/TechJobsConsole/bin/Debug/netcoreapp2.0/TechJobsConsole.runtimeconfig.dev.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsConsole/src/TechJobsConsole/bin/Debug/netcoreapp2.0/TechJobsConsole.dll
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsConsole/src/TechJobsConsole/bin/Debug/netcoreapp2.0/TechJobsConsole.pdb
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsConsole/src/TechJobsConsole/obj/Debug/netcoreapp2.0/TechJobsConsole.AssemblyInfo.cs
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsConsole/src/TechJobsConsole/obj/Debug/netcoreapp2.0/TechJobsConsole.dll
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsConsole/src/TechJobsConsole/obj/Debug/netcoreapp2.0/TechJobsConsole.pdb
