@@ -28,19 +28,22 @@ namespace TechJobsConsole
             while (true)
             {
 
-                string actionChoice = GetUserSelection("View Jobs", actionChoices);
+                string actionChoice = GetUserSelection("View Jobs", actionChoices); //gets user input for what they want to search (search or list)
 
-                if (actionChoice.Equals("list"))
+                if (actionChoice.Equals("list"))//will run if userinput was "list"
                 {
-                    string columnChoice = GetUserSelection("List", columnChoices);
+                    string columnChoice = GetUserSelection("List", columnChoices);//will return userchoice for column user wishes to list by
 
-                    if (columnChoice.Equals("all"))
+                    if (columnChoice.Equals("all"))//will run if user choice is "all"
                     {
-                        PrintJobs(JobData.FindAll());
+                        Console.WriteLine("\n*** All Values ***");
+                        PrintJobs(JobData.FindAll());//this method will search for all jobs and print them out
                     }
                     else
                     {
-                        List<string> results = JobData.FindAll(columnChoice);
+                        List<string> results = JobData.FindAll(columnChoice);//initializes variable results as a list and sets it equal to the return for JobData.FindAll with the users columnChoice
+
+                        //this returns all values listed by column choice
 
                         Console.WriteLine("\n*** All " + columnChoices[columnChoice] + " Values ***");
                         foreach (string item in results)
@@ -58,7 +61,7 @@ namespace TechJobsConsole
                     Console.WriteLine("\nSearch term: ");
                     string searchTerm = Console.ReadLine();
 
-                    List<Dictionary<string, string>> searchResults;
+                    List<Dictionary<string, string>> searchResults;//initializes new list of dictionaries called searchResults
 
                     // Fetch results
                     if (columnChoice.Equals("all"))
@@ -67,7 +70,7 @@ namespace TechJobsConsole
                     }
                     else
                     {
-                        searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
+                        searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);//calls the FindByColumnAndValue method from JobData
                         PrintJobs(searchResults);
                     }
                 }
@@ -81,12 +84,12 @@ namespace TechJobsConsole
         {
             int choiceIdx;
             bool isValidChoice = false;
-            string[] choiceKeys = new string[choices.Count];
+            string[] choiceKeys = new string[choices.Count];//this is creating a string array with the length of choices.Count
 
             int i = 0;
             foreach (KeyValuePair<string, string> choice in choices)
             {
-                choiceKeys[i] = choice.Key;
+                choiceKeys[i] = choice.Key;//this adds the key from the Dictionary to the array of choiceKeys [search, list]
                 i++;
             }
 
@@ -99,26 +102,44 @@ namespace TechJobsConsole
                     Console.WriteLine(j + " - " + choices[choiceKeys[j]]);
                 }
 
-                string input = Console.ReadLine();
-                choiceIdx = int.Parse(input);
+                string input = Console.ReadLine();//this intakes the user input and saves it to the var input
+                choiceIdx = int.Parse(input); //this converts the string input to an int
 
                 if (choiceIdx < 0 || choiceIdx >= choiceKeys.Length)
                 {
-                    Console.WriteLine("Invalid choices. Try again.");
+                    Console.WriteLine("Invalid choices. Try again.");//this is validation to make sure that the user input is valid, does not check for char or special characters
                 }
                 else
                 {
-                    isValidChoice = true;
+                    isValidChoice = true;//this changes the bool variable isValidChoice to True
                 }
 
-            } while (!isValidChoice);
+            } while (!isValidChoice); //this is part of the do while loop and will continue unti the isValidChoice is true
 
-            return choiceKeys[choiceIdx];
+            return choiceKeys[choiceIdx]; //this will return choiceKeys(dict)[index of the choiceIdx(the user input)]
         }
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("printJobs is not implemented yet");
+            //Console.WriteLine("printJobs is not implemented yet");
+
+            //for each item in the list:
+            //print the key value pair with each pair on a new line
+
+            int counter = 0;
+            foreach (Dictionary<string,string> dict in someJobs)
+            {
+              Console.WriteLine("\n******");
+              foreach (KeyValuePair<string,string> item in dict)
+              {
+
+                Console.WriteLine(item.Key + ": " + item.Value);
+
+              }
+              Console.WriteLine("******");
+              counter++;
+            }
+            Console.WriteLine("******* Count Total is : " + counter);
         }
     }
 }

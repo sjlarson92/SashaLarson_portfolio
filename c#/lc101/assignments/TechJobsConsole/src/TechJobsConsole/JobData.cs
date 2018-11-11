@@ -7,28 +7,29 @@ namespace TechJobsConsole
 {
     class JobData
     {
-        static List<Dictionary<string, string>> AllJobs = new List<Dictionary<string, string>>();
+        static List<Dictionary<string, string>> AllJobs = new List<Dictionary<string, string>>();//initializes new list of dictionaries known as all jobs
         static bool IsDataLoaded = false;
 
+        //method used to find all returns a dictionary
         public static List<Dictionary<string, string>> FindAll()
         {
-            LoadData();
-            return AllJobs;
+            LoadData();//calls the LoadData method
+            return AllJobs; //returns AllJobs
         }
 
         /*
          * Returns a list of all values contained in a given column,
-         * without duplicates. 
+         * without duplicates.
          */
         public static List<string> FindAll(string column)
         {
             LoadData();
 
-            List<string> values = new List<string>();
+            List<string> values = new List<string>();//initializes empty string list set equal to variable values
 
-            foreach (Dictionary<string, string> job in AllJobs)
+            foreach (Dictionary<string, string> job in AllJobs) //foreach dictionary/job in AllJobs do the following:
             {
-                string aValue = job[column];
+                string aValue = job[column]; //set the value to the key "column" equal to aValue
 
                 if (!values.Contains(aValue))
                 {
@@ -49,7 +50,7 @@ namespace TechJobsConsole
             {
                 string aValue = row[column];
 
-                if (aValue.Contains(value))
+                if (aValue.Contains(value))//if the value of the key pair contains the value of the search term then run this:
                 {
                     jobs.Add(row);
                 }
@@ -64,15 +65,16 @@ namespace TechJobsConsole
         private static void LoadData()
         {
 
-            if (IsDataLoaded)
+            if (IsDataLoaded)//runs if IsDataLoaded is true, declared false at beginning of JobData class
             {
                 return;
             }
 
             List<string[]> rows = new List<string[]>();
 
-            using (StreamReader reader = File.OpenText("job_data.csv"))
+            using (StreamReader reader = File.OpenText("job_data.csv")) //opens csv to be read
             {
+              //this method reads the csv file and adds each full entry into the rows list
                 while (reader.Peek() >= 0)
                 {
                     string line = reader.ReadLine();
@@ -84,18 +86,19 @@ namespace TechJobsConsole
                 }
             }
 
-            string[] headers = rows[0];
-            rows.Remove(headers);
+            string[] headers = rows[0]; //sets the var headers equal to the first index in rows which is "name,employer,location,position type,core competency"
+            rows.Remove(headers);//removes the headers from rows so that it reads from line 2 down
 
             // Parse each row array into a more friendly Dictionary
             foreach (string[] row in rows)
             {
-                Dictionary<string, string> rowDict = new Dictionary<string, string>();
+                Dictionary<string, string> rowDict = new Dictionary<string, string>();//creates a new Dictionary call rowDict
 
-                for (int i = 0; i < headers.Length; i++)
+                for (int i = 0; i < headers.Length; i++)//starts a for loop starting at 0 while i is less than the headers length and then adds one
                 {
-                    rowDict.Add(headers[i], row[i]);
+                    rowDict.Add(headers[i], row[i]);//creates a dictionary with key value pairs matching header to value
                 }
+                //each entry in the csv is being saved as key/value pairs in the rowDict and then being added to the list All Jobs (AllJobs is a LIST of DICTIONARIES!)
                 AllJobs.Add(rowDict);
             }
 
