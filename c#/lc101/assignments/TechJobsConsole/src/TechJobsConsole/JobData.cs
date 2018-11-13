@@ -104,7 +104,54 @@ namespace TechJobsConsole
 
             IsDataLoaded = true;
         }
+        // public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value)
+        // {
+        //     // load data, if not already loaded
+        //     LoadData();
+        //
+        //     List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+        //
+        //     foreach (Dictionary<string, string> row in AllJobs)
+        //     {
+        //         string aValue = row[column];
+        //
+        //         if (aValue.Contains(value))//if the value of the key pair contains the value of the search term then run this:
+        //         {
+        //             jobs.Add(row);
+        //         }
+        //     }
+        //
+        //     return jobs;
+        // }
 
+        public static List<Dictionary<string, string>> FindByValue(string value)
+        {
+
+          // Console.WriteLine("*** This is the FindByValue method");
+          // load data, if not already loaded
+          LoadData();
+          //
+          List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+          //
+          foreach (Dictionary<string, string> row in AllJobs)
+          {
+            foreach (KeyValuePair<string,string> item in row)
+            {
+
+              string aValue = item.Value;
+              // Console.WriteLine("**** this is the value of item.Value: " + item.Value);
+
+              if (aValue.Contains(value))//if the value of the key pair contains the value of the search term then run this:
+              {
+                jobs.Add(row);
+              }
+
+            }
+
+          }
+
+          return jobs;
+        }
         /*
          * Parse a single line of a CSV file into a string array
          */
