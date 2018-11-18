@@ -10,7 +10,7 @@ namespace viewsExercise.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(); //this calls the view template for the action name "Index" in the controller "Home" Folder located under Views
         }
 
         public IActionResult About()
