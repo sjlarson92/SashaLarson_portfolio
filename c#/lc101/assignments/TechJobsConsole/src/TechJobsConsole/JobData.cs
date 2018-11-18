@@ -143,7 +143,10 @@ namespace TechJobsConsole
 
               if (aValue.Contains(value))//if the value of the key pair contains the value of the search term then run this:
               {
-                jobs.Add(row);
+                if (!jobs.Contains(row))
+                {
+                  jobs.Add(row);
+                }
               }
 
             }
