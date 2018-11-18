@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Globalization;
+using System.Threading;
 
 namespace TechJobsConsole
 {
@@ -43,14 +46,16 @@ namespace TechJobsConsole
         {
             // load data, if not already loaded
             LoadData();
+            string low_value = value.ToLower();
 
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
                 string aValue = row[column];
+                string low_aValue = aValue.ToLower();
 
-                if (aValue.Contains(value))//if the value of the key pair contains the value of the search term then run this:
+                if (low_aValue.Contains(low_value))//if the value of the key pair contains the value of the search term then run this:
                 {
                     jobs.Add(row);
                 }
@@ -133,6 +138,7 @@ namespace TechJobsConsole
           //
           List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
           //
+          string low_value = value.ToLower();
           foreach (Dictionary<string, string> row in AllJobs)
           {
             foreach (KeyValuePair<string,string> item in row)
@@ -140,8 +146,9 @@ namespace TechJobsConsole
 
               string aValue = item.Value;
               // Console.WriteLine("**** this is the value of item.Value: " + item.Value);
+              string low_aValue = aValue.ToLower();
 
-              if (aValue.Contains(value))//if the value of the key pair contains the value of the search term then run this:
+              if (low_aValue.Contains(low_value))//if the value of the key pair contains the value of the search term then run this:
               {
                 if (!jobs.Contains(row))
                 {
