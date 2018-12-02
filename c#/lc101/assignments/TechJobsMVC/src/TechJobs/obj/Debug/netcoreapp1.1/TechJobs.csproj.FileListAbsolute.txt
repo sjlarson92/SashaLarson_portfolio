@@ -1,0 +1,8 @@
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsMVC/src/TechJobs/bin/Debug/netcoreapp1.1/TechJobs.deps.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsMVC/src/TechJobs/bin/Debug/netcoreapp1.1/TechJobs.runtimeconfig.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsMVC/src/TechJobs/bin/Debug/netcoreapp1.1/TechJobs.runtimeconfig.dev.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsMVC/src/TechJobs/obj/Debug/netcoreapp1.1/TechJobs.AssemblyInfo.cs
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsMVC/src/TechJobs/bin/Debug/netcoreapp1.1/TechJobs.dll
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsMVC/src/TechJobs/bin/Debug/netcoreapp1.1/TechJobs.pdb
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsMVC/src/TechJobs/obj/Debug/netcoreapp1.1/TechJobs.dll
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/assignments/TechJobsMVC/src/TechJobs/obj/Debug/netcoreapp1.1/TechJobs.pdb
