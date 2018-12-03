@@ -11,9 +11,9 @@ namespace TechJobs.Controllers
 
         // This is a "static constructor" which can be used
         // to initialize static members of a class
-        static ListController() 
+        static ListController()
         {
-            
+
             columnChoices.Add("core competency", "Skill");
             columnChoices.Add("employer", "Employer");
             columnChoices.Add("location", "Location");
@@ -39,7 +39,7 @@ namespace TechJobs.Controllers
             else
             {
                 List<string> items = JobData.FindAll(column);
-                ViewBag.title =  "All " + columnChoices[column] + " Values";
+                ViewBag.title =  "All " + columnChoices[column] + " Results";
                 ViewBag.column = column;
                 ViewBag.items = items;
                 return View();
