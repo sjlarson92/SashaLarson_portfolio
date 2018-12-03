@@ -10,7 +10,7 @@
                 <input type="radio"
                        name="searchType"
                        id="@column.Key"
-                       value="@column.Key" 
+                       value="@column.Key"
                        checked="@column.Key == 'all''"/>
                 <label for="@column.Key">@column.Value</label>
             </span>
@@ -30,7 +30,15 @@
 @if (ViewBag.jobs != null)
 {
 
-    <h3>@ViewBag.jobs.Count Result(s)</h3>
+  <h2>@ViewBag.resultsTitle</h2>
 
-    // TODO #2 - Loop over jobs dictionary and display all job fields 
+  <h3>@ViewBag.jobs.Count Result(s)</h3>
+  <p>
+  @foreach (Dictionary<string, string> job in ViewBag.jobs)
+    {
+      <p> Test </p>
+    }
+  </p>
+  
+    // TODO #2 - Loop over jobs dictionary and display all job fields
 }
