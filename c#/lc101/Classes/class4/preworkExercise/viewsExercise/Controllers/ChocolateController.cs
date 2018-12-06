@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ChocolateMVC.Models;
 
 namespace ChocolateMVC.Controllers
 {
     public class ChocolateController : Controller
     {
       static private Dictionary<string,string> Chocolates = new Dictionary<string,string>();
+
+      static private List<Chocolate> newChocolates = new List<Chocolate>();
 
       public IActionResult Index()
       {
@@ -23,6 +26,23 @@ namespace ChocolateMVC.Controllers
 
         return View(); //this calls the view template for the action name "Index" in the controller "Home" Folder located under Views
       }
+
+      public IActionResult V2(string name, string description)
+      {
+        Chocolate newChocolate = new Chocolate
+        {
+          Description = description,
+          Name = name
+        };
+
+        newChocolates.Add(newChocolate);
+
+        ViewBag.chocolates = Chocolates;
+
+        return View();
+      }
+
+
 
       public IActionResult Add()
       {

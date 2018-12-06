@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace viewsExercise
+namespace UserSignup
 {
     public class Startup
     {
@@ -53,7 +53,7 @@ namespace viewsExercise
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Chocolate}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
