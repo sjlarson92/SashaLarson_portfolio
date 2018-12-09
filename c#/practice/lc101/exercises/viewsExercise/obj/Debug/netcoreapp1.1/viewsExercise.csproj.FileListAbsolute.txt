@@ -1,8 +1,0 @@
-/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/bin/Debug/netcoreapp1.1/viewsExercise.deps.json
-/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/bin/Debug/netcoreapp1.1/viewsExercise.runtimeconfig.json
-/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/bin/Debug/netcoreapp1.1/viewsExercise.runtimeconfig.dev.json
-/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/bin/Debug/netcoreapp1.1/viewsExercise.dll
-/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/bin/Debug/netcoreapp1.1/viewsExercise.pdb
-/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/obj/Debug/netcoreapp1.1/viewsExercise.AssemblyInfo.cs
-/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/obj/Debug/netcoreapp1.1/viewsExercise.dll
-/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/obj/Debug/netcoreapp1.1/viewsExercise.pdb

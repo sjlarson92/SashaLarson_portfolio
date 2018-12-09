@@ -9715,16 +9715,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/viewsExercise.csproj",
+      "projectUniqueName": "/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/chocolateMVC/viewsExercise.csproj",
       "projectName": "viewsExercise",
-      "projectPath": "/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/viewsExercise.csproj",
-      "outputPath": "/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/obj/",
+      "projectPath": "/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/chocolateMVC/viewsExercise.csproj",
+      "outputPath": "/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/chocolateMVC/obj/",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "files": {
-        "lib/netcoreapp1.1/viewsExercise.dll": "/Users/Sasha/Desktop/SashaLarson_portfolio/c#/lc101/Classes/class4/preworkExercise/viewsExercise/bin/placeholder/netcoreapp1.1/viewsExercise.dll"
+        "lib/netcoreapp1.1/viewsExercise.dll": "/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/chocolateMVC/bin/placeholder/netcoreapp1.1/viewsExercise.dll"
       },
       "frameworks": {
         "netcoreapp1.1": {
