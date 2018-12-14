@@ -9,13 +9,20 @@
 {
 <p>No chocolates yet!</p>
 }
-<ul>
 
-  @foreach (Chocolate chocolate in ViewBag.chocolates)
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+  @foreach (var chocolate in ViewBag.chocolates)
   {
-   <li> @chocolate.Name </li>
-   <li> @chocolate.Description </li>
+    <tr>
+      <td>@chocolate.Name</td>
+      <td>@chocolate.Description</td>
+    </tr>
   }
-</ul>
+</table>
 
-<p><a asp-controller="Chocolate" asp-action="Add"> Add Chocolate </a></p>
+<p><a asp-controller="Chocolate" asp-action="V2Add"> Add Chocolate </a></p>
