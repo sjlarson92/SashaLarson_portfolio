@@ -1,3 +1,16 @@
+Downgrade Dotnet
+
+First go into .csproj file and edit the version for to the old versions you want. Use the Microsoft.Net website to find older versions and test which ones are compatible with your PC. Make sure to use dotnet restore to update packages.
+
+Afterwards go to startup.cs file and remove ILoggerFactory method as this is not compatible. Make sure to remove all instances and dependencies.
+
+Remove/comment out this code:
+
+loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+loggerFactory.AddDebug();
+
+Packet Versions that work with my PC (used for project TechJobs):
+
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
