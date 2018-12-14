@@ -1,0 +1,8 @@
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/CheeseMVC/src/CheeseMVC/bin/Debug/netcoreapp1.1/CheeseMVC.deps.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/CheeseMVC/src/CheeseMVC/bin/Debug/netcoreapp1.1/CheeseMVC.runtimeconfig.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/CheeseMVC/src/CheeseMVC/bin/Debug/netcoreapp1.1/CheeseMVC.runtimeconfig.dev.json
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/CheeseMVC/src/CheeseMVC/bin/Debug/netcoreapp1.1/CheeseMVC.dll
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/CheeseMVC/src/CheeseMVC/bin/Debug/netcoreapp1.1/CheeseMVC.pdb
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/CheeseMVC/src/CheeseMVC/obj/Debug/netcoreapp1.1/CheeseMVC.AssemblyInfo.cs
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/CheeseMVC/src/CheeseMVC/obj/Debug/netcoreapp1.1/CheeseMVC.dll
+/Users/Sasha/Desktop/SashaLarson_portfolio/c#/practice/lc101/CheeseMVC/src/CheeseMVC/obj/Debug/netcoreapp1.1/CheeseMVC.pdb
