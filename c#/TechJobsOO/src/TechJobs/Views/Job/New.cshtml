@@ -19,10 +19,10 @@
         <label asp-for="CoreCompetencyID"></label>
         <select asp-for="CoreCompetencyID" asp-items="Model.CoreCompetencies"></select>
     </div>
-
-    @{
-        // TODO #5 - Create <select> dropdowns for other job fields (outside of this @{ } block)
-    }
+    <div class="form-group">
+        <label asp-for="PositionTypeID"></label>
+        <select asp-for="PositionTypeID" asp-items="Model.PositionTypes"></select>
+    </div>
 
     <input type="submit" value="Add Job" />
 </form>
