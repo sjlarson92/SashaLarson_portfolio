@@ -28,7 +28,6 @@ namespace TechJobs.Controllers
             Job currentJob = jobData.Find(id);
 
             Console.WriteLine(currentJob.Name);
-            Console.ReadLine();
             return View(currentJob);
         }
 
