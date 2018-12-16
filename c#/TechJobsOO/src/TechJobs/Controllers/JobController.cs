@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using TechJobs.Data;
 using TechJobs.ViewModels;
+using TechJobs.Models;
 
 namespace TechJobs.Controllers
 {
@@ -20,15 +25,11 @@ namespace TechJobs.Controllers
         {
             // TODO #1 - get the Job with the given ID and pass it into the view
 
-            //Your first two tasks involve displaying data associated with a single job. When you're done, visiting the URL /Job?id=X will display the details of the job with ID equal to X.
+            Job currentJob = jobData.Find(id);
 
-            // Within the Index action method of JobController, you should retrieve the job with the given ID, and then pass it into the view without using ViewBag. In other words, use the Job as a ViewModel.
-
-            // Within Views/Job/Index.cshtml you need to declare the ViewModel type and then display the properties of the job in a table.
-
-
-
-            return View();
+            Console.WriteLine(currentJob.Name);
+            Console.ReadLine();
+            return View(currentJob);
         }
 
         public IActionResult New()
