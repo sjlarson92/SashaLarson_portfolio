@@ -15,7 +15,6 @@ namespace TechJobs.ViewModels
         [Display(Name = "Employer")]
         public int EmployerID { get; set; }
 
-        //check if these need to use a LocationID to find options
         [Required]
         [Display(Name = "Location")]
         public int LocationID { get; set;}
