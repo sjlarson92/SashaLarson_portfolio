@@ -26,12 +26,6 @@ Packet Versions that work with my PC (used for project TechJobs):
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReferenc
-    Include="Microsoft.Extensions.Configuration"
-    Version="2.1.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables"
     Version="1.1.2" />
   </ItemGroup>
