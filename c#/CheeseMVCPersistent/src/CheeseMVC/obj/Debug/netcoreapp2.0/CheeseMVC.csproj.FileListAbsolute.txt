@@ -9,3 +9,14 @@
 /Users/lucascosta/Desktop/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/Debug/netcoreapp2.0/CheeseMVC.AssemblyInfo.cs
 /Users/lucascosta/Desktop/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/Debug/netcoreapp2.0/CheeseMVC.dll
 /Users/lucascosta/Desktop/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/Debug/netcoreapp2.0/CheeseMVC.pdb
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/bin/Debug/netcoreapp2.0/CheeseMVC.deps.json
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/bin/Debug/netcoreapp2.0/CheeseMVC.runtimeconfig.json
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/bin/Debug/netcoreapp2.0/CheeseMVC.runtimeconfig.dev.json
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/bin/Debug/netcoreapp2.0/CheeseMVC.dll
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/bin/Debug/netcoreapp2.0/CheeseMVC.pdb
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/Debug/netcoreapp2.0/CheeseMVC.csprojAssemblyReference.cache
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/Debug/netcoreapp2.0/CheeseMVC.csproj.CoreCompileInputs.cache
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/Debug/netcoreapp2.0/CheeseMVC.AssemblyInfoInputs.cache
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/Debug/netcoreapp2.0/CheeseMVC.AssemblyInfo.cs
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/Debug/netcoreapp2.0/CheeseMVC.dll
+/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/Debug/netcoreapp2.0/CheeseMVC.pdb
