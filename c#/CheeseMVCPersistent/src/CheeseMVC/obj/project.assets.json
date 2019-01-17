@@ -12867,11 +12867,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/CheeseMVC.csproj",
+      "projectUniqueName": "/Users/lucascosta/Desktop/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/CheeseMVC.csproj",
       "projectName": "CheeseMVC",
-      "projectPath": "/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/CheeseMVC.csproj",
+      "projectPath": "/Users/lucascosta/Desktop/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/CheeseMVC.csproj",
       "packagesPath": "/Users/lucascosta/.nuget/packages/",
-      "outputPath": "/Users/lucascosta/Desktop/test/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/",
+      "outputPath": "/Users/lucascosta/Desktop/SashaLarson_portfolio/c#/CheeseMVCPersistent/src/CheeseMVC/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
