@@ -20,9 +20,12 @@ namespace CheeseMVC.Controllers
       // This code would need to be added to each controller class that you want to have access to the persistent collections defined within CheeseDbContext.
       public IActionResult Index()
       {
-          // List<Cheese> cheeses = context.Cheeses.ToList();
 
-          return View;
+          List<CheeseCategory> categories = context.Categories.ToList()
+
+          // The Index action should retrieve the list of all categories. This is done via the context object: context.Categories.ToList() returns a list of all CheeseCategory objects managed by CheeseDbContext. Use this snippet to retrieve the list of categories, and then pass the list into the view.
+
+          return View(categories);
       }
 
     }
