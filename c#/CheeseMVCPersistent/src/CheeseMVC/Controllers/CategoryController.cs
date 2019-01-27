@@ -21,7 +21,7 @@ namespace CheeseMVC.Controllers
       public IActionResult Index()
       {
 
-          List<CheeseCategory> categories = context.Categories.ToList()
+          List<CheeseCategory> categories = context.Categories.ToList();
 
           // The Index action should retrieve the list of all categories. This is done via the context object: context.Categories.ToList() returns a list of all CheeseCategory objects managed by CheeseDbContext. Use this snippet to retrieve the list of categories, and then pass the list into the view.
 
