@@ -47,10 +47,10 @@ namespace CheeseMVC.Controllers
 
               };
 
-              context.Categories.Add(newCategory)
+              context.Categories.Add(newCategory);
               context.SaveChanges();
 
-              return Redirect("/Category")
+              return Redirect("/Category");
           }
 
           return View(addCategoryViewModel);
