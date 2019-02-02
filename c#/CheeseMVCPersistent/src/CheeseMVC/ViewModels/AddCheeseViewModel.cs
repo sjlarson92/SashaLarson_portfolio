@@ -27,6 +27,8 @@ namespace CheeseMVC.ViewModels
 
         public List<SelectListItem> Categories { get; set; }
 
+        public AddCheeseViewModel(){} //empty default constructor
+
         public AddCheeseViewModel(IEnumerable<CheeseCategory> categories) {
 
             CheeseTypes = new List<SelectListItem>();
