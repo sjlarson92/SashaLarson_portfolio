@@ -19,7 +19,13 @@ namespace CheeseMVC.ViewModels
 
         // public CheeseType Type { get; set; }
 
-        public List<SelectListItem> CheeseTypes { get; set; }
+        //public List<SelectListItem> CheeseTypes { get; set; }
+
+        [Required]
+        [Display(Name = "Category")]
+        public int CategoryID { get; set; }
+
+        public List<SelectListItem> Categories { get; set; }
 
         public AddCheeseViewModel() {
 
