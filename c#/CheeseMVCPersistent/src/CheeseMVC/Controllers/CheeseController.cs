@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using CheeseMVC.ViewModels;
 using CheeseMVC.Data;
 using System.Linq;
+using System.Data.Entity;
 
 namespace CheeseMVC.Controllers
 {
