@@ -23,7 +23,9 @@ namespace CheeseMVC.Controllers
         public IActionResult Index()
         {
 
-            return View();
+          IList<Menu> menus = context.Menus.ToList();
+
+            return View(menus);
         }
 
     }
