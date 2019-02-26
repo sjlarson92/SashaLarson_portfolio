@@ -5,6 +5,7 @@ using CheeseMVC.ViewModels;
 using CheeseMVC.Data;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 
 namespace CheeseMVC.Controllers
@@ -39,17 +40,22 @@ namespace CheeseMVC.Controllers
         [HttpPost]
         public IActionResult Add(AddCheeseViewModel addCheeseViewModel)
         {
+          Console.WriteLine(">>>>>>This is the Add function in the CheeseController");
+           //Start testing with console logs
             if (ModelState.IsValid)
             {
+              Console.WriteLine(">>>>>>This runs if the ModelState.IsValid");
+              Console.WriteLine(">>>>>>The CategoryID and Cateorgy Name are " + addCheeseViewModel.CategoryID);
                 // Add the new cheese to my existing cheeses
-                CheeseCategory newCheeseCategory =
-                    context.Categories.Single(c => c.ID == addCheeseViewModel.CategoryID);
+                //CategorID is not being passed!!! and is being shown as zero
+
+                CheeseCategory newCheeseCategory = context.Categories.Single(c => c.ID == addCheeseViewModel.CategoryID);
 
                 Cheese newCheese = new Cheese
                 {
                     Name = addCheeseViewModel.Name,
                     Description = addCheeseViewModel.Description,
-                    Category = newCheeseCategory
+                    Category = newCheeseCategory //this is a category object
                 };
 
                 context.Cheeses.Add(newCheese);
