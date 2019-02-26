@@ -7,6 +7,7 @@
         public int ID { get; set; }
         public CheeseCategory Category { get; set; }
         public int CategoryID {get; set;} //CategoryID is a foreign key property
+        public IList<CheeseMenu> CheeseMenus {get; set;}
 
     }
 }
