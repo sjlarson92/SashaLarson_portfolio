@@ -14,7 +14,7 @@ namespace CheeseMVC.Controllers
     {
         private CheeseDbContext context;
 
-        public CheeseController(CheeseDbContext dbContext)
+        public MenuController(CheeseDbContext dbContext)
         {
             context = dbContext;
         }

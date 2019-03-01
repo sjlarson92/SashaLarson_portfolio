@@ -1,6 +1,6 @@
 namespace CheeseMVC.Models
 {
-    public class Menu
+    public class CheeseMenu
     {
       public int MenuID { get; set; }
       public Menu Menu { get; set; }
