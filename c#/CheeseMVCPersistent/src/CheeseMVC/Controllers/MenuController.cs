@@ -28,5 +28,14 @@ namespace CheeseMVC.Controllers
             return View(menus);
         }
 
+        public IActionResult Add()
+        {
+            //IList<Category> categories = context.Categories.ToList()
+
+            AddMenuViewModel addMenuViewModel = new AddMenuViewModel();
+            return View(addMenuViewModel);
+        }
+
+
     }
 }

@@ -14,10 +14,7 @@
     @foreach (var menu in Model)
     {
         <tr>
-            <td asp-controller="Menu" asp-action="ViewMenu" asp-rout-@MenuID>@menu.MenuID</td>
-            <td>@menu.Menu</td>
-            <td>@menu.CheeseID</td>
-            <td>@menu.Cheese</td>
+            <td asp-controller="Menu" asp-action="ViewMenu" asp-rout-@MenuID>@menu.Menu</td>
         </tr>
     }
 </table>
