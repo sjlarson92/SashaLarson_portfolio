@@ -36,6 +36,33 @@ namespace CheeseMVC.Controllers
             return View(addMenuViewModel);
         }
 
+        [HttpPost]
+        public IActionResult Add(AddMenuViewModel addMenuViewModel)
+        {
+          Console.WriteLine(">>>>>>This is the Add function in the MenuController");
+           //Start testing with console logs
+            if (ModelState.IsValid)
+            {
+              Console.WriteLine(">>>>>>This runs if the ModelState.IsValid");
+
+                // Add the new cheese to my existing cheeses
+                //CategorID is not being passed!!! and is being shown as zero
+
+
+                Menu newMenu = new Menu
+                {
+                    Name = addMenuViewModel.Name,
+                };
+
+                context.Menus.Add(newMenu);
+                context.SaveChanges();
+
+                return Redirect("/Menu/ViewMenu/" + newMenu.ID)
+            }
+
+            return View(addMenuViewModel);
+        }
+
 
     }
 }
