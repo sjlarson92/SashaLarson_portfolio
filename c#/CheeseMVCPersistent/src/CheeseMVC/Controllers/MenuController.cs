@@ -67,10 +67,14 @@ namespace CheeseMVC.Controllers
         [Route(Menu/ViewMenu/{id})]
         public IActionResult ViewMenu(int id)
         {
-            //IList<Category> categories = context.Categories.ToList()
+          Menu newMenu = context.Menus.Single(m => m.ID == id);
 
-            //AddMenuViewModel addMenuViewModel = new AddMenuViewModel();
-            return View();
+
+          List<CheeseMenu> items = context
+                  .CheeseMenus
+                  .Include(item => item.Cheese)
+                  .Where(cm => cm.MenuID == id)
+                  .ToList();return View();
         }
 
 
