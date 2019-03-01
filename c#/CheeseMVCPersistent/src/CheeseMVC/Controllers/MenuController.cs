@@ -75,6 +75,11 @@ namespace CheeseMVC.Controllers
                   .Include(item => item.Cheese)
                   .Where(cm => cm.MenuID == id)
                   .ToList();return View();
+
+          ViewMenuViewModel viewMenuViewModel = new ViewMenuViewModel(items);
+
+          return View(viewMenuViewModel);
+
         }
 
 

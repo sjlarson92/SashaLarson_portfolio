@@ -20,6 +20,7 @@ namespace CheeseMVC.ViewModels
 
         public ViewMenuViewModel(IEnumerable<CheeseMenu> items) {
 
+            //YOU ARE HERE! FINISH BUILDING THIS CONSTRUCTOR!
             // Categories = new List<SelectListItem>();
             // foreach (var item in categories)
             // {
