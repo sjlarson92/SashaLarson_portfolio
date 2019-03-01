@@ -63,6 +63,16 @@ namespace CheeseMVC.Controllers
             return View(addMenuViewModel);
         }
 
+        [HttpGet]
+        [Route(Menu/ViewMenu/{id})]
+        public IActionResult ViewMenu(int id)
+        {
+            //IList<Category> categories = context.Categories.ToList()
+
+            //AddMenuViewModel addMenuViewModel = new AddMenuViewModel();
+            return View();
+        }
+
 
     }
 }
