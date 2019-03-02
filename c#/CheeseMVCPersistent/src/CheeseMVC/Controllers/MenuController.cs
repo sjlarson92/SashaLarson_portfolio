@@ -98,6 +98,39 @@ namespace CheeseMVC.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult AddItem(AddMenuItemViewModel addMenuItemViewModel)
+        {
+          if (ModelState.IsValid)
+          {
+            IList<CheeseMenu> existingItems = context.CheeseMenus
+            .Where(cm => cm.CheeseID == cheeseID)
+            .Where(cm => cm.MenuID == menuID).ToList();
+
+            if (existingItems.isNullorEmpty){
+
+              CheeseMenu newCheeseMenu = new CheeseMenu{
+
+                MenuID = addMenuItemViewModel.menuID,
+                CheeseID = addMenuItemViewModel.cheeseID
+              };
+
+              context.CheeseMenus.Add(newCheeseMenu);
+              context.SaveChanges();
+
+              return Redirect("/Menu/ViewMenu/{id}");
+
+            }
+
+            else
+            {
+              //how do i display this message on the page?
+              Console.WriteLine(" This Cheese is already a part of this menu ");
+            }
+          }
+          return View(addMenuItemViewModel);
+        }
+
 
     }
 }
