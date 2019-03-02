@@ -89,17 +89,12 @@ namespace CheeseMVC.Controllers
         {
           Menu newMenu = context.Menus.Single(m => m.ID == id);
 
-        
-          // List<CheeseMenu> items = context
-          //         .CheeseMenus
-          //         .Include(item => item.Cheese)
-          //         .Where(cm => cm.MenuID == id)
-          //         .ToList();return View();
-          //
-          // ViewMenuViewModel viewMenuViewModel = new ViewMenuViewModel(items);
-          //
+          IList<Cheese> cheeses = context.Cheeses.ToList();
+
+
+          AddMenuItemViewModel addMenuItemViewModel = new AddMenuItemViewModel(newMenu, cheese)
           // ViewBag.Title = newMenu.Name;
-          return View();
+          return View(addMenuItemViewModel);
 
         }
 

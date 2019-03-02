@@ -23,7 +23,7 @@ namespace CheeseMVC.ViewModels
 
         public AddMenuItemViewModel(){} //empty default constructor
 
-        public AddMenuItemViewModel(Menu menu, IEnumerable<Cheese> cheese){
+        public AddMenuItemViewModel(Menu menu, IEnumerable<Cheese> cheeses){
 
           Cheeses = new List<SelectListItem>();
 
