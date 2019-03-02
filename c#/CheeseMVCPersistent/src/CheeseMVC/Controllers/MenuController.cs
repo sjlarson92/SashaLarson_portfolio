@@ -64,7 +64,7 @@ namespace CheeseMVC.Controllers
         }
 
         [HttpGet]
-        [Route(Menu/ViewMenu/{id})]
+        [Route("Menu/ViewMenu/{id}")]
         public IActionResult ViewMenu(int id)
         {
           Menu newMenu = context.Menus.Single(m => m.ID == id);
