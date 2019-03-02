@@ -84,7 +84,7 @@ namespace CheeseMVC.Controllers
         }
 
         [HttpGet]
-        [Route(Menu/ViewMenu/{id})]
+        [Route("Menu/ViewMenu/{id}")]
         public IActionResult AddItem(int id)
         {
           Menu newMenu = context.Menus.Single(m => m.ID == id);
@@ -92,7 +92,7 @@ namespace CheeseMVC.Controllers
           IList<Cheese> cheeses = context.Cheeses.ToList();
 
 
-          AddMenuItemViewModel addMenuItemViewModel = new AddMenuItemViewModel(newMenu, cheese)
+          AddMenuItemViewModel addMenuItemViewModel = new AddMenuItemViewModel(newMenu, cheeses);
           // ViewBag.Title = newMenu.Name;
           return View(addMenuItemViewModel);
 
