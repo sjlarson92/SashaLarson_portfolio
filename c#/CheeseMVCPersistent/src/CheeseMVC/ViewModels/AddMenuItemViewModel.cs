@@ -24,6 +24,9 @@ namespace CheeseMVC.ViewModels
         public AddMenuItemViewModel(){} //empty default constructor
 
         public AddMenuItemViewModel(Menu menu, IEnumerable<Cheese> cheese){
+
+          Cheeses = new List<SelectListItem>();
+
           Cheeses.Add(new SelectListItem
           {
               Value = cheese.ID.ToString(),
