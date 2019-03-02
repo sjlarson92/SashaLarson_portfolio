@@ -7,7 +7,7 @@
     @foreach (var menu in Model)
     {
         <tr>
-            <td asp-controller="Menu" asp-action="ViewMenu" asp-rout-@MenuID>@menu.Menu</td>
+            <td asp-controller="Menu" asp-action="ViewMenu" asp-rout-@MenuID>@menu.Name</td>
         </tr>
     }
 </table>
