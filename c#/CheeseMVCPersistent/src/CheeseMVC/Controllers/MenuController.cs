@@ -101,6 +101,9 @@ namespace CheeseMVC.Controllers
         [HttpPost]
         public IActionResult AddItem(AddMenuItemViewModel addMenuItemViewModel)
         {
+          int cheeseID = addMenuItemViewModel.cheeseID;
+          int menuID = addMenuItemViewModel.menuID;
+          
           if (ModelState.IsValid)
           {
             IList<CheeseMenu> existingItems = context.CheeseMenus
