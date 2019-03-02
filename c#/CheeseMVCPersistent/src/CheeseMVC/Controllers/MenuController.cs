@@ -103,14 +103,14 @@ namespace CheeseMVC.Controllers
         {
           int cheeseID = addMenuItemViewModel.cheeseID;
           int menuID = addMenuItemViewModel.menuID;
-          
+
           if (ModelState.IsValid)
           {
             IList<CheeseMenu> existingItems = context.CheeseMenus
             .Where(cm => cm.CheeseID == cheeseID)
             .Where(cm => cm.MenuID == menuID).ToList();
 
-            if (existingItems.isNullorEmpty){
+            if (existingItems == null | existingItems.Count() == 0){
 
               CheeseMenu newCheeseMenu = new CheeseMenu{
 
