@@ -1,6 +1,13 @@
-@{
-    //ViewBag.Title = "MENU NAME";
+@model CheeseMVC.ViewModels.ViewMenuViewModel
 
-    //pull menu name to from menu object
-}
-<h3>@ViewBag.Title</h3>
+<h1>@ViewBag.Title</h1>
+
+<table class="table">
+
+    @foreach (var items in Model.Items)
+    {
+      <ul>
+        @cheeseMenu.Cheeses.Name
+      </ul>
+    }
+</table>

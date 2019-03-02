@@ -78,6 +78,7 @@ namespace CheeseMVC.Controllers
 
           ViewMenuViewModel viewMenuViewModel = new ViewMenuViewModel(items);
 
+          ViewBag.Title = newMenu.Name;
           return View(viewMenuViewModel);
 
         }

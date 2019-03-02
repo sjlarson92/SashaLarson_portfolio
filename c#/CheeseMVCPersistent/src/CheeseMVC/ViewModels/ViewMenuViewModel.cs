@@ -19,6 +19,8 @@ namespace CheeseMVC.ViewModels
         public ViewMenuViewModel(){} //empty default constructor
 
         public ViewMenuViewModel(IEnumerable<CheeseMenu> items) {
+          
+        }
 
             //This constructor may be incomplete check for errors later!!
             // Categories = new List<SelectListItem>();
@@ -28,7 +30,7 @@ namespace CheeseMVC.ViewModels
             //       Value = ((int) item.ID).ToString(),
             //       Text = item.Name.ToString(),
             //   });
-            }
+            // }
 
 
 
