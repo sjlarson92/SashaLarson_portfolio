@@ -11,8 +11,8 @@
         <label asp-for="cheeseID"></label>
         <select class="form-control" asp-for="cheeseID" asp-items="Model.Cheeses"></select>
         <span asp-validation-for="Cheeses"></span>
-        @* <input type="hidden" name="MenuID" value="@Model.Menu.ID" />
-         *@
+        <input type="hidden" name="menuID" value="@Model.menu.ID" />
+
     </div>
 
     <input type="submit" value="Add Cheese to Menu" />
