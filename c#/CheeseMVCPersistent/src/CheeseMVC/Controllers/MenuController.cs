@@ -99,6 +99,8 @@ namespace CheeseMVC.Controllers
         {
           Menu newMenu = context.Menus.Single(m => m.ID == id);
 
+          Console.WriteLine(">>>>>>>>>>>>The Menu name is : " + newMenu.Name );
+
           IList<Cheese> cheeses = context.Cheeses.ToList();
 
 

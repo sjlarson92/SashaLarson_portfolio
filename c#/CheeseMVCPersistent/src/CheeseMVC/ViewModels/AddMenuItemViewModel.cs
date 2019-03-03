@@ -10,7 +10,7 @@ namespace CheeseMVC.ViewModels
 {
     public class AddMenuItemViewModel
     {
-
+        [Display(Name = "Cheeses: ")]
         public int cheeseID { get; set; }
 
         public int menuID { get; set; }
@@ -29,10 +29,9 @@ namespace CheeseMVC.ViewModels
 
           foreach (var cheese in cheeses)
           {
-            Cheeses.Add(new SelectListItem
-            {
-                Value = cheese.ID.ToString(),
-                Text = cheese.Name
+            Cheeses.Add(new SelectListItem{
+                Value = ((int)cheese.ID).ToString(),
+                Text = cheese.Name.ToString(),
             });
           }
 
