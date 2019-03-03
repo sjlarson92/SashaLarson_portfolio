@@ -10,15 +10,16 @@ namespace CheeseMVC.ViewModels
 {
     public class AddMenuItemViewModel
     {
+        [Required]
         [Display(Name = "Cheeses: ")]
         public int cheeseID { get; set; }
 
+        [Required]
         public int menuID { get; set; }
 
-        [Required]
+
         public Menu menu { get; set; }
 
-        [Required]
         public List<SelectListItem> Cheeses { get; set; }
 
         public AddMenuItemViewModel(){} //empty default constructor
