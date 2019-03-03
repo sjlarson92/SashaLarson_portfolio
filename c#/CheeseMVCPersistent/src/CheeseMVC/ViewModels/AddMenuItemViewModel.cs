@@ -16,7 +16,7 @@ namespace CheeseMVC.ViewModels
         public int menuID { get; set; }
 
         [Required]
-        public Menu Menu { get; set; }
+        public Menu menu { get; set; }
 
         [Required]
         public List<SelectListItem> Cheeses { get; set; }
@@ -26,6 +26,8 @@ namespace CheeseMVC.ViewModels
         public AddMenuItemViewModel(Menu menu, IEnumerable<Cheese> cheeses){
 
           Cheeses = new List<SelectListItem>();
+
+          this.menu = menu;
 
           foreach (var cheese in cheeses)
           {
