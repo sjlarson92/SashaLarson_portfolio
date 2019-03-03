@@ -17,20 +17,21 @@ namespace CheeseMVC.ViewModels
 
         public ViewMenuViewModel(){} //empty default constructor
 
-        public ViewMenuViewModel(IEnumerable<CheeseMenu> items) {
+        public ViewMenuViewModel(IEnumerable<CheeseMenu> items, Menu menu) {
+
+          Console.WriteLine("Before this.Menu");
+          this.Menu = menu;
+          Console.WriteLine(">>> Assigning menu to this.Menu with name" + this.Menu.Name);
+
+          foreach (var item in items)
+          {
+            this.Items.Add(new CheeseMenu{
+              MenuID = ((int) item.MenuID),
+              Cheese = item.Cheese,
+              });
+          }
 
         }
-
-            //This constructor may be incomplete check for errors later!!
-            // Categories = new List<SelectListItem>();
-            // foreach (var item in categories)
-            // {
-            //   Categories.Add(new SelectListItem {
-            //       Value = ((int) item.ID).ToString(),
-            //       Text = item.Name.ToString(),
-            //   });
-            // }
-
 
 
     }

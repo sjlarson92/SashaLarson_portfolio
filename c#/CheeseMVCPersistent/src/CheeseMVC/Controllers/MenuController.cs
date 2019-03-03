@@ -70,14 +70,18 @@ namespace CheeseMVC.Controllers
         {
           Menu newMenu = context.Menus.Single(m => m.ID == id);
 
+          Console.WriteLine(">>>>>>>>>>>>The Menu name is : " + newMenu.Name );
 
           List<CheeseMenu> items = context
                   .CheeseMenus
                   .Include(item => item.Cheese)
                   .Where(cm => cm.MenuID == id)
-                  .ToList();return View();
+                  .ToList();
+          Console.WriteLine(">>> After calling CheeseMenus DB");
+          Console.WriteLine(">>> items: " + items);
+          //if there are no items in the menu this will return null
 
-          ViewMenuViewModel viewMenuViewModel = new ViewMenuViewModel(items);
+          ViewMenuViewModel viewMenuViewModel = new ViewMenuViewModel(items, newMenu);
 
           ViewBag.Title = newMenu.Name;
           return View(viewMenuViewModel);
@@ -85,7 +89,7 @@ namespace CheeseMVC.Controllers
         }
 
         [HttpGet]
-        //[Route("Menu/ViewMenu/{id}")]
+        [Route("Menu/AddItem/{id}")]
         public IActionResult AddItem(int id)
         {
           Menu newMenu = context.Menus.Single(m => m.ID == id);
