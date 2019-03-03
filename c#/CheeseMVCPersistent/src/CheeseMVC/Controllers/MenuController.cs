@@ -81,7 +81,12 @@ namespace CheeseMVC.Controllers
           Console.WriteLine(">>> items: " + items);
           //if there are no items in the menu this will return null
 
-          ViewMenuViewModel viewMenuViewModel = new ViewMenuViewModel(items, newMenu);
+          ViewMenuViewModel viewMenuViewModel = new ViewMenuViewModel
+          {
+              Menu = newMenu,
+              Items = items
+
+          };
 
           ViewBag.Title = newMenu.Name;
           return View(viewMenuViewModel);
