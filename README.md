@@ -24,7 +24,8 @@ Steps to set up Monorepo for Github
  <!-- BANNER -->
 
 ## CONTATCT INFO
-<!--Email Image--> [Email](sjlarson92@gmail.com)
+<!--Email Image-->
+[Email](sjlarson92@gmail.com)
 
 <!--LinkedIn Image-->
 
@@ -43,8 +44,8 @@ In order to better display my projects I have set up my portfolio as a single re
 <!-- I'm amazing hire me! -->
 
 I have experience with the following technologies:
--Development: Python, C#
--Web Frameworks: Flask
--Database: Postgres, MySQL
--Front end: HTML, CSS, Javascript, Bootstrap
--Console: Git, Bash
+- Development: Python, C#
+- Web Frameworks: Flask
+- Database: Postgres, MySQL
+- Front end: HTML, CSS, Javascript, Bootstrap
+- Console: Git, Bash
