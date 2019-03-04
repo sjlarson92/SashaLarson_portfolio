@@ -18,3 +18,10 @@ Steps to set up Monorepo for Github
 
 -practice folders do not need summarys
  -->
+
+ <!-- BANNER -->
+
+ ## Contact Information
+ <!--Email Image-->[Email](sjlarson92@gmail.com)
+  <!--LinkedIn Image-->[LinkedIn](https://www.linkedin.com/in/sjlarson92/)
+   <!--WordPress Image [WordPress]() -->
