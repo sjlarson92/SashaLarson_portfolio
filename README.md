@@ -1,3 +1,5 @@
+<!--https://help.github.com/en/articles/basic-writing-and-formatting-syntax#links link to git formatting reference -->
+
 # SashaLarson_portfolio
 Welcome to Sasha Larson's Monorepo Portfolio
 
@@ -22,6 +24,6 @@ Steps to set up Monorepo for Github
  <!-- BANNER -->
 
  ## Contact Information
- <!--Email Image-->[Email](sjlarson92@gmail.com)
-  <!--LinkedIn Image-->[LinkedIn](https://www.linkedin.com/in/sjlarson92/)
+ <!--Email Image--> [Email](sjlarson92@gmail.com)
+  <!--LinkedIn Image--> [LinkedIn](https://www.linkedin.com/in/sjlarson92/)
    <!--WordPress Image [WordPress]() -->
