@@ -60,7 +60,9 @@ In order to better display my projects I have set up my portfolio as a single re
 
 ## ABOUT SASHA
 
-<!-- I'm amazing hire me! -->
+I am dedicated, persistent and hardworking. I constantly strive to improve and prepare for any future challenges. I enjoy exploring new ideas and learning to expand my horizons and gain perspectives on different issues.
+
+I have worked in a wide range of careers and I use each experience to enhance my personal and professional work.
 
 I have experience with the following technologies:
 - Development: Python, C#
@@ -75,4 +77,32 @@ This section shows some of my larger and favorite projects that I have worked on
 
 Currently my most impressive complete projects were done in C#. I am also currently working on another large project in Python.
 
-<!-- Projects!!! -->
+<!-- Project section -->
+<h2><a href="https://github.com/sjlarson92/SashaLarson_portfolio/tree/master/c%23/CheeseMVCPersistent">Cheese MVC</a></h2>
+
+<!-- Project BIO -->
+Cheese MVC is a 'Single Page Application' website which allows the user to create a Menu along with different Cheese items with specific categories that can be set and added to a menu. This app is an exercise in creating a full-stack application with a front-end, back-end and database.
+
+This app was made in roughly 2 months, by me and prewritten code provided by LaunchCode, a non-profit organization that provides free coding lessons to the community.
+
+This application displays some of my skills with:
+
+- C#
+- MVC Web Framework
+- MySQL
+
+
+<!-- Screenshots -->
+<img src="/c#/CheeseMVCPersistent/imgages/home.png" width= 60% length= 60%>
+
+
+<!-- Code explanation -->
+
+
+<!-- Code snippet -->
+You can see that in this code snippet:
+
+```c#
+
+
+```
