@@ -81,7 +81,7 @@ Currently my most impressive complete projects were done in C#. I am also curren
 <h2><a href="https://github.com/sjlarson92/SashaLarson_portfolio/tree/master/c%23/CheeseMVCPersistent">Cheese MVC</a></h2>
 
 <!-- Project BIO -->
-Cheese MVC is a 'Single Page Application' website which allows the user to create a Menu along with different Cheese items with specific categories that can be set and added to a menu. This app is an exercise in creating a full-stack application with a front-end, back-end and database.
+Cheese MVC is a '??' website which allows the user to create a Menu along with different Cheese items with specific categories that can be set and added to a menu. This app is an exercise in creating a full-stack application with a front-end, back-end and database.
 
 This app was made in roughly 2 months, by me and prewritten code provided by LaunchCode, a non-profit organization that provides free coding lessons to the community.
 
@@ -93,7 +93,7 @@ This application displays some of my skills with:
 
 
 <!-- Screenshots -->
-<img src="/c#/CheeseMVCPersistent/imgages/home.png" width= 60% length= 60%>
+<img src="/c#/CheeseMVCPersistent/images/home.png" width= 60% length= 60%>
 
 
 <!-- Code explanation -->
