@@ -93,10 +93,11 @@ This application displays some of my skills with:
 
 
 <!-- Screenshots -->
+<div align="center">
 Cheese Index
 <img src= "/c%23/CheeseMVCPersistent/images/home.png" width= 60% length= 60%>
 
-Category Index
+### CATEGORY INDEX
 <img src= "/c%23/CheeseMVCPersistent/images/Categories.png" width= 60% length= 60%>
 
 Add New Category
@@ -126,9 +127,10 @@ New Menu with Cheese
 Remove Cheese
 <img src= "/c%23/CheeseMVCPersistent/images/Remove%20Cheese.png" width= 60% length= 60%>
 
-Cheese Removed 
+Cheese Removed
 <img src= "/c%23/CheeseMVCPersistent/images/New%20Cheese%20Removed.png" width= 60% length= 60%>
 
+</div>
 <!-- Code explanation -->
 To run this application on my Mac I used docker to run the SQL Server and also used dotnet to run the application through my console.
 
