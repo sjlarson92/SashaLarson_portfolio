@@ -94,6 +94,7 @@ This application displays some of my skills with:
 
 <!-- Screenshots -->
 <div align="center">
+
 ### CHEESE INDEX
 <img src= "/c%23/CheeseMVCPersistent/images/home.png" width= 60% length= 60%>
 
@@ -180,6 +181,78 @@ public IActionResult Add(AddCategoryViewModel addCategoryViewModel)
 
     return View(addCategoryViewModel);
 }
+
+
+```
+<!-- Project section -->
+<h2><a href="https://github.com/sjlarson92/SashaLarson_portfolio/tree/master/python/blogz">Blogz</a></h2>
+
+<!-- Project BIO -->
+Blogz is a standard web application that is meant to allow users to sign up to the application and create blog posts that are posted and shared on the app.
+
+This app was made in roughly 2 months, I did this project as an assignment by LaunchCode a non-profit organization that provides free coding lessons to the community.
+
+This application displays some of my skills with:
+
+- Python
+- Flask Web Framework
+- Pipenv
+- MySQL
+
+
+<!-- Screenshots -->
+<div align="center">
+
+### HOME PAGE
+<img src= "/python/blogz/homePage.png" width= 60% length= 60%>
+
+### SIGN UP
+<img src= "/python/blogz/signUp.png" width= 60% length= 60%>
+
+### WELCOME NEW USER
+<img src= "/python/blogz/newUserWelcome.png" width= 60% length= 60%>
+
+### ALL BLOGS LIST
+<img src= "/python/blogz/allBlogsList.png" width= 60% length= 60%>
+
+### ADD NEW BLOG
+<img src= "/python/blogz/addNewBlog.png" width= 60% length= 60%>
+
+### NEW BLOG
+<img src= "/python/blogz/blogAdded.png" width= 60% length= 60%>
+
+### BLOG LIST WITH NEW BLOG
+<img src= "/python/blogz/blogListwithNewBlog.png" width= 60% length= 60%>
+
+### LOGOUT
+<img src= "/python/blogz/logout.png" width= 60% length= 60%>
+
+### LOGIN
+<img src= "/python/blogz/login.png" width= 60% length= 60%>
+
+### LOGIN SUCCESSFUL
+<img src= "/python/blogz/loginSuccessful.png" width= 60% length= 60%>
+
+</div>
+<!-- Code explanation -->
+
+
+<!-- Code snippet -->
+
+
+```
+
+```
+
+
+<!-- Code explanation -->
+
+
+<!-- Code snippet -->
+
+
+```
+
 
 
 ```
