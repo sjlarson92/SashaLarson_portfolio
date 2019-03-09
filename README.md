@@ -204,34 +204,34 @@ This application displays some of my skills with:
 <div align="center">
 
 ### HOME PAGE
-<img src= "/python/blogz/homePage.png" width= 60% length= 60%>
+<img src= "/python/blogz/img/homePage.png" width= 60% length= 60%>
 
 ### SIGN UP
-<img src= "/python/blogz/signUp.png" width= 60% length= 60%>
+<img src= "/python/blogz/img/signUp.png" width= 60% length= 60%>
 
 ### WELCOME NEW USER
-<img src= "/python/blogz/newUserWelcome.png" width= 60% length= 60%>
+<img src= "/python/blogz/img/newUserWelcome.png" width= 60% length= 60%>
 
 ### ALL BLOGS LIST
-<img src= "/python/blogz/allBlogsList.png" width= 60% length= 60%>
+<img src= "/python/blogz/img/allBlogsList.png" width= 60% length= 60%>
 
 ### ADD NEW BLOG
-<img src= "/python/blogz/addNewBlog.png" width= 60% length= 60%>
+<img src= "/python/blogz/img/addNewBlog.png" width= 60% length= 60%>
 
 ### NEW BLOG
-<img src= "/python/blogz/blogAdded.png" width= 60% length= 60%>
+<img src= "/python/blogz/img/blogAdded.png" width= 60% length= 60%>
 
 ### BLOG LIST WITH NEW BLOG
-<img src= "/python/blogz/blogListwithNewBlog.png" width= 60% length= 60%>
+<img src= "/python/blogz/img/blogListwithNewBlog.png" width= 60% length= 60%>
 
 ### LOGOUT
-<img src= "/python/blogz/logout.png" width= 60% length= 60%>
+<img src= "/python/blogz/img/logout.png" width= 60% length= 60%>
 
 ### LOGIN
-<img src= "/python/blogz/login.png" width= 60% length= 60%>
+<img src= "/python/blogz/img/login.png" width= 60% length= 60%>
 
 ### LOGIN SUCCESSFUL
-<img src= "/python/blogz/loginSuccessful.png" width= 60% length= 60%>
+<img src= "/python/blogz/img/loginSuccessful.png" width= 60% length= 60%>
 
 </div>
 <!-- Code explanation -->
