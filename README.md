@@ -75,7 +75,7 @@ I have experience with the following technologies:
 
 This section shows some of my larger and favorite projects that I have worked on. I have included a summary of each project with details to the concepts, logic along with code snippets and screenshots.
 
-Currently my most impressive complete projects were done in C#. I am also currently working on another large project in Python.
+Currently my most impressive complete projects were done in Python and C#. I am also currently working on another large project in Python.
 
 <!-- Project section -->
 <h2><a href="https://github.com/sjlarson92/SashaLarson_portfolio/tree/master/c%23/CheeseMVCPersistent">Cheese MVC</a></h2>
@@ -106,13 +106,54 @@ This application displays some of my skills with:
 <img src= "/c%23/CheeseMVCPersistent/images/New%20Cheese%20Removed.png" width= 60% length= 60%>
 
 <!-- Code explanation -->
-
+To run this application on my Mac I used docker to run the SQL Server and also used dotnet to run the application through my console.
 
 <!-- Code snippet -->
-You can see that in this code snippet
+You can see that in this code snippet that after turning on docker I would start up the SQL Server and then run dotnet and with a successful build this would run the application.
+
+```console
+
+docker start nameOfServer
+
+dotnet run
+
+```
+
+
+<!-- Code explanation -->
+The application is setup using MVC methodology and uses models, views and controllers to allow for a better organized application. I set up so that each controller had their own view and view models which allows me to pass information more easily from the back-end to the front-end.
+
+<!-- Code snippet -->
+You can see that in this code snippet which is located in the CategoryController and creates a viewmodel to handle the action of adding a new category. It intakes information from the user and then posts this information using the viewmodel to the database where it is saved.
 
 ```c#
+public IActionResult Add()
+{
+  AddCategoryViewModel addCategoryViewModel = new AddCategoryViewModel();
 
+  return View(addCategoryViewModel);
+}
+
+[HttpPost]
+public IActionResult Add(AddCategoryViewModel addCategoryViewModel)
+{
+    if (ModelState.IsValid)
+    {
+        // Add the new category to my existing categories
+        CheeseCategory newCategory = new CheeseCategory
+        {
+            Name = addCategoryViewModel.Name,
+
+        };
+
+        context.Categories.Add(newCategory);
+        context.SaveChanges();
+
+        return Redirect("/Category");
+    }
+
+    return View(addCategoryViewModel);
+}
 
 
 ```
