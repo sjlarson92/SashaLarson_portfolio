@@ -93,7 +93,7 @@ This application displays some of my skills with:
 
 
 <!-- Screenshots -->
-<img src= "c\#/CheeseMVCPersistent/images/home.png" width= 60% length= 60%>
+<img src= "/c%23/CheeseMVCPersistent/images/home.png" width= 60% length= 60%>
 
 
 <!-- Code explanation -->
