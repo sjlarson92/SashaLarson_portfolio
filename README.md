@@ -94,40 +94,40 @@ This application displays some of my skills with:
 
 <!-- Screenshots -->
 <div align="center">
-Cheese Index
+### CHEESE INDEX
 <img src= "/c%23/CheeseMVCPersistent/images/home.png" width= 60% length= 60%>
 
 ### CATEGORY INDEX
 <img src= "/c%23/CheeseMVCPersistent/images/Categories.png" width= 60% length= 60%>
 
-Add New Category
+### ADD NEW CATEGORY
 <img src= "/c%23/CheeseMVCPersistent/images/Add%20Category.png" width= 60% length= 60%>
 
-New Category Index
+### NEW CATEGORY INDEX
 <img src= "/c%23/CheeseMVCPersistent/images/New%20Category.png" width= 60% length= 60%>
 
-Add New Cheese
+### ADD NEW CHEESE
 <img src= "/c%23/CheeseMVCPersistent/images/Add%20Cheese.png" width= 60% length= 60%>
 
-New Cheese Index
+### NEW CHEESE INDEX
 <img src= "/c%23/CheeseMVCPersistent/images/New%20Cheese.png" width= 60% length= 60%>
 
-Add New Menu
+### ADD NEW MENU
 <img src= "/c%23/CheeseMVCPersistent/images/Add%20Menu.png" width= 60% length= 60%>
 
-New Menu Created
+### NEW MENU CREATED
 <img src= "/c%23/CheeseMVCPersistent/images/New%20Menu.png" width= 60% length= 60%>
 
-Add Cheese to New Menu
+### ADD CHEESE TO NEW MENU
 <img src= "/c%23/CheeseMVCPersistent/images/Add%20Cheese%20to%20New%20Menu.png" width= 60% length= 60%>
 
-New Menu with Cheese
+### NEW MENU WITH CHEESE
 <img src= "/c%23/CheeseMVCPersistent/images/New%20Menu%20with%20cheese.png" width= 60% length= 60%>
 
-Remove Cheese
+### REMOVE CHEESE
 <img src= "/c%23/CheeseMVCPersistent/images/Remove%20Cheese.png" width= 60% length= 60%>
 
-Cheese Removed
+### CHEESE REMOVED
 <img src= "/c%23/CheeseMVCPersistent/images/New%20Cheese%20Removed.png" width= 60% length= 60%>
 
 </div>
