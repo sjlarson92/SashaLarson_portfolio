@@ -66,10 +66,12 @@ I have worked in a wide range of careers and I use each experience to enhance my
 
 I have experience with the following technologies:
 - Development: Python, C#
-- Web Frameworks: Flask
-- Database: Postgres, MySQL
+- Web Frameworks: Flask, MVC
+- Database: Postgres, MySQL, Microsoft SQL Server
 - Front end: HTML, CSS, Javascript, Bootstrap
-- Console: Git, Bash
+- Console: Git, Bash, Zsh
+- Tools: DBeaver, Pipenv
+- Others: Docker
 
 ## PROJECT SHOWCASE
 
@@ -285,4 +287,4 @@ def get_all_blogs():
 
 ```
 <!-- Code explanation -->
-In the code above shows one of the functions in the blog model. This code is the 'get_all_blogs' function that uses mySQL code to pull a list of blogs from the database and organize the information into a list of properties that it iterates through with a for loop for each blog. The 'blogs_list' is then returned and is used to display on the view of a list of all blogs. 
+In the code above shows one of the functions in the blog model. This code is the 'get_all_blogs' function that uses mySQL code to pull a list of blogs from the database and organize the information into a list of properties that it iterates through with a for loop for each blog. The 'blogs_list' is then returned and is used to display on the view of a list of all blogs.
