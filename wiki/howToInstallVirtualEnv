@@ -1,0 +1,14 @@
+To install a virutal environment
+
+go into project folder and run 'pipenv install' command
+
+This will create a pipfile
+
+Next you will need to add packages to the environment
+
+Common packages to add to your project are:
+Python
+Flask
+MySQL
+
+To add a package run the command 'pipenv install <package>'
