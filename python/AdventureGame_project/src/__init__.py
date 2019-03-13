@@ -3,7 +3,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-import src.views
+import src.views.home
 # app.config.from_pyfile('config.py')
 #
 # db = MySQLdb(app)
