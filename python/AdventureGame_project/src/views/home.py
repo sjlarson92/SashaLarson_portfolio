@@ -4,4 +4,4 @@ from src import app
 @app.route('/')
 def index():
     # return 'Hello World!'
-    return render_template('/Home/index.html')
+    return render_template('/Home/index.html', title='ADVENTURE GAME')

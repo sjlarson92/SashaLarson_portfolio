@@ -1,12 +1,14 @@
+{% extends "/Shared/layout.html" %}
 
-
+{% block content %}
 <div>
-  ADVENTURE GAME
+  <div>
+    ADVENTURE GAME
+  </div>
+  <form method="post">
+    <input type="submit" name="startButton" value="Start Game"/>
+
+    <input type="submit" name="instructions" value="How to Play"/>
+  </form>
 </div>
-
-
-<form method="post">
-  <input type="submit" name="startButton" value="Start Game"/>
-
-  <input type="submit" name="instructions" value="How to Play"/>
-</form>
+{% endblock %}
