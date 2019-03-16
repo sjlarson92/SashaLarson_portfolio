@@ -2,7 +2,17 @@
 
 {% block content %}
 <div>
-  
+
+
+  <form action="" method="post">
+    {% for name in range(playerNum) %}
+    <label> Name for Player {{name}}:</label>
+    <input type="text" name="player_name" />
+    <br>
+    {% endfor %}
+    <input type="submit" value="Submit"/>
+  </form>
+
 
 </div>
 {% endblock %}

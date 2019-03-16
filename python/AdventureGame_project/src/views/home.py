@@ -16,9 +16,12 @@ def intro():
 @app.route('/HowtoPlay')
 def instructions():
     print(">>> You clicked the instructions")
-    return render_template('/Intro/instructions.html', title="How to Play")
+    return
+    render_template('/Intro/instructions.html', title="How to Play")
 
 @app.route('/Intro/PlayerName', methods=['POST'])
 def playername():
     print(">>> This is the player name input page")
-    return render_template('/Intro/playerName.html', title="Player Names")
+    playerNum = int(request.form.get('player_num'))
+    print(">>> The number of players is: ", playerNum)
+    return render_template('/Intro/playerName.html', title="Player Names", playerNum=playerNum)
