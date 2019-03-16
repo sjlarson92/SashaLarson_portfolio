@@ -3,7 +3,13 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-import src.views.home
+from src.views.home import home
+from src.views.game import game
 
+app.register_blueprint(home)
+app.register_blueprint(game)
+
+import src.views.home
+# import src.views.game
 if __name__ == "__main__":
     app.run(debug = True)
