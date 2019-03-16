@@ -7,5 +7,6 @@ title='ADVENTURE GAME'
 
 @game.route('/start', methods=['POST'])
 def start():
+    
     print ('>>> This is the game controller')
-    return render_template('/Game/ch1.html')
+    return render_template('/Game/ch1.html', title=title)

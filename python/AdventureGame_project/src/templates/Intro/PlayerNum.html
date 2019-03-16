@@ -7,7 +7,7 @@
     <h3>(Choose a number from 1-5)</h3>
   </div>
 
-  <form action="/Intro/PlayerName" method="post">
+  <form action={{url_for('home.playername')}} method="post">
 
     <input type="text" name="player_num"/>
     <br>

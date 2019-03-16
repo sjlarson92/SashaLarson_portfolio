@@ -5,11 +5,11 @@
   <div>
     ADVENTURE GAME
   </div>
-  <form action="/Intro" method="post">
+  <form action={{url_for('home.intro')}} method="post">
     <input type="submit" name="startButton" value="Start Game"/>
   </form>
   <br>
-  <form action="/HowtoPlay" method="get">
+  <form action={{url_for('home.instructions')}} method="get">
     <input type="submit" name="instructions" value="How to Play"/>
   </form>
 </div>
