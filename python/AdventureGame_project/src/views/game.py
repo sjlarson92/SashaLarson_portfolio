@@ -11,7 +11,7 @@ title='ADVENTURE GAME'
 @game.route('/start', methods=['POST'])
 def start():
     name = request.form.get('player_name')
-    print('This is the player name: ', name)
+    print('>>>This is the player name: ', name)
 
     player_obj = mp.User(name)
 

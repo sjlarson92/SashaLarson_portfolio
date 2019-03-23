@@ -1,8 +1,3 @@
-# class Player(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String(20), unique=True, nullable=False)
-#     choice = db.Column(db.Boolean, )
-
 import MySQLdb
 import re
 from flask import render_template
@@ -40,12 +35,10 @@ class User:
 
 def addPlayerNameToDatabase(name):
     try:
-        insert_into_statement = "INSERT INTO players (playerName) VALUES (%s)"
+        insert_into_statement = "INSERT INTO players (playerName) VALUES (\'%s\')" % (name.playerName)
 
-        val = name.playerName
-        print('>>> this is the players name passing to the db: ', val)
-
-        cursor.execute(insert_into_statement, val)
+        print("insert_into_statement: ", insert_into_statement)
+        cursor.execute(insert_into_statement)
         my_connection.commit()
     except:
         return("Attempt to add playerName to database failed")
