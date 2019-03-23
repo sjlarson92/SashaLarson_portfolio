@@ -19,7 +19,7 @@ class User:
         # print("this is init function in example class")
         self.id = 0
         self.playerName = playerName
-        self.choice = null
+        self.choice = ''
         self.dead = False
         self.chapter = 1
 

@@ -15,7 +15,7 @@ def start():
 
     player_obj = mp.User(name)
 
-    mp.addUserToDatabase(player_obj)
+    mp.addPlayerNameToDatabase(player_obj)
 
     print ('>>> This is the game controller')
 
