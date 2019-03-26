@@ -5,16 +5,17 @@
 
 
   <form action={{url_for('game.start')}} method="post">
-    {% for name in range(1,playerNum+1) %}
+    {% for num in range(1,playerNum+1) %}
     <br>
-    <label> Name for Player {{name}}:</label>
-    <input type="text" name="player_name" />
+    <label> Name for Player {{num}}:</label>
+    <input type="text" id={{num}} name="player_name" />
     <br>
     {% endfor %}
     <input type="submit" value="Submit"/>
   </form>
+
 <!-- TODO: Add validation that usernames cannot be the same as someone elses -->
-<!-- TODO: add usernames to database -->
+<!-- TODO: Add feature to allow multiple players to be added to the db -->
 
 </div>
 {% endblock %}

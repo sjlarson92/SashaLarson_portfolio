@@ -1,0 +1,24 @@
+-user can press start button to start game
+
+-app request number of players
+
+-intake number input from User
+
+-for the number of players app prompts users for player Names on individudal pages
+
+-app takes name input for each player
+-app saves playername to the db creating a player obj.
+-app shows first chapter of game to player 1
+- chapter html layout displays who's turn it is
+- app request input from user of choice between a or b
+- choices are displayed as radio buttons
+- app saves choice from user to db
+- chapters rotate through players in game
+- based on choice the next displayed
+- the next chapter is displayed based on current chapter number and players previous choice
+- if a player makes a choice that kills them: update death category in db to True
+- if player is dead remove them from the game
+- if all players are dead then the game is over
+- display game over screen if all players are dead
+- game over screen has return to home button
+- return home button links to home page
