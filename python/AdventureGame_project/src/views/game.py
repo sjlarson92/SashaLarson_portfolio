@@ -17,9 +17,11 @@ def start():
 
     print('>>>This is the player list: ', player_list)
 
-    player_obj = mp.User(name)
+    for player in player_list:
 
-    mp.addPlayerNameToDatabase(player_obj)
+        player_obj = mp.User(player)
+        print('>>> this is the value of the variable player: ', player)
+        mp.addPlayerNameToDatabase(player_obj)
 
     print ('>>> This is the game controller')
 
