@@ -42,3 +42,17 @@ def addPlayerNameToDatabase(name):
         my_connection.commit()
     except:
         return("Attempt to add playerName to database failed")
+
+# def getPlayerNamebyID(player_id):
+#     try:
+#         where_id_equals_statement = "SELECT playerName, dead, choice, chapter from players WHERE ID = (\'%d\')"
+#
+#         player_obj = where_id_equals_statement % (player_id)
+#
+#         print('>>>>player name is : ', player_obj.playerName)
+#
+#         print('>>>>where_id_equals_statement: ', where_id_equals_statement )
+#
+#         return player_obj
+#     except:
+#         return("Attempt to get player by ID from database failed")

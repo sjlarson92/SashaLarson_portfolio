@@ -4,9 +4,10 @@
 
 -intake number input from User
 
--for the number of players app prompts users for player Names on individudal pages
+-for the number of players app prompts users for player Names
 
 -app takes name input for each player
+
 -app saves playername to the db creating a player obj.
 -app shows first chapter of game to player 1
 - chapter html layout displays who's turn it is
