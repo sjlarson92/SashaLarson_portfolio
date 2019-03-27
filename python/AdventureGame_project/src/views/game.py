@@ -22,16 +22,16 @@ def start():
 
     print ('>>> This is the game controller')
 
-    return render_template(url_for('/Game/start.html', player_list=player_list))
+    return render_template('/Game/start.html', player_list=player_list)
 
 @game.route('/game', methods=['GET'])
 def gameEngine():
 
     player_list = request.args.getlist('player_list')
     print('>>>> this is the player_list: ', player_list)
-    for i in player_list:
-        player_obj = mp.getPlayerNamebyID(i)
-        print(">>>>This is player in the game engine")
+    # for i in player_list:
+    #     player_obj = mp.getPlayerNamebyID(i)
+    #     print(">>>>This is player in the game engine")
 
 
 
