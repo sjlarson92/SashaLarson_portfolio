@@ -10,31 +10,32 @@ title='ADVENTURE GAME'
 
 @game.route('/start', methods=['POST'])
 def start():
-    player_list = request.form.getlist('player_name')
+    playerList = request.form.getlist('player_name')
 
-    session['pl'] = player_list
+    session['pl'] = playerList
+    #saves player_list to session variable
 
-    print('>>>This is the player list: ', player_list)
+    print('>>>This is the player list: ', playerList)
 
-    for player in player_list:
-
-        player_obj = mp.User(player)
-        print('>>> this is the value of the variable player: ', player)
-        mp.addPlayerNameToDatabase(player_obj)
+    for playerName in playerList:
+        playerObj = mp.User(playerName)
+        print('>>> this is the value of the variable player: ', playerName)
+        mp.addPlayerNameToDatabase(playerObj)
 
     print ('>>> This is the game controller')
 
-    return render_template('/Game/start.html', player_list=player_list)
+    return render_template('/Game/start.html', player_list=playerList)
 
 @game.route('/game', methods=['GET'])
 def gameEngine():
 
-    player_list = session.get('pl')
-    #player_list = request.args.getlist('player_list')
-    print('>>>> this is the player_list in the Game engine: ', player_list)
-    # for i in player_list:
-    #     player_obj = mp.getPlayerNamebyID(i)
-    #     print(">>>>This is player in the game engine")
+    playerList = session.get('pl')
+
+    print('>>>> this is the player_list in the Game engine: ', playerList)
+    for playerName in playerList:
+        playerObj = mp.getPlayerByName(playerName)
+        print('players in the game engine are: ', playerName)
+    print(">>>>This is player in the game engine")
 
 
 

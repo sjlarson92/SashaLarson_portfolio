@@ -33,26 +33,27 @@ class User:
     def get_choice(self):
         return self.choice
 
-def addPlayerNameToDatabase(name):
+def getPlayerByName(player_name):
+        try:
+            print('>>> this is inside the try block')
+            playerDataQuery = "SELECT playerName, dead, choice, chapter from players WHERE playerName = (\'%s\')" % (player_name)
+            print('>>>>playerDataQuery: ', playerDataQuery )
+
+            player = cursor.execute(playerDataQuery)
+            my_connection.commit()
+
+            print('>>>>player name from player is: ', player.playerName)
+
+            return player
+        except:
+            return("Attempt to get player by player_name from database failed")
+
+def addPlayerNameToDatabase(player):
     try:
-        insert_into_statement = "INSERT INTO players (playerName) VALUES (\'%s\')" % (name.playerName)
+        insert_into_statement = "INSERT INTO players (playerName) VALUES (\'%s\')" % (player.playerName)
 
         print("insert_into_statement: ", insert_into_statement)
         cursor.execute(insert_into_statement)
         my_connection.commit()
     except:
         return("Attempt to add playerName to database failed")
-
-# def getPlayerNamebyID(player_id):
-#     try:
-#         where_id_equals_statement = "SELECT playerName, dead, choice, chapter from players WHERE ID = (\'%d\')"
-#
-#         player_obj = where_id_equals_statement % (player_id)
-#
-#         print('>>>>player name is : ', player_obj.playerName)
-#
-#         print('>>>>where_id_equals_statement: ', where_id_equals_statement )
-#
-#         return player_obj
-#     except:
-#         return("Attempt to get player by ID from database failed")
