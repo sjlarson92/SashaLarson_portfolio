@@ -1,0 +1,12 @@
+{% extends "/Game/layout.html" %}
+
+{% block content %}
+<div>
+  <h1> Game Over! </h1>
+
+  <br>
+  <form action="{{url_for('home.index')}}" method='GET'>
+    <input type="submit" name="returnHome" value="Return to Home">
+  </form>
+</div>
+{% endblock %}

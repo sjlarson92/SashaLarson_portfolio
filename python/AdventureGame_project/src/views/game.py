@@ -32,42 +32,35 @@ def gameEngine():
 
     playerList = session.get('pl')
 
-    print('>>>> this is the player_list in the Game engine: ', playerList)
-    for playerName in playerList:
-        playerObj = mp.getPlayerByName(playerName)
-        print('players in the game engine are: ', playerName)
-        print('>>> playerObj is: ', playerObj)
-
-        if playerObj[1] == 0:
-            #play game
-            print('>>> Player is still alive, it is ... turn: ', playerObj[0])
-            
-            playerChoice = playerObj[2]
-            chapter = playerObj[3]
-            playerName = playerObj[0]
-
-            #TODO: Refactor this to funciton outside the controller
-            ch = (str(chapter)+str(playerChoice))
-            print('current ch is: ', ch)
-            text = story.chapters[ch]
-
-            return render_template('Game/chapter.html',ch=chapter, name=playerName, choice=playerChoice, chapterText=text)
-        else:
-            #player is dead skip them
-            print('>>>> player is dead. Game over')
-    # print(">>>>This is player in the game engine")
+    if not playerList:
+        print('>>> playerList is empty display Game Over')
+        return render_template('/Game/gameOver.html')
 
 
+    # print('>>>> this is the player_list in the Game engine: ', playerList)
+    # for playerName in playerList:
+    #     playerObj = mp.getPlayerByName(playerName)
+    #     print('players in the game engine are: ', playerName)
+    #     print('>>> playerObj is: ', playerObj)
+    #
+    #     if playerObj[1] == 0:
+    #         #play game
+    #         print('>>> Player is still alive, it is ... turn: ', playerObj[0])
+    #
+    #         playerChoice = playerObj[2]
+    #         chapter = playerObj[3]
+    #         playerName = playerObj[0]
+    #
+    #         #TODO: Refactor this to funciton outside the controller
+    #         ch = (str(chapter)+str(playerChoice))
+    #         print('current ch is: ', ch)
+    #         text = story.chapters[ch]
+    #
+    #         return render_template('Game/chapter.html',ch=chapter, name=playerName, choice=playerChoice, chapterText=text)
+    #     else:
+    #         #player is dead skip them
+    #         print('>>>> player is dead. Game over')
 
-
-        #call mysql function to get player name by id number and pull player choice and value of dead column
-    #loop through players by id
-    #if player is alive then display chapter(starting with ch1)
-    #request chioce input from player
-    #save chioce to db
-    #iterate to next player until all living players have made a decision for the ch
-    #end loop
-    #change current chapter to the next chapter and continue
 
     return render_template('Game/chapter.html')
     #  title= , name= , ch_num =
