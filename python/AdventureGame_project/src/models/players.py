@@ -37,12 +37,17 @@ def getPlayerByName(player_name):
         try:
             print('>>> this is inside the try block')
             playerDataQuery = "SELECT playerName, dead, choice, chapter from players WHERE playerName = (\'%s\')" % (player_name)
+
             print('>>>>playerDataQuery: ', playerDataQuery )
 
-            player = cursor.execute(playerDataQuery)
-            my_connection.commit()
+            cursor.execute(playerDataQuery)
 
-            print('>>>>player name from player is: ', player.playerName)
+            player = cursor.fetchone()
+
+
+            print('>>>>player from data query is: ', player)
+
+            print('>>>> player name from data query is: ', player[0])
 
             return player
         except:

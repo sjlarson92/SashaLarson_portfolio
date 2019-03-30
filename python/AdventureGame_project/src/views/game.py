@@ -35,7 +35,9 @@ def gameEngine():
     for playerName in playerList:
         playerObj = mp.getPlayerByName(playerName)
         print('players in the game engine are: ', playerName)
+        print('>>> playerObj is: ', playerObj)
     print(">>>>This is player in the game engine")
+
 
 
 
