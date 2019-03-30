@@ -41,10 +41,15 @@ def gameEngine():
         if playerObj[1] == 0:
             #play game
             print('>>> Player is still alive, it is ... turn: ', playerObj[0])
+            
             playerChoice = playerObj[2]
             chapter = playerObj[3]
             playerName = playerObj[0]
-            text = story.chapters['00']
+
+            #TODO: Refactor this to funciton outside the controller
+            ch = (str(chapter)+str(playerChoice))
+            print('current ch is: ', ch)
+            text = story.chapters[ch]
 
             return render_template('Game/chapter.html',ch=chapter, name=playerName, choice=playerChoice, chapterText=text)
         else:
