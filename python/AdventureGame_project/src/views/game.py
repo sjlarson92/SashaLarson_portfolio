@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from src import app
 from src.models import players
+from src.docs import story
 
 mp = players
 
@@ -43,8 +44,9 @@ def gameEngine():
             playerChoice = playerObj[2]
             chapter = playerObj[3]
             playerName = playerObj[0]
+            text = story.chapters['00']
 
-            return render_template('Game/chapter.html',ch=chapter, name=playerName, choice=playerChoice)
+            return render_template('Game/chapter.html',ch=chapter, name=playerName, choice=playerChoice, chapterText=text)
         else:
             #player is dead skip them
             print('>>>> player is dead. Game over')
