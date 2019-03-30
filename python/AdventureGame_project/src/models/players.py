@@ -43,7 +43,7 @@ def getPlayerByName(player_name):
             cursor.execute(playerDataQuery)
 
             player = cursor.fetchone()
-
+            #this retrieves actual data from db
 
             print('>>>>player from data query is: ', player)
 

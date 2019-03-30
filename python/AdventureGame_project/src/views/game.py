@@ -36,7 +36,19 @@ def gameEngine():
         playerObj = mp.getPlayerByName(playerName)
         print('players in the game engine are: ', playerName)
         print('>>> playerObj is: ', playerObj)
-    print(">>>>This is player in the game engine")
+
+        if playerObj[1] == 0:
+            #play game
+            print('>>> Player is still alive, it is ... turn: ', playerObj[0])
+            playerChoice = playerObj[2]
+            chapter = playerObj[3]
+            playerName = playerObj[0]
+
+            return render_template('Game/chapter.html',ch=chapter, name=playerName, choice=playerChoice)
+        else:
+            #player is dead skip them
+            print('>>>> player is dead. Game over')
+    # print(">>>>This is player in the game engine")
 
 
 
