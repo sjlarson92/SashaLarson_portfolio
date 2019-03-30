@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from src import app
 from src.models import players
 
@@ -11,6 +11,8 @@ title='ADVENTURE GAME'
 @game.route('/start', methods=['POST'])
 def start():
     player_list = request.form.getlist('player_name')
+
+    session['pl'] = player_list
 
     print('>>>This is the player list: ', player_list)
 
@@ -27,8 +29,9 @@ def start():
 @game.route('/game', methods=['GET'])
 def gameEngine():
 
-    player_list = request.args.getlist('player_list')
-    print('>>>> this is the player_list: ', player_list)
+    player_list = session.get('pl')
+    #player_list = request.args.getlist('player_list')
+    print('>>>> this is the player_list in the Game engine: ', player_list)
     # for i in player_list:
     #     player_obj = mp.getPlayerNamebyID(i)
     #     print(">>>>This is player in the game engine")
