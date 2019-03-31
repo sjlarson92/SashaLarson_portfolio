@@ -82,8 +82,14 @@ def gameEngine():
 def updatePlayer():
 
     playerList = session.get('pl')
-
+    playerName = playerList[-1]
+    print('>>> playerName is: ', playerName)
     print('>>> This is the playerList in the updatePlayer route: ', playerList)
+
+    chNum = mp.getChapterNumber(playerName)
+    print('>>> chNum is: ', chNum)
 
     choice = request.form.get('choice')
     print('>>> The player choice is: ', choice)
+
+    return('View not yet constructed :D')
