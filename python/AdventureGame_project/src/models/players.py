@@ -33,6 +33,23 @@ class User:
     def get_choice(self):
         return self.choice
 
+def rotatePlayerList(name, list):
+    try:
+        print('>>> This is the rotatePlayerList function')
+        print('>>> the incoming list is: ', list)
+
+        list.remove(name)
+
+        list.append(name)
+
+        print('updated list from rotatePlayerList function is: ', list)
+
+        return list
+
+
+
+    except:
+        return('Attempt to update playerList failed')
 def killPlayer(name):
     try:
         print('>>>this is the killPlayer function')
@@ -47,7 +64,7 @@ def killPlayer(name):
 
 def didPlayerDie(ch):
     try:
-        if ch in ('1None', '3b', '8b', '11a', '11b'):
+        if ch in ('3b', '8b', '11a', '11b'):
             print('player is dead')
             return True
         else:

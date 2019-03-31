@@ -54,10 +54,20 @@ def gameEngine():
 
         if playerStatus:
             mp.killPlayer(playerName)
+
+            session['pl'] = (playerList.remove(playerName))
+            updatedPlayerList = session.get('pl')
             #remove player from playerList
+            print('updatedPlayerList is: ', updatedPlayerList)
+
         else:
-            return('player is not dead')
-            #move player[0] to the end of the playerlist
+            print('player is not dead')
+
+            updatedPlayerList = mp.rotatePlayerList(playerName,playerList)
+
+            session['pl'] = updatedPlayerList
+
+            print('updatedPlayerList is: ', updatedPlayerList)
 
 
 
