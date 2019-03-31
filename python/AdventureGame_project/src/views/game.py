@@ -84,15 +84,19 @@ def updatePlayer():
     playerList = session.get('pl')
     print('>>> This is the playerList in the updatePlayer route: ', playerList)
 
-    playerName = playerList[-1]
-    print('>>> playerName is: ', playerName)
+    if not playerList:
+        print('>>> if playerList is empty do not update anything')
 
-    chNum = mp.getChapterNumber(playerName)
-    print('>>> chNum is: ', chNum)
+    else:
+        playerName = playerList[-1]
+        print('>>> playerName is: ', playerName)
 
-    choice = request.form.get('choice')
-    print('>>> The player choice is: ', choice)
+        chNum = mp.getChapterNumber(playerName)
+        print('>>> chNum is: ', chNum)
 
-    mp.updatePlayerChandChoice(playerName,choice,chNum)
+        choice = request.form.get('choice')
+        print('>>> The player choice is: ', choice)
+
+        mp.updatePlayerChandChoice(playerName,choice,chNum)
 
     return redirect(url_for('game.gameEngine'))
