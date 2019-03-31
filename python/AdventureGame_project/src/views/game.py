@@ -95,4 +95,4 @@ def updatePlayer():
 
     mp.updatePlayerChandChoice(playerName,choice,chNum)
 
-    return('View not yet constructed :D')
+    return redirect(url_for('game.gameEngine'))
