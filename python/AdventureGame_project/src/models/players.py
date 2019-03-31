@@ -33,6 +33,13 @@ class User:
     def get_choice(self):
         return self.choice
 
+def updatePlayerChandChoice(name, choice, chNum):
+    try:
+        print('>>> This is inside the updatePlayerChandChoice function')
+
+    except:
+        return("Attempt to update player chapter and choice failed")
+
 def rotatePlayerList(name, list):
     try:
         print('>>> This is the rotatePlayerList function')
