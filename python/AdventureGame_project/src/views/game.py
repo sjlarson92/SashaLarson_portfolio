@@ -77,3 +77,13 @@ def gameEngine():
             print('updatedPlayerList is: ', updatedPlayerList)
 
     return render_template('Game/chapter.html',chNum = chNum, chText=chText, name=playerName)
+
+@game.route('/updatePlayer', methods=["POST"])
+def updatePlayer():
+
+    playerList = session.get('pl')
+
+    print('>>> This is the playerList in the updatePlayer route: ', playerList)
+
+    choice = request.form.get('choice')
+    print('>>> The player choice is: ', choice)
