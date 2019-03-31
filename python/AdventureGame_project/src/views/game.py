@@ -48,31 +48,17 @@ def gameEngine():
         chNum = mp.getChapterNumber(playerName)
         print('chNum is: ', chNum)
 
+        #this calls a function to check if player will die and updates their status if they do
+        playerStatus = mp.didPlayerDie(ch)
+        print('playerStatus is: ', playerStatus)
 
-    # print('>>>> this is the player_list in the Game engine: ', playerList)
-    # for playerName in playerList:
-    #     playerObj = mp.getPlayerByName(playerName)
-    #     print('players in the game engine are: ', playerName)
-    #     print('>>> playerObj is: ', playerObj)
-    #
-    #     if playerObj[1] == 0:
-    #         #play game
-    #         print('>>> Player is still alive, it is ... turn: ', playerObj[0])
-    #
-    #         playerChoice = playerObj[2]
-    #         chapter = playerObj[3]
-    #         playerName = playerObj[0]
-    #
-    #         #TODO: Refactor this to funciton outside the controller
-    #         ch = (str(chapter)+str(playerChoice))
-    #         print('current ch is: ', ch)
-    #         text = story.chapters[ch]
-    #
-    #         return render_template('Game/chapter.html',ch=chapter, name=playerName, choice=playerChoice, chapterText=text)
-    #     else:
-    #         #player is dead skip them
-    #         print('>>>> player is dead. Game over')
+        if playerStatus:
+            mp.killPlayer(playerName)
+            #remove player from playerList
+        else:
+            return('player is not dead')
+            #move player[0] to the end of the playerlist
 
 
-    return render_template('Game/chapter.html', chNum = chNum, chText=chText)
-    #  title= , name= , ch_num =
+
+    return render_template('Game/chapter.html',chNum = chNum, chText=chText, name=playerName)

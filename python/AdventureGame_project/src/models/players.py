@@ -33,6 +33,29 @@ class User:
     def get_choice(self):
         return self.choice
 
+def killPlayer(name):
+    try:
+        print('>>>this is the killPlayer function')
+        updatePlayerDataQuery = "UPDATE players SET dead = True WHERE playerName = (\'%s\')" % (name)
+        print('>>> updatePlayerDataQuery is: ', updatePlayerDataQuery)
+
+        cursor.execute(updatePlayerDataQuery)
+        my_connection.commit()
+
+    except:
+        return('Attempt to update player status failed')
+
+def didPlayerDie(ch):
+    try:
+        if ch in ('1None', '3b', '8b', '11a', '11b'):
+            print('player is dead')
+            return True
+        else:
+            print('Player is not dead')
+            return False
+    except:
+        return('Attempt to check player status failed')
+
 def getChapterNumber(player_name):
     try:
         chapterNumberDataQuery = "SELECT chapter from players WHERE playerName = (\'%s\')" % (player_name)
@@ -44,7 +67,7 @@ def getChapterNumber(player_name):
 
         return chNum
     except:
-        return('Attempt to retrieve chNum failed')        
+        return('Attempt to retrieve chNum failed')
 
 def getChapterText(player_name):
     try:

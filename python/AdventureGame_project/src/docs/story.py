@@ -303,7 +303,7 @@ Unfortunately for you the author seems to be too busy to really help and in a ca
 
 Sorry! Better luck next time!
 """
-
+# death chapters are:
 chapters = {
 '1None': ch0,
 '2a': ch1a,
