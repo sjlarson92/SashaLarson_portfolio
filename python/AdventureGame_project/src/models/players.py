@@ -37,8 +37,18 @@ def updatePlayerChandChoice(name, choice, chNum):
     try:
         print('>>> This is inside the updatePlayerChandChoice function')
 
+        chNum = chNum + 1
+        print('>>> The new chNum is: ', chNum)
+
+        updateChandChoiceNumDataQuery = "UPDATE players SET chapter = (\'%d\'), choice = (\'%s\') WHERE playerName = (\'%s\')" % (chNum, choice, name)
+
+        print('>>> updateChandChoiceNumDataQuery is: ', updateChandChoiceNumDataQuery)
+
+        cursor.execute(updateChandChoiceNumDataQuery)
+        my_connection.commit()
+
     except:
-        return("Attempt to update player chapter and choice failed")
+        return('Attempt to update player chapter and choice failed')
 
 def rotatePlayerList(name, list):
     try:
@@ -53,10 +63,9 @@ def rotatePlayerList(name, list):
 
         return list
 
-
-
     except:
         return('Attempt to update playerList failed')
+
 def killPlayer(name):
     try:
         print('>>>this is the killPlayer function')

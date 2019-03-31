@@ -95,6 +95,4 @@ def updatePlayer():
 
     mp.updatePlayerChandChoice(playerName,choice,chNum)
 
-
-
     return('View not yet constructed :D')
