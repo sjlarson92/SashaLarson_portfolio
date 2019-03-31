@@ -54,11 +54,18 @@ def gameEngine():
 
         if playerStatus:
             mp.killPlayer(playerName)
+            #this updates players status in db
+            print('this is the current playerList: ', playerList)
 
-            session['pl'] = (playerList.remove(playerName))
+            playerList.remove(playerName)
+
+            print('playerList after removing player is: ', playerList)
+
+            session['pl'] = playerList
+
             updatedPlayerList = session.get('pl')
             #remove player from playerList
-            print('updatedPlayerList is: ', updatedPlayerList)
+            print('updated session PlayerList is: ', updatedPlayerList)
 
         else:
             print('player is not dead')
@@ -68,7 +75,5 @@ def gameEngine():
             session['pl'] = updatedPlayerList
 
             print('updatedPlayerList is: ', updatedPlayerList)
-
-
 
     return render_template('Game/chapter.html',chNum = chNum, chText=chText, name=playerName)
