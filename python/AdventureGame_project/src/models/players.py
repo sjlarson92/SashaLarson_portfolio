@@ -33,25 +33,63 @@ class User:
     def get_choice(self):
         return self.choice
 
+def getChapterNumber(player_name):
+    try:
+        chapterNumberDataQuery = "SELECT chapter from players WHERE playerName = (\'%s\')" % (player_name)
+
+        cursor.execute(chapterNumberDataQuery)
+        result = cursor.fetchone()
+
+        chNum = result[0]
+
+        return chNum
+    except:
+        return('Attempt to retrieve chNum failed')        
+
+def getChapterText(player_name):
+    try:
+        print('>>> this is inside the getChapterText try block')
+
+        chapterDataQuery = "SELECT chapter, choice from players WHERE playerName = (\'%s\')" % (player_name)
+
+        print('>>> chapterDataQuery: ', chapterDataQuery)
+
+        cursor.execute(chapterDataQuery)
+        result = cursor.fetchone()
+
+        chNum = result[0]
+        choice = result[1]
+        print('>>>> chNum from the data query is: ', chNum)
+        print('>>> choice from data query is', choice)
+
+        ch = (str(chNum)+str(choice))
+        print('>>> ch is: ', ch)
+
+        return ch
+
+    except:
+        return('Attempt to retrieve ch from database failed')
+
+
 def getPlayerByName(player_name):
-        try:
-            print('>>> this is inside the try block')
-            playerDataQuery = "SELECT playerName, dead, choice, chapter from players WHERE playerName = (\'%s\')" % (player_name)
+    try:
+        print('>>> this is inside the try block')
+        playerDataQuery = "SELECT playerName, dead, choice, chapter from players WHERE playerName = (\'%s\')" % (player_name)
 
-            print('>>>>playerDataQuery: ', playerDataQuery )
+        print('>>>>playerDataQuery: ', playerDataQuery )
 
-            cursor.execute(playerDataQuery)
+        cursor.execute(playerDataQuery)
 
-            player = cursor.fetchone()
-            #this retrieves actual data from db
+        player = cursor.fetchone()
+        #this retrieves actual data from db
 
-            print('>>>>player from data query is: ', player)
+        print('>>>>player from data query is: ', player)
 
-            print('>>>> player name from data query is: ', player[0])
+        print('>>>> player name from data query is: ', player[0])
 
-            return player
-        except:
-            return("Attempt to get player by player_name from database failed")
+        return player
+    except:
+        return("Attempt to get player by player_name from database failed")
 
 def addPlayerNameToDatabase(player):
     try:

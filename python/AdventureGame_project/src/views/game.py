@@ -23,7 +23,7 @@ def start():
         print('>>> this is the value of the variable player: ', playerName)
         mp.addPlayerNameToDatabase(playerObj)
 
-    print ('>>> This is the game controller')
+    #print ('>>> This is the game controller')
 
     return render_template('/Game/start.html', player_list=playerList)
 
@@ -35,6 +35,18 @@ def gameEngine():
     if not playerList:
         print('>>> playerList is empty display Game Over')
         return render_template('/Game/gameOver.html')
+
+    else:
+        playerName = playerList[0]
+        print('>>> playerName in gameEngine is: ', playerList[0])
+
+        ch = mp.getChapterText(playerName)
+        print('ch: ', ch)
+
+        chText = story.chapters[ch]
+
+        chNum = mp.getChapterNumber(playerName)
+        print('chNum is: ', chNum)
 
 
     # print('>>>> this is the player_list in the Game engine: ', playerList)
@@ -62,5 +74,5 @@ def gameEngine():
     #         print('>>>> player is dead. Game over')
 
 
-    return render_template('Game/chapter.html')
+    return render_template('Game/chapter.html', chNum = chNum, chText=chText)
     #  title= , name= , ch_num =
