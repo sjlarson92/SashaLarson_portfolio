@@ -2,28 +2,16 @@
 #this file has all the text for the game chapters saved here along with the chapters dictionary
 
 ch0 = """
-Ch. 0 - Well Shit
+Ch. 1 - Well Shit
 
 Bang... bang .... bang
 
 What is that? Someone is making a lot of noise. Ugh, what is that noise? You were trying to sleep and you're so tired.
 Bang... Bang..
-Blinking your eyes open you slowly awaken.
-Bang... bang... bang...
-Seriously what is that? You see that you are in a white room, this doesn't look familiar. It's definitely not your bedroom, how did you get here?
-Bang... bang...
+
 Let's look around. There's some medical equipment lying around and another bed next to you. It's empty. You're definitely in a hospital, but why?
 bang...
-You slowly lift the blanket off yourself and get out of bed. Standing on wobbly legs you walk towards the end of the bed. There's a medical chart next to it hanging on the end. What does it say? (Get user input for name)
-
-        Patient: User_input
-        Blood Type: AB
-        Age: unknown
-        Diagnosis: Patient is victim of hit and run car accident. Has suffered trauma to the head and superficial injuries to arms and legs from collision. Medical induced coma is being implemented to assist in healing.
-
-What? A car accident? Oh no. Looking down, you notice the healing bruises and cuts on your arms.
-
-Bang...
+You slowly lift the blanket off yourself and get out of bed. Standing on wobbly legs you walk towards the end of the bed. There's a medical chart next to it hanging on the end. What does it say?
 
 You've been in a coma? What?! No way! That only happens in movies and post-apocalyptic tv shows?
 
@@ -31,7 +19,7 @@ Ok just stay calm. You can figure this out.
 
 BANG! BAM!
 
-You look towards the door, where that ridiculous banging sound keeps coming from. You move closer to it. The banging continues and you hear another sound coming from the other side. Sounds like someone's groaning?
+The banging continues and you hear another sound coming from the other side. Sounds like someone's groaning?
 
 Do you open it?
     a Open door
@@ -39,7 +27,7 @@ Do you open it?
     """
 
 ch1a =  """
-Ch. 1
+Ch. 2
 
 Let's open it! What's the worst that could happen?
 
@@ -54,7 +42,7 @@ Do you go into the hallway?
     """
 
 ch1b = """
-Ch.1
+Ch.2
 
 You decide not to open the door. Someone obviously knows the stranger danger rule!
 
@@ -66,7 +54,7 @@ Ready to venture into the beyond?
     """
 
 ch2a = """
-Ch. 2
+Ch. 3
 
 Alright! You can do this!
 
@@ -79,23 +67,23 @@ You look right and then left. There's no one in sight. Looks like it's time to c
   """
 
 ch2b = """
-Ch. 2
+Ch. 3
 
 You hate the author. Damn her! This is not what you wanted. You glare at the door and reluctantly turn the knob. Peering out into the hallway you see nothing but pitch darkness.
 
 Out of nowhere you are attacked by a monster and die.
 
 That's what happens when you fight with the author.
+
+YOU ARE DEAD
 """
 
 ch3a = """
-Ch. 3
+Ch. 4
 
 Onwards adventurer! To the right... cause the right is always right...right?
 
 Anyway you head down the right side of the hallway. Which looks like any cliche post apocalyptic hospital ever. There are gurney's on their sides, dried blood splatters on the walls. The place is an absolute mess.
-
-You walk cautiously forward, being careful of where you step since you only have socks on.
 
 As you progress one of the rooms in the hallway catches your attention. The door is partially open and there is a light coming from inside.
 
@@ -106,13 +94,11 @@ Should you investigate?
 """
 
 ch3b = """
-Ch.3
+Ch.4
 
 You decide to turn left. This side of the hallway is almost identical to the right so there is hardly a difference at all to them.
 
 It looks like any cliche post apocalyptic hospital ever. There are gurney's on their sides, dried blood splatters on the walls. The place is an absolute mess.
-
-You walk cautiously forward, being careful of where you step since you only have socks on.
 
 As you progress one of the rooms in the hallway catches your attention. The door is partially open and there is a light coming from inside.
 
@@ -123,7 +109,7 @@ Should you investigate?
   """
 
 ch4a = """
-Ch. 4
+Ch. 5
 
 You decide that going out of your way to investigate a creepy room in a hospital is how people die. And no thank you, that's not what you're about.
 
@@ -136,7 +122,7 @@ Damnit not this again, which way do you go?
 """
 
 ch4b = """
-Ch. 4
+Ch. 5
 
 You're gonna risk it for the biscuit!
 
@@ -153,7 +139,7 @@ Should you take that flashlight?
   b: Nope not worth it, I've seen this movie and no not happening. I'll just use my night vision thanks. """
 
 ch5a = """
-Ch. 5
+Ch. 6
 
 Onwards adventurer! To the right... cause the right is always right...right?
 
@@ -173,7 +159,7 @@ Should you investigate?
   b: Ok I can do this. I'm a Champ! Here I go! BEAST MODE! (Author: ... well I like your enthusiasm) """
 
 ch5b = """
-Ch. 5
+Ch. 6
 
 You decide to turn left. This side of the hallway is almost identical to the right so there is hardly a difference at all to them.
 
@@ -191,7 +177,7 @@ Should you investigate?
   b: Ok I can do this. I'm a Champ! Here I go! BEAST MODE! (Author: ... well I like your enthusiasm) """
 
 ch6a = """
-Ch. 6
+Ch. 7
 
 You lean down closer to the corpse. Slowly and making sure to keep an eye on her in case... something happens.
 
@@ -210,7 +196,7 @@ You need to think fast! What do you do?
   b: Panic and play dead! Maybe she'll leave you alone?"""
 
 ch6b = """
-Ch. 6
+Ch. 7
 
 You turn around to leave the room and begin squeezing your way back into the hallway. That's when you hear the wheezing, snapping your head back to the room. It's the nurse! Her clouded eyes are locked onto you and she's frantically crawling towards you. Holy Shit! You try to move fully into the hallway, but she grabs you ankle.
 
@@ -219,7 +205,7 @@ You need to think fast! What do you do?
   b: Panic and play dead! Maybe she leave you alone? """
 
 ch7a = """
-Ch. 7
+Ch. 8
 
 You turn the flashlight around and begin to beat Nurse Joy on the head with you makeshift weapon. She sputters and snarls but you don't relent.
 
@@ -230,17 +216,19 @@ Now... which way were you going? Shit....
   b: I need to leave bread crumbs or something. Let's try left. """
 
 ch7b = """
-Ch. 7
+Ch. 8
 
 Oh no! Your strategy doesn't work and with a disgusting crunch the nurse has bitten your arm and she crawls your way up your prone, defenseless body.
 
 I'll save you the gory details, but sad to say you didn't make it.
 
 Unless you wanted to become a zombie? In that case congrats! Dreams do come true.
+
+YOU ARE DEAD
 """
 
 ch8a = """
-Ch. 8
+Ch. 9
 
 Let's keep moving then. Staggering down the hallway with your flashlight clutched in your hands. You continue until you reach the end, where you find an elevator. It's highly unlikely that it's actually working, so you investigate the surrounding area until you find the door to the staircase.
 
@@ -251,7 +239,7 @@ Now its all a matter of which way you wanna go, up or down?
   b: Something tells me that I should head upstairs..."""
 
 ch8b = """
-Ch. 8
+Ch. 9
 
 Let's keep moving then. Staggering down the hallway with your flashlight clutched in your hands. You continue until you reach the end, where you find an elevator. It's highly unlikely that it's actually working, so you investigate the surrounding area until you find the door to the staircase.
 
@@ -262,7 +250,7 @@ Now its all a matter of which way you wanna go, up or down?
   b: Something tells me that I should head upstairs..."""
 
 ch9a = """
-Ch. 9
+Ch. 10
 
 Down into the depths of Moria! Oh wait sorry wrong adventure :D
 
@@ -278,7 +266,7 @@ Well shit, what now?
   b: You did not let me walk all the way down, just to make me go all the way up did you? (Author: It's possible! MWAHAHHAHAHA!!) """
 
 ch9b = """
-Ch. 9
+Ch. 10
 
 You start climbing that stairs keeping your ears and eyes open. You climb up numerous floors before you start to wonder how tall this damn hospital is and hope the author doesn't plan on torturing you with a workout before you die.
 
@@ -297,11 +285,14 @@ Guess you'll have to choose
   b: Nope, Nope, Nope. I am done with your games author lady no more! I refuse to choose. """
 
 ch10 = """
-Ch. 10
+Ch. 11
 
 Unfortunately for you the author seems to be too busy to really help and in a case of really bad and lazy writing she decided you made it so far only to be eaten by the zombie that followed you up the stairs.
 
 Sorry! Better luck next time!
+
+
+YOU ARE DEAD
 """
 # death chapters are:
 chapters = {

@@ -1,0 +1,16 @@
+{% extends "/Game/layout.html" %}
+
+{% block content %}
+<div>
+  <h1> It's {{name}}'s turn! </h1>
+  <h2> Chapter {{chNum}} </h2>
+
+  <p>{{chText}}</p>
+
+  <br>
+  <form action="{{url_for('game.gameEngine')}}" method="get">
+
+    <input type="submit" name="next" value="Next">
+  </form>
+</div>
+{% endblock %}

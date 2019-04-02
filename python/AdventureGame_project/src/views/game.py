@@ -67,6 +67,8 @@ def gameEngine():
             #remove player from playerList
             print('updated session PlayerList is: ', updatedPlayerList)
 
+            return render_template('Game/dchapter.html',chNum = chNum, chText=chText, name=playerName)
+
         else:
             print('player is not dead')
 
@@ -76,7 +78,7 @@ def gameEngine():
 
             print('updatedPlayerList is: ', updatedPlayerList)
 
-    return render_template('Game/chapter.html',chNum = chNum, chText=chText, name=playerName)
+            return render_template('Game/chapter.html',chNum = chNum, chText=chText, name=playerName)
 
 @game.route('/updatePlayer', methods=["POST"])
 def updatePlayer():
