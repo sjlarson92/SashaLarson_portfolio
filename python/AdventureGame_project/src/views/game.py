@@ -76,7 +76,15 @@ def gameEngine():
 
             print('updatedPlayerList is: ', updatedPlayerList)
 
-            return render_template('Game/chapter.html',chNum = chNum, chText=chText, name=playerName)
+            question = story.questions[chNum]
+
+            opA = str(chNum)+'A'
+            print("opA is: ", opA)
+
+            optionA = story.options[opA]
+
+            #optionB =
+            return render_template('Game/chapter.html',chNum = chNum, chText=chText, name=playerName, question=question, optionA=optionA)
 
 @game.route('/updatePlayer', methods=["POST"])
 def updatePlayer():

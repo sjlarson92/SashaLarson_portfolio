@@ -1,59 +1,51 @@
 
 #this file has all the text for the game chapters saved here along with the chapters dictionary
 
-ch0 = """
-Ch. 1 - Well Shit
+ch1 = """
 
-Bang... bang .... bang
+I'm so happy to see you! Literally you've been in a coma for months!
 
-What is that? Someone is making a lot of noise. Ugh, what is that noise? You were trying to sleep and you're so tired.
-Bang... Bang..
+Who am I?
 
-Let's look around. There's some medical equipment lying around and another bed next to you. It's empty. You're definitely in a hospital, but why?
-bang...
-You slowly lift the blanket off yourself and get out of bed. Standing on wobbly legs you walk towards the end of the bed. There's a medical chart next to it hanging on the end. What does it say?
+......
 
-You've been in a coma? What?! No way! That only happens in movies and post-apocalyptic tv shows?
+That's not important :D More importantly we happen to be trapped in a hospital surrounded by zombies and need to escape!
 
-Ok just stay calm. You can figure this out.
-
-BANG! BAM!
-
-The banging continues and you hear another sound coming from the other side. Sounds like someone's groaning?
-
-Do you open it?
-    a Open door
-    b Hell no don't open that door
+I know crazy right? I'll just follow your lead.
     """
+q1 = "Shoud we leave the room?"
 
-ch1a =  """
-Ch. 2
+o1a = "Sure, anything to get away from you"
 
-Let's open it! What's the worst that could happen?
+o1b = "Listen crazy person I'm not going anywhere until you tell me what's going on"
 
-You slowly walk towards the door, you unlock it placing your hand fully around the door knob when the banging suddenly stops. You hesitate... this is probably a bad idea.
+ch2a =  """
+That's the spirit! Let's open it! What's the worst that could happen?
 
-Opening the door you see a dark hallway...
+Don't answer that question. Anyway go ahead I'm right behind you.
+
+Hmmm just a long deserted and creepy hallway.
 
 Do you go into the hallway?
 
     a It's an adventure
     b Maybe I should just hide in here...
     """
+q2 = "Which way should we go?"
 
-ch1b = """
+o2a = "Right"
+
+o2b = "Left"
+
+ch2b = """
 Ch.2
 
-You decide not to open the door. Someone obviously knows the stranger danger rule!
+I already told you the details aren't important. Just open the door you big chicken!
 
-Looking around the room you see a window. You try to open it but its jammed shut. Darn it! Looks like that door is your only way out.
-
-Ready to venture into the beyond?
-    a It's an adventure?
-    b I don't want to but obviously the author is trying to create drama, so here I go.
+Hmmm it looks like its an empty hallway. I can't see anything in either direction.
     """
 
-ch2a = """
+ch3a = """
 Ch. 3
 
 Alright! You can do this!
@@ -66,7 +58,7 @@ You look right and then left. There's no one in sight. Looks like it's time to c
   b LEFT!
   """
 
-ch2b = """
+ch3b = """
 Ch. 3
 
 You hate the author. Damn her! This is not what you wanted. You glare at the door and reluctantly turn the knob. Peering out into the hallway you see nothing but pitch darkness.
@@ -78,7 +70,7 @@ That's what happens when you fight with the author.
 YOU ARE DEAD
 """
 
-ch3a = """
+ch4a = """
 Ch. 4
 
 Onwards adventurer! To the right... cause the right is always right...right?
@@ -93,7 +85,7 @@ Should you investigate?
   b: This could be the literal light at the end of this B Horror Film tunnel so yes!
 """
 
-ch3b = """
+ch4b = """
 Ch.4
 
 You decide to turn left. This side of the hallway is almost identical to the right so there is hardly a difference at all to them.
@@ -108,7 +100,7 @@ Should you investigate?
   b: This could be the literal light at the end of this B Horror Film tunnel so yes!
   """
 
-ch4a = """
+ch5a = """
 Ch. 5
 
 You decide that going out of your way to investigate a creepy room in a hospital is how people die. And no thank you, that's not what you're about.
@@ -121,7 +113,7 @@ Damnit not this again, which way do you go?
   b: Left
 """
 
-ch4b = """
+ch5b = """
 Ch. 5
 
 You're gonna risk it for the biscuit!
@@ -138,7 +130,7 @@ Should you take that flashlight?
   a: Well like you said she obviously doesn't need it right? So yea! Sorry Nurse Joy.
   b: Nope not worth it, I've seen this movie and no not happening. I'll just use my night vision thanks. """
 
-ch5a = """
+ch6a = """
 Ch. 6
 
 Onwards adventurer! To the right... cause the right is always right...right?
@@ -158,7 +150,7 @@ Should you investigate?
 
   b: Ok I can do this. I'm a Champ! Here I go! BEAST MODE! (Author: ... well I like your enthusiasm) """
 
-ch5b = """
+ch6b = """
 Ch. 6
 
 You decide to turn left. This side of the hallway is almost identical to the right so there is hardly a difference at all to them.
@@ -176,7 +168,7 @@ Should you investigate?
 
   b: Ok I can do this. I'm a Champ! Here I go! BEAST MODE! (Author: ... well I like your enthusiasm) """
 
-ch6a = """
+ch7a = """
 Ch. 7
 
 You lean down closer to the corpse. Slowly and making sure to keep an eye on her in case... something happens.
@@ -195,7 +187,7 @@ You need to think fast! What do you do?
   a: Defend Yourself! Use the flashlight!
   b: Panic and play dead! Maybe she'll leave you alone?"""
 
-ch6b = """
+ch7b = """
 Ch. 7
 
 You turn around to leave the room and begin squeezing your way back into the hallway. That's when you hear the wheezing, snapping your head back to the room. It's the nurse! Her clouded eyes are locked onto you and she's frantically crawling towards you. Holy Shit! You try to move fully into the hallway, but she grabs you ankle.
@@ -204,7 +196,7 @@ You need to think fast! What do you do?
   a: Defend Yourself! (Author: If only you had something to use as a weapon. Oh well!)
   b: Panic and play dead! Maybe she leave you alone? """
 
-ch7a = """
+ch8a = """
 Ch. 8
 
 You turn the flashlight around and begin to beat Nurse Joy on the head with you makeshift weapon. She sputters and snarls but you don't relent.
@@ -215,7 +207,7 @@ Now... which way were you going? Shit....
   a: Maybe Right?
   b: I need to leave bread crumbs or something. Let's try left. """
 
-ch7b = """
+ch8b = """
 Ch. 8
 
 Oh no! Your strategy doesn't work and with a disgusting crunch the nurse has bitten your arm and she crawls your way up your prone, defenseless body.
@@ -227,29 +219,29 @@ Unless you wanted to become a zombie? In that case congrats! Dreams do come true
 YOU ARE DEAD
 """
 
-ch8a = """
-Ch. 9
-
-Let's keep moving then. Staggering down the hallway with your flashlight clutched in your hands. You continue until you reach the end, where you find an elevator. It's highly unlikely that it's actually working, so you investigate the surrounding area until you find the door to the staircase.
-
-Using your flashlight you look into the stairwell. It's deserted as far as you can tell.
-Now its all a matter of which way you wanna go, up or down?
-
-  a: What moron would go up? The exit is obviously down so let's head that way!
-  b: Something tells me that I should head upstairs..."""
-
-ch8b = """
-Ch. 9
-
-Let's keep moving then. Staggering down the hallway with your flashlight clutched in your hands. You continue until you reach the end, where you find an elevator. It's highly unlikely that it's actually working, so you investigate the surrounding area until you find the door to the staircase.
-
-Using your flashlight you look into the stairwell. It's deserted as far as you can tell.
-Now its all a matter of which way you wanna go, up or down?
-
-  a: What moron would go up? The exit is obviously down so let's head that way!
-  b: Something tells me that I should head upstairs..."""
-
 ch9a = """
+Ch. 9
+
+Let's keep moving then. Staggering down the hallway with your flashlight clutched in your hands. You continue until you reach the end, where you find an elevator. It's highly unlikely that it's actually working, so you investigate the surrounding area until you find the door to the staircase.
+
+Using your flashlight you look into the stairwell. It's deserted as far as you can tell.
+Now its all a matter of which way you wanna go, up or down?
+
+  a: What moron would go up? The exit is obviously down so let's head that way!
+  b: Something tells me that I should head upstairs..."""
+
+ch9b = """
+Ch. 9
+
+Let's keep moving then. Staggering down the hallway with your flashlight clutched in your hands. You continue until you reach the end, where you find an elevator. It's highly unlikely that it's actually working, so you investigate the surrounding area until you find the door to the staircase.
+
+Using your flashlight you look into the stairwell. It's deserted as far as you can tell.
+Now its all a matter of which way you wanna go, up or down?
+
+  a: What moron would go up? The exit is obviously down so let's head that way!
+  b: Something tells me that I should head upstairs..."""
+
+ch10a = """
 Ch. 10
 
 Down into the depths of Moria! Oh wait sorry wrong adventure :D
@@ -265,7 +257,7 @@ Well shit, what now?
   a: I guess I'm going upstairs? (Author: Damn right you are!)
   b: You did not let me walk all the way down, just to make me go all the way up did you? (Author: It's possible! MWAHAHHAHAHA!!) """
 
-ch9b = """
+ch10b = """
 Ch. 10
 
 You start climbing that stairs keeping your ears and eyes open. You climb up numerous floors before you start to wonder how tall this damn hospital is and hope the author doesn't plan on torturing you with a workout before you die.
@@ -284,7 +276,7 @@ Guess you'll have to choose
 
   b: Nope, Nope, Nope. I am done with your games author lady no more! I refuse to choose. """
 
-ch10 = """
+ch11 = """
 Ch. 11
 
 Unfortunately for you the author seems to be too busy to really help and in a case of really bad and lazy writing she decided you made it so far only to be eaten by the zombie that followed you up the stairs.
@@ -296,25 +288,35 @@ YOU ARE DEAD
 """
 # death chapters are:
 chapters = {
-'1None': ch0,
-'2A': ch1a,
-'2B': ch1b,
-'3A': ch2a,
-'3B': ch2b,
-'4A': ch3a,
-'4B': ch3b,
-'5A': ch4a,
-'5B': ch4b,
-'6A': ch5a,
-'6B': ch5b,
-'7A': ch6a,
-'7B': ch6b,
-'8A': ch7a,
-'8B': ch7b,
-'9A': ch8a,
-'9B': ch8b,
-'10A': ch9a,
-'10B': ch9b,
-'11A': ch10,
-'11B': ch10
+'1None': ch1,
+'2A': ch2a,
+'2B': ch2b,
+'3A': ch3a,
+'3B': ch3b,
+'4A': ch4a,
+'4B': ch4b,
+'5A': ch5a,
+'5B': ch5b,
+'6A': ch6a,
+'6B': ch6b,
+'7A': ch7a,
+'7B': ch7b,
+'8A': ch8a,
+'8B': ch8b,
+'9A': ch9a,
+'9B': ch9b,
+'10A': ch10a,
+'10B': ch10b,
+'11A': ch11,
+'11B': ch11
+}
+
+options = {
+'1A': o1a,
+'1B': o1b
+
+}
+
+questions = {
+1: q1
 }
