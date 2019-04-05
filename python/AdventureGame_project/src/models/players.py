@@ -80,7 +80,7 @@ def killPlayer(name):
 
 def didPlayerDie(ch):
     try:
-        if ch in ('3B', '8B', '11A', '11B'):
+        if ch in ('5B', '7B', '8A', '9A', '10A', '11A', '11B'):
             print('player is dead')
             return True
         else:

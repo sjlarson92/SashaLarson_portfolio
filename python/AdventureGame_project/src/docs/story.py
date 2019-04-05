@@ -38,261 +38,170 @@ o2a = "Right"
 o2b = "Left"
 
 ch2b = """
-Ch.2
-
 I already told you the details aren't important. Just open the door you big chicken!
 
 Hmmm it looks like its an empty hallway. I can't see anything in either direction.
     """
 
-ch3a = """
-Ch. 3
+ch3 = """
+We gotta be sneaky, just tip toe down the hall.
 
-Alright! You can do this!
+This kind of feels like a cheap B Horror movie.
 
-You slowly open the door. Cautiously opening it and carefully peering into the hallway. It's dark and ominous. It kind of feels like a cheap B Horror movie. You proceed into the hallway to meet your fate.
+Hey I see a light coming out of a room up ahead!
 
-You look right and then left. There's no one in sight. Looks like it's time to choose!
-
-  a RIGHT!
-  b LEFT!
   """
+q3 = "Should we investigate?"
 
-ch3b = """
-Ch. 3
+o3a = "Uh no, I don't think so"
 
-You hate the author. Damn her! This is not what you wanted. You glare at the door and reluctantly turn the knob. Peering out into the hallway you see nothing but pitch darkness.
-
-Out of nowhere you are attacked by a monster and die.
-
-That's what happens when you fight with the author.
-
-YOU ARE DEAD
-"""
+o3b = "Sure, I'm in no rush. Not like we're in the middle of an apocalypse or anything"
 
 ch4a = """
-Ch. 4
+You're no fun you know that. I guess it'll just forever remain a mystery!
 
-Onwards adventurer! To the right... cause the right is always right...right?
+Actually no, I hate the unknown so we're going. I've made an executive decision.
 
-Anyway you head down the right side of the hallway. Which looks like any cliche post apocalyptic hospital ever. There are gurney's on their sides, dried blood splatters on the walls. The place is an absolute mess.
+Inside we go!
 
-As you progress one of the rooms in the hallway catches your attention. The door is partially open and there is a light coming from inside.
+....
 
-Should you investigate?
-  a: Why do you keep wanting me to investigate suspicious shit!! No I wanna go back to the my hospital room!!
-
-  b: This could be the literal light at the end of this B Horror Film tunnel so yes!
+I instantly regret this, there's just a nurse corpse. Hey is she holding a flashlight?
 """
+q4 = "Grab the flashlight?"
+
+o4a = "Back away slowly there's going to be a jump scare soon"
+
+o4b = "That flashlight would be super useful in the dark hallway"
 
 ch4b = """
-Ch.4
+Yea! What a dare devil! Let's check out the creepy room!
 
-You decide to turn left. This side of the hallway is almost identical to the right so there is hardly a difference at all to them.
+Ew! No! Creepy room has a creepy nurse corpse!
 
-It looks like any cliche post apocalyptic hospital ever. There are gurney's on their sides, dried blood splatters on the walls. The place is an absolute mess.
-
-As you progress one of the rooms in the hallway catches your attention. The door is partially open and there is a light coming from inside.
-
-Should you investigate?
-  a: Why do you keep wanting me to investigate suspicious shit!! No hell no!!
-
-  b: This could be the literal light at the end of this B Horror Film tunnel so yes!
+But hey is she holding a flashlight?
   """
 
 ch5a = """
-Ch. 5
+Ooooh you're smarter than you look.
 
-You decide that going out of your way to investigate a creepy room in a hospital is how people die. And no thank you, that's not what you're about.
-
-You turn around to continue your way down the hallway... but which direction where you going? It's difficult to tell when everything looks the same and there isn't any light.
-
-Damnit not this again, which way do you go?
-
-  a: Right
-  b: Left
+The flashlight was probably dead anyway. Back to the hallway.
 """
 
+q5 = "Which way should we go now?"
+
+o5a = "Right"
+
+o5b = "Left"
+
 ch5b = """
-Ch. 5
+You're either really brave or really dumb, but either way you are also really dead.
 
-You're gonna risk it for the biscuit!
-
-You have to squeeze through the open space of the door since it's jammed partially open and won't move.
-
-Once inside you can see the source of light is in fact a flash light. It's sitting in the lab of a nurse who is well... not alive to put it lightly. She's dead, very very dead as a matter of fact.
-
-She's sitting on the floor facing you, her eyes are clouded over and her arms hang limply at her sides. She's been dead for a while. Which makes you wonder how the flashlight battery isn't dead? (Author: Convenience!)
-
-On the bright side(pun totally intended) she doesn't need it anymore!
-
-Should you take that flashlight?
-  a: Well like you said she obviously doesn't need it right? So yea! Sorry Nurse Joy.
-  b: Nope not worth it, I've seen this movie and no not happening. I'll just use my night vision thanks. """
+Zombie nurse has taken a bite out of you and I can't say I'm surpirsed. Were you not listening when I said we were in the middle of the ZOMBIE apocalypse. Rick Grimes would be ashamed. """
 
 ch6a = """
 Ch. 6
 
 Onwards adventurer! To the right... cause the right is always right...right?
 
-Anyway you head down the right side of the hallway.
+Hmm looks like theres only the broken elevator and the stairway at the end of the hall.
 
-You walk cautiously forward, being careful of where you step.
+Guess we're walking. Ugh I hate cardio!"""
 
-As you progress one of the rooms in the hallway catches your attention. The door is partially open and there is a light coming from inside.
+q6 = "Should we go up or down?"
 
-Wait what?! Deja Vu! How did that happen? This doesn't make sense.
+o6a = "Upward maybe there's an exit from the top"
 
-Maybe your trapped in an infinite loop?
-
-Should you investigate?
-  a: I see what you did their author lady. I don't have a choice again do? (Author:NO!) -_-
-
-  b: Ok I can do this. I'm a Champ! Here I go! BEAST MODE! (Author: ... well I like your enthusiasm) """
+o6b = "Well the main exit should be downstairs"
 
 ch6b = """
 Ch. 6
 
 You decide to turn left. This side of the hallway is almost identical to the right so there is hardly a difference at all to them.
 
-You walk cautiously forward, being careful of where you step.
+Hmm looks like theres only the broken elevator and the stairway at the end of the hall.
 
-As you progress one of the rooms in the hallway catches your attention. The door is partially open and there is a light coming from inside.
-
-Wait what?! Deja Vu! How did that happen? This doesn't make sense.
-
-Maybe your trapped in an infinite loop?
-
-Should you investigate?
-  a: I see what you did their author lady. I don't have a choice again do? (Author:Nope!)
-
-  b: Ok I can do this. I'm a Champ! Here I go! BEAST MODE! (Author: ... well I like your enthusiasm) """
+Looks like we're taking the stairs, it's too bad I don't have my pedometer.
+"""
 
 ch7a = """
-Ch. 7
+Phew I really wish I had worked out more before the end of the world.
 
-You lean down closer to the corpse. Slowly and making sure to keep an eye on her in case... something happens.
+Hey do you hear something? Sounds kind of like the groans of the reanimated dead?
 
-So far there's nothing, she just stares vacantly back at you. Which is creepy but so long as she doesn't actually move it's fine.
+.... You know what we should really pick up the pace!
+"""
 
-Taking a deep breath you begin to reach out with you hand to grab this damn flashlight. You never take your eyes off of her just in case.
+q7 = "START RUNNING"
 
-Once you have your fingers wrapped around the flashlight you pull back as fast as you can. But the nurse never stirs.
+o7a = "I HATE RUNNING!!!"
 
-Phew! Guess you were nervous for nothing. :D
-
-You turn around to leave the room and begin squeezing your way back into the hallway. That's when you hear the wheezing, snapping your head back to the room. It's the nurse! Her clouded eyes are locked onto you and she's frantically crawling towards you. Holy Shit! You try to move fully into the hallway, but she grabs you ankle.
-
-You need to think fast! What do you do?
-  a: Defend Yourself! Use the flashlight!
-  b: Panic and play dead! Maybe she'll leave you alone?"""
+o7b = "AHHHHH ZOMBIES !!!!!!"
 
 ch7b = """
 Ch. 7
 
-You turn around to leave the room and begin squeezing your way back into the hallway. That's when you hear the wheezing, snapping your head back to the room. It's the nurse! Her clouded eyes are locked onto you and she's frantically crawling towards you. Holy Shit! You try to move fully into the hallway, but she grabs you ankle.
-
-You need to think fast! What do you do?
-  a: Defend Yourself! (Author: If only you had something to use as a weapon. Oh well!)
-  b: Panic and play dead! Maybe she leave you alone? """
+Unfortunately it's really dark down here and you tripped over your own feet. Better luck next time player! I'll always remember you!"""
 
 ch8a = """
-Ch. 8
-
-You turn the flashlight around and begin to beat Nurse Joy on the head with you makeshift weapon. She sputters and snarls but you don't relent.
-
-Once certain that the nurse is dead, you finish crawling back out into the hallway. You live to die another day!
-
-Now... which way were you going? Shit....
-  a: Maybe Right?
-  b: I need to leave bread crumbs or something. Let's try left. """
+Looks like you skipped leg day one too many times and weren't able to out run the undead. Luckily I survived to tell the tale of your bravery and poor running form"""
 
 ch8b = """
-Ch. 8
+Wow! I've never seen anyone move so quickly before!
 
-Oh no! Your strategy doesn't work and with a disgusting crunch the nurse has bitten your arm and she crawls your way up your prone, defenseless body.
+Racing to the top of the stairs with the moaning dead right behing us we finally reach the top.
 
-I'll save you the gory details, but sad to say you didn't make it.
-
-Unless you wanted to become a zombie? In that case congrats! Dreams do come true.
-
-YOU ARE DEAD
+Look the door to the roof!
 """
+q8 = "Quick open the door!"
+
+o8a = "Break it down!"
+
+o8b = "Dear lord please don't be locked"
 
 ch9a = """
-Ch. 9
-
-Let's keep moving then. Staggering down the hallway with your flashlight clutched in your hands. You continue until you reach the end, where you find an elevator. It's highly unlikely that it's actually working, so you investigate the surrounding area until you find the door to the staircase.
-
-Using your flashlight you look into the stairwell. It's deserted as far as you can tell.
-Now its all a matter of which way you wanna go, up or down?
-
-  a: What moron would go up? The exit is obviously down so let's head that way!
-  b: Something tells me that I should head upstairs..."""
+Oh no! Body slamming is not how you open doors! In your panic you failed at such a simple task and have been eaten. Bummer"""
 
 ch9b = """
-Ch. 9
 
-Let's keep moving then. Staggering down the hallway with your flashlight clutched in your hands. You continue until you reach the end, where you find an elevator. It's highly unlikely that it's actually working, so you investigate the surrounding area until you find the door to the staircase.
+God has heard your literal cry for help and answered! Swing that door open quick!
 
-Using your flashlight you look into the stairwell. It's deserted as far as you can tell.
-Now its all a matter of which way you wanna go, up or down?
+But now we need to barricade the door!"""
 
-  a: What moron would go up? The exit is obviously down so let's head that way!
-  b: Something tells me that I should head upstairs..."""
+q9 = "Quick grab something to block the door"
+
+o9a = " A piece a wood should do the trick!"
+
+o9b = "A chair, I've seen those stop doors in movies!"
 
 ch10a = """
-Ch. 10
-
-Down into the depths of Moria! Oh wait sorry wrong adventure :D
-
-You head down the stairs using your flashlight diligently to keep an eye out for trouble.
-
-You have no idea what floor you are on, but when you arrive to a level with a big G painted on the wall you can only hope that ground level is above and not below ground.(Author:Cross your fingers kiddo, Mwahahaha!)
-
-Much to your dismay you'll never now since looking over to the door to exit the stair well is jammed shut. Looks like someone blocked it from the other side. You try pushing it open, but you never really worked out and being in the hospital has made you weaker. So you aren't able to force it open.
-
-Well shit, what now?
-
-  a: I guess I'm going upstairs? (Author: Damn right you are!)
-  b: You did not let me walk all the way down, just to make me go all the way up did you? (Author: It's possible! MWAHAHHAHAHA!!) """
+That piece of wood would've done a better job if it had been nailed in place, but alas it's too late for you. I will forever mourn you! """
 
 ch10b = """
-Ch. 10
+Not what I expected, but it works! Chairs are more useful than I thought.
 
-You start climbing that stairs keeping your ears and eyes open. You climb up numerous floors before you start to wonder how tall this damn hospital is and hope the author doesn't plan on torturing you with a workout before you die.
+But now we're trapped on the roof and running out of time!
+"""
 
-Just when you think there is no end you reach the end of the stair well. There's the door to the roof. You push on it to see if it will open and amazingly it swings open with only a little effort.
+q10 = "Quick what should we do?"
 
-Light pours in and you look outside to the hospital roof. It's day time and hot as hell. You walk out on to the pathway and make your way over to the edge of the roof to look over. The sight you see is not pretty. Cars are pilled up and flipped over. Bodies lie on the ground spread out everywhere and there are a few that still move, shambling around mindlessly.
+o10a = "I will never give up! I'll find a way! Maybe Rick Grimes and the gang are in Alexandria! I will find them and survive!"
 
-Looks like its definitely a zombie apocalypse. Which is so cliche and over used you wonder why the author couldn't have been more creative. But you try not to think about that since she's seems merciless and you don't wanna piss her off.
-
-You try to think of you next move, but it feels hopeless. Where can you go? Are there any survivors? Even if they are how are you supposed to get out of this hospital?
-
-Guess you'll have to choose
-
-  a: I will never give up! I'll find a way! Maybe Rick Grimes and the gang are in Alexandria! I will find them and survive!
-
-  b: Nope, Nope, Nope. I am done with your games author lady no more! I refuse to choose. """
+o10b = "Nope, Nope, Nope. This is all just a dream or probably a nightmare and I am done with your games crazy lady! I refuse to choose. "
 
 ch11 = """
-Ch. 11
-
-Unfortunately for you the author seems to be too busy to really help and in a case of really bad and lazy writing she decided you made it so far only to be eaten by the zombie that followed you up the stairs.
+Unfortunately while you were trying to decide the door caved in and well.... it's not pretty but I'm afraid you've been eaten.
 
 Sorry! Better luck next time!
 
-
-YOU ARE DEAD
 """
-# death chapters are:
+# death chapters are: 5b,
 chapters = {
 '1None': ch1,
 '2A': ch2a,
 '2B': ch2b,
-'3A': ch3a,
-'3B': ch3b,
+'3A': ch3,
+'3B': ch3,
 '4A': ch4a,
 '4B': ch4b,
 '5A': ch5a,
@@ -313,10 +222,37 @@ chapters = {
 
 options = {
 '1A': o1a,
-'1B': o1b
+'1B': o1b,
+'2A': o2a,
+'2B': o2b,
+'3A': o3a,
+'3B': o3b,
+'4A': o4a,
+'4B': o4b,
+'5A': o5a,
+'5B': o5b,
+'6A': o6a,
+'6B': o6b,
+'7A': o7a,
+'7B': o7b,
+'8A': o8a,
+'8B': o8b,
+'9A': o9a,
+'9B': o9b,
+'10A': o10a,
+'10B': o10b
 
 }
 
 questions = {
-1: q1
+1: q1,
+2: q2,
+3: q3,
+4: q4,
+5: q5,
+6: q6,
+7: q7,
+8: q8,
+9: q9,
+10: q10
 }
