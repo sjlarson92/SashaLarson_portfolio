@@ -11,9 +11,9 @@
   <h3>{{question}}</h3>
   <form action="{{url_for('game.updatePlayer')}}" method="post">
     <input type="radio" name="choice" value="A"> {{optionA}}
-    <!-- TODO: refactor code to make text for A/B dynamic to each chapter -->
+
     <br>
-    <input type="radio" name="choice" value="B">B
+    <input type="radio" name="choice" value="B"> {{optionB}}
     <br>
     <input type="submit" name="next" value="Next">
   </form>

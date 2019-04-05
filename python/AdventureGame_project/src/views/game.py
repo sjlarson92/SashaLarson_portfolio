@@ -83,8 +83,10 @@ def gameEngine():
 
             optionA = story.options[opA]
 
-            #optionB =
-            return render_template('Game/chapter.html',chNum = chNum, chText=chText, name=playerName, question=question, optionA=optionA)
+            opB = str(chNum)+ 'B'
+            optionB = story.options[opB]
+
+            return render_template('Game/chapter.html',chNum = chNum, chText=chText, name=playerName, question=question, optionA=optionA, optionB=optionB)
 
 @game.route('/updatePlayer', methods=["POST"])
 def updatePlayer():
