@@ -10,7 +10,7 @@ def index():
     # return 'Hello World!'
     return render_template('/Home/index.html', title=title)
 
-@home.route('/Intro', methods = ['GET', 'POST'])
+@home.route('/Start', methods = ['GET', 'POST'])
 def intro():
     print(">>> You clicked the startButton")
     return render_template('/Intro/playerNum.html', title=title)
