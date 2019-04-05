@@ -23,9 +23,7 @@ def start():
         print('>>> this is the value of the variable player: ', playerName)
         mp.addPlayerNameToDatabase(playerObj)
 
-    #print ('>>> This is the game controller')
-
-    return render_template('/Game/start.html', player_list=playerList)
+    return render_template('/Game/start.html', playerList=playerList)
 
 @game.route('/game', methods=['GET'])
 def gameEngine():

@@ -2,7 +2,15 @@
 
 {% block content %}
 <div>
-  <h1>Ready?</h1>
+  <h1>Are You Ready?</h1>
+
+  <div>
+    <h2>Players:</h2>
+    {% for player in playerList %}
+    <h3>{{player}}</h3>
+    <!-- <br> -->
+    {% endfor %}
+  </div>
 
   <form action="{{url_for('game.gameEngine')}}" method="get">
     <input type="submit" value="Start" />
