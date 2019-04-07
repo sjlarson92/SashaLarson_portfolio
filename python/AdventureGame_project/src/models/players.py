@@ -156,3 +156,10 @@ def addPlayerNameToDatabase(player):
         my_connection.commit()
     except:
         return("Attempt to add playerName to database failed")
+############### validation
+
+def validatePlayerNames(playerList):
+    try:
+
+    except:
+        return("Attempt to validate player names failed")    
