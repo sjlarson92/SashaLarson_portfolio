@@ -15,6 +15,7 @@ def start():
 
     session['pl'] = playerList
     #saves player_list to session variable
+    mp.validatePlayerNames(playerList)
 
     print('>>>This is the player list: ', playerList)
 

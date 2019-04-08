@@ -160,6 +160,36 @@ def addPlayerNameToDatabase(player):
 
 def validatePlayerNames(playerList):
     try:
+        #compare each player to other Names
+        #if all are unique compare to names in db
+        #else returm error
+        print("This is the validatePlayerNames function")
+        firstTest = comparePlayerNames(playerList)
 
+        if firstTest:
+            secondTest = checkDBforPlayerName(playerList)
+
+            if secondTest:
+                return True
+            else:
+                return False
+                #return error
+        else:
+            return False
+            #return error
     except:
-        return("Attempt to validate player names failed")    
+        return("Attempt to validate player names failed")
+
+def comparePlayerNames(playerList):
+    try:
+        testPlayerList = set(playerList)
+        print(">>>>This is the testPlayerList: ", testPlayerList)
+
+        if len(testPlayerList) == len(playerList):
+            print(">>>List is unique")
+            return True
+        else:
+            print(">>>>There is a duplicate in this list")
+            return False
+    except:
+        return("Attempt to compare player names in player list failed")
