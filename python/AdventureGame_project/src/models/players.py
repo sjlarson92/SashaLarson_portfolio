@@ -167,15 +167,19 @@ def validatePlayerNames(playerList):
         firstTest = comparePlayerNames(playerList)
 
         if firstTest:
+            print(">>> This runs if all names are unique to secondTest")
             secondTest = checkDBforPlayerName(playerList)
 
             if secondTest:
-                return True
+                return True, ''
             else:
-                return False
+                error = "There is already a previous player with that name please choose a different one"
+                return False, error
                 #return error
         else:
-            return False
+            print(">>>There is a duplicate in the playerList")
+            error = "Player names cannot be the same as another players. Please enter unique player names"
+            return False, error
             #return error
     except:
         return("Attempt to validate player names failed")
@@ -193,3 +197,10 @@ def comparePlayerNames(playerList):
             return False
     except:
         return("Attempt to compare player names in player list failed")
+
+def checkDBforPlayerName(playerList):
+    try:
+        #check if playerName is in the DB
+
+    except:
+        return("Attempt to check DB for playerName failed")
