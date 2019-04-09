@@ -156,6 +156,7 @@ def addPlayerNameToDatabase(player):
         my_connection.commit()
     except:
         return("Attempt to add playerName to database failed")
+
 ############### validation
 
 def validatePlayerNames(playerList):
@@ -168,6 +169,7 @@ def validatePlayerNames(playerList):
 
         if firstTest:
             print(">>> This runs if all names are unique to secondTest")
+
             secondTest = checkDBforPlayerName(playerList)
 
             if secondTest:
@@ -191,6 +193,8 @@ def comparePlayerNames(playerList):
 
         if len(testPlayerList) == len(playerList):
             print(">>>List is unique")
+
+            #call checkDBforPlayerName(playerList)
             return True
         else:
             print(">>>>There is a duplicate in this list")
@@ -200,6 +204,19 @@ def comparePlayerNames(playerList):
 
 def checkDBforPlayerName(playerList):
     try:
+        print(">>> This is the second validation test")
+
+        ##CODE STOPS RUNNING HERE!
+        selectPlayerNamesStatement = "SELECT * FROM players WHERE playerName = (\'%s\')" % (player)
+
+        print("This is the selectPlayerNamesStatement: ", selectPlayerNamesStatement)
+
+        for player in playerList:
+            cursor.execute(selectPlayerNamesStatement)
+
+            player = cursor.fetchall()
+
+        print("this is player return after for loop: ", player)
         #check if playerName is in the DB
 
     except:
