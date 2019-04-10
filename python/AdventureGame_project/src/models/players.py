@@ -173,11 +173,13 @@ def validatePlayerNames(playerList):
             secondTest = checkDBforPlayerName(playerList)
 
             if secondTest:
+                print(">>> The secondTest returned True")
                 return True, ''
             else:
+                print(">>> The secondTest returned False")
                 error = "There is already a previous player with that name please choose a different one"
                 return False, error
-                #return error
+
         else:
             print(">>>There is a duplicate in the playerList")
             error = "Player names cannot be the same as another players. Please enter unique player names"
@@ -194,7 +196,6 @@ def comparePlayerNames(playerList):
         if len(testPlayerList) == len(playerList):
             print(">>>List is unique")
 
-            #call checkDBforPlayerName(playerList)
             return True
         else:
             print(">>>>There is a duplicate in this list")
@@ -206,18 +207,28 @@ def checkDBforPlayerName(playerList):
     try:
         print(">>> This is the second validation test")
 
-        ##CODE STOPS RUNNING HERE!
-        selectPlayerNamesStatement = "SELECT * FROM players WHERE playerName = (\'%s\')" % (player)
+        responseList = []
 
-        print("This is the selectPlayerNamesStatement: ", selectPlayerNamesStatement)
+        for playerName in playerList:
+            selectPlayerNamesStatement = "SELECT playerName FROM players WHERE playerName = (\'%s\')" % (playerName)
 
-        for player in playerList:
+            print("This is the selectPlayerNamesStatement: ", selectPlayerNamesStatement)
+
             cursor.execute(selectPlayerNamesStatement)
+            response = cursor.fetchall()
+            responseList.append(response)
 
-            player = cursor.fetchall()
+        print(">>> This is the responsse from the DB for the selectPlayerNamesStatement: ", responseList)
 
-        print("this is player return after for loop: ", player)
-        #check if playerName is in the DB
+        if not response:
+            print(">>> The return list from the DB is empty")
+
+            return True
+
+        else:
+            print(">>> The return list is not empty")
+
+            return False
 
     except:
         return("Attempt to check DB for playerName failed")

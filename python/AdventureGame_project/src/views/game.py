@@ -17,14 +17,22 @@ def start():
     #saves player_list to session variable
     response, error = mp.validatePlayerNames(playerList)
 
-    print('>>>This is the player list: ', playerList)
+    if response:
+        print('>>>This is the player list: ', playerList)
 
-    for playerName in playerList:
-        playerObj = mp.User(playerName)
-        print('>>> this is the value of the variable player: ', playerName)
-        mp.addPlayerNameToDatabase(playerObj)
+        for playerName in playerList:
+            playerObj = mp.User(playerName)
+            print('>>> this is the value of the variable player: ', playerName)
+            mp.addPlayerNameToDatabase(playerObj)
 
-    return render_template('/Game/start.html', playerList=playerList)
+        return render_template('/Game/start.html', playerList=playerList)
+
+    else:
+        print(">>> Their are duplicates of the playerName(s) in the DB")
+
+        playerNum = len(playerList)
+
+        return render_template('/Intro/playerName.html', error=error, playerNum=playerNum)
 
 @game.route('/game', methods=['GET'])
 def gameEngine():
