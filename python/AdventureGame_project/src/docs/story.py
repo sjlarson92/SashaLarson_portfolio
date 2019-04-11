@@ -100,8 +100,6 @@ You're either really brave or really dumb, but either way you are also really de
 Zombie nurse has taken a bite out of you and I can't say I'm surpirsed. Were you not listening when I said we were in the middle of the ZOMBIE apocalypse. Rick Grimes would be ashamed. """
 
 ch6a = """
-Ch. 6
-
 Onwards adventurer! To the right... cause the right is always right...right?
 
 Hmm looks like theres only the broken elevator and the stairway at the end of the hall.
