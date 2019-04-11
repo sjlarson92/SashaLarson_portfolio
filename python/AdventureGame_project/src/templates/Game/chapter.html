@@ -2,14 +2,14 @@
 
 {% block content %}
 <div>
-  <h1> It's {{name}}'s turn! </h1>
+  <h1 class="header"> It's {{name}}'s turn! </h1>
   <h2> Chapter {{chNum}} </h2>
 
-  <h4>{{chText}}</h4>
+  <h4 class="chText">{{chText}}</h4>
 
   <br>
-  <h3>{{question}}</h3>
-  <form action="{{url_for('game.updatePlayer')}}" method="post">
+  <h3 class="chQuestion">{{question}}</h3>
+  <form class="chOptions" action="{{url_for('game.updatePlayer')}}" method="post">
     <input type="radio" name="choice" value="A"> {{optionA}}
 
     <br>

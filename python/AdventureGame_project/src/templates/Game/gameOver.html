@@ -2,10 +2,10 @@
 
 {% block content %}
 <div>
-  <h1> Game Over! </h1>
+  <h1 id="gameOver"> Game Over! </h1>
 
   <br>
-  <form action="{{url_for('home.index')}}" method='GET'>
+  <form class="form" action="{{url_for('home.index')}}" method='GET'>
     <input type="submit" name="returnHome" value="Return to Home">
   </form>
 </div>

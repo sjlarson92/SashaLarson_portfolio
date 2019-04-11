@@ -2,11 +2,11 @@
 
 {% block content %}
 <div>
-  <div>
+  <div class="header">
     <h1>HOW MANY PLAYERS ARE THERE?</h1>
   </div>
 
-  <form action={{url_for('home.playername')}} method="post">
+  <form class="form" action={{url_for('home.playername')}} method="post">
 
     <select name="player_num">
       <option value="1">1</option>
@@ -16,13 +16,9 @@
       <option value="5">5</option>
     </select>
 
-    <!-- <input type="text" name="player_num"/> -->
     <br>
     <input type="submit" value="Submit" />
 
   </form>
- <!-- TODO:Add validation for only accept up to 5 players and ints(no letters or other characters) -->
-
- <!-- TODO: Turn this into a dropdown options to limit user error -->
 </div>
 {% endblock %}

@@ -2,13 +2,13 @@
 
 {% block content %}
 <div>
-  <h1> {{name}} has died! </h1>
+  <h1 class="header"> {{name}} has died! </h1>
   <h2> Chapter {{chNum}} </h2>
 
-  <p>{{chText}}</p>
+  <h4 class="chText">{{chText}}</h4>
 
   <br>
-  <form action="{{url_for('game.gameEngine')}}" method="get">
+  <form class="form" action="{{url_for('game.gameEngine')}}" method="get">
 
     <input type="submit" name="next" value="Next">
   </form>
