@@ -2,14 +2,14 @@
 
 {% block content %}
 <div>
-  <div>
+  <div class="header">
     <h1>INSTRUCTIONS</h1>
   </div>
   <div>
     <p>Follow along and take turns making decisions on your very own Adventure Game! Your fate is determined by the choices you make along the way! Good Luck!</p>
   </div>
 
-<form action="{{url_for('home.index')}}" method="get">
+<form class="form" action="{{url_for('home.index')}}" method="get">
   <input type="submit" value="Back" />
 </form>
 
