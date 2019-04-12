@@ -26,8 +26,8 @@ def playername():
     playerNum = int(request.form.get('player_num'))
     print(">>> The number of players is: ", playerNum)
 
-    return render_template('/Intro/playerName.html', title="Player Names", playerNum=playerNum)
+    #can i put a forloop here to render_template for num of players??
 
-@home.route('/Login')
-def login():
-    return render_template('/Home/login.html')  
+    # for i in range(1,playerNum+1):
+    #     print('>>> This is inside the playername for loop')
+    return render_template('/Intro/playerName.html', title="Player Names", playerNum=playerNum)

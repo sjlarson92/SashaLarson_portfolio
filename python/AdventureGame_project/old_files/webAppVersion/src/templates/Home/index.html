@@ -1,0 +1,15 @@
+{% extends "/Shared/layout.html" %}
+
+{% block content %}
+<div>
+
+  <form class="form"action={{url_for('home.intro')}} method="post">
+    <input type="submit" name="startButton" value="Start Game"/>
+  </form>
+  <br>
+  <form class="form" action={{url_for('home.instructions')}} method="get">
+    <input type="submit" name="instructions" value="How to Play"/>
+  </form>
+
+</div>
+{% endblock %}

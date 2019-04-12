@@ -1,0 +1,18 @@
+{% extends "/Shared/layout.html" %}
+
+{% block content %}
+<div>
+  <h1 class="header">Are You Ready?</h1>
+
+  <div class="form">
+    <h2>Players:</h2>
+    {% for player in playerList %}
+    <h3>{{player}}</h3>
+    {% endfor %}
+  </div>
+
+  <form class="form" action="{{url_for('game.gameEngine')}}" method="get">
+    <input type="submit" value="Start" />
+  </form>
+</div>
+{% endblock %}
