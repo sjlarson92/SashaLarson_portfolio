@@ -18,21 +18,26 @@ for (i=0; i < todos.length; i++){
 document.getElementById("main-todo-list").removeChild(divToDo);
 
 //Mark Todo items complete:
-function checked(inputElem){
+function checked(inputElem,task){
 
   if (inputElem.checked == true){
     console.log("Checkbox is checked");
     inputElem.parentElement.classList.add("complete");
+    task.complete = true;
   }
   else if (inputElem.checked == false){
     console.log("Checkbox is not checked");
     inputElem.parentElement.classList.remove("complete");
+    task.complete = false;
   }
+  console.log(task.complete);
 }
 
 for (i = 0; i < todos.length; i++){
-  console.log("This is the iteration: " + i);
+  //console.log("This is the iteration: " + i);
   const inputElem = document.getElementsByClassName("todo-checkbox")[i];
-  inputElem.onclick = function() {checked(inputElem)};
+  let task = todos[i];
+  // console.log(task);
+  inputElem.onclick = function() {checked(inputElem,task)};
 
 }
