@@ -5,25 +5,52 @@ let todos = [
   {id: 4, text: "Write thank-you notes", complete: false},
 ];
 
-// Add Todo Items to List:
-const divToDo = document.getElementsByClassName("todo")[0];
+displayToDoList()
+setUp()
+clickCheckBox()
+counter()
 
-for (i=0; i < todos.length; i++){
-  var cln = divToDo.cloneNode(true);
-  cln.getElementsByClassName("todo-text")[0].innerHTML = todos[i].text;
+function counter(){
+  let spanRemainCount = document.getElementById("remaining-count");
+  counter = 0;
+  for (i = 0; i < todos.length; i++){
+    if (todos[i].complete == false){
+      counter = counter + 1;
+    }
+  }
+  console.log(counter);
+  spanRemainCount.innerHTML = counter;
+};
 
-  document.getElementById("main-todo-list").appendChild(cln);
-}
+function setUp(){
+  for (i=0; i < todos.length; i++){
+    console.log("checked? " + todos[i].complete)
+    let task = todos[i];
+    if (task.complete == true){
+      const inputElem = document.getElementsByClassName("todo-checkbox")[i];
+      inputElem.checked = true;
+      inputElem.parentElement.classList.add("complete");
+    }
+  }
+};
 
-document.getElementById("main-todo-list").removeChild(divToDo);
+function displayToDoList(){
+  const divToDo = document.getElementsByClassName("todo")[0];
+  for (i=0; i < todos.length; i++){
+    var cln = divToDo.cloneNode(true);
+    cln.getElementsByClassName("todo-text")[0].innerHTML = todos[i].text;
+    document.getElementById("main-todo-list").appendChild(cln);
+  }
+  document.getElementById("main-todo-list").removeChild(divToDo);
+};
 
-//Mark Todo items complete:
 function checked(inputElem,task){
 
   if (inputElem.checked == true){
     console.log("Checkbox is checked");
     inputElem.parentElement.classList.add("complete");
     task.complete = true;
+    //counter();
   }
   else if (inputElem.checked == false){
     console.log("Checkbox is not checked");
@@ -33,11 +60,13 @@ function checked(inputElem,task){
   console.log(task.complete);
 }
 
-for (i = 0; i < todos.length; i++){
-  //console.log("This is the iteration: " + i);
-  const inputElem = document.getElementsByClassName("todo-checkbox")[i];
-  let task = todos[i];
-  // console.log(task);
-  inputElem.onclick = function() {checked(inputElem,task)};
+function clickCheckBox(){
+  for (i = 0; i < todos.length; i++){
+    //console.log("This is the iteration: " + i);
+    const inputElem = document.getElementsByClassName("todo-checkbox")[i];
+    let task = todos[i];
+    // console.log(task);
+    inputElem.onclick = function() {checked(inputElem,task)};
 
-}
+  }
+};
