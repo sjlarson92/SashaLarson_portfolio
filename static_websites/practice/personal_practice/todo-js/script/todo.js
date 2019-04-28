@@ -66,9 +66,23 @@ function clickCheckBox(){
   }
 };
 
+function createNewToDoListItem(){
+  let inputTagElems = document.getElementsByClassName("app")[0].getElementsByTagName("input");
+  for (i = 0; i < inputTagElems.length; i++){
+    if (inputTagElems[i].type == "text"){
+      inputTextElem = inputTagElems[i];
+    }
+  }
+
+  console.log(inputTextElem);
+};
+createNewToDoListItem()
 displayToDoList()
+
 setUp()
 clickCheckBox()
 counter()
+
+
 
 //test merge
