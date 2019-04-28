@@ -1,4 +1,4 @@
-let todos = [
+const todos = [
   {id: 1, text: "Take out trash and recycling", complete: true},
   {id: 2, text: "Pick up dry cleaning", complete: false},
   {id: 3, text: "Get oil change", complete: false},
@@ -6,7 +6,7 @@ let todos = [
 ];
 
 function counter() {
-  let spanRemainCount = document.getElementById("remaining-count");
+  const spanRemainCount = document.getElementById("remaining-count");
   count = 0;
   for (i = 0; i < todos.length; i++){
     if (todos[i].complete == false){
@@ -19,7 +19,7 @@ function counter() {
 
 function setUp() {
   for (i=0; i < todos.length; i++){
-    let task = todos[i];
+    const task = todos[i];
     if (task.complete == true){
       const inputElem = document.getElementsByClassName("todo-checkbox")[i];
       inputElem.checked = true;
@@ -61,7 +61,7 @@ function checked(inputElem,task){
 function clickCheckBox(){
   for (i = 0; i < todos.length; i++){
     const inputElem = document.getElementsByClassName("todo-checkbox")[i];
-    let task = todos[i];
+    const task = todos[i];
     inputElem.onclick = function() {checked(inputElem,task)};
   }
 };
