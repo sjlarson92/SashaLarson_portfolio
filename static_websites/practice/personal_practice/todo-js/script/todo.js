@@ -70,3 +70,5 @@ displayToDoList()
 setUp()
 clickCheckBox()
 counter()
+
+//test merge
