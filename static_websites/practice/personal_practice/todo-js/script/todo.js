@@ -5,6 +5,13 @@ const todos = [
   {id: 4, text: "Write thank-you notes", complete: false},
 ];
 
+//Todo Item consturctor
+function Todo(text) {
+  this.id = 1; //TODO this needs to autoincrement
+  this.text = text;
+  this.complete = false;
+};
+
 function counter() {
   const spanRemainCount = document.getElementById("remaining-count");
   count = 0;
@@ -28,11 +35,11 @@ function setUp() {
   }
 };
 
-function displayToDoList(){
+function displayToDoList(todosList){
   const divToDo = document.getElementsByClassName("todo")[0];
-  for (i=0; i < todos.length; i++){
+  for (i=0; i < todosList.length; i++){
     var cln = divToDo.cloneNode(true);
-    cln.getElementsByClassName("todo-text")[0].innerHTML = todos[i].text;
+    cln.getElementsByClassName("todo-text")[0].innerHTML = todosList[i].text;
     document.getElementById("main-todo-list").appendChild(cln);
   }
   document.getElementById("main-todo-list").removeChild(divToDo);
@@ -75,15 +82,20 @@ function createNewToDoListItem(){
   }
   inputTextElem.addEventListener('keypress', function (addNewToDoItem){
     if (addNewToDoItem.keyCode == 13) {
-   console.log('You pressed the enter key');
+   //console.log('You pressed the enter key');
+      let userInput = inputTextElem.value;
+      let newTodoItem = new Todo(userInput);
+      todos.push(newTodoItem);
+      console.log(todos);
+      console.log(userInput);
+      // YOU ARE HERE!!! displayToDoList(newTodoItem)
     }
   })
-  console.log(inputTextElem);
 };
 
 
 createNewToDoListItem()
-displayToDoList()
+displayToDoList(todos)
 
 setUp()
 clickCheckBox()
