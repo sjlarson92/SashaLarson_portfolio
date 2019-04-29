@@ -53,7 +53,7 @@ function addNewToDoItemToDisplay(newTodoItem){
   cln.getElementsByClassName("todo-checkbox")[0].checked = false;
   cln.getElementsByClassName("todo-text")[0].innerHTML = newTodoItem.text;
   document.getElementById("main-todo-list").appendChild(cln);
-
+  counter()
 };
 
 function checked(inputElem,task){
