@@ -20,7 +20,6 @@ function counter() {
       count = count + 1;
     }
   }
-  // console.log('count: ', count);
   spanRemainCount.innerHTML = count;
 };
 
@@ -36,7 +35,6 @@ function setUp() {
 };
 
 function displayToDoList(todosList){
-  //must clear todos list
   const divToDo = document.getElementsByClassName("todo")[0];
   for (i=0; i < todosList.length; i++){
     var cln = divToDo.cloneNode(true);
@@ -57,20 +55,15 @@ function addNewToDoItemToDisplay(newTodoItem){
 };
 
 function checked(inputElem,task){
-  // console.log("inputElem is : " + inputElem);
-  // console.log("task is: " + task.text);
   if (inputElem.checked == true){
-    // console.log("Checkbox is checked");
     inputElem.parentElement.classList.add("complete");
     task.complete = true;
 
   }
   else if (inputElem.checked == false){
-    // console.log("Checkbox is not checked");
     inputElem.parentElement.classList.remove("complete");
     task.complete = false;
   }
-  // console.log(task.complete);
   counter();
   return task.complete;
 
@@ -103,14 +96,8 @@ function createNewToDoListItem(){
   })
 };
 
-
 createNewToDoListItem()
 displayToDoList(todos)
-
 setUp()
 clickCheckBox()
 counter()
-
-
-
-//test merge
