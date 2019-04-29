@@ -96,6 +96,7 @@ function createNewToDoListItem(){
       let userInput = inputTextElem.value;
       let newTodoItem = new Todo(userInput);
       todos.push(newTodoItem);
+      inputTextElem.value = "";
       console.log(newTodoItem);
       addNewToDoItemToDisplay(newTodoItem)
     }
