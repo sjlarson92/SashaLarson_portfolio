@@ -55,15 +55,16 @@ function addNewToDoItemToDisplay(newTodoItem){
 };
 
 function checked(inputElem,task){
+  console.log("checked()");
   if (inputElem.checked == true){
     inputElem.parentElement.classList.add("complete");
     task.complete = true;
-
   }
   else if (inputElem.checked == false){
     inputElem.parentElement.classList.remove("complete");
     task.complete = false;
   }
+  //add else statement to handle markTaskCompleteClickDiv
   counter();
   return task.complete;
 
@@ -77,9 +78,21 @@ function clickCheckBox(){
   }
 };
 
-// function markTaskCompleteClickDiv(){
-//   for (i = 0; i < )
-// };
+//Marks tasks complete when user clicks DIV
+function markTaskCompleteClickDiv(){
+  for (i = 0; i < todos.length; i++){
+    const divToDo = document.getElementsByClassName("todo")[i];
+    const taskObj = todos[i];
+    inputElem = divToDo.getElementsByClassName("todo-checkbox")[0];
+    // console.log("This is the checkbox", inputElem);
+    // console.log("this is the taskObj: ", taskObj.text);
+    divToDo.addEventListener("click", function() {
+      console.log("inputElem: ", inputElem);
+      console.log("taskObj: ", taskObj);
+      checked(inputElem, taskObj);
+    });
+  }
+};
 
 function createNewToDoListItem(){
   let inputTagElems = document.getElementsByClassName("app")[0].getElementsByTagName("input");
@@ -106,3 +119,4 @@ displayToDoList(todos)
 setUp()
 clickCheckBox()
 counter()
+markTaskCompleteClickDiv()
