@@ -77,6 +77,10 @@ function clickCheckBox(){
   }
 };
 
+// function markTaskCompleteClickDiv(){
+//   for (i = 0; i < )
+// };
+
 function createNewToDoListItem(){
   let inputTagElems = document.getElementsByClassName("app")[0].getElementsByTagName("input");
   for (i = 0; i < inputTagElems.length; i++){
@@ -92,6 +96,7 @@ function createNewToDoListItem(){
       inputTextElem.value = "";
       console.log(newTodoItem);
       addNewToDoItemToDisplay(newTodoItem)
+      clickCheckBox()
     }
   })
 };
