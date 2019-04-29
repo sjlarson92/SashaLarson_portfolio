@@ -5,6 +5,13 @@ const todos = [
   {id: 4, text: "Write thank-you notes", complete: false},
 ];
 
+//Todo Item consturctor
+function Todo(text) {
+  this.id = 5; //TODO this needs to autoincrement after last id in todos array
+  this.text = text;
+  this.complete = false;
+};
+
 function counter() {
   const spanRemainCount = document.getElementById("remaining-count");
   count = 0;
@@ -13,7 +20,6 @@ function counter() {
       count = count + 1;
     }
   }
-  console.log('count: ', count);
   spanRemainCount.innerHTML = count;
 };
 
@@ -28,31 +34,36 @@ function setUp() {
   }
 };
 
-function displayToDoList(){
+function displayToDoList(todosList){
   const divToDo = document.getElementsByClassName("todo")[0];
-  for (i=0; i < todos.length; i++){
+  for (i=0; i < todosList.length; i++){
     var cln = divToDo.cloneNode(true);
-    cln.getElementsByClassName("todo-text")[0].innerHTML = todos[i].text;
+    cln.getElementsByClassName("todo-text")[0].innerHTML = todosList[i].text;
     document.getElementById("main-todo-list").appendChild(cln);
   }
   document.getElementById("main-todo-list").removeChild(divToDo);
 };
 
+function addNewToDoItemToDisplay(newTodoItem){
+  const divToDo = document.getElementsByClassName("todo")[0];
+  var cln = divToDo.cloneNode(true);
+  cln.className = "todo";
+  cln.getElementsByClassName("todo-checkbox")[0].checked = false;
+  cln.getElementsByClassName("todo-text")[0].innerHTML = newTodoItem.text;
+  document.getElementById("main-todo-list").appendChild(cln);
+  counter()
+};
+
 function checked(inputElem,task){
-  console.log("inputElem is : " + inputElem);
-  console.log("task is: " + task.text);
   if (inputElem.checked == true){
-    console.log("Checkbox is checked");
     inputElem.parentElement.classList.add("complete");
     task.complete = true;
 
   }
   else if (inputElem.checked == false){
-    console.log("Checkbox is not checked");
     inputElem.parentElement.classList.remove("complete");
     task.complete = false;
   }
-  console.log(task.complete);
   counter();
   return task.complete;
 
@@ -66,9 +77,27 @@ function clickCheckBox(){
   }
 };
 
-displayToDoList()
+function createNewToDoListItem(){
+  let inputTagElems = document.getElementsByClassName("app")[0].getElementsByTagName("input");
+  for (i = 0; i < inputTagElems.length; i++){
+    if (inputTagElems[i].type == "text"){
+      inputTextElem = inputTagElems[i];
+    }
+  }
+  inputTextElem.addEventListener('keypress', function (addNewToDoItem){
+    if (addNewToDoItem.keyCode == 13) {
+      let userInput = inputTextElem.value;
+      let newTodoItem = new Todo(userInput);
+      todos.push(newTodoItem);
+      inputTextElem.value = "";
+      console.log(newTodoItem);
+      addNewToDoItemToDisplay(newTodoItem)
+    }
+  })
+};
+
+createNewToDoListItem()
+displayToDoList(todos)
 setUp()
 clickCheckBox()
 counter()
-
-//test merge
