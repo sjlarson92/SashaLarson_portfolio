@@ -133,6 +133,23 @@ function createNewToDoListItem(){
 
 function hideOrShowCompletedTasks(){
   console.log("inside the hideOrShowCompletedTasks");
+  button = document.getElementById("hideButton");
+  buttonVal = button.value;
+  console.log(buttonVal);
+  if (buttonVal == "Hide completed items"){
+    console.log("Need to hide tasks");
+    button.value = "Show completed items";
+  }
+  else if (buttonVal == "Show completed items"){
+    console.log("Need to show hidden tasks");
+    button.value = "Hide completed items";
+  }
+
+  //task is mark completed do not display
+  //change button value to show
+  //else if button.value == show
+  // diplay all items
+  //change button value to hide
 }
 
 function addButtonToDoc(){
@@ -149,7 +166,7 @@ function addButtonToDoc(){
   button.id = "hideButton";
   button.value = "Hide completed items";
   buttonDiv.appendChild(button);
-
+  //buttonVal = button.value;
   button.addEventListener("click", hideOrShowCompletedTasks.bind());
 }
 
