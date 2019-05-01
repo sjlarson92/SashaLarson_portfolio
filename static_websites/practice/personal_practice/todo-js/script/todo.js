@@ -4,7 +4,7 @@ const todos = [
   {id: 3, text: "Get oil change", complete: false},
   {id: 4, text: "Write thank-you notes", complete: false},
 ];
-
+const divToDo = document.getElementsByClassName("todo")[0];
 //Todo Item consturctor
 function Todo(text) {
   this.id = 5; //TODO this needs to autoincrement after last id in todos array
@@ -36,13 +36,12 @@ function setUp() {
 };
 
 function displayToDoList(todosList){
-  const divToDo = document.getElementsByClassName("todo")[0];
+  document.getElementById("main-todo-list").removeChild(divToDo);
   for (i=0; i < todosList.length; i++){
     var cln = divToDo.cloneNode(true);
     cln.getElementsByClassName("todo-text")[0].innerHTML = todosList[i].text;
     document.getElementById("main-todo-list").appendChild(cln);
   }
-  document.getElementById("main-todo-list").removeChild(divToDo);
 };
 
 function addNewToDoItemToDisplay(newTodoItem){
@@ -133,21 +132,28 @@ function createNewToDoListItem(){
 };
 
 function hideOrShowCompletedTasks(){
-  console.log("inside the hideOrShowCompletedTasks");
   button = document.getElementById("hideButton");
   buttonVal = button.value;
-  console.log(buttonVal);
+
   if (buttonVal == "Hide completed items"){
     console.log("Need to hide tasks");
     //task is mark completed do not display
+    //let uncompletedTaskList = [];
     for (i=0; i < todos.length; i++){
-      console.log("inside for loop");
+      let elem = document.getElementById("main-todo-list").firstElementChild;
+
+      if (todos[i].complete == true){
+        console.log("it works");
+        console.log(elem);
+        document.getElementById("main-todo-list").removeChild(elem);
+
+      }
     }
     button.value = "Show completed items";
   }
   else if (buttonVal == "Show completed items"){
     console.log("Need to show hidden tasks");
-      // diplay all items
+    displayToDoList(todos)
     button.value = "Hide completed items";
   }
 }
