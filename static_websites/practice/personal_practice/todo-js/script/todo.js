@@ -131,6 +131,10 @@ function createNewToDoListItem(){
   })
 };
 
+function hideOrShowCompletedTasks(){
+  console.log("inside the hideOrShowCompletedTasks");
+}
+
 function addButtonToDoc(){
   //create div for button
   let buttonDiv =
@@ -145,6 +149,8 @@ function addButtonToDoc(){
   button.id = "hideButton";
   button.value = "Hide completed items";
   buttonDiv.appendChild(button);
+
+  button.addEventListener("click", hideOrShowCompletedTasks.bind());
 }
 
 createNewToDoListItem()
@@ -154,5 +160,3 @@ markTaskCompleteClickDiv()
 clickCheckBox()
 counter()
 addButtonToDoc()
-
-//initial commit
