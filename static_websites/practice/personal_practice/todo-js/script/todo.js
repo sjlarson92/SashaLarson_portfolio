@@ -32,6 +32,7 @@ function setUp() {
       inputElem.parentElement.classList.add("complete");
     }
   }
+
 };
 
 function displayToDoList(todosList){
@@ -130,11 +131,28 @@ function createNewToDoListItem(){
   })
 };
 
+function addButtonToDoc(){
+  //create div for button
+  let buttonDiv =
+  document.createElement("div");
+  buttonDiv.id = "button";
+  //create button and add to buttonDiv
+  placeholder = document.getElementsByClassName("app")[0];
+  placeholder.appendChild(buttonDiv);
+
+  button = document.createElement("input");
+  button.type = "button";
+  button.id = "hideButton";
+  button.value = "Hide completed items";
+  buttonDiv.appendChild(button);
+}
+
 createNewToDoListItem()
 displayToDoList(todos)
 setUp()
 markTaskCompleteClickDiv()
 clickCheckBox()
 counter()
+addButtonToDoc()
 
 //initial commit
