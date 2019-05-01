@@ -54,7 +54,15 @@ function addNewToDoItemToDisplay(newTodoItem){
   counter()
 };
 
+//this function is needed to stop overlapping div events
+function stopBubbling(event){
+  event.stopPropagation();
+  event.cancelBubble = true;
+}
+
 function checked(inputElem,task){
+  stopBubbling(this.event);
+
   if (inputElem.checked == true){
     inputElem.parentElement.classList.add("complete");
     task.complete = true;
@@ -69,6 +77,7 @@ function checked(inputElem,task){
 }
 
 function clickedDivToModifyStyling(inputElem,task){
+  stopBubbling(this.event);
   console.log("Inside the checked func, inputElem is: ", inputElem);
   console.log("Inside the checked func, taskObj is: ", task);
   if (inputElem.checked == true){
@@ -86,14 +95,6 @@ function clickedDivToModifyStyling(inputElem,task){
   counter()
 }
 
-function clickCheckBox(){
-  for (i = 0; i < todos.length; i++){
-    const inputElem = document.getElementsByClassName("todo-checkbox")[i];
-    const task = todos[i];
-    inputElem.onclick = function() {checked(inputElem,task)};
-  }
-};
-
 //Marks tasks complete when user clicks DIV
 function markTaskCompleteClickDiv(){
   for (i = 0; i < todos.length; i++){
@@ -105,6 +106,17 @@ function markTaskCompleteClickDiv(){
     divToDo.addEventListener("click", clickedDivToModifyStyling.bind(null,inputElem, taskObj), false);
   }
 };
+
+//Modifys tasks when checkbox is clicked
+function clickCheckBox(){
+  for (i = 0; i < todos.length; i++){
+    const inputElem = document.getElementsByClassName("todo-checkbox")[i];
+    const task = todos[i];
+    inputElem.onclick = function() {checked(inputElem,task)};
+  }
+};
+
+
 
 function createNewToDoListItem(){
   let inputTagElems = document.getElementsByClassName("app")[0].getElementsByTagName("input");
@@ -129,6 +141,6 @@ function createNewToDoListItem(){
 createNewToDoListItem()
 displayToDoList(todos)
 setUp()
+markTaskCompleteClickDiv()
 clickCheckBox()
 counter()
-markTaskCompleteClickDiv()
