@@ -55,19 +55,34 @@ function addNewToDoItemToDisplay(newTodoItem){
 };
 
 function checked(inputElem,task){
-  console.log("checked()");
   if (inputElem.checked == true){
     inputElem.parentElement.classList.add("complete");
     task.complete = true;
   }
   else if (inputElem.checked == false){
+    console.log("Task is not complete")
     inputElem.parentElement.classList.remove("complete");
     task.complete = false;
   }
-  //add else statement to handle markTaskCompleteClickDiv
   counter();
   return task.complete;
+}
 
+function clickedDivToModifyStyling(inputElem,task){
+  console.log("Inside the checked func, inputElem is: ", inputElem);
+  console.log("Inside the checked func, taskObj is: ", task);
+  if (inputElem.checked == true){
+    console.log("marking task as not done");
+    inputElem.parentElement.classList.remove("complete");
+    task.complete = false;
+    inputElem.checked = false;
+  }
+  else if (inputElem.checked == false){
+    console.log("marking task as complete");
+    inputElem.parentElement.classList.add("complete")
+    task.complete = true;
+    inputElem.checked = true;
+  }
 }
 
 function clickCheckBox(){
@@ -86,11 +101,7 @@ function markTaskCompleteClickDiv(){
     inputElem = divToDo.getElementsByClassName("todo-checkbox")[0];
     // console.log("This is the checkbox", inputElem);
     // console.log("this is the taskObj: ", taskObj.text);
-    divToDo.addEventListener("click", function() {
-      console.log("inputElem: ", inputElem);
-      console.log("taskObj: ", taskObj);
-      checked(inputElem, taskObj);
-    });
+    divToDo.addEventListener("click", clickedDivToModifyStyling.bind(null,inputElem, taskObj), false);
   }
 };
 
