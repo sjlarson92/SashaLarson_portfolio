@@ -54,21 +54,54 @@ function addNewToDoItemToDisplay(newTodoItem){
   counter()
 };
 
+//this function is needed to stop overlapping div events
+function stopBubbling(event){
+  event.stopPropagation();
+  event.cancelBubble = true;
+}
+
 function checked(inputElem,task){
+  stopBubbling(this.event);
+
   if (inputElem.checked == true){
     inputElem.parentElement.classList.add("complete");
     task.complete = true;
-
   }
   else if (inputElem.checked == false){
+    console.log("Task is not complete")
     inputElem.parentElement.classList.remove("complete");
     task.complete = false;
   }
-  counter();
+  counter()
   return task.complete;
-
 }
 
+function clickedDivToModifyStyling(inputElem,task){
+  stopBubbling(this.event);
+  if (inputElem.checked == true){
+    inputElem.parentElement.classList.remove("complete");
+    task.complete = false;
+    inputElem.checked = false;
+  }
+  else if (inputElem.checked == false){
+    inputElem.parentElement.classList.add("complete")
+    task.complete = true;
+    inputElem.checked = true;
+  }
+  counter()
+}
+
+//Marks tasks complete when user clicks DIV
+function markTaskCompleteClickDiv(){
+  for (i = 0; i < todos.length; i++){
+    const divToDo = document.getElementsByClassName("todo")[i];
+    const taskObj = todos[i];
+    inputElem = divToDo.getElementsByClassName("todo-checkbox")[0];
+    divToDo.addEventListener("click", clickedDivToModifyStyling.bind(null,inputElem, taskObj), false);
+  }
+};
+
+//Modifys tasks when checkbox is clicked
 function clickCheckBox(){
   for (i = 0; i < todos.length; i++){
     const inputElem = document.getElementsByClassName("todo-checkbox")[i];
@@ -92,6 +125,7 @@ function createNewToDoListItem(){
       inputTextElem.value = "";
       console.log(newTodoItem);
       addNewToDoItemToDisplay(newTodoItem)
+      clickCheckBox()
     }
   })
 };
@@ -99,5 +133,6 @@ function createNewToDoListItem(){
 createNewToDoListItem()
 displayToDoList(todos)
 setUp()
+markTaskCompleteClickDiv()
 clickCheckBox()
 counter()
