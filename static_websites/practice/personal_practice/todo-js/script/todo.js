@@ -64,7 +64,7 @@ function checked(inputElem,task){
     inputElem.parentElement.classList.remove("complete");
     task.complete = false;
   }
-  counter();
+  counter()
   return task.complete;
 }
 
@@ -83,6 +83,7 @@ function clickedDivToModifyStyling(inputElem,task){
     task.complete = true;
     inputElem.checked = true;
   }
+  counter()
 }
 
 function clickCheckBox(){
