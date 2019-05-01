@@ -116,8 +116,6 @@ function clickCheckBox(){
   }
 };
 
-
-
 function createNewToDoListItem(){
   let inputTagElems = document.getElementsByClassName("app")[0].getElementsByTagName("input");
   for (i = 0; i < inputTagElems.length; i++){
