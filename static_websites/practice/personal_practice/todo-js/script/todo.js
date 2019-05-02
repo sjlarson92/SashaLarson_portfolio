@@ -6,8 +6,9 @@ const todos = [
 ];
 const divToDo = document.getElementsByClassName("todo")[0];
 //Todo Item consturctor
+let nextId = 5;
 function Todo(text) {
-  this.id = 5; //TODO this needs to autoincrement after last id in todos array
+  this.id = nextId++; //TODO this needs to autoincrement after last id in todos array
   this.text = text;
   this.complete = false;
 };
@@ -36,12 +37,12 @@ function setUp() {
 };
 
 function displayToDoList(todosList){
-  document.getElementById("main-todo-list").removeChild(divToDo);
   for (i=0; i < todosList.length; i++){
     var cln = divToDo.cloneNode(true);
     cln.getElementsByClassName("todo-text")[0].innerHTML = todosList[i].text;
     document.getElementById("main-todo-list").appendChild(cln);
   }
+  document.getElementById("main-todo-list").removeChild(divToDo);
 };
 
 function addNewToDoItemToDisplay(newTodoItem){
@@ -137,23 +138,24 @@ function hideOrShowCompletedTasks(){
 
   if (buttonVal == "Hide completed items"){
     console.log("Need to hide tasks");
-    //task is mark completed do not display
-    //let uncompletedTaskList = [];
+    let completedTasksbyIDList = []
+    let elemMainTodoList = document.getElementById("main-todo-list");
+
     for (i=0; i < todos.length; i++){
-      let elem = document.getElementById("main-todo-list").firstElementChild;
-
       if (todos[i].complete == true){
-        console.log("it works");
-        console.log(elem);
-        document.getElementById("main-todo-list").removeChild(elem);
-
+        console.log("The tasks.id is: ", todos[i].id);
+        taskId = todos[i].id;
+        completedTasksbyIDList.push(taskId);
+        //console.log(elemMainTodoList.getElementsByClassName("todo")[i]);
       }
     }
+    console.log("The completedTasksbyIDList is: ", completedTasksbyIDList);
+    //hide items on completedTasksList
     button.value = "Show completed items";
   }
   else if (buttonVal == "Show completed items"){
     console.log("Need to show hidden tasks");
-    displayToDoList(todos)
+    //add back the tasks that are on the completedTasksbyIDList
     button.value = "Hide completed items";
   }
 }
