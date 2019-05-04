@@ -135,15 +135,15 @@ function createNewToDoListItem(){
 function hideOrShowCompletedTasks(){
   button = document.getElementById("hideButton");
   buttonVal = button.value;
+  let elemMainTodoList = document.getElementById("main-todo-list");
 
   if (buttonVal == "Hide completed items"){
     console.log("Need to hide tasks");
-    let completedTasksbyIDList = []
-    let elemMainTodoList = document.getElementById("main-todo-list");
+    //let completedTasksbyIDList = []
     // //this for loop finds the completed tasks and add them to the completedTasksbyIDList
     for (i=0; i < todos.length; i++){
       if (todos[i].complete == true){
-        console.log("The tasks.id is: ", todos[i].id);
+        //console.log("The tasks.id is: ", todos[i].id);
         // let taskId = todos[i].id;
         // completedTasksbyIDList.push(taskId);
         let currentTask = elemMainTodoList.getElementsByClassName("todo")[i];
@@ -158,6 +158,13 @@ function hideOrShowCompletedTasks(){
   else if (buttonVal == "Show completed items"){
     console.log("Need to show hidden tasks");
     //add back the tasks that are on the completedTasksbyIDList
+    for(i=0; i < todos.length; i++){
+      if(todos[i].complete == true){
+        let currentTask = elemMainTodoList.getElementsByClassName("todo")[i];
+        console.log(currentTask);
+        currentTask.style.display = "";
+      }
+    }
     button.value = "Hide completed items";
   }
 }
