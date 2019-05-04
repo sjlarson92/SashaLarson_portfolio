@@ -125,6 +125,13 @@ function clickCheckBox(){
   }
 };
 
+function addCheckBoxListenertoNewTask(){
+  const divToDo = document.getElementsByClassName("todo-list")[0].lastElementChild;
+  const taskObj = todos.splice(-1)[0];
+  let inputElem = divToDo.getElementsByClassName("todo-checkbox")[0];
+  inputElem.addEventListener("click", checked.bind(null, inputElem, taskObj));
+}
+
 function createNewToDoListItem(){
   let inputTagElems = document.getElementsByClassName("app")[0].getElementsByTagName("input");
   for (i = 0; i < inputTagElems.length; i++){
@@ -141,7 +148,7 @@ function createNewToDoListItem(){
       console.log("This is the new todoItem: ", newTodoItem);
       addNewToDoItemToDisplay(newTodoItem)
       addClickDivtoNewTask()
-      clickCheckBox()
+      addCheckBoxListenertoNewTask()
 
     }
   })
@@ -198,7 +205,7 @@ function addButtonToDoc(){
 }
 
 //TODO There is a bug that when the user adds two new tasks the 5(id) task loses the clickonDiv feature
-
+//TODO there is a bug that if hide completed items has been clicked then any new task added will not appear
 createNewToDoListItem()
 displayToDoList(todos)
 setUp()
