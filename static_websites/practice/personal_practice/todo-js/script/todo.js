@@ -94,13 +94,27 @@ function clickedDivToModifyStyling(inputElem,task){
 
 //Marks tasks complete when user clicks DIV
 function markTaskCompleteClickDiv(){
+
   for (i = 0; i < todos.length; i++){
+    //stopBubbling(this.event);
     const divToDo = document.getElementsByClassName("todo")[i];
     const taskObj = todos[i];
     inputElem = divToDo.getElementsByClassName("todo-checkbox")[0];
     divToDo.addEventListener("click", clickedDivToModifyStyling.bind(null,inputElem, taskObj));
   }
 };
+
+function addClickDivtoNewTask(){
+  stopBubbling(this.event);
+  let divToDo = document.getElementsByClassName("todo-list")[0].lastElementChild;
+  console.log(divToDo);
+  const taskObj = todos.splice(-1)[0];
+  console.log(taskObj);
+  let inputElem = divToDo.getElementsByClassName("todo-checkbox")[0];
+  console.log(inputElem);
+  divToDo.addEventListener("click", clickedDivToModifyStyling.bind(null, inputElem, taskObj));
+
+}
 
 //Modifys tasks when checkbox is clicked
 function clickCheckBox(){
@@ -124,10 +138,11 @@ function createNewToDoListItem(){
       let newTodoItem = new Todo(userInput);
       todos.push(newTodoItem);
       inputTextElem.value = "";
-      console.log(newTodoItem);
+      console.log("This is the new todoItem: ", newTodoItem);
       addNewToDoItemToDisplay(newTodoItem)
+      addClickDivtoNewTask()
       clickCheckBox()
-      markTaskCompleteClickDiv()
+
     }
   })
 };
@@ -139,13 +154,9 @@ function hideOrShowCompletedTasks(){
 
   if (buttonVal == "Hide completed items"){
     console.log("Need to hide tasks");
-    //let completedTasksbyIDList = []
-    // //this for loop finds the completed tasks and add them to the completedTasksbyIDList
+
     for (i=0; i < todos.length; i++){
       if (todos[i].complete == true){
-        //console.log("The tasks.id is: ", todos[i].id);
-        // let taskId = todos[i].id;
-        // completedTasksbyIDList.push(taskId);
         let currentTask = elemMainTodoList.getElementsByClassName("todo")[i];
         console.log(currentTask);
         currentTask.style.display = "none";
