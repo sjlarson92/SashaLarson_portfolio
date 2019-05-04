@@ -4,11 +4,10 @@ const todos = [
   {id: 3, text: "Get oil change", complete: false},
   {id: 4, text: "Write thank-you notes", complete: false},
 ];
-const divToDo = document.getElementsByClassName("todo")[0];
 //Todo Item consturctor
 let nextId = 5;
 function Todo(text) {
-  this.id = nextId++; //TODO this needs to autoincrement after last id in todos array
+  this.id = nextId++;
   this.text = text;
   this.complete = false;
 };
@@ -37,12 +36,13 @@ function setUp() {
 };
 
 function displayToDoList(todosList){
+  const divToDo = document.getElementsByClassName("todo")[0];
   for (i=0; i < todosList.length; i++){
     var cln = divToDo.cloneNode(true);
     cln.getElementsByClassName("todo-text")[0].innerHTML = todosList[i].text;
     document.getElementById("main-todo-list").appendChild(cln);
   }
-  document.getElementById("main-todo-list").removeChild(divToDo);
+  document.getElementById("main-todo-list").removeChild(divToDo); //can i move this up to remvoe all previous div before adding new ones?
 };
 
 function addNewToDoItemToDisplay(newTodoItem){
@@ -98,7 +98,7 @@ function markTaskCompleteClickDiv(){
     const divToDo = document.getElementsByClassName("todo")[i];
     const taskObj = todos[i];
     inputElem = divToDo.getElementsByClassName("todo-checkbox")[0];
-    divToDo.addEventListener("click", clickedDivToModifyStyling.bind(null,inputElem, taskObj), false);
+    divToDo.addEventListener("click", clickedDivToModifyStyling.bind(null,inputElem, taskObj));
   }
 };
 
@@ -140,19 +140,21 @@ function hideOrShowCompletedTasks(){
     console.log("Need to hide tasks");
     let completedTasksbyIDList = []
     let elemMainTodoList = document.getElementById("main-todo-list");
-
+    // //this for loop finds the completed tasks and add them to the completedTasksbyIDList
     for (i=0; i < todos.length; i++){
       if (todos[i].complete == true){
         console.log("The tasks.id is: ", todos[i].id);
-        taskId = todos[i].id;
-        completedTasksbyIDList.push(taskId);
-        //console.log(elemMainTodoList.getElementsByClassName("todo")[i]);
+        // let taskId = todos[i].id;
+        // completedTasksbyIDList.push(taskId);
+        let currentTask = elemMainTodoList.getElementsByClassName("todo")[i];
+        console.log(currentTask);
+        currentTask.style.display = "none";
       }
     }
-    console.log("The completedTasksbyIDList is: ", completedTasksbyIDList);
-    //hide items on completedTasksList
     button.value = "Show completed items";
   }
+
+    //hide items on completedTasksList
   else if (buttonVal == "Show completed items"){
     console.log("Need to show hidden tasks");
     //add back the tasks that are on the completedTasksbyIDList
@@ -176,6 +178,8 @@ function addButtonToDoc(){
   buttonDiv.appendChild(button);
   button.addEventListener("click", hideOrShowCompletedTasks.bind());
 }
+
+//TODO There is a bug that when the user adds two new tasks the 5(id) task loses the clickonDiv feature
 
 createNewToDoListItem()
 displayToDoList(todos)
