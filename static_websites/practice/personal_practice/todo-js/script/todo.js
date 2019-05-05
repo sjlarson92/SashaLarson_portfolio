@@ -144,7 +144,9 @@ function createNewToDoListItem(){
       let userInput = inputTextElem.value;
       let newTodoItem = new Todo(userInput);
       todos.push(newTodoItem);
+      //this push is not updating todos array correctly
       inputTextElem.value = "";
+      console.log("This is the new todo array: ", todos)
       console.log("This is the new todoItem: ", newTodoItem);
       addNewToDoItemToDisplay(newTodoItem)
       addClickDivtoNewTask()
@@ -158,6 +160,7 @@ function hideOrShowCompletedTasks(){
   button = document.getElementById("hideButton");
   buttonVal = button.value;
   let elemMainTodoList = document.getElementById("main-todo-list");
+  console.log("The todos list is: ", todos);
 
   if (buttonVal == "Hide completed items"){
     console.log("Need to hide tasks");
@@ -203,9 +206,10 @@ function addButtonToDoc(){
   buttonDiv.appendChild(button);
   button.addEventListener("click", hideOrShowCompletedTasks.bind());
 }
-
-//TODO There is a bug that when the user adds two new tasks the 5(id) task loses the clickonDiv feature
+//TODO BUG Cannot use hidecompleteditems feature after adding new tasks
 //TODO there is a bug that if hide completed items has been clicked then any new task added will not appear
+//BUG todos list is not updating properly after adding new item
+
 createNewToDoListItem()
 displayToDoList(todos)
 setUp()
@@ -213,3 +217,4 @@ markTaskCompleteClickDiv()
 clickCheckBox()
 counter()
 addButtonToDoc()
+console.log("original todo list: ", todos);
