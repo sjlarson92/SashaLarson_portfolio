@@ -89,7 +89,7 @@ So long as there was an active player I would get the player name, the current c
 
 ```python
 
-<!-- Continuation of previous code above -->
+# Continuation of previous code above
 else:
       playerName = playerList[0]
       print('>>> playerName in gameEngine is: ', playerList[0])
@@ -101,5 +101,64 @@ else:
 
       chNum = mp.getChapterNumber(playerName)
       print('chNum is: ', chNum)
+
+```
+
+<!-- Code explanation -->
+I also checked the players status to see if their previous choice had led them to being killed off and if so to remove them from the playerList. This would then display their final chapter and text letting the player know that they'd lost.
+
+<!-- Code snippet -->
+
+```python
+
+#this calls a function to check if player will die and updates their status if they do
+    playerStatus = mp.didPlayerDie(ch)
+    print('playerStatus is: ', playerStatus)
+
+    if playerStatus:
+        mp.killPlayer(playerName)
+        #this updates players status in db
+        print('this is the current playerList: ', playerList)
+
+        playerList.remove(playerName)
+
+        print('playerList after removing player is: ', playerList)
+
+        session['pl'] = playerList
+
+        updatedPlayerList = session.get('pl')
+        #remove player from playerList
+        print('updated session PlayerList is: ', updatedPlayerList)
+
+        return render_template('Game/dchapter.html',chNum = chNum, chText=chText, name=playerName)
+
+```
+<!-- Code explanation -->
+If the player had not died then I would update the playerList by rotating it and then pull the next chapter info based off of the players previous choice and display the chapter with the options.
+
+<!-- Code snippet -->
+
+```python
+
+else:
+        print('player is not dead')
+
+        updatedPlayerList = mp.rotatePlayerList(playerName,playerList)
+
+        session['pl'] = updatedPlayerList
+
+        print('updatedPlayerList is: ', updatedPlayerList)
+
+        question = story.questions[chNum]
+
+        opA = str(chNum)+'A'
+        print("opA is: ", opA)
+
+        optionA = story.options[opA]
+
+        opB = str(chNum)+ 'B'
+        optionB = story.options[opB]
+
+        return render_template('Game/chapter.html',chNum = chNum, chText=chText, name=playerName, question=question, optionA=optionA, optionB=optionB)
 
 ```
