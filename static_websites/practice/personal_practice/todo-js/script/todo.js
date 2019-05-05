@@ -51,6 +51,8 @@ function addNewToDoItemToDisplay(newTodoItem){
   cln.className = "todo";
   cln.getElementsByClassName("todo-checkbox")[0].checked = false;
   cln.getElementsByClassName("todo-text")[0].innerHTML = newTodoItem.text;
+  //set default styling
+  cln.style.display = "";
   document.getElementById("main-todo-list").appendChild(cln);
   counter()
 };
