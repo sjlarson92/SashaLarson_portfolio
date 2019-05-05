@@ -1,4 +1,4 @@
-const todos = [
+let todos = [
   {id: 1, text: "Take out trash and recycling", complete: true},
   {id: 2, text: "Pick up dry cleaning", complete: false},
   {id: 3, text: "Get oil change", complete: false},
@@ -108,10 +108,10 @@ function addClickDivtoNewTask(){
   stopBubbling(this.event);
   let divToDo = document.getElementsByClassName("todo-list")[0].lastElementChild;
   console.log(divToDo);
-  const taskObj = todos.splice(-1)[0];
-  console.log(taskObj);
+  const taskObj = todos[todos.length-1];
+  console.log("This is the taskObj: ", taskObj);
   let inputElem = divToDo.getElementsByClassName("todo-checkbox")[0];
-  console.log(inputElem);
+  console.log("This is the inputElem: ", inputElem);
   divToDo.addEventListener("click", clickedDivToModifyStyling.bind(null, inputElem, taskObj));
 
 }
@@ -127,7 +127,7 @@ function clickCheckBox(){
 
 function addCheckBoxListenertoNewTask(){
   const divToDo = document.getElementsByClassName("todo-list")[0].lastElementChild;
-  const taskObj = todos.splice(-1)[0];
+  const taskObj = todos[todos.length-1];
   let inputElem = divToDo.getElementsByClassName("todo-checkbox")[0];
   inputElem.addEventListener("click", checked.bind(null, inputElem, taskObj));
 }
@@ -146,8 +146,9 @@ function createNewToDoListItem(){
       todos.push(newTodoItem);
       //this push is not updating todos array correctly
       inputTextElem.value = "";
-      console.log("This is the new todo array: ", todos)
       console.log("This is the new todoItem: ", newTodoItem);
+      console.log("This is the new todo array: ", todos)
+
       addNewToDoItemToDisplay(newTodoItem)
       addClickDivtoNewTask()
       addCheckBoxListenertoNewTask()
@@ -206,9 +207,8 @@ function addButtonToDoc(){
   buttonDiv.appendChild(button);
   button.addEventListener("click", hideOrShowCompletedTasks.bind());
 }
-//TODO BUG Cannot use hidecompleteditems feature after adding new tasks
+
 //TODO there is a bug that if hide completed items has been clicked then any new task added will not appear
-//BUG todos list is not updating properly after adding new item
 
 createNewToDoListItem()
 displayToDoList(todos)
