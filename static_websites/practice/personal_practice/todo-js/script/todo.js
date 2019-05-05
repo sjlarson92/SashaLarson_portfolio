@@ -23,8 +23,8 @@ function counter() {
   spanRemainCount.innerHTML = count;
 };
 
-function setUp() {
-  for (i=0; i < todos.length; i++){
+function setDefaultCheckbox() {
+  for (let i = 0; i < todos.length; i++){
     const task = todos[i];
     if (task.complete == true){
       const inputElem = document.getElementsByClassName("todo-checkbox")[i];
@@ -57,7 +57,7 @@ function addNewToDoItemToDisplay(newTodoItem){
   counter()
 };
 
-//this function is needed to stop overlapping div events
+//this function is needed to stop overlapping div eventListeners from cancelling each other
 function stopBubbling(event){
   event.stopPropagation();
   event.cancelBubble = true;
@@ -95,7 +95,7 @@ function clickedDivToModifyStyling(inputElem,task){
 }
 
 //Marks tasks complete when user clicks DIV
-function markTaskCompleteClickDiv(){
+function addClickEventListenerToDiv(){
 
   for (i = 0; i < todos.length; i++){
     //stopBubbling(this.event);
@@ -119,7 +119,7 @@ function addClickDivtoNewTask(){
 }
 
 //Modifys tasks when checkbox is clicked
-function clickCheckBox(){
+function addsClickEventListenerToCheckBox(){
   for (i = 0; i < todos.length; i++){
     const inputElem = document.getElementsByClassName("todo-checkbox")[i];
     const task = todos[i];
@@ -193,7 +193,7 @@ function hideOrShowCompletedTasks(){
   }
 }
 
-function addButtonToDoc(){
+function addShowOrHideButton(){
   //create div for button
   let buttonDiv =
   document.createElement("div");
@@ -210,13 +210,11 @@ function addButtonToDoc(){
   button.addEventListener("click", hideOrShowCompletedTasks.bind());
 }
 
-//TODO there is a bug that if hide completed items has been clicked then any new task added will not appear
-
 createNewToDoListItem()
 displayToDoList(todos)
-setUp()
-markTaskCompleteClickDiv()
-clickCheckBox()
+setDefaultCheckbox()
+addClickEventListenerToDiv()
+addsClickEventListenerToCheckBox()
 counter()
-addButtonToDoc()
+addShowOrHideButton()
 console.log("original todo list: ", todos);
