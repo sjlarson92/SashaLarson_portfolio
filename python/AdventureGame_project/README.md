@@ -18,66 +18,48 @@ This application displays some of my skills with:
 <div align="center">
 
 ### HOME PAGE
-<img src= "/c%23/AdventureGame_project/images/StartGame.png" width= 60% length= 60%>
+<img src= "/python/AdventureGame_project/images/StartGame.png" width= 60% length= 60%>
 
-### ADD NEW CATEGORY
-<img src= "/c%23/CheeseMVCPersistent/images/Add%20Category.png" width= 60% length= 60%>
+### INSTRUCTIONS
+<img src= "/python/AdventureGame_project/images/Instructions.png" width= 60% length= 60%>
 
-### NEW CATEGORY INDEX
-<img src= "/c%23/CheeseMVCPersistent/images/New%20Category.png" width= 60% length= 60%>
+### NUMBER OF PLAYES
+<img src= "/python/AdventureGame_project/images/PlayerNum.png" width= 60% length= 60%>
 
+### PLAYER NAMES
+<img src= "/python/AdventureGame_project/images/PlayerNames.png" width= 60% length= 60%>
+
+### PLAYERS READY
+<img src= "/python/AdventureGame_project/images/PlayerReady.png" width= 60% length= 60%>
+
+### CHAPTERS
+<img src= "/python/AdventureGame_project/images/Ch1P2.png" width= 60% length= 60%>
+
+### PLAYER DIED
+<img src= "/python/AdventureGame_project/images/PlayerDied.png" width= 60% length= 60%>
+
+### GAME OVER
+<img src= "/python/AdventureGame_project/images/GameOver.png" width= 60% length= 60%>
 
 
 </div>
 <!-- Code explanation -->
-To run this application on my Mac I used docker to run the SQL Server and also used dotnet to run the application through my console.
-
-<!-- Code snippet -->
-You can see that in this code snippet that after turning on docker I would start up the SQL Server and then run dotnet and with a successful build this would run the application.
-
-```console
-
-docker start nameOfServer
-
-dotnet run
-
-```
-
+I run this application using Flask and MySQL for the database used for the players.
 
 <!-- Code explanation -->
-The application is setup using MVC methodology and uses models, views and controllers to allow for a better organized application. I set up so that each controller had their own view and view models which allows me to pass information more easily from the back-end to the front-end.
+The application is setup using MVC methodology and uses models, views and templates to allow for a better organized application. I set up so that each view had their own template folder and this allowed me to direct routes to the correct template and pass information easily.
 
 <!-- Code snippet -->
-You can see that in this code snippet which is located in the CategoryController and creates a viewmodel to handle the action of adding a new category. It intakes information from the user and then posts this information using the viewmodel to the database where it is saved.
+You can see that in this code snippet which is locate in the Home view, that for the route to get the name of the Player(s) from the user I am first retrieving the number of players from the previous template and passing this variable in order to request the correct number of player names from the user.
 
-```c#
-public IActionResult Add()
-{
-  AddCategoryViewModel addCategoryViewModel = new AddCategoryViewModel();
+```python
 
-  return View(addCategoryViewModel);
-}
+@home.route('/Intro/PlayerName', methods=['POST'])
+def playername():
+    print(">>> This is the player name input page")
+    playerNum = int(request.form.get('player_num'))
+    print(">>> The number of players is: ", playerNum)
 
-[HttpPost]
-public IActionResult Add(AddCategoryViewModel addCategoryViewModel)
-{
-    if (ModelState.IsValid)
-    {
-        // Add the new category to my existing categories
-        CheeseCategory newCategory = new CheeseCategory
-        {
-            Name = addCategoryViewModel.Name,
-
-        };
-
-        context.Categories.Add(newCategory);
-        context.SaveChanges();
-
-        return Redirect("/Category");
-    }
-
-    return View(addCategoryViewModel);
-}
-
+    return render_template('/Intro/playerName.html', title="Player Names", playerNum=playerNum)
 
 ```
