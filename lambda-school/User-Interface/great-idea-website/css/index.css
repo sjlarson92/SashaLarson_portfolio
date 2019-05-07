@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -24,7 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -52,6 +52,10 @@ table {
     box-sizing: border-box;
 }
 
+html {
+	margin: 40px;
+}
+
 html, body {
     height: 100%;
     font-family: 'Titillium Web', sans-serif;
@@ -64,3 +68,106 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Your code starts here! */
+
+.navigation{
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	padding: 25px;
+}
+
+nav a {
+	padding: 50px;
+	color: gray;
+}
+
+.logo{
+	padding-left: 40px;
+}
+
+header{
+	display: inline-block;
+	vertical-align: top;
+	/*margin: 40px;*/
+  width: 100%;
+  padding: 10px;
+
+}
+
+h1 {
+	font-size: 75px;
+	/*padding: 50px 0;*/
+	text-align: center;
+	display: block;
+	height: 100%;
+}
+
+h1 span {
+	display: block;
+}
+
+.web-title {
+	vertical-align: middle;
+	display: inline-block;
+	line-height: normal;
+}
+
+.header-left {
+	width: 50%;
+	display: inline-block;
+	float: left;
+	height: 325px;
+
+}
+
+.header-right {
+	width: 50%;
+	display: inline-block;
+	float: right;
+	text-align: center;
+}
+
+.button {
+	border: solid;
+	padding: 5px 40px;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 20px;
+	text-align: center;
+	display: block;
+	margin: auto;
+}
+
+.top-content {
+	display: inline-block;
+	column-count: 2;
+	column-gap: normal;
+	column-width: 50%;
+	margin: 40px 0;
+}
+
+.middle-img {
+	width: 100%;
+}
+
+.bottom-content {
+	display: inline-block;
+	column-count: 3;
+	margin: 40px 0;
+}
+
+.address {
+	vertical-align: middle;
+	display: block;
+	line-height: normal;
+	text-align: left;
+}
+
+.contact {
+	vertical-align: middle;
+	display: inline-block;
+	line-height: normal;
+}
+
+footer {
+	text-align: center;
+}
