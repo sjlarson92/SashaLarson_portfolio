@@ -72,13 +72,19 @@ h1, h2, h3, h4, h5 {
 .navigation{
 	display: inline-block;
 	text-align: center;
-	width: 100%;
+	width: 95%;
 	padding: 25px;
-}
+	background-color: gray;
+	position: fixed;
+	top: 0;
 
+}
+body {
+	padding-top: 60px;
+}
 nav a {
 	padding: 50px;
-	color: gray;
+	color: white;
 }
 
 .logo{
