@@ -88,6 +88,11 @@ nav a {
 	color: white;
 }
 
+nav a:hover {
+	background-color: white;
+	color: gray;
+}
+
 .logo{
 	padding-left: 40px;
 }
@@ -155,6 +160,12 @@ h1 span {
 
 .middle-img {
 	width: 100%;
+	height: 30%;
+
+}
+
+#vision-banner {
+	height: 30%;
 }
 
 .bottom-content {
