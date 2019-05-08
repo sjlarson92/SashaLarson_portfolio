@@ -77,6 +77,7 @@ h1, h2, h3, h4, h5 {
 	background-color: gray;
 	position: fixed;
 	top: 0;
+	font-family: 'Raleway', sans-serif;
 
 }
 body {
@@ -149,6 +150,7 @@ h1 span {
 	column-gap: normal;
 	column-width: 50%;
 	margin: 40px 0;
+	font-family: 'Raleway', sans-serif;
 }
 
 .middle-img {
