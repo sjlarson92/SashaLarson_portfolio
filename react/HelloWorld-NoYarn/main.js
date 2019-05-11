@@ -6,6 +6,17 @@ const Greeting = React.createClass({
   }
 });
 
+const Practice = React.createClass({
+  render() {
+    return (
+      <div>
+      <h1>Learning React</h1>
+      <p>I am sleepy!</p>
+      </div>
+    )
+  }
+});
+
 const HowTo = React.createClass({
   render() {
     return (
@@ -39,4 +50,9 @@ React.render(
 React.render(
   <HowTo/>,
   document.getElementById('how-to-div')
+);
+
+React.render(
+  <Practice/>,
+  document.getElementById('practice')
 );
