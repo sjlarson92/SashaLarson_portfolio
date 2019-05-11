@@ -15,3 +15,19 @@ ReactDOM.render(<App/>, document.getElementById('root'));
 // NO
 ReactDOM.render(App(), document.getElementById('root'));
 ```
+
+Component: (Only for React and also because we are using it to return JSX)
+
+```js
+// const FuntionName = parameter => return
+const FunctionName = () => <h1>Return</h1>
+```
+
+Arrow Function: (Javascript)
+
+```js
+// const functionName = parameter => return
+const functionName = () => "Hello"
+
+const addNumbers = (x, y) => x + y 
+```
