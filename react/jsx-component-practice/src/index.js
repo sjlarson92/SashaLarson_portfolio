@@ -30,6 +30,8 @@ let gotList2 = gotCharacters.map((character, index) =>
 //   return(<h2>{gotList[0]}</h2>)
 // }
 
+const onPress = () => <h1>gotCharacters[0].name</h1>;
+
 const App = () =>
 <div>
   <h1>Game of Thrones Deadpool</h1>
@@ -38,7 +40,7 @@ const App = () =>
   <br/>
 
   <h2>How will they die?</h2>
-  <button>Kill</button>
+  <button onClick={onPress}>Kill</button>
 </div>
 
 ReactDOM.render(<App/>, document.getElementById('root'));
