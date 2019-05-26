@@ -29,5 +29,10 @@ Arrow Function: (Javascript)
 // const functionName = parameter => return
 const functionName = () => "Hello"
 
-const addNumbers = (x, y) => x + y 
+const addNumbers = (x, y) => x + y
+```
+
+Create an appp with yarn:
+```js
+yarn create react-app app-name
 ```
