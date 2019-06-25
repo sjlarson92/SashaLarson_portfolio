@@ -2,7 +2,7 @@ import React from 'react';
 
 const Travel = (props) => {
   return (
-    <li>{props.name}</li>
+    <li id="favorite">{props.name}</li>
   )
 }
 
