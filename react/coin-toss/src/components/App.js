@@ -1,8 +1,14 @@
 import React from 'react';
-import headImage from './heads.jpg'
-import tailsImage from './tails.jpeg'
+import Image from './Image.js'
 
 const App = () => {
+
+const result = null;
+  const handleClick = () => {
+    const result = <p>Something was clicked</p>
+
+    return result;
+  }
 
   return (
     <div>
@@ -10,13 +16,15 @@ const App = () => {
 
       <p>Click one </p>
 
-      <div id="heads-div" className="image">
-        <img src={headImage} alt="heads"/>
+      <div id="coinImages">
+        <Image name="heads"/>
+        <Image name="tails"/>
       </div>
 
-      <div id="tails-div" className="image">
-        <img src={tailsImage} alt="tails"/>
+      <div>
+        {result}
       </div>
+
     </div>
   )
 }

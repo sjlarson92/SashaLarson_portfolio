@@ -1,7 +1,12 @@
 h1{
-  color: red;
+  color: purple;
 }
 
 .image{
+  width: 200px;
+}
 
+#coinImages {
+  display: flex;
+  align-content: center;
 }

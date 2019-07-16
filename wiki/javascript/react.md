@@ -46,3 +46,10 @@ import image from './imageName.jpg'
 
 <img src={image}/>
 ```
+
+Classes and Ids
+-use the keyterms of className and id to add classes and ids to components
+```js
+
+<div className="class" id="id">
+```
