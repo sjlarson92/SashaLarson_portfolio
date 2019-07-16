@@ -11,11 +11,11 @@ const App = () => {
       <p>Click one </p>
 
       <div id="heads-div" className="image">
-        <img src={headImage}/>
+        <img src={headImage} alt="heads"/>
       </div>
 
       <div id="tails-div" className="image">
-        <img src={tailsImage}/>
+        <img src={tailsImage} alt="tails"/>
       </div>
     </div>
   )
