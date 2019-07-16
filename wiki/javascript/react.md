@@ -32,7 +32,7 @@ const functionName = () => "Hello"
 const addNumbers = (x, y) => x + y
 ```
 
-Create an appp with yarn:
+Create an app with yarn:
 ```js
 yarn create react-app app-name
 ```

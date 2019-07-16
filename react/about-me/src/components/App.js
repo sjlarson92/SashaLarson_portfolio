@@ -17,24 +17,37 @@ const renderFaveMovie = (faveMovie) => {
 }
 
 const App = () => {
-  const faveMovie = 'John Wick';
+  const faveMovie = 'Avengers';
+  const color = 'blue';
+  const name = 'Sasha';
+  const busy = true;
+  const isUserBusy = (isBusy) => {
+    if(isBusy){
+      return <p>I&#39;m Busy</p>;
+    } else {
+      return null;
+    }
+  }
   return (
   <div>
     <h1>About Me</h1>
-
+    <div>{isUserBusy(busy)}</div>
     <h2 className="header">Favorite Movies:</h2>
     <Movie title="Avengers"/>
     <Movie title="John Wick"/>
     <Movie title="Lego Movie"/>
 
-    <div>
-      {renderFaveMovie(faveMovie)}
-    </div>
-
     <h2 className="header">Travel Wish List:</h2>
     <Travel name="Italy"/>
     <Travel name="Japan"/>
     <Travel name="Greece"/>
+
+    <p>My Favorite Color is: {color === 'blue' && color}</p>
+    <p>My Name is: { name ? name : "A Mystery"}</p>
+
+    <div>
+      {renderFaveMovie(faveMovie)}
+    </div>
 
   </div>
   )
