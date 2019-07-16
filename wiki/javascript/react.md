@@ -36,3 +36,13 @@ Create an app with yarn:
 ```js
 yarn create react-app app-name
 ```
+
+Add Image with React:
+
+- You need to first import the Image and then use the var you imported to use it as a source for the image component
+
+```js
+import image from './imageName.jpg'
+
+<img src={image}/>
+```
