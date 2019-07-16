@@ -2,6 +2,9 @@ import React from 'react';
 import heads from './heads.jpg'
 import tails from './tails.jpeg'
 
+const imageClick = () => {
+  console.log("image clicked!");
+}
 const Image = (props) => {
   if (props.name === "heads"){
     return (
@@ -13,7 +16,7 @@ const Image = (props) => {
   else {
     return (
       <div>
-        <img className="image" src={tails} alt="tails"/>
+        <img onClick={imageClick} className="image" src={tails} alt="tails"/>
       </div>
     )
   }
