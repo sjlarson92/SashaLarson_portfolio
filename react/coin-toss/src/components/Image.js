@@ -16,7 +16,12 @@ class Image extends React.Component {
   imageClick = () => {
     console.log("image clicked!");
     console.log("name is ", this.state.name);
-    coinToss()
+    const userChoice = this.state.userChoice;
+    this.setState({
+      coinTossResult: coinToss(userChoice)
+    }, () => console.log("this is the coinTossResult", this.state.coinTossResult));
+
+    console.log("coinTossResult is: ", this.state.coinTossResult);
   }
   render(){
     if (this.state.name === "heads"){
