@@ -3,6 +3,7 @@ import Image from './Image.js'
 
 const App = () => {
 
+
   return (
     <div>
       <h1>Heads or tails?</h1>

@@ -4,23 +4,28 @@ import tails from './tails.jpeg'
 
 const imageClick = () => {
   console.log("image clicked!");
-}
-const Image = (props) => {
-  if (props.name === "heads"){
-    return (
-    <div>
-      <img className="image" src={heads} alt="heads"/>
-    </div>
-    )
-  }
-  else {
-    return (
-      <div>
-        <img onClick={imageClick} className="image" src={tails} alt="tails"/>
-      </div>
-    )
-  }
+
 }
 
+class Image extends React.Component {
+  render(){
+    if (this.props.name === "heads"){
+      return (
+      <div>
+        <div>
+          <img onClick={imageClick} className="image" src={heads} alt="heads"/>
+        </div>
+      </div>
+      )
+    }
+    else {
+      return (
+        <div>
+          <img onClick={imageClick} className="image" src={tails} alt="tails"/>
+        </div>
+      )
+    }
+  }
+}
 
 export default Image;
