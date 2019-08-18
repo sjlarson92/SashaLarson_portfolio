@@ -2,18 +2,24 @@ import React from 'react';
 import heads from './heads.jpg'
 import tails from './tails.jpeg'
 
-const imageClick = () => {
-  console.log("image clicked!");
-
-}
-
 class Image extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {name: props.name};
+  }
+
+  imageClick = () => {
+    console.log("image clicked!");
+
+  }
+
   render(){
-    if (this.props.name === "heads"){
+
+    if (this.state.name === "heads"){
       return (
       <div>
         <div>
-          <img onClick={imageClick} className="image" src={heads} alt="heads"/>
+          <img onClick={this.imageClick} className="image" src={heads} alt="heads"/>
         </div>
       </div>
       )
@@ -21,7 +27,7 @@ class Image extends React.Component {
     else {
       return (
         <div>
-          <img onClick={imageClick} className="image" src={tails} alt="tails"/>
+          <img onClick={this.imageClick} className="image" src={tails} alt="tails"/>
         </div>
       )
     }
