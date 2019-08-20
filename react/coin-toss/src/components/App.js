@@ -7,8 +7,7 @@ const App = () => {
       <h1>Heads or tails?</h1>
       <p>Click one </p>
       <div id="coinImages">
-        <Image name="heads"/>
-        <Image name="tails"/>
+        <Image/>
       </div>
     </div>
   )
