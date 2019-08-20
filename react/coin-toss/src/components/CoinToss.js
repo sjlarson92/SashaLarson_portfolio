@@ -1,11 +1,10 @@
 import React from 'react';
 
-const coinToss = (userChoice) => {
-  console.log("this is the coinToss function");
-  console.log("this is the userChoice: ", userChoice);
-  var coinSides = ["heads", "tails"];
-  console.log("coinsides: ", coinSides[0]);
-  var flipResult = coinSides[0];
+const coinToss = () => {
+  console.log("this is inside the coinToss function");
+  let coinSides = ["heads","tails"];
+  console.log("coinsides parameter passed is: ", coinSides[0]);
+  let flipResult = coinSides[Math.floor(Math.random() * coinSides.length)];
   return flipResult
 
 }
