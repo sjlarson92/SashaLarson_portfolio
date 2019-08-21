@@ -3,14 +3,31 @@ import rock1 from '../images/rock1.jpg'
 import paper1 from '../images/paper1.jpg'
 import scissors1 from '../images/scissors1.jpg'
 
-const Image = () => {
-  return (
-    <div>
-      <img src={rock1} alt="rock"/>
-      <img src={paper1} alt="paper"/>
-      <img src={scissors1} alt="scissors"/>
-    </div>
-  )
+class Image extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      userChoice:""
+    };
+  }
+  imageClickEvent = () => {
+    console.log("user clicked on image");
+  }
+  render(){
+    return (
+      <div>
+        <img onClick={() =>
+        this.imageClickEvent("rock")}
+        src={rock1} alt="rock"/>
+        <img onClick={() =>
+        this.imageClickEvent("paper")}
+        src={paper1} alt="paper"/>
+        <img onClick={() =>
+        this.imageClickEvent("scissors")}
+        src={scissors1} alt="scissors"/>
+      </div>
+      )
+    }
 }
 
 export default Image;
