@@ -10,6 +10,7 @@ class App extends React.Component {
       userChoice: ""
     };
   }
+  
 render(){
   return (
     <div>

@@ -10,8 +10,8 @@ class Image extends React.Component {
       userChoice:""
     };
   }
-  imageClickEvent = () => {
-    console.log("user clicked on image");
+  imageClickEvent = (userChoice) => {
+    console.log("user clicked on: ", userChoice);
   }
   render(){
     return (

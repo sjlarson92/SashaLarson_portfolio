@@ -9,6 +9,9 @@ const App = () => {
       <div id="coinImages">
         <Image/>
       </div>
+      <div>
+        <h1>Add Rock Paper Scissors here!</h1>
+      </div>
     </div>
   )
 }
