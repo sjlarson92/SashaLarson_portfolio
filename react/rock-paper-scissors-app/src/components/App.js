@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Image from './Image.js'
 
 
 class App extends React.Component {
@@ -11,7 +12,12 @@ class App extends React.Component {
   }
 render(){
   return (
-    <div>Hello!</div>
+    <div>
+      <h1>Rock, Paper, Scissors!</h1>
+      <div>
+        <Image />
+      </div>
+    </div>
   )
 }
 
