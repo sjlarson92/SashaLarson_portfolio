@@ -3,23 +3,27 @@ import React from 'react';
 import rock1 from './images/rock1.jpg'
 import paper1 from './images/paper1.jpg'
 import scissors1 from './images/scissors1.jpg'
-import randomizer from '../utils/randomizer.js'
+import handRandomizer from '../utils/handRandomizer.js'
 
 class RockPaperScissorsGame extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       userChoice: "",
-      computerChoice: ""
+      computerChoice: "",
+      gameResult: ""
     };
   }
 
   imageClickEvent = (userChoice) => {
     console.log("userChoice: ", userChoice);
+    const computerChoice = handRandomizer()
+    console.log("computerChoice: ", computerChoice)
     this.setState({
       userChoice,
-      computerChoice: randomizer()
-    }, () => console.log("computerChoice: ", this.state.computerChoice));
+      computerChoice,
+      gameResult: compareChoices(userChoice, computerChoice)
+    });
   }
 
   render(){
