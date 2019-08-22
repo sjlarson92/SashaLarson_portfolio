@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from './Image.js'
+import RockPaperScissorsGame from './RockPaperScissorsGame.js'
 
 const App = () => {
   return (
@@ -9,8 +10,10 @@ const App = () => {
       <div id="coinImages">
         <Image/>
       </div>
+
       <div>
-        <h1>Add Rock Paper Scissors here!</h1>
+        <h1>Rock, Paper, Scissors!</h1>
+        <RockPaperScissorsGame />
       </div>
     </div>
   )
