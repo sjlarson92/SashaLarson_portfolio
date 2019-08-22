@@ -1,8 +1,8 @@
 import React from 'react';
 import heads from './heads.jpg'
 import tails from './tails.jpeg'
-import {coinToss} from './CoinToss.js'
-import checkIfUserWon from './Compare.js'
+import {coinToss} from '../utils/CoinToss.js'
+import checkIfUserWon from '../utils/Compare.js'
 import Text from './Text.js'
 
 class CoinTossGame extends React.Component {
@@ -15,13 +15,13 @@ class CoinTossGame extends React.Component {
     };
   }
 
-  imageClick = async (choice) => {
-    console.log("choice", choice);
-    const randomizerResult = coinToss()
+  imageClick = (userChoice) => {
+    console.log("userChoice", userChoice);
+    const coinTossResult = coinToss()
     this.setState({
-      userChoice: choice,
-      coinTossResult: randomizerResult,
-      userWinLoss: checkIfUserWon(choice, randomizerResult)
+      userChoice,
+      coinTossResult,
+      userWinLoss: checkIfUserWon(userChoice, coinTossResult)
     });
   }
 
@@ -36,7 +36,6 @@ class CoinTossGame extends React.Component {
       </div>
     )
   }
-
 }
 
 export default CoinTossGame;
