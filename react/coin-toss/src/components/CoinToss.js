@@ -1,5 +1,5 @@
 
-const coinToss = () => {
+export const coinToss = () => {
   let coinSides = ["heads","tails"];
   // console.log("coinsides parameter passed is: ", coinSides[0]);
   let flipResult = coinSides[Math.floor(Math.random() * coinSides.length)];
@@ -7,4 +7,11 @@ const coinToss = () => {
 
 }
 
-export default coinToss;
+
+export const coinToss2 = () => {
+  let coinSides = ["heads","tails"];
+  // console.log("coinsides parameter passed is: ", coinSides[0]);
+  let flipResult = coinSides[Math.floor(Math.random() * coinSides.length)];
+  return flipResult
+
+}

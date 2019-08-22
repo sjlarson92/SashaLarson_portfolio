@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from './Image.js'
+import Hhhhh from './CoinTossGame.js'
 import RockPaperScissorsGame from './RockPaperScissorsGame.js'
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
       <h1>Heads or tails?</h1>
       <p>Click one </p>
       <div id="coinImages">
-        <Image/>
+        <Hhhhh/>
       </div>
 
       <div>

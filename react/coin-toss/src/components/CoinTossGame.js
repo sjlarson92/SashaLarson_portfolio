@@ -1,11 +1,11 @@
 import React from 'react';
 import heads from './heads.jpg'
 import tails from './tails.jpeg'
-import coinToss from './CoinToss.js'
+import {coinToss} from './CoinToss.js'
 import checkIfUserWon from './Compare.js'
 import Text from './Text.js'
 
-class Image extends React.Component {
+class CoinTossGame extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,20 +15,16 @@ class Image extends React.Component {
     };
   }
 
-  imageClick = async (userChoice) => {
-    console.log("user clicked on: ", userChoice);
+  imageClick = async (choice) => {
+    console.log("choice", choice);
+    const randomizerResult = coinToss()
     this.setState({
-      userChoice: userChoice
+      userChoice: choice,
+      coinTossResult: randomizerResult,
+      userWinLoss: checkIfUserWon(choice, randomizerResult)
     });
-    await this.setState({
-      coinTossResult: coinToss()
-    });
-    console.log("this is the coinTossResult: ", this.state.coinTossResult);
-    this.setState({
-      userWinLoss: checkIfUserWon(this.state.userChoice, this.state.coinTossResult)
-    }, () => console.log("the user has: ", this.state.userWinLoss));
-
   }
+
   render(){
     return (
       <div>
@@ -43,4 +39,4 @@ class Image extends React.Component {
 
 }
 
-export default Image;
+export default CoinTossGame;
