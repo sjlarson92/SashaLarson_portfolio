@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Text = (props) => {
-  let coinResult = props.coinTossResult;
-  let userWinLoss = props.userWinLoss;
+  const coinResult = props.coinTossResult;
+  const userWinLoss = props.userWinLoss;
   let textDiv;
 
   if (userWinLoss === "won"){
@@ -18,7 +18,7 @@ const Text = (props) => {
     )
   }
   else {
-    return null
+    return null;
   }
 
 }
