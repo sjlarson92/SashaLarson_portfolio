@@ -1,7 +1,7 @@
 import React from 'react';
 import heads from './heads.jpg'
 import tails from './tails.jpeg'
-import {coinToss} from '../utils/CoinToss.js'
+import { coinToss } from '../utils/CoinToss.js'
 import checkIfUserWon from '../utils/Compare.js'
 import Text from './Text.js'
 
@@ -16,7 +16,6 @@ class CoinTossGame extends React.Component {
   }
 
   imageClick = (userChoice) => {
-    console.log("userChoice", userChoice);
     const coinTossResult = coinToss()
     this.setState({
       userChoice,
@@ -26,13 +25,24 @@ class CoinTossGame extends React.Component {
   }
 
   render(){
+    const { coinTossResult, userWinLoss } = this.state;
     return (
       <div>
         <div>
-          <img onClick={() => this.imageClick("heads")} className="image" src={heads} alt="head coin"/>
-          <img onClick={() => this.imageClick("tails")} className= "image" src={tails} alt="tail coin"/>
+          <img
+            onClick={() => this.imageClick("heads")}
+            className="image"
+            src={heads}
+            alt="head coin"/>
+          <img
+            onClick={() => this.imageClick("tails")}
+            className= "image"
+            src={tails}
+            alt="tail coin"/>
         </div>
-        <Text coinTossResult={this.state.coinTossResult} userWinLoss ={this.state.userWinLoss}/>
+        <Text
+          coinTossResult={coinTossResult}
+          userWinLoss ={userWinLoss}/>
       </div>
     )
   }
