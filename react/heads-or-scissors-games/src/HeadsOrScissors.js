@@ -5,13 +5,16 @@ import { images } from './data.js'
 
 class HeadsOrScissors extends React.Component {
   state = {
-    userChoice: ''
+    userChoice: '',
+    endGameMessage: ''
   }
 
   handleImageClick = (userChoice) => {
     this.setState({
       userChoice,
+      endGameMessage: `You chose ${userChoice}`
     })
+
   }
 
   displayImageComponent = () =>
@@ -23,13 +26,13 @@ class HeadsOrScissors extends React.Component {
     />)
 
   render(){
-    const { userChoice } = this.state;
+    const { userChoice, endGameMessage } = this.state;
     return (
       <div>
         <h1>Heads or Tails</h1>
         <h3>Click one</h3>
         {this.displayImageComponent()}
-        <p>{userChoice}</p>
+        <p>{endGameMessage}</p>
       </div>
     );
   }

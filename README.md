@@ -44,8 +44,8 @@ Steps to set up Monorepo for Github
   </p> -->
 
   <p>
-    <a href="mailto:sjlarson92@gmail.com"><img src="/wiki/img/Gmail-icon.png" height="30px" width="30px"><strong> Email Me </strong></a> ·
-    <a href="https://www.linkedin.com/in/sjlarson92/"><img src="/wiki/img/linkedin-icon.png" height="30px" width="30px"><strong> LinkedIn </strong></a> ·
+    <a href="mailto:sjlarson92@gmail.com"><img src="/img/Gmail-icon.png" height="30px" width="30px"><strong> Email Me </strong></a> ·
+    <a href="https://www.linkedin.com/in/sjlarson92/"><img src="/img/linkedin-icon.png" height="30px" width="30px"><strong> LinkedIn </strong></a> ·
   </p>
 
   <p> Thanks for checking out my GitHub monorepository! This is part of my online portfolio. Here you will find information about me, my skills, and projects that I’ve worked on.
