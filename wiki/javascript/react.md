@@ -1,4 +1,4 @@
-to install dependency use yarn: `yarn install dependency-name`
+To install dependency use yarn: `yarn install dependency-name`
 
 do not push dependencies to gitHub, these are installed by using `yarn` or `yarn install` and looking at the yarn.lock file
 
@@ -53,3 +53,9 @@ Classes and Ids
 
 <div className="class" id="id">
 ```
+
+- Helper Functions go in the utils folder
+
+- App is not a component
+
+# String Literals
