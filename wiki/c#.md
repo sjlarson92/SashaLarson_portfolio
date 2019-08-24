@@ -1,4 +1,13 @@
-Downgrade Dotnet
+# C#
+
+# How to Change the Hosting Environment for Mac
+
+```bash
+export ASPNETCORE_ENVIRONMENT="Development"
+# This will change the Hosting Environment to "Development"
+```
+
+## How to Downgrade Dotnet
 
 First go into .csproj file and edit the version for to the old versions you want. Use the Microsoft.Net website to find older versions and test which ones are compatible with your PC. Make sure to use dotnet restore to update packages.
 
@@ -6,11 +15,14 @@ Afterwards go to startup.cs file and remove ILoggerFactory method as this is not
 
 Remove/comment out this code:
 
+```c#
 loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 loggerFactory.AddDebug();
+```
 
 Packet Versions that work with my PC (used for project TechJobs):
 
+```c#
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
@@ -46,3 +58,4 @@ Packet Versions that work with my PC (used for project TechJobs):
   </ItemGroup>
 
 </Project>
+```

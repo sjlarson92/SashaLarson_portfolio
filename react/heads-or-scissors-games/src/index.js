@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './index.css';
-import App from './App';
+import HeadsOrScissors from './HeadsOrScissors';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <HeadsOrScissors />,
+  document.getElementById('root')
+);
