@@ -15,3 +15,5 @@
 
 - Stay DRY (Don't Repeat Yourself)
    - Reuse code when able
+
+- Functions should not return multiple unrelated things (like a bool and a string)
