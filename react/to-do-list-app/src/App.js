@@ -16,10 +16,9 @@ const App = () => {
           <span class="todo-text">Delete me!</span>
         </div>
       </div>
-      <input type="text" placeholder="New todo">
+      <input type="text" placeholder="New todo"/>
       <p><span id="remaining-count">0</span> items remain</p>
     </div>
-    <script src="script/todo.js"></script>
   </body>
     </div>
   )
