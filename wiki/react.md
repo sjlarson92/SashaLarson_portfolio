@@ -58,3 +58,13 @@ import image from './imageName.jpg'
 ```js
 <div className="class" id="id">
 ```
+
+## Deconstructing from state
+
+```js
+const { variableToPull} = this.state;
+```
+
+### Note:
+
+- Any time state or props get changed then those components/part of the DOM get re-rendered.
