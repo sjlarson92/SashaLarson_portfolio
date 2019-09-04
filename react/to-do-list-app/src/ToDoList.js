@@ -4,12 +4,13 @@ import {todos} from './data.js'
 
 class ToDoList extends React.Component {
   state = {
-    className: 'todo',
-    checked: false
+    checked: ''
   }
 
-  updateCheckboxState = async () => {
+  updateCheckboxState = async (taskId) => {
     await this.setState({checked: !this.state.checked});
+    console.log("checked is: ", this.state.checked)
+    console.log("task.id is: ", taskId)
   }
 
   updateClassNameState = () => {
@@ -21,8 +22,14 @@ class ToDoList extends React.Component {
     this.updateClassNameState()
   }
 
+  determineClassName = (taskId, taskComplete) => {
+    console.log("taskComplete is: ", taskComplete)
+    let className = taskComplete ? 'todo complete' : 'todo';
+    return className
+  }
+
   render() {
-    const{className, checked} = this.state;
+    // const{checked} = this.state;
     return (
       <div className="app">
         <h1>Things to do</h1>
@@ -30,19 +37,24 @@ class ToDoList extends React.Component {
         id="main-todo-list"
         className="todo-list"
         >
-          {todos.map(task =>
-            <div key={task.id} className={className}>
-              <input
-              type="checkbox"
-              className="todo-checkbox"
-              onChange={this.handleCheckboxClick}
-              defaultChecked={checked}
-              />
-              <span
-              className='todo-text'>
-              {task.text}
-              </span>
-            </div>
+          {todos.map(task => {
+            let className = this.determineClassName(task.id, task.complete)
+            return (
+              <div key={task.id} className={className}>
+              {task.id}
+                <input
+                type="checkbox"
+                className="todo-checkbox"
+                onChange={() => this.handleCheckboxClick(task.id)}
+                defaultChecked={task.complete}
+                />
+                <span
+                className='todo-text'>
+                {task.text}
+                </span>
+              </div>
+              )
+            }
           )}
         </div>
         <input type="text" placeholder="New todo"/>
