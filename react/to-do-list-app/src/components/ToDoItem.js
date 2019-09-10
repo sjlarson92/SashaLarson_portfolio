@@ -4,30 +4,15 @@ class ToDoItem extends React.Component {
   state = {
   }
 
-  determineClassName = (complete) => {
-    const className = complete ? 'todo complete' : 'todo';
-    console.log("className is: ", className)
+  getClassName = (complete) => {
+    let className; 
+    complete ? className="todo complete" : className="todo";
     return className
   }
 
-  updateCheckboxState = async (checkBoxValue) => {
-    await this.setState({checkBoxValue: !checkBoxValue});
-    console.log("initial checkBoxValue is: ", checkBoxValue)
-    console.log("checkBoxValue is: ", this.state.checkBoxValue)
-  }
-
-  updateClassNameState = () => {
-    const{checked} = this.state;
-    checked ? this.setState({className: 'todo'}) : this.setState({className: 'todo complete'});
-  }
-  handleCheckboxClick = (complete) => {
-    this.updateCheckboxState(complete)
-    this.updateClassNameState()
-  }
-
   render(){
-    const {task} = this.props;
-    const className = this.determineClassName(task.complete)
+    const {todo, handleChange} = this.props;
+    const className = this.getClassName(todo.complete)
     return (
       <div
       className={className}
@@ -35,12 +20,12 @@ class ToDoItem extends React.Component {
         <input
           type="checkbox"
           className="todo-checkbox"
-          defaultChecked={task.complete}
-          onChange={() => this.handleCheckboxClick(task.complete)}
+          defaultChecked={todo.complete}
+          onChange={handleChange}
         />
         <span
           className='todo-text'>
-          {task.text}
+          {todo.text}
         </span>
       </div>
     )

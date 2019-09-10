@@ -4,13 +4,29 @@ import ToDoItem from './components/ToDoItem'
 
 class ToDoApp extends React.Component {
   state = {
-    checked: '',
     todos: [
-      {id: 1, text: "Take out trash and recycling", complete: true},
-      {id: 2, text: "Pick up dry cleaning", complete: false},
+      {id: 1, text: "Take out trash and recycling", complete: false},
+      {id: 2, text: "Pick up dry cleaning", complete: true},
       {id: 3, text: "Get oil change", complete: false},
       {id: 4, text: "Write thank-you notes", complete: false},
     ]
+  }
+
+  handleChange = (e, key) => {
+  const isComplete = e.target.checked;
+  this.setCompletebyId(isComplete, key)
+}
+
+  setCompletebyId = (isComplete, key) => {
+    const { todos } = this.state;
+    todos.map(todo => {
+      if (todo.id === key){
+        console.log("current todo: ", todo.text);
+        console.log("isComplete: ", isComplete);
+
+        //TODO: setstate todo.complete == isComplete
+      }
+    })
   }
 
   render(){
@@ -22,10 +38,11 @@ class ToDoApp extends React.Component {
         id="main-todo-list"
         className="todo-list"
         >
-        {todos.map(task =>
+        {todos.map(todo =>
           <ToDoItem
-            key={task.id}
-            task={task}
+            key={todo.id}
+            todo={todo}
+            handleChange={e => this.handleChange(e, todo.id)}
           />)}
         </div>
         <input type="text" placeholder="New todo"/>
