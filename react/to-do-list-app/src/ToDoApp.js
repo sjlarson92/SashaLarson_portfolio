@@ -30,6 +30,13 @@ class ToDoApp extends React.Component {
     })
   }
 
+  findRemainingCount = () => {
+    const { todos } = this.state;
+    const incompleteItemsList = todos.filter(todo => todo.complete === false);
+    const count = incompleteItemsList.length;
+    return count;
+  }
+
   render(){
     const { todos } = this.state;
     return (
@@ -47,7 +54,7 @@ class ToDoApp extends React.Component {
           />)}
         </div>
         <input type="text" placeholder="New todo"/>
-        <p><span id="remaining-count">{todos.length}</span> items remain</p>
+        <p><span id="remaining-count">{this.findRemainingCount()}</span> items remain</p>
       </div>
     );
   }
