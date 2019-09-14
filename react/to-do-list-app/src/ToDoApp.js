@@ -41,14 +41,31 @@ class ToDoApp extends React.Component {
     if(e.keyCode === 13){
       const value = e.target.value;
       const newTodo = this.createNewTodo(value)
-      //call diff function to update state with new todo obj
+      this.addNewTodotoTodosinState(newTodo)
+      this.refs.inputTextBox.value = '';
+      //clear input box of text
     }
   }
 
   createNewTodo = (value) => {
-    console.log('value is: ', value);
-    //new todo {id:next id num text: value complete: false};
-    // return new todo
+    const { todos } = this.state;
+    const newTodoId = (todos[(todos.length - 1)].id + 1);
+    const newTodo = {
+      id: newTodoId,
+      text: value,
+      complete: false
+    };
+    return newTodo;
+  }
+
+  addNewTodotoTodosinState = (newTodo) => {
+    const { todos } = this.state;
+    todos.push(newTodo);
+    console.log("newTodo is: ", newTodo);
+    console.log("todos is: ", todos);
+    this.setState({
+      todos
+    });
   }
 
   render(){
@@ -67,7 +84,7 @@ class ToDoApp extends React.Component {
             handleChange={e => this.handleChange(e, todo.id)}
           />)}
         </div>
-        <input type="text" onKeyUp={e => this.handleKeyDown(e)} placeholder="New todo"/>
+        <input type="text" ref="inputTextBox" onKeyUp={e => this.handleKeyDown(e)} placeholder="New todo"/>
         <p><span id="remaining-count">{this.findRemainingCount()}</span> items remain</p>
       </div>
     );
