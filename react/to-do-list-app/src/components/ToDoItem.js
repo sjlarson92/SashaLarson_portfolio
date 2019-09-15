@@ -5,7 +5,7 @@ class ToDoItem extends React.Component {
   }
 
   getClassName = (complete) => {
-    let className; 
+    let className;
     complete ? className="todo complete" : className="todo";
     return className
   }
@@ -16,12 +16,12 @@ class ToDoItem extends React.Component {
     return (
       <div
       className={className}
+      onClick={handleChange}
       >
         <input
           type="checkbox"
           className="todo-checkbox"
-          defaultChecked={todo.complete}
-          onChange={handleChange}
+          checked={todo.complete}
         />
         <span
           className='todo-text'>

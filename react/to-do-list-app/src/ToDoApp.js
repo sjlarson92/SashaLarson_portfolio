@@ -13,20 +13,17 @@ class ToDoApp extends React.Component {
   }
 
   handleChange = (e, key) => {
-  const isComplete = e.target.checked;
-  this.setCompletebyId(isComplete, key)
-}
+    this.setCompletebyId(key)
+  }
 
-  setCompletebyId = (isComplete, key) => {
+  setCompletebyId = (key) => {
     const { todos } = this.state;
     const index = key - 1;
-    todos.map(todo => {
-      if (todo.id === key){
-        todos[index].complete = isComplete;
-        this.setState({
-          todos
-        })
-      }
+    const complete = todos[index].complete;
+    console.log("complete is: ", complete)
+    todos[index].complete = !complete;
+    this.setState({
+      todos
     })
   }
 
@@ -43,7 +40,6 @@ class ToDoApp extends React.Component {
       const newTodo = this.createNewTodo(value)
       this.addNewTodotoTodosinState(newTodo)
       this.refs.inputTextBox.value = '';
-      //clear input box of text
     }
   }
 
