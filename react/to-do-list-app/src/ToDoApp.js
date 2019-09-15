@@ -4,6 +4,7 @@ import ToDoItem from './components/ToDoItem'
 
 class ToDoApp extends React.Component {
   state = {
+    isToggleOn: false,
     todos: [
       {id: 1, text: "Take out trash and recycling", complete: true},
       {id: 2, text: "Pick up dry cleaning", complete: false},
@@ -61,19 +62,30 @@ class ToDoApp extends React.Component {
   addNewTodotoTodosinState = (newTodo) => {
     const { todos } = this.state;
     todos.push(newTodo);
-    console.log("newTodo is: ", newTodo);
-    console.log("todos is: ", todos);
     this.setState({
       todos
     });
   }
 
   handleButtonClick = (e) => {
-    console.log("button clicked");
+    this.updateToggleOnState()
+  }
+
+  updateToggleOnState = () => {
+    const { isToggleOn } = this.state;
+    this.setState({
+      isToggleOn: !isToggleOn
+    });
+  }
+
+  getButtonText = () => {
+    const { isToggleOn } = this.state;
+    const buttonText = isToggleOn ? "Show completed items" : "Hide completed items";
+    return buttonText;
   }
 
   render(){
-    const { todos } = this.state;
+    const { isToggleOn, todos } = this.state;
     return (
       <div className="app">
         <h1>Things to do</h1>
@@ -83,6 +95,7 @@ class ToDoApp extends React.Component {
         >
         {todos.map(todo =>
           <ToDoItem
+            isToggleOn={isToggleOn}
             key={todo.id}
             todo={todo}
             handleClick={e => this.handleChange(e, todo.id)}
@@ -90,7 +103,7 @@ class ToDoApp extends React.Component {
         </div>
         <input type="text" ref="inputTextBox" onKeyUp={e => this.handleKeyDown(e)} placeholder="New todo"/>
         <p><span id="remaining-count">{this.findRemainingCount()}</span> items remain</p>
-        <input type="button" id="button" value="Hide Completed Items" onClick={e => this.handleButtonClick(e)}/>
+        <input type="button" id="button" value={this.getButtonText()} onClick={e => this.handleButtonClick(e)}/>
       </div>
     );
   }

@@ -4,15 +4,20 @@ class ToDoItem extends React.Component {
   state = {
   }
 
-  getClassName = (complete) => {
+  getClassName = (complete, isToggleOn) => {
     let className;
-    complete ? className="todo complete" : className="todo";
+    if (isToggleOn){
+      complete ? className="todo complete hide" : className="todo";
+    }
+    else {
+      complete ? className="todo complete" : className="todo";
+    }
     return className
   }
 
   render(){
-    const {todo, handleClick} = this.props;
-    const className = this.getClassName(todo.complete)
+    const {isToggleOn, todo, handleClick} = this.props;
+    const className = this.getClassName(todo.complete, isToggleOn)
     return (
       <label
       className={className}
