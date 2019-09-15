@@ -12,7 +12,12 @@ class ToDoApp extends React.Component {
     ]
   }
 
+  stopBubbling = (e) => {
+    e.stopPropagation();
+  }
+
   handleChange = (e, key) => {
+    this.stopBubbling(e)
     this.setCompletebyId(key)
   }
 
@@ -20,7 +25,6 @@ class ToDoApp extends React.Component {
     const { todos } = this.state;
     const index = key - 1;
     const complete = todos[index].complete;
-    console.log("complete is: ", complete)
     todos[index].complete = !complete;
     this.setState({
       todos
@@ -64,6 +68,10 @@ class ToDoApp extends React.Component {
     });
   }
 
+  handleButtonClick = (e) => {
+    console.log("button clicked");
+  }
+
   render(){
     const { todos } = this.state;
     return (
@@ -77,11 +85,12 @@ class ToDoApp extends React.Component {
           <ToDoItem
             key={todo.id}
             todo={todo}
-            handleChange={e => this.handleChange(e, todo.id)}
+            handleClick={e => this.handleChange(e, todo.id)}
           />)}
         </div>
         <input type="text" ref="inputTextBox" onKeyUp={e => this.handleKeyDown(e)} placeholder="New todo"/>
         <p><span id="remaining-count">{this.findRemainingCount()}</span> items remain</p>
+        <input type="button" id="button" value="Hide Completed Items" onClick={e => this.handleButtonClick(e)}/>
       </div>
     );
   }

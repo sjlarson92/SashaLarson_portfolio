@@ -11,23 +11,23 @@ class ToDoItem extends React.Component {
   }
 
   render(){
-    const {todo, handleChange} = this.props;
+    const {todo, handleClick} = this.props;
     const className = this.getClassName(todo.complete)
     return (
-      <div
+      <label
       className={className}
-      onClick={handleChange}
       >
         <input
           type="checkbox"
           className="todo-checkbox"
           checked={todo.complete}
+          onChange={handleClick}
         />
         <span
           className='todo-text'>
           {todo.text}
         </span>
-      </div>
+        </label>
     )
   }
 }
