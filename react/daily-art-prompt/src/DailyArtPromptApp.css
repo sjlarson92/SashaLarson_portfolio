@@ -1,0 +1,23 @@
+.app {
+  margin: 50px;
+  text-align: center;
+}
+.header {
+
+}
+
+.website-title {
+  padding: 10px;
+}
+
+.prompt {
+  padding: 10px;
+}
+
+.date {
+  padding: inherit;
+}
+
+.prompt .text {
+  border-style: solid;
+}

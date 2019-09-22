@@ -51,4 +51,4 @@ export const rockPaperScissorsImages = [
     name: rockPaperScissorsTypes.SCISSORS,
     style: styles.image
   }
-]
+];
