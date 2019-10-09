@@ -2,6 +2,7 @@
   margin: 50px;
   text-align: center;
 }
+
 .header {
 
 }
@@ -12,6 +13,10 @@
 
 .prompt {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .date {
@@ -20,4 +25,12 @@
 
 .prompt .text {
   border-style: solid;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
 }

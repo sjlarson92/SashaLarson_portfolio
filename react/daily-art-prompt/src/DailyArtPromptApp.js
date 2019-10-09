@@ -17,9 +17,9 @@ class DailyArtPromptApp extends React.Component {
             Daily Art Prompt
           </div>
         </div>
-        <div>
+        <div className="row">
           <div>
-            Back button
+            <button>Previous</button>
           </div>
           <div className="prompt">
             <div className="date">
@@ -33,7 +33,7 @@ class DailyArtPromptApp extends React.Component {
             </div>
           </div>
           <div>
-            Forward button
+            <button>Next</button>
           </div>
         </div>
       </div>
