@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './DailyArtPromptApp.css';
+import beachPuppy from './images/beach-puppy.jpg';
 
 class DailyArtPromptApp extends React.Component {
   state = {
@@ -14,7 +15,7 @@ class DailyArtPromptApp extends React.Component {
       <div className="app">
         <div className="header">
           <div className="website-title">
-            Daily Art Prompt
+            <h1>Daily Art Prompt</h1>
           </div>
         </div>
         <div className="row">
@@ -34,6 +35,15 @@ class DailyArtPromptApp extends React.Component {
           </div>
           <div>
             <button>Next</button>
+          </div>
+        </div>
+        <hr></hr>
+        <div>
+          <h1>Art Gallery</h1>
+        </div>
+        <div className="image-gallery">
+          <div>
+            <img src={beachPuppy}/>
           </div>
         </div>
       </div>
