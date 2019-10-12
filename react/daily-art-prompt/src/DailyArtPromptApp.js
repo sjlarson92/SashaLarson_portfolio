@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {promptsArray} from './data.js'
 import './DailyArtPromptApp.css';
 import beachPuppy from './images/beach-puppy.jpg';
 import beagle from './images/beagle.jpg';
@@ -7,8 +8,8 @@ import puppyInCup from './images/puppy-in-cup.jpeg';
 
 class DailyArtPromptApp extends React.Component {
   state = {
-    date: "October 31, 2019",
-    prompt: {id: 1, date: "October 31", text: "Puppy"}
+    promptsArray,
+    currentPrompt: {id: 1, date: "October 31", text: "Puppy"}
 
   }
 
@@ -17,7 +18,8 @@ class DailyArtPromptApp extends React.Component {
   }
 
   handleButtonClick = (num) => {
-
+    const {promptsArray, currentPrompt} = this.state;
+    console.log("promptsArray is: ", promptsArray)
     if (num === -1){
       console.log("Previous button was clicked");
     }
@@ -40,13 +42,13 @@ class DailyArtPromptApp extends React.Component {
           </div>
           <div className="prompt">
             <div className="padding">
-              {this.state.date}
+              {this.state.currentPrompt.date}
             </div>
             <div className="padding">
-              Prompt #{this.state.prompt.id}
+              Prompt #{this.state.currentPrompt.id}
             </div>
             <div className="text padding">
-              {this.state.prompt.text}
+              {this.state.currentPrompt.text}
             </div>
           </div>
           <div>
