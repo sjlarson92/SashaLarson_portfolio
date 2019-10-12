@@ -7,8 +7,8 @@ import puppyInCup from './images/puppy-in-cup.jpeg';
 
 class DailyArtPromptApp extends React.Component {
   state = {
-    date: "2019-10-31",
-    prompt: {id: 1, date: "October 31", text: "A cute pumpkin"}
+    date: "October 31, 2019",
+    prompt: {id: 1, date: "October 31", text: "Puppy"}
 
   }
 
