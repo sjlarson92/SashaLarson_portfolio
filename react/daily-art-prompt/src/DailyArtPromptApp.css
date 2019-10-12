@@ -12,14 +12,14 @@
 }
 
 .prompt {
-  padding: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.date {
+.prompt .padding {
   padding: inherit;
 }
 
@@ -27,10 +27,35 @@
   border-style: solid;
 }
 
-.row {
+.prompt-row {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 
+}
+
+img {
+  height: 250px;
+}
+
+.column {
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column img {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.column img:hover {
+  opacity: 1;
 }

@@ -2,6 +2,8 @@ import React from 'react';
 
 import './DailyArtPromptApp.css';
 import beachPuppy from './images/beach-puppy.jpg';
+import beagle from './images/beagle.jpg';
+import puppyInCup from './images/puppy-in-cup.jpeg';
 
 class DailyArtPromptApp extends React.Component {
   state = {
@@ -18,18 +20,18 @@ class DailyArtPromptApp extends React.Component {
             <h1>Daily Art Prompt</h1>
           </div>
         </div>
-        <div className="row">
+        <div className="prompt-row">
           <div>
             <button>Previous</button>
           </div>
           <div className="prompt">
-            <div className="date">
+            <div className="padding">
               {this.state.date}
             </div>
-            <div className="number">
+            <div className="padding">
               {this.state.prompt.id}
             </div>
-            <div className="text">
+            <div className="text padding">
               {this.state.prompt.text}
             </div>
           </div>
@@ -41,9 +43,15 @@ class DailyArtPromptApp extends React.Component {
         <div>
           <h1>Art Gallery</h1>
         </div>
-        <div className="image-gallery">
-          <div>
-            <img src={beachPuppy}/>
+        <div className="row">
+          <div className="column">
+            <img src={beachPuppy} alt="Puppy on the beach"/>
+          </div>
+          <div className="column">
+            <img src={beagle} alt="beagle puppy"/>
+          </div>
+          <div className="column">
+            <img src={puppyInCup} alt="Puppy in a cup"/>
           </div>
         </div>
       </div>
