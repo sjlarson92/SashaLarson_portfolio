@@ -9,7 +9,7 @@ import puppyInCup from './images/puppy-in-cup.jpeg';
 class DailyArtPromptApp extends React.Component {
   state = {
     promptsArray,
-    currentPrompt: {id: 1, date: "October 31", text: "Puppy"}
+    currentPrompt: {id: 1, date: "October 11", text: "Puppy"}
 
   }
 
@@ -17,15 +17,32 @@ class DailyArtPromptApp extends React.Component {
     console.log("Image was clicked");
   }
 
+  findPromptbyId = (promptId) => {
+    const {promptsArray} = this.state;
+    console.log("promptId is: ", promptId);
+    const newCurrentPrompt = promptsArray.find(prompt => prompt.id === promptId)
+    return newCurrentPrompt
+  }
+
   handleButtonClick = (num) => {
-    const {promptsArray, currentPrompt} = this.state;
-    console.log("promptsArray is: ", promptsArray)
+    const {currentPrompt} = this.state;
+    const currentId = currentPrompt.id;
+    let newPromptId;
     if (num === -1){
-      console.log("Previous button was clicked");
+      newPromptId = currentId - 1;
+      if (newPromptId === 0){
+        return console.log("There are no previous prompts")
+      }
     }
     else {
-      console.log("Next button was clicked");
+      newPromptId = currentId + 1;
+      console.log("newPromptId is: ", newPromptId);
     }
+    const newCurrentPrompt = this.findPromptbyId(newPromptId)
+    console.log("newCurrentPrompt is: ", newCurrentPrompt);
+    this.setState({
+      currentPrompt: newCurrentPrompt,
+    })
   }
 
   render(){
