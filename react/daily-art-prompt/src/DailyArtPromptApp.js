@@ -8,10 +8,13 @@ class DailyArtPromptApp extends React.Component {
   state = {
     promptsArray,
     currentPrompt: {id: 1, date: "October 11", text: "Puppy"},
+    promptsImages
   }
 
-  handleImageDoubleClick = () => {
-    console.log("Image was clicked");
+  handleImageDoubleClick = (imageId) => {
+    const {promptsImages} = this.state;
+    console.log("imageId is: ", imageId)
+    console.log("Image was clicked", promptsImages);
   }
 
   findPromptbyId = (promptId) => {
@@ -49,6 +52,7 @@ class DailyArtPromptApp extends React.Component {
   }
 
   render(){
+    const { promptsImages } = this.state;
     return (
       <div className="app">
         <div className="header">
@@ -80,10 +84,12 @@ class DailyArtPromptApp extends React.Component {
           <h1>Art Gallery</h1>
         </div>
         <div className="row">
-          <ImageLayout
-          imagesArray={promptsImages}
-          onDoubleClick={() => this.handleImageDoubleClick()}
-          />
+          {promptsImages.map(image =>
+            <ImageLayout
+            key={image.id}
+            onDoubleClick={this.handleImageDoubleClick}
+            image={image}
+            />)}
         </div>
       </div>
     )

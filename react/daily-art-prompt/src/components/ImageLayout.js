@@ -2,17 +2,31 @@ import React from 'react';
 
 import Image from './Image.js'
 
-const ImageLayout = (props) =>
-  <div>
-    {props.imagesArray.map(image =>
-      <div key={image.id} className="column">
+class ImageLayout extends React.Component {
+  state = {
+
+  }
+
+  getClassName = (liked) => {
+    const className = liked ? "" : "hidden";
+    return className
+  }
+
+  render(){
+    const { onDoubleClick, image} = this.props;
+    const likedClassName = this.getClassName(image.liked)
+
+    return (
+      <div className="column">
         <Image
         image={image}
-        onDoubleClick={() => props.onDoubleClick()}
+        onDoubleClick={() => onDoubleClick(image.id)}
         />
-        <div className="hidden">Liked</div>
+        <div className={likedClassName}>Liked</div>
       </div>
-      )}
-  </div>
+    )
+  }
+}
+
 
 export default ImageLayout;

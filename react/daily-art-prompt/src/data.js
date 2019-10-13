@@ -13,18 +13,21 @@ export const promptsImages = [
     id: 1,
     promptId: 1,
     src: beachPuppy,
-    name: 'beachPuppy'
+    name: 'beachPuppy',
+    liked: false
   },
   {
     id: 2,
     promptId: 1,
     src: beagle,
-    name: 'beagle'
+    name: 'beagle',
+    liked: true
   },
   {
     id: 3,
     prompt: 1,
     src: puppyInCup,
-    name: 'puppyInCup'
+    name: 'puppyInCup',
+    liked: false
   }
 ]
