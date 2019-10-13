@@ -11,15 +11,23 @@ class DailyArtPromptApp extends React.Component {
     promptsImages
   }
 
+  findImagebyId = (imageId) => {
+    const {promptsImages} = this.state;
+    return promptsImages.find(image => image.id === imageId);
+  }
   handleImageDoubleClick = (imageId) => {
     const {promptsImages} = this.state;
-    console.log("imageId is: ", imageId)
-    console.log("Image was clicked", promptsImages);
+    const index = imageId - 1;
+    const liked = promptsImages[index].liked
+    promptsImages[index].liked = !liked;
+    console.log("updated promptsImages is: ", promptsImages);
+    this.setState({
+      promptsImages
+    })
   }
 
   findPromptbyId = (promptId) => {
     const {promptsArray} = this.state;
-    console.log("promptId is: ", promptId);
     const newCurrentPrompt = promptsArray.find(prompt => prompt.id === promptId)
     return newCurrentPrompt
   }
