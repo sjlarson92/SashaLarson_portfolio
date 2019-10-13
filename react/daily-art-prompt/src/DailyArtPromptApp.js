@@ -1,19 +1,16 @@
 import React from 'react';
 
-import {promptsArray} from './data.js'
+import {promptsArray, promptsImages} from './data.js'
 import './DailyArtPromptApp.css';
-import beachPuppy from './images/beach-puppy.jpg';
-import beagle from './images/beagle.jpg';
-import puppyInCup from './images/puppy-in-cup.jpeg';
+import ImageLayout from './components/ImageLayout.js'
 
 class DailyArtPromptApp extends React.Component {
   state = {
     promptsArray,
-    currentPrompt: {id: 1, date: "October 11", text: "Puppy"}
-
+    currentPrompt: {id: 1, date: "October 11", text: "Puppy"},
   }
 
-  handleImageClick = () => {
+  handleImageDoubleClick = () => {
     console.log("Image was clicked");
   }
 
@@ -32,6 +29,7 @@ class DailyArtPromptApp extends React.Component {
       newPromptId = currentId - 1;
       if (newPromptId === 0){
         return console.log("There are no previous prompts")
+        //TODO: hide previous button if there are no previous prompts
       }
     }
     else {
@@ -39,10 +37,15 @@ class DailyArtPromptApp extends React.Component {
       console.log("newPromptId is: ", newPromptId);
     }
     const newCurrentPrompt = this.findPromptbyId(newPromptId)
-    console.log("newCurrentPrompt is: ", newCurrentPrompt);
-    this.setState({
-      currentPrompt: newCurrentPrompt,
-    })
+    if (newCurrentPrompt === undefined){
+      console.log("no more prompts")
+      //TODO: hide next button when there are no future prompts
+    }
+    else {
+      this.setState({
+        currentPrompt: newCurrentPrompt,
+      })
+    }
   }
 
   render(){
@@ -77,15 +80,10 @@ class DailyArtPromptApp extends React.Component {
           <h1>Art Gallery</h1>
         </div>
         <div className="row">
-          <div className="column">
-            <img src={beachPuppy} alt="Puppy on the beach" onClick={() => this.handleImageClick()}/>
-          </div>
-          <div className="column">
-            <img src={beagle} alt="beagle puppy"/>
-          </div>
-          <div className="column">
-            <img src={puppyInCup} alt="Puppy in a cup"/>
-          </div>
+          <ImageLayout
+          imagesArray={promptsImages}
+          onDoubleClick={() => this.handleImageDoubleClick()}
+          />
         </div>
       </div>
     )
