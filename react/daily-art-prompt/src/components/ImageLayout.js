@@ -23,6 +23,7 @@ class ImageLayout extends React.Component {
         onDoubleClick={() => onDoubleClick(image.id)}
         />
         <div className={likedClassName}>Liked</div>
+        <div className="comment"></div>
       </div>
     )
   }
