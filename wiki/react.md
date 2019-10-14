@@ -16,6 +16,9 @@
 
 NOTE: do not push dependencies to gitHub, these are installed by using `yarn` or `yarn install` and looking at the yarn.lock file
 
+4. Testing with Jest
+`yarn test` but can also use `npm test`
+
 ## Notes
 
 1. HTML File
