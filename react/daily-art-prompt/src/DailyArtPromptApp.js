@@ -3,6 +3,14 @@ import React from 'react';
 import {promptsArray, promptsImages} from './data.js'
 import './DailyArtPromptApp.css';
 import ImageLayout from './components/ImageLayout.js'
+import PromptLayout from './components/PromptLayout.js'
+
+const styles = {
+  header: {
+    color: 'red'
+  }
+}
+
 
 class DailyArtPromptApp extends React.Component {
   state = {
@@ -15,6 +23,7 @@ class DailyArtPromptApp extends React.Component {
     const {promptsImages} = this.state;
     return promptsImages.find(image => image.id === imageId);
   }
+
   handleImageDoubleClick = (imageId) => {
     const {promptsImages} = this.state;
     const index = imageId - 1;
@@ -33,13 +42,15 @@ class DailyArtPromptApp extends React.Component {
   }
 
   handleButtonClick = (num) => {
+    console.log("say something")
     const {currentPrompt} = this.state;
     const currentId = currentPrompt.id;
     let newPromptId;
     if (num === -1){
       newPromptId = currentId - 1;
       if (newPromptId === 0){
-        return console.log("There are no previous prompts")
+        console.log("There are no previous prompts")
+        return;
         //TODO: hide previous button if there are no previous prompts
       }
     }
@@ -60,40 +71,28 @@ class DailyArtPromptApp extends React.Component {
   }
 
   render(){
-    const { promptsImages } = this.state;
+    const { promptsImages, currentPrompt } = this.state;
     return (
-      <div className="app">
+      <div testID="appContainer" className="app">
         <div className="header">
-          <div className="website-title">
-            <h1>Daily Art Prompt</h1>
+          <div className="title">
+            <h1 testID="header" style={styles.header}>Daily Art Prompt</h1>
           </div>
         </div>
-        <div className="prompt-row">
-          <div>
-            <button onClick={() => this.handleButtonClick(-1)}>Previous</button>
-          </div>
-          <div className="prompt">
-            <div className="padding">
-              {this.state.currentPrompt.date}
-            </div>
-            <div className="padding">
-              Prompt #{this.state.currentPrompt.id}
-            </div>
-            <div className="text padding">
-              {this.state.currentPrompt.text}
-            </div>
-          </div>
-          <div>
-            <button onClick={() => this.handleButtonClick()}>Next</button>
-          </div>
-        </div>
+        <PromptLayout
+        currentPrompt={currentPrompt}
+        handleButtonClick={this.handleButtonClick}
+        />
         <hr></hr>
-        <div>
-          <h1>Art Gallery</h1>
-        </div>
+        <h1
+        testID="artGalleryHeader"
+        className="title">
+        Art Gallery
+        </h1>
         <div className="row">
           {promptsImages.map(image =>
             <ImageLayout
+            testID="imagesArray"
             key={image.id}
             onDoubleClick={this.handleImageDoubleClick}
             image={image}

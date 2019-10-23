@@ -1,14 +1,14 @@
 .app {
   margin: 50px;
-  text-align: center;
 }
 
 .header {
 
 }
 
-.website-title {
+.title {
   padding: 10px;
+  text-align: center;
 }
 
 .prompt {
