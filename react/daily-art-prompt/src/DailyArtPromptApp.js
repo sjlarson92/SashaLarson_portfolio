@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {promptsArray, promptsImages} from './data.js'
+import {promptsImages} from './data.js'
 import './DailyArtPromptApp.css';
 import ImageLayout from './components/ImageLayout.js'
 import PromptLayout from './components/PromptLayout.js'
@@ -14,8 +14,6 @@ const styles = {
 
 class DailyArtPromptApp extends React.Component {
   state = {
-    promptsArray,
-    currentPrompt: {id: 1, date: "October 11", text: "Puppy"},
     promptsImages
   }
 
@@ -35,43 +33,8 @@ class DailyArtPromptApp extends React.Component {
     })
   }
 
-  findPromptbyId = (promptId) => {
-    const {promptsArray} = this.state;
-    const newCurrentPrompt = promptsArray.find(prompt => prompt.id === promptId)
-    return newCurrentPrompt
-  }
-
-  handleButtonClick = (num) => {
-    console.log("say something")
-    const {currentPrompt} = this.state;
-    const currentId = currentPrompt.id;
-    let newPromptId;
-    if (num === -1){
-      newPromptId = currentId - 1;
-      if (newPromptId === 0){
-        console.log("There are no previous prompts")
-        return;
-        //TODO: hide previous button if there are no previous prompts
-      }
-    }
-    else {
-      newPromptId = currentId + 1;
-      console.log("newPromptId is: ", newPromptId);
-    }
-    const newCurrentPrompt = this.findPromptbyId(newPromptId)
-    if (newCurrentPrompt === undefined){
-      console.log("no more prompts")
-      //TODO: hide next button when there are no future prompts
-    }
-    else {
-      this.setState({
-        currentPrompt: newCurrentPrompt,
-      })
-    }
-  }
-
   render(){
-    const { promptsImages, currentPrompt } = this.state;
+    const { promptsImages } = this.state;
     return (
       <div testID="appContainer" className="app">
         <div className="header">
@@ -80,8 +43,6 @@ class DailyArtPromptApp extends React.Component {
           </div>
         </div>
         <PromptLayout
-        currentPrompt={currentPrompt}
-        handleButtonClick={this.handleButtonClick}
         />
         <hr></hr>
         <h1

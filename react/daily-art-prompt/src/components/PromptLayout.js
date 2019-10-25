@@ -1,36 +1,64 @@
 import React from 'react';
 
+import {promptsArray} from '../data.js'
 import PromptButton from './PromptButton.js'
+import Prompt from './Prompt.js'
 
 class PromptLayout extends React.Component {
   state = {
+    promptsArray,
+    currentPrompt: {id: 1, date: "October 11", text: "Puppy"}
+  }
 
+  findPromptbyId = (promptId) => {
+    const {promptsArray} = this.state;
+    const newCurrentPrompt = promptsArray.find(prompt => prompt.id === promptId)
+    return newCurrentPrompt
+  }
+
+  handleButtonClick = (num) => {
+    console.log("say something")
+    const {currentPrompt} = this.state;
+    const currentId = currentPrompt.id;
+    let newPromptId;
+    if (num === -1){
+      newPromptId = currentId - 1;
+      if (newPromptId === 0){
+        console.log("There are no previous prompts")
+        return;
+        //TODO: hide previous button if there are no previous prompts
+      }
+    }
+    else {
+      newPromptId = currentId + 1;
+      console.log("newPromptId is: ", newPromptId);
+    }
+    const newCurrentPrompt = this.findPromptbyId(newPromptId)
+    if (newCurrentPrompt === undefined){
+      console.log("no more prompts")
+      //TODO: hide next button when there are no future prompts
+    }
+    else {
+      this.setState({
+        currentPrompt: newCurrentPrompt,
+      })
+    }
   }
 
   render(){
-    const { currentPrompt, handleButtonClick } = this.props;
+    const { currentPrompt } = this.state;
 
     return (
       <div testID="mainContentContainer" className="prompt-row">
         <PromptButton
-          handleButtonClick = {() => handleButtonClick(-1)}
+          handleButtonClick = {() => this.handleButtonClick(-1)}
           text="Previous"
         />
-        <div className="prompt">
-          <div testID="currentPromptDate" className="padding">
-            {currentPrompt.date}
-          </div>
-          <div testID="currentPromptId" className="padding">
-            Prompt #{currentPrompt.id}
-          </div>
-          <div
-            testID="currentPromptText"
-            className="text padding">
-              {currentPrompt.text}
-          </div>
-        </div>
+        <Prompt
+          currentPrompt = {currentPrompt}
+        />
         <PromptButton
-          handleButtonClick = {() => handleButtonClick()}
+          handleButtonClick = {() => this.handleButtonClick()}
           text="Next"
         />
       </div>
