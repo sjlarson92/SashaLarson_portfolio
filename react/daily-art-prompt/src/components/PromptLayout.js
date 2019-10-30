@@ -17,7 +17,6 @@ class PromptLayout extends React.Component {
   }
 
   handleButtonClick = (num) => {
-    console.log("say something")
     const {currentPrompt} = this.state;
     const currentId = currentPrompt.id;
     let newPromptId;
@@ -51,22 +50,21 @@ class PromptLayout extends React.Component {
     return (
       <div testID="mainContentContainer" className="prompt-row">
         <PromptButton
-          handleButtonClick = {() => this.handleButtonClick(-1)}
+          testID="previousButton"
+          onClick={() => this.handleButtonClick(-1)}
           text="Previous"
         />
         <Prompt
-          currentPrompt = {currentPrompt}
+          currentPrompt={currentPrompt}
         />
         <PromptButton
-          handleButtonClick = {() => this.handleButtonClick()}
+          testID="nextButton"
+          onClick={this.handleButtonClick}
           text="Next"
         />
       </div>
       )
     }
-
-
-
 }
 
 

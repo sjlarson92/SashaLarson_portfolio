@@ -11,7 +11,6 @@ const styles = {
   }
 }
 
-
 class DailyArtPromptApp extends React.Component {
   state = {
     promptsImages
@@ -24,12 +23,18 @@ class DailyArtPromptApp extends React.Component {
 
   handleImageDoubleClick = (imageId) => {
     const {promptsImages} = this.state;
-    const index = imageId - 1;
-    const liked = promptsImages[index].liked
-    promptsImages[index].liked = !liked;
-    console.log("updated promptsImages is: ", promptsImages);
+    const updatePromptImages = promptsImages.map(image => {
+      if (image.id === imageId) {
+        return {
+          ...image,
+          liked: !image.liked,
+        }
+      } else {
+        return image;
+      }
+    })
     this.setState({
-      promptsImages
+     promptsImages: updatePromptImages
     })
   }
 
@@ -42,8 +47,7 @@ class DailyArtPromptApp extends React.Component {
             <h1 testID="header" style={styles.header}>Daily Art Prompt</h1>
           </div>
         </div>
-        <PromptLayout
-        />
+        <PromptLayout />
         <hr></hr>
         <h1
         testID="artGalleryHeader"
@@ -53,10 +57,10 @@ class DailyArtPromptApp extends React.Component {
         <div className="row">
           {promptsImages.map(image =>
             <ImageLayout
-            testID="imagesArray"
-            key={image.id}
-            onDoubleClick={this.handleImageDoubleClick}
-            image={image}
+              testID={`image-${image.id}`}
+              key={image.id}
+              onDoubleClick={this.handleImageDoubleClick}
+              image={image}
             />)}
         </div>
       </div>

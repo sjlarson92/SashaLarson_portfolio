@@ -2,7 +2,7 @@ import React from 'react';
 
 const PromptButton = (props) =>
   <button
-  onClick={props.handleButtonClick}>
+  onClick={props.onClick}>
     {props.text}
   </button>
 

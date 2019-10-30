@@ -89,15 +89,11 @@ describe('<DailyArtPromptApp>', () => {
     })
 
     describe('<PromptLayout>', () => {
-      it('has the correct initial currentPrompt prop', () => {
+      it('should exist', () => {
         const wrapper = shallow(<DailyArtPromptApp />);
-        // wrapper.find('PromptLayout').props().currentPrompt
-        expect(wrapper.find('PromptLayout').prop('currentPrompt')).toEqual(wrapper.state('currentPrompt'))
+        expect(wrapper.find('PromptLayout')).toHaveLength(1)
       })
 
-      it('should pass handleButtonClick method to component',() => {
-
-      })
     })
 
     describe('<div> header for Art Gallery', () => {
@@ -109,18 +105,53 @@ describe('<DailyArtPromptApp>', () => {
     })
 
     describe('<ImageLayout>', () => {
-      it ('should render images from data', () => {
+      it ('should renders imageLayout for each image in array', () => {
         const wrapper = shallow(<DailyArtPromptApp />);
-        const result = wrapper.find({testID:'imagesArray'});
-        expect(result).toHaveLength(3)
+        expect(wrapper.find('ImageLayout')).toHaveLength(3)
       })
 
-      it('should pass method for onDoubleClick()',() => {
+      describe('image prop', () => {
+        it('should pass obj to component', () => {
+          const wrapper = shallow(<DailyArtPromptApp />);
+          expect(wrapper.find({testID:'image-1'}).prop('image')).toEqual({
+            id: 1,
+            promptId: 1,
+            src: beachPuppy,
+            name: 'beachPuppy',
+            liked: false
+          })
+        })
 
-      })
+        describe('when image.liked is true', () => {
+          it('should update liked attribute to false when image is doubleClicked', () => {
+            const wrapper = shallow(<DailyArtPromptApp />);
+            wrapper.setState({ promptsImages: [
+                {
+                  id: 1,
+                  liked: true
+                }
+              ]
+            })
+            wrapper.find({testID:'image-1'}).simulate('doubleClick', 1)
+            expect(wrapper.find({testID:'image-1'}).prop('image').liked).toEqual(false)
+          })
+        })
 
-      it('should pass obj to component', () => {
-
+        describe('when image.liked is false', () => {
+          it('should update image.liked to true when image is doubleClicked', () => {
+            const wrapper = shallow(<DailyArtPromptApp />);
+            wrapper.setState({
+              promptsImages: [
+                {
+                  id: 1,
+                  liked: false
+                }
+              ]
+            })
+            wrapper.find({testID:'image-1'}).simulate('doubleClick', 1)
+            expect(wrapper.find({testID:'image-1'}).prop('image').liked).toEqual(true)
+          })
+        })
       })
     })
   })
