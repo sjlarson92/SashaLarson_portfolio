@@ -1,9 +1,8 @@
 import React from 'react';
 
-const PromptButton = (props) =>
-  <button
-  onClick={props.onClick}>
-    {props.text}
+const PromptButton = ({onClick, text}) =>
+  <button onClick={onClick}>
+    {text}
   </button>
 
 export default PromptButton;
