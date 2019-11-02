@@ -50,9 +50,9 @@ class DailyArtPromptApp extends React.Component {
         <PromptLayout />
         <hr></hr>
         <h1
-        testID="artGalleryHeader"
-        className="title">
-        Art Gallery
+          testID="artGalleryHeader"
+          className="title">
+          Art Gallery
         </h1>
         <div className="row">
           {promptsImages.map(image =>

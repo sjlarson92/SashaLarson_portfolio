@@ -2,136 +2,51 @@ import React from 'react';
 import Prompt from './Prompt.js'
 import { shallow } from 'enzyme';
 
+const defaultProps = {
+  prompt: {
+    date: "November 2",
+    id: 1,
+    text: "Hi"
+  },
+  onClick: jest.fn(),
+  somethingElse: 2,
+  antherTHing: 'a'
+}
+
 describe('<Prompt>', () => {
-  describe('<div> for currentPromptDate', () => {
-    it('renders correct initial text', () => {
-      const wrapper = shallow(<DailyArtPromptApp />);
-      const currentPromptDate = wrapper.find({testID:'currentPromptDate'}).text();
-      expect(currentPromptDate).toEqual('October 11')
-    })
-
-    describe('when there are no previous prompts', () => {
-      it('does not change the text onClick of previous button', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        wrapper.find({testID:'previousButton'}).simulate('click');
-        expect(wrapper.find({testID:'currentPromptDate'}).text()).toEqual('October 11')
-      })
-    })
-
-    describe('when there is a previous prompt', () => {
-      it('renders correct text onclick of previous button',() => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        wrapper.setState({currentPrompt: {id: 3 }})
-        wrapper.find({testID:'previousButton'}).simulate('click');
-        expect(wrapper.find({testID:'currentPromptDate'}).text()).toEqual('October 12')
-      })
-    })
-
-    describe('when there is no next prompt', () => {
-      it('does not change the text onClick for next button', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        wrapper.setState({currentPrompt: {id: 3, date: "October 13", text: "Birds"} })
-        const testDate = wrapper.state('currentPrompt').date;
-        wrapper.find({testID:'nextButton'}).simulate('click');
-        expect(wrapper.state('currentPrompt').date).toEqual(testDate)
-      })
-    })
-
-    describe('when there is a next prompt', () => {
-      it('renders the correct text onClick for next button', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        const testDate = wrapper.state('currentPrompt').date;
-        wrapper.find({testID:'nextButton'}).simulate('click');
-        expect(wrapper.state('currentPrompt').date).not.toEqual(testDate)
-      })
-    })
+  // const wrapper = shallow(<Prompt {...defaultProps}/>)
+  let wrapper
+  beforeEach(() => {
+    wrapper = shallow(<Prompt {...defaultProps}/>)
   })
 
-  describe('<div> for currentPromptId', () => {
-    it('renders the correct intial text', () => {
-      const wrapper = shallow(<DailyArtPromptApp />);
-      const currentPromptId = wrapper.find({testID:'currentPromptId'}).text();
-      expect(currentPromptId).toEqual('Prompt #1')
-    })
-
-    describe('when there is no previous prompt', () => {
-      it('renders the same text for onClick of previous button', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        const currentPromptId = wrapper.state('currentPrompt').id;
-        wrapper.find({testID:'previousButton'}).simulate('click')
-        expect(wrapper.state('currentPrompt').id).toEqual(currentPromptId);
-
-      })
-    })
-
-    describe('when there is a previous prompt', () => {
-      it('render the correct text onClick for previous button', () => {
-        const wrapper = shallow(<DailyArtPromptApp />)
-        wrapper.setState({currentPrompt: {id: 3, date: "October 13", text: "Birds"}})
-        const currentId = wrapper.state('currentPrompt').id;
-        wrapper.find({testID:'previousButton'}).simulate('click')
-        expect(wrapper.state('currentPrompt').id).not.toEqual(currentId)
-      })
-    })
-
-    describe('when there is no next prompt', () => {
-      it('renders correct text onClick for next button', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        wrapper.setState({currentPrompt :{id: 3, date: "October 13", text: "Birds"}});
-        const testPromptid = wrapper.state('currentPrompt').id;
-        wrapper.find({testID:'nextButton'}).simulate('click')
-        expect(wrapper.state('currentPrompt').id).toEqual(testPromptid)
-      })
-    })
-
-    describe('when there is a next prompt', () => {
-      const wrapper = shallow(<DailyArtPromptApp />);
-      const testPromptid = wrapper.state('currentPrompt').id; wrapper.find({testID:'nextButton'}).simulate('click')
-      expect(wrapper.state('currentPrompt').id).not.toEqual(testPromptid)
-    })
+  it('should render correct date from prompt', () => {
+    expect(wrapper.find({testID:'promptDate'}).text()).toEqual(defaultProps.prompt.date)
   })
 
-  describe('<div> for currentPrompt.text', () => {
-    it('renders the correct initial value', () => {
-      const wrapper = shallow(<DailyArtPromptApp />);
-      const currentPromptText = wrapper.find({testID: 'currentPromptText'}).text()
-      expect(currentPromptText).toEqual('Puppy')
-    })
+  // it('should render COOL DATE when prompt does not have a date', () => {
+  //   const newProps = {
+  //     prompt: {
+  //       date: undefined,
+  //       id: 2,
+  //       text: 'something'
+  //     }
+  //   }
+  //   wrapper = shallow(<Prompt {...newProps}/>)
+  //   expect(wrapper.find({testID:'promptDate'}).text()).toEqual('COOL DATE')
+  // })
+  //
+  // // different way to overwrite props
+  // it('should render COOL DATE when prompt does not have a date', () => {
+  //   wrapper = shallow(<Prompt {...defaultProps} prompt={{...defaultProps.prompt, date: undefined}} />)
+  //   expect(wrapper.find({testID:'promptDate'}).text()).toEqual('COOL DATE')
+  // })
 
-    describe('when there are no previous prompts', () => {
-      it('does not change prompt.text onClick of the previous button',() => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        wrapper.find({testID: 'previousButton'}).simulate('click')
-        const currentPromptText = wrapper.find({testID:'currentPromptText'}).text();
-        expect(currentPromptText).toEqual('Puppy');
-      })
-    })
-
-    describe('when there are previous prompts', () => {
-      it('renders the correct (previous) prompt onClick of the previous button', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        wrapper.setState({currentPrompt: {id: 3 }})
-        wrapper.find({testID: 'previousButton'}).simulate('click')
-
-        const currentPromptText = wrapper.find({testID: 'currentPromptText'}).text()
-        expect(currentPromptText).toEqual('Kitten')
-      })
-    })
-
-    describe('when there is a next prompt', () => {
-      const wrapper = shallow(<DailyArtPromptApp />);
-      const currentPromptText = wrapper.find({testID:'currentPromptText'}).text();
-      wrapper.find({testID:'nextButton'}).simulate('click')
-      expect(wrapper.find({testID:'currentPromptText'}).text()).not.toEqual(currentPromptText)
-    })
-
-    describe('when there is no next prompt', () => {
-      const wrapper = shallow(<DailyArtPromptApp />);
-      wrapper.setState({currentPrompt: {id: 3, date: "October 13", text: "Birds"}})
-      const currentText = wrapper.state('currentPrompt').text;
-      wrapper.find({testID: 'nextButton'}).simulate('click')
-      expect(wrapper.state('currentPrompt').text).toEqual(currentText)
-    })
+  it('should render correct id from prompt',() => {
+    expect(wrapper.find({testID:'promptId'}).text()).toEqual(`Prompt #${defaultProps.prompt.id}`)
   })
 
+  it('should render correct text from prompt', () => {
+    expect(wrapper.find({testID:'promptText'}).text()).toEqual(defaultProps.prompt.text)
+  })
 })

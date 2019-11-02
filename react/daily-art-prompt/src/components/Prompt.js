@@ -1,17 +1,17 @@
 import React from 'react';
 
-const Prompt = (props) =>
+const Prompt = ({ prompt }) =>
   <div className="prompt">
-    <div testID="currentPromptDate" className="padding">
-      {props.prompt.date}
+    <div testID="promptDate" className="padding">
+      {prompt.date}
     </div>
-    <div testID="currentPromptId" className="padding">
-      Prompt #{props.prompt.id}
+    <div testID="promptId" className="padding">
+      Prompt #{prompt.id}
     </div>
     <div
-      testID="currentPromptText"
+      testID="promptText"
       className="text padding">
-        {props.prompt.text}
+        {prompt.text}
     </div>
   </div>
 
