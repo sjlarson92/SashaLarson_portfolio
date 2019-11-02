@@ -2,7 +2,7 @@ import beachPuppy from './images/beach-puppy.jpg';
 import beagle from './images/beagle.jpg';
 import puppyInCup from './images/puppy-in-cup.jpeg';
 
-export const promptsArray = [
+export const prompts = [
   {id: 1, date: "October 11", text: "Puppy"},
   {id: 2, date: "October 12", text: "Kitten"},
   {id: 3, date: "October 13", text: "Birds"}

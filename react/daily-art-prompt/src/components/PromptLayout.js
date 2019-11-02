@@ -1,70 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import {promptsArray} from '../data.js'
+import {prompts} from '../data.js'
 import PromptButton from './PromptButton.js'
 import Prompt from './Prompt.js'
 
-class PromptLayout extends React.Component {
-  state = {
-    promptsArray,
-    currentPrompt: {id: 1, date: "October 11", text: "Puppy"}
-  }
+const PromptLayout = (props) => {
+  const [index, setIndex] = useState(0)
 
-  findPromptbyId = (promptId) => {
-    const {promptsArray} = this.state;
-    const newCurrentPrompt = promptsArray.find(prompt => prompt.id === promptId)
-    return newCurrentPrompt
-  }
-
-  handleButtonClick = (num) => {
-    const {currentPrompt} = this.state;
-    const currentId = currentPrompt.id;
-    let newPromptId;
-    if (num === -1){
-      newPromptId = currentId - 1;
-      if (newPromptId === 0){
-        console.log("There are no previous prompts")
-        return;
-        //TODO: hide previous button if there are no previous prompts
-      }
-    }
-    else {
-      newPromptId = currentId + 1;
-      console.log("newPromptId is: ", newPromptId);
-    }
-    const newCurrentPrompt = this.findPromptbyId(newPromptId)
-    if (newCurrentPrompt === undefined){
-      console.log("no more prompts")
-      //TODO: hide next button when there are no future prompts
-    }
-    else {
-      this.setState({
-        currentPrompt: newCurrentPrompt,
-      })
+  const handlePreviousButtonClick = () => {
+    const newIndex = index - 1;
+    if (newIndex >= 0){
+      setIndex(newIndex)
     }
   }
 
-  render(){
-    const { currentPrompt } = this.state;
+  const handleNextButtonClick = () => {
+    const newIndex = index + 1;
+    if(newIndex <= prompts.length - 1){
+      setIndex(newIndex)
+    }
+  }
 
     return (
       <div testID="mainContentContainer" className="prompt-row">
         <PromptButton
           testID="previousButton"
-          onClick={() => this.handleButtonClick(-1)}
+          onClick={handlePreviousButtonClick}
           text="Previous"
         />
         <Prompt
-          currentPrompt={currentPrompt}
+          prompt={prompts[index]}
         />
         <PromptButton
           testID="nextButton"
-          onClick={this.handleButtonClick}
+          onClick={handleNextButtonClick}
           text="Next"
         />
       </div>
       )
-    }
 }
 
 
