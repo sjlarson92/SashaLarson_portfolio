@@ -1,32 +1,24 @@
 import React from 'react';
-
 import Image from './Image.js'
 
-class ImageLayout extends React.Component {
-  state = {
+const ImageLayout = ({onDoubleClick, image}) => {
 
-  }
-
-  getClassName = (liked) => {
+  const getClassName = (liked) => {
     const className = liked ? "" : "hidden";
     return className
   }
 
-  render(){
-    const { onDoubleClick, image} = this.props;
-    const likedClassName = this.getClassName(image.liked)
+  const likedClassName = getClassName(image.liked)
 
-    return (
-      <div className="column">
-        <Image
+  return (
+    <div className="column">
+      <Image
         image={image}
         onDoubleClick={() => onDoubleClick(image.id)}
-        />
-        <div className={likedClassName}>Liked</div>
-        <div className="comment"></div>
-      </div>
-    )
-  }
+      />
+      <div className={likedClassName}>Liked</div>
+    </div>
+  )
 }
 
 
