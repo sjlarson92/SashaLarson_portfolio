@@ -49,3 +49,7 @@ You can use 1# 2# 3# and also numbers followed by a period (1. 2. 3.) to style y
 1. One Dot
 2. Two Dot
 3. Three Dot
+
+## IDE's
+
+- Cmd + Shift + F to search globally in project
