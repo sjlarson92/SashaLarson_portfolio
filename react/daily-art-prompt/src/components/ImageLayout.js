@@ -16,7 +16,9 @@ const ImageLayout = ({onDoubleClick, image}) => {
         image={image}
         onDoubleClick={() => onDoubleClick(image.id)}
       />
-      <div className={likedClassName}>Liked</div>
+      <div testID="likedDiv" className={likedClassName}>
+        Liked
+      </div>
     </div>
   )
 }
