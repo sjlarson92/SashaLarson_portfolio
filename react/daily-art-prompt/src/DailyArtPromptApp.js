@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {promptsImages} from './data.js'
+import { promptsImages } from './data.js'
 import './DailyArtPromptApp.css';
 import ImageLayout from './components/ImageLayout.js'
 import PromptLayout from './components/PromptLayout.js'
@@ -17,12 +17,12 @@ class DailyArtPromptApp extends React.Component {
   }
 
   findImagebyId = (imageId) => {
-    const {promptsImages} = this.state;
+    const { promptsImages } = this.state;
     return promptsImages.find(image => image.id === imageId);
   }
 
   handleImageDoubleClick = (imageId) => {
-    const {promptsImages} = this.state;
+    const { promptsImages } = this.state;
     const updatePromptImages = promptsImages.map(image => {
       if (image.id === imageId) {
         return {
@@ -34,11 +34,11 @@ class DailyArtPromptApp extends React.Component {
       }
     })
     this.setState({
-     promptsImages: updatePromptImages
+      promptsImages: updatePromptImages
     })
   }
 
-  render(){
+  render() {
     const { promptsImages } = this.state;
     return (
       <div testID="appContainer" className="app">
