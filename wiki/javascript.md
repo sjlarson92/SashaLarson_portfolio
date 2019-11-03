@@ -43,3 +43,10 @@ return true
 }
 */
 ```
+
+## String Literals
+
+```js
+testID = {`image-${image.id}`}
+// use single ticks not quotations
+```

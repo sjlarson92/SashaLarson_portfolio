@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Image = (props) =>
+const Image = ({image: {src, name}, onDoubleClick}) =>
   <img
-    src={props.image.src}
-    alt={props.image.name}
-    onDoubleClick={props.onDoubleClick}
+    src={src}
+    alt={name}
+    onDoubleClick={onDoubleClick}
   />
 
 export default Image;
