@@ -16,9 +16,18 @@
 
 NOTE: do not push dependencies to gitHub, these are installed by using `yarn` or `yarn install` and looking at the yarn.lock file
 
-4. Testing with Jest:
+## Testing with Jest:
 
 `yarn test` or `npm test`
+
+## Redux
+
+### Set Up
+To setup Redux, these packages are required: redux, react-redux, and redux-thunk
+
+`yarn add redux` `yarn add react-redux` `yarn add redux-thunk`
+
+
 
 ## Notes
 

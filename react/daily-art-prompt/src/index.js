@@ -1,9 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DailyArtPromptApp from './DailyArtPromptApp';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 
+const rootReducer = combineReducers({
+  sasha: () => 'hello',
+  lucas: () => [1, 2, 3],
+  neo: () => ({
+    job: 'The One',
+    skill: 'badass'
+  })
+})
+
+const store = createStore(rootReducer)
 
 ReactDOM.render(
-  <DailyArtPromptApp />,
+  <Provider store={store}>
+    <DailyArtPromptApp />
+  </Provider>,
   document.getElementById('root')
 );

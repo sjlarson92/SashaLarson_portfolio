@@ -1,15 +1,9 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import { promptsImages } from './data.js'
 import './DailyArtPromptApp.css';
 import ImageLayout from './components/ImageLayout.js'
 import PromptLayout from './components/PromptLayout.js'
-
-const styles = {
-  header: {
-    color: 'red'
-  }
-}
 
 class DailyArtPromptApp extends React.Component {
   state = {
@@ -40,11 +34,16 @@ class DailyArtPromptApp extends React.Component {
 
   render() {
     const { promptsImages } = this.state;
+    const { sashaState, neo } = this.props;
     return (
       <div testID="appContainer" className="app">
         <div className="header">
           <div className="title">
-            <h1 testID="header" style={styles.header}>Daily Art Prompt</h1>
+            <h1 testID="header" style={{ color: 'red' }}>Daily Art Prompt</h1>
+          </div>
+          <div>
+            {`Hello ${sashaState}`}
+            {`I am ${neo.job}`}
           </div>
         </div>
         <PromptLayout />
@@ -68,4 +67,11 @@ class DailyArtPromptApp extends React.Component {
   }
 }
 
-export default DailyArtPromptApp;
+const mapStateToProps = (state) => ({
+  sashaState: state.sasha,
+  neo: state.neo
+})
+
+const ConnnectedDailyArtPrompt = connect(mapStateToProps)(DailyArtPromptApp)
+
+export default ConnnectedDailyArtPrompt;
