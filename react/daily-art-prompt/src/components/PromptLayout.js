@@ -23,9 +23,6 @@ const PromptLayout = (props) => {
 
   return (
     <div testID="mainContentContainer" className="prompt-row">
-      <div>
-        {props.lucas}
-      </div>
       <PromptButton
         testID="previousButton"
         onClick={handlePreviousButtonClick}

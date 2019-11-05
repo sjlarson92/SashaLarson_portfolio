@@ -11,7 +11,7 @@ const Prompt = ({ prompt }) =>
     <div
       testID="promptText"
       className="text padding">
-        {prompt.text}
+      {prompt.text}
     </div>
   </div>
 

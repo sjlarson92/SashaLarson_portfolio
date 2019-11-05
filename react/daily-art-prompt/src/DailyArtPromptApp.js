@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { promptsImages } from './data.js'
 import './DailyArtPromptApp.css';
 import ImageLayout from './components/ImageLayout.js'
 import PromptLayout from './components/PromptLayout.js'
 
 class DailyArtPromptApp extends React.Component {
   state = {
-    promptsImages
+    promptsImages: this.props.promptsImages,
   }
 
   findImagebyId = (imageId) => {
@@ -34,16 +33,11 @@ class DailyArtPromptApp extends React.Component {
 
   render() {
     const { promptsImages } = this.state;
-    const { sashaState, neo } = this.props;
     return (
       <div testID="appContainer" className="app">
         <div className="header">
           <div className="title">
             <h1 testID="header" style={{ color: 'red' }}>Daily Art Prompt</h1>
-          </div>
-          <div>
-            {`Hello ${sashaState}`}
-            {`I am ${neo.job}`}
           </div>
         </div>
         <PromptLayout />
@@ -68,8 +62,7 @@ class DailyArtPromptApp extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  sashaState: state.sasha,
-  neo: state.neo
+  promptsImages: state.promptsImages
 })
 
 const ConnnectedDailyArtPrompt = connect(mapStateToProps)(DailyArtPromptApp)
