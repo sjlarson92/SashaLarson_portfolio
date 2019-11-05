@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { prompts } from '../data.js'
 import PromptButton from './PromptButton.js'
 import Prompt from './Prompt.js'
 
@@ -15,6 +14,7 @@ const PromptLayout = (props) => {
   }
 
   const handleNextButtonClick = () => {
+    const { prompts } = this.props
     const newIndex = index + 1;
     if (newIndex <= prompts.length - 1) {
       setIndex(newIndex)
@@ -29,7 +29,7 @@ const PromptLayout = (props) => {
         text="Previous"
       />
       <Prompt
-        prompt={prompts[index]}
+        prompt={props.prompts[index]}
       />
       <PromptButton
         testID="nextButton"
@@ -41,7 +41,7 @@ const PromptLayout = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  lucas: state.lucas
+  prompts: state.prompts
 })
 
 export default connect(mapStateToProps)(PromptLayout);

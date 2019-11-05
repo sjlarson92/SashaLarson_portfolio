@@ -5,7 +5,7 @@ import './DailyArtPromptApp.css';
 import ImageLayout from './components/ImageLayout.js'
 import PromptLayout from './components/PromptLayout.js'
 
-class DailyArtPromptApp extends React.Component {
+export class DailyArtPromptApp extends React.Component {
   state = {
     promptsImages: this.props.promptsImages,
   }

@@ -1,8 +1,22 @@
 import React from 'react';
-import DailyArtPromptApp from './DailyArtPromptApp.js'
+import { DailyArtPromptApp } from './DailyArtPromptApp.js'
 import beachPuppy from './images/beach-puppy.jpg';
-
 import { shallow } from 'enzyme';
+
+const mockPromptImages = [
+  {
+    id: 1,
+    liked: false
+  },
+  {
+    id: 2,
+    liked: true
+  },
+  {
+    id: 3,
+    liked: false
+  }
+]
 
 describe('<DailyArtPromptApp>', () => {
   //Bad practice of testing, do not do this!
@@ -78,8 +92,8 @@ describe('<DailyArtPromptApp>', () => {
 
     describe('header', () => {
       it('renders with the correct text', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        expect(wrapper.find({ testID: 'header' }).text()).toEqual('Daily Art Prompt')
+        const wrapper = shallow(<DailyArtPromptApp promptsImages={mockPromptImages} />);
+        expect(wrapper.find({ "data-testid": 'header' }).text()).toEqual('Daily Art Prompt')
       })
 
       it('is red', () => {
