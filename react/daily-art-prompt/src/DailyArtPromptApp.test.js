@@ -1,22 +1,23 @@
 import React from 'react';
 import { DailyArtPromptApp } from './DailyArtPromptApp.js'
-import beachPuppy from './images/beach-puppy.jpg';
 import { shallow } from 'enzyme';
 
-const mockPromptImages = [
-  {
-    id: 1,
-    liked: false
-  },
-  {
-    id: 2,
-    liked: true
-  },
-  {
-    id: 3,
-    liked: false
-  }
-]
+const defaultProps = {
+  promptsImages: [
+    {
+      id: 1,
+      liked: false
+    },
+    {
+      id: 2,
+      liked: true
+    },
+    {
+      id: 3,
+      liked: false
+    }
+  ]
+}
 
 describe('<DailyArtPromptApp>', () => {
   //Bad practice of testing, do not do this!
@@ -92,53 +93,50 @@ describe('<DailyArtPromptApp>', () => {
 
     describe('header', () => {
       it('renders with the correct text', () => {
-        const wrapper = shallow(<DailyArtPromptApp promptsImages={mockPromptImages} />);
+        const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
         expect(wrapper.find({ "data-testid": 'header' }).text()).toEqual('Daily Art Prompt')
       })
 
       it('is red', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        expect(wrapper.find({ testID: 'header' }).prop('style')).toEqual({ color: 'red' })
+        const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
+        expect(wrapper.find({ "data-testid": 'header' }).prop('style')).toEqual({ color: 'red' })
       })
     })
 
     describe('<PromptLayout>', () => {
       it('should exist', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        expect(wrapper.find('PromptLayout')).toHaveLength(1)
+        const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
+        expect(wrapper.find({ 'data-testid': 'promptLayout' })).toHaveLength(1)
       })
 
     })
 
     describe('<div> header for Art Gallery', () => {
       it('should render header text', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        const result = wrapper.find({ testID: 'artGalleryHeader' }).text()
+        const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
+        const result = wrapper.find({ "data-testid": 'artGalleryHeader' }).text()
         expect(result).toEqual('Art Gallery')
       })
     })
 
     describe('<ImageLayout>', () => {
       it('should renders imageLayout for each image in array', () => {
-        const wrapper = shallow(<DailyArtPromptApp />);
-        expect(wrapper.find('ImageLayout')).toHaveLength(3)
+        const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
+        expect(wrapper.find('ImageLayout').exists()).toBe(true)
       })
 
       describe('image prop', () => {
         it('should pass obj to component', () => {
-          const wrapper = shallow(<DailyArtPromptApp />);
-          expect(wrapper.find({ testID: 'image-1' }).prop('image')).toEqual({
+          const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
+          expect(wrapper.find({ "data-testid": 'image-1' }).prop('image')).toEqual({
             id: 1,
-            promptId: 1,
-            src: beachPuppy,
-            name: 'beachPuppy',
             liked: false
           })
         })
 
         describe('when image.liked is true', () => {
           it('should update liked attribute to false when image is doubleClicked', () => {
-            const wrapper = shallow(<DailyArtPromptApp />);
+            const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
             wrapper.setState({
               promptsImages: [
                 {
@@ -147,24 +145,16 @@ describe('<DailyArtPromptApp>', () => {
                 }
               ]
             })
-            wrapper.find({ testID: 'image-1' }).simulate('doubleClick', 1)
-            expect(wrapper.find({ testID: 'image-1' }).prop('image').liked).toEqual(false)
+            wrapper.find({ 'data-testid': 'image-1' }).simulate('doubleClick', 1)
+            expect(wrapper.find({ 'data-testid': 'image-1' }).prop('image').liked).toEqual(false)
           })
         })
 
         describe('when image.liked is false', () => {
           it('should update image.liked to true when image is doubleClicked', () => {
-            const wrapper = shallow(<DailyArtPromptApp />);
-            wrapper.setState({
-              promptsImages: [
-                {
-                  id: 1,
-                  liked: false
-                }
-              ]
-            })
-            wrapper.find({ testID: 'image-1' }).simulate('doubleClick', 1)
-            expect(wrapper.find({ testID: 'image-1' }).prop('image').liked).toEqual(true)
+            const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
+            wrapper.find({ 'data-testid': 'image-1' }).simulate('doubleClick', 1)
+            expect(wrapper.find({ 'data-testid': 'image-1' }).prop('image').liked).toEqual(true)
           })
         })
       })

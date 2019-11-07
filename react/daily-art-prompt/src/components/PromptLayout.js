@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PromptButton from './PromptButton.js'
 import Prompt from './Prompt.js'
 
-const PromptLayout = (props) => {
+export const PromptLayout = ({ prompts }) => {
   const [index, setIndex] = useState(0)
 
   const handlePreviousButtonClick = () => {
@@ -14,7 +14,6 @@ const PromptLayout = (props) => {
   }
 
   const handleNextButtonClick = () => {
-    const { prompts } = this.props
     const newIndex = index + 1;
     if (newIndex <= prompts.length - 1) {
       setIndex(newIndex)
@@ -24,15 +23,15 @@ const PromptLayout = (props) => {
   return (
     <div data-testid="mainContentContainer" className="prompt-row">
       <PromptButton
-        testID="previousButton"
+        data-testid="previousButton"
         onClick={handlePreviousButtonClick}
         text="Previous"
       />
       <Prompt
-        prompt={props.prompts[index]}
+        prompt={prompts[index]}
       />
       <PromptButton
-        testID="nextButton"
+        data-testid="nextButton"
         onClick={handleNextButtonClick}
         text="Next"
       />

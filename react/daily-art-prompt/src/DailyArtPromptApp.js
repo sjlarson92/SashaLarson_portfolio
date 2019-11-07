@@ -41,7 +41,7 @@ export class DailyArtPromptApp extends React.Component {
             <h1 data-testid="header" style={{ color: 'red' }}>Daily Art Prompt</h1>
           </div>
         </div>
-        <PromptLayout />
+        <PromptLayout data-testid="promptLayout" />
         <hr></hr>
         <h1
           data-testid="artGalleryHeader"
@@ -51,7 +51,7 @@ export class DailyArtPromptApp extends React.Component {
         <div className="row">
           {promptsImages.map(image =>
             <ImageLayout
-              testID={`image-${image.id}`}
+              data-testid={`image-${image.id}`}
               key={image.id}
               onDoubleClick={this.handleImageDoubleClick}
               image={image}
