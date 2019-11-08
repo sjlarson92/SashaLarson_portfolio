@@ -63,10 +63,10 @@ describe('<PromptLayout>', () => {
 
       describe('when there are no next prompts', () => {
         it('should not change the prompt on nextButton click', () => {
-          const wrapper = shallow(<PromptLayout />);
-          wrapper.find({ testID: 'nextButton' }).simulate('click');
-          wrapper.find({ testID: 'nextButton' }).simulate('click');
-          wrapper.find({ testID: 'nextButton' }).simulate('click');
+          const wrapper = shallow(<PromptLayout {...defaultProps} />);
+          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click');
+          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click');
+          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click');
           expect(wrapper.find('Prompt').prop('prompt')).toEqual(
             {
               id: 3,
@@ -79,8 +79,8 @@ describe('<PromptLayout>', () => {
 
       describe('when there is a next prompt', () => {
         it('should change prompt when nextButton is clicked', () => {
-          const wrapper = shallow(<PromptLayout />);
-          wrapper.find({ testID: 'nextButton' }).simulate('click');
+          const wrapper = shallow(<PromptLayout {...defaultProps} />);
+          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click');
           expect(wrapper.find('Prompt').prop('prompt')).toEqual(
             {
               id: 2,
@@ -94,8 +94,8 @@ describe('<PromptLayout>', () => {
 
     describe('<button> for nextButton', () => {
       it('renders correct text', () => {
-        const wrapper = shallow(<PromptLayout />);
-        expect(wrapper.find({ testID: 'nextButton' }).prop('text')).toEqual('Next');
+        const wrapper = shallow(<PromptLayout {...defaultProps} />);
+        expect(wrapper.find({ 'data-testid': 'nextButton' }).prop('text')).toEqual('Next');
       })
     })
   })
