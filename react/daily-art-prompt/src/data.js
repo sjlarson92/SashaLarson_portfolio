@@ -3,9 +3,9 @@ import beagle from './images/beagle.jpg';
 import puppyInCup from './images/puppy-in-cup.jpeg';
 
 export const prompts = [
-  {id: 1, date: "October 11", text: "Puppy"},
-  {id: 2, date: "October 12", text: "Kitten"},
-  {id: 3, date: "October 13", text: "Birds"}
+  { id: 1, date: "October 11", text: "Puppy" },
+  { id: 2, date: "October 12", text: "Kitten" },
+  { id: 3, date: "October 13", text: "Birds" }
 ];
 
 export const promptsImages = [
@@ -21,10 +21,17 @@ export const promptsImages = [
     promptId: 1,
     src: beagle,
     name: 'beagle',
-    liked: true
+    liked: false
   },
   {
     id: 3,
+    prompt: 1,
+    src: puppyInCup,
+    name: 'puppyInCup',
+    liked: false
+  },
+  {
+    id: 4,
     prompt: 1,
     src: puppyInCup,
     name: 'puppyInCup',
