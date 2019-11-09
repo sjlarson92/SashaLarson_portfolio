@@ -30,11 +30,4 @@ export const promptsImages = [
     name: 'puppyInCup',
     liked: false
   },
-  {
-    id: 4,
-    prompt: 1,
-    src: puppyInCup,
-    name: 'puppyInCup',
-    liked: false
-  }
 ]
