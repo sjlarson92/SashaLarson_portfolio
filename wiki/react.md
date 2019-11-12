@@ -91,15 +91,17 @@ const reducer = (state, action) => {
 }
 ```
 
-
-
-
 ### Set Up
 To setup Redux, these packages are required: redux, react-redux, and redux-thunk
 
 `yarn add redux` `yarn add react-redux` `yarn add redux-thunk`
 
+# Hooks
 
+- Allows developer to use state and lifecycle methods in a functional component.
+
+- Import useState from react 
+`const [stateVar, setStateVar] = useState(initialValue)`
 
 ## Notes
 

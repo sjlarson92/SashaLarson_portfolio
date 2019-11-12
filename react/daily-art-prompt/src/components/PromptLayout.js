@@ -1,30 +1,16 @@
-import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import React from 'react';
 import PromptButton from './PromptButton.js'
 import Prompt from './Prompt.js'
+import { prompts } from '../data.js'
 
-export const PromptLayout = ({ prompts }) => {
-  const [index, setIndex] = useState(0)
 
-  const handlePreviousButtonClick = () => {
-    const newIndex = index - 1;
-    if (newIndex >= 0) {
-      setIndex(newIndex)
-    }
-  }
-
-  const handleNextButtonClick = () => {
-    const newIndex = index + 1;
-    if (newIndex <= prompts.length - 1) {
-      setIndex(newIndex)
-    }
-  }
-
-  return (
+export const PromptLayout = ({ index, handleNextButtonClick, handlePreviousButtonClick }) =>
+  (
     <div data-testid="mainContentContainer" className="prompt-row">
       <PromptButton
         data-testid="previousButton"
-        onClick={handlePreviousButtonClick}
+        onClick={() => handlePreviousButtonClick(index)}
         text="Previous"
       />
       <Prompt
@@ -32,15 +18,27 @@ export const PromptLayout = ({ prompts }) => {
       />
       <PromptButton
         data-testid="nextButton"
-        onClick={handleNextButtonClick}
+        onClick={() => handleNextButtonClick(index)}
         text="Next"
       />
     </div>
   )
-}
 
 const mapStateToProps = (state) => ({
-  prompts: state.prompts
+  index: state.index
 })
 
-export default connect(mapStateToProps)(PromptLayout);
+const mapDispatchToProps = (dispatch) => ({
+  handleNextButtonClick: (index) => dispatch({
+    type: 'HANDLE_NEXT_BUTTON_CLICK', payload: {
+      index
+    }
+  }),
+  handlePreviousButtonClick: (index) => dispatch({
+    type: 'HANDLE_PREVIOUS_BUTTON_CLICK', payload: {
+      index
+    }
+  })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PromptLayout);
