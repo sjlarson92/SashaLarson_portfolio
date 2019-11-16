@@ -1,9 +1,10 @@
 import { promptsImages, prompts } from '../data.js'
 import { createStore, combineReducers } from 'redux';
+import * as TYPES from './actions'
 
-export const promptImagesReducer = (state, action) => {
+export const promptImagesReducer = (state = promptsImages, action) => {
     switch (action.type) {
-        case 'UPDATE_PROMPT_IMAGES':
+        case TYPES.UPDATE_PROMPT_IMAGES:
             const updatedPromptImages = state.map(image => {
                 if (image.id === action.payload.imageId) {
                     return {
@@ -17,13 +18,13 @@ export const promptImagesReducer = (state, action) => {
             return updatedPromptImages
 
         default:
-            return promptsImages
+            return state
     }
 }
 
-export const indexReducer = (state, action) => {
+export const indexReducer = (state = 0, action) => {
     switch (action.type) {
-        case 'HANDLE_NEXT_BUTTON_CLICK':
+        case TYPES.UPDATE_NEXT_INDEX:
             const newIndex = action.payload.index + 1;
             if (newIndex <= prompts.length - 1) {
                 return newIndex
@@ -31,7 +32,7 @@ export const indexReducer = (state, action) => {
             else {
                 return state
             }
-        case 'HANDLE_PREVIOUS_BUTTON_CLICK':
+        case TYPES.UPDATE_PREVIOUS_INDEX:
             const updatedIndex = action.payload.index - 1;
             if (updatedIndex >= 0) {
                 return updatedIndex
@@ -40,7 +41,7 @@ export const indexReducer = (state, action) => {
                 return state
             }
         default:
-            return 0
+            return state
     }
 
 }

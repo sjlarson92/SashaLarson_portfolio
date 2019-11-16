@@ -3,6 +3,7 @@ import React from 'react';
 import PromptButton from './PromptButton.js'
 import Prompt from './Prompt.js'
 import { prompts } from '../data.js'
+import * as TYPES from '../store/actions'
 
 
 export const PromptLayout = ({ index, handleNextButtonClick, handlePreviousButtonClick }) =>
@@ -30,12 +31,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   handleNextButtonClick: (index) => dispatch({
-    type: 'HANDLE_NEXT_BUTTON_CLICK', payload: {
+    type: TYPES.UPDATE_NEXT_INDEX, payload: {
       index
     }
   }),
   handlePreviousButtonClick: (index) => dispatch({
-    type: 'HANDLE_PREVIOUS_BUTTON_CLICK', payload: {
+    type: TYPES.UPDATE_PREVIOUS_INDEX, payload: {
       index
     }
   })

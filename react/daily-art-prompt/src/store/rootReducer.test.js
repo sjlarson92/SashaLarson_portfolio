@@ -1,6 +1,5 @@
-import { promptImagesReducer, promptsReducer, rootReducer } from './rootReducer'
-import { promptsImages, prompts } from '../data'
-import { combineReducers } from '../../../../../../../../Caches/typescript/3.6/node_modules/redux'
+import { promptImagesReducer, indexReducer } from './rootReducer'
+import * as TYPES from './actions'
 
 describe('promptImagesReducer', () => {
     describe('when the action.type equals UPDATE_PROMPT_IMAGES', () => {
@@ -13,7 +12,7 @@ describe('promptImagesReducer', () => {
                     }
                 ]
                 const action = {
-                    type: 'UPDATE_PROMPT_IMAGES',
+                    type: TYPES.UPDATE_PROMPT_IMAGES,
                     payload: {
                         imageId: 1
                     }
@@ -33,7 +32,7 @@ describe('promptImagesReducer', () => {
                     }
                 ]
                 const action = {
-                    type: 'UPDATE_PROMPT_IMAGES',
+                    type: TYPES.UPDATE_PROMPT_IMAGES,
                     payload: {
                         imageId: 1
                     }
@@ -54,7 +53,7 @@ describe('promptImagesReducer', () => {
                     }
                 ]
                 const action = {
-                    type: 'UPDATE_PROMPT_IMAGES',
+                    type: TYPES.UPDATE_PROMPT_IMAGES,
                     payload: {
                         imageId: 2
                     }
@@ -68,33 +67,100 @@ describe('promptImagesReducer', () => {
 
         describe('when action.type does not equal any of the cases', () => {
             describe('when goes to the default case', () => {
-                it('should return promptsImages unchanged', () => {
+                it('should return the state unchanged', () => {
                     const state = [
                     ]
                     const action = {
                         type: '',
                     }
-                    expect(promptImagesReducer(state, action)).toEqual(promptsImages)
+                    expect(promptImagesReducer(state, action)).toEqual(state)
                 })
             })
         })
     })
 })
 
-describe('promptsReducer', () => {
-    it('should return prompts when given correct params', () => {
-        const state = []
-        const action = {}
-        expect(promptsReducer(state, action)).toEqual(prompts)
+describe('indexReducer', () => {
+    describe('when action.type equals UPDATE_NEXT_INDEX', () => {
+        describe('when there is a next prompt', () => {
+            it('should return newIndex', () => {
+                const state = [
+                    {
+                        index: 0
+                    }
+                ]
+                const action = {
+                    type: TYPES.UPDATE_NEXT_INDEX,
+                    payload: {
+                        index: state[0].index
+                    }
+                }
+                expect(indexReducer(state, action)).toEqual(state[0].index + 1)
+            })
+        })
+
+        describe('when there is no next prompt', () => {
+            it('should return state unchanged', () => {
+                const state = [
+                    {
+                        index: 2
+                    }
+                ]
+                const action = {
+                    type: TYPES.UPDATE_NEXT_INDEX,
+                    payload: {
+                        index: 2
+                    }
+                }
+                expect(indexReducer(state, action)).toEqual(state)
+            })
+        })
+    })
+
+    describe('when action.type equals UPDATE_PREVIOUS_INDEX', () => {
+        describe('when there is a previous prompt', () => {
+            it('should return the previous index', () => {
+                const state = [{
+                    index: 1
+                }]
+                const action = {
+                    type: TYPES.UPDATE_PREVIOUS_INDEX,
+                    payload: {
+                        index: state[0].index
+                    }
+                }
+                expect(indexReducer(state, action)).toEqual(state[0].index - 1)
+
+            })
+        })
+        describe('when there is no previous prompt', () => {
+            it('should return state unchanged', () => {
+                const state = [{
+                    index: 0
+                }]
+                const action = {
+                    type: TYPES.UPDATE_PREVIOUS_INDEX,
+                    payload: {
+                        index: state[0].index
+                    }
+                }
+                expect(indexReducer(state, action)).toEqual(state)
+            })
+        })
+    })
+
+    describe('when action.type defaults', () => {
+        it('should return state', () => {
+            const state = [{
+                index: 1
+            }]
+            const action = {
+                type: '',
+                payload: {
+                    index: state[0].index
+                }
+            }
+            expect(indexReducer(state, action)).toEqual(state)
+        })
     })
 })
-
-// describe('rootReducer', () => {
-//     it('should call combineReducers with the correct params', () => {
-//         const combineReducers = jest.fn()
-//         expect(combineReducers).toHaveBeenCalledWith({
-//             promptsImages,
-//             prompts
-//         })
-//     })
-// })    

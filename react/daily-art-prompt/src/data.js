@@ -21,7 +21,7 @@ export const promptsImages = [
     promptId: 1,
     src: beagle,
     name: 'beagle',
-    liked: false
+    liked: true
   },
   {
     id: 3,
