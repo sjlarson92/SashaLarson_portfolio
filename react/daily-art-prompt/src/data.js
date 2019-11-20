@@ -14,20 +14,38 @@ export const promptsImages = [
     promptId: 1,
     src: beachPuppy,
     name: 'beachPuppy',
-    liked: false
+    liked: false,
+    comments: [
+      {
+        id: 1,
+        text: 'So Cute!'
+      }
+    ]
   },
   {
     id: 2,
     promptId: 1,
     src: beagle,
     name: 'beagle',
-    liked: true
+    liked: true,
+    comments: [
+      {
+        id: 1,
+        text: 'puppies'
+      }
+    ]
   },
   {
     id: 3,
     prompt: 1,
     src: puppyInCup,
     name: 'puppyInCup',
-    liked: false
+    liked: false,
+    comments: [
+      {
+        id: 1,
+        text: 'Love this'
+      }
+    ]
   },
 ]

@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import './DailyArtPromptApp.css';
 import ImageLayout from './components/ImageLayout.js'
 import PromptLayout from './components/PromptLayout.js'
+import * as TYPES from './store/actions'
 
-export const DailyArtPromptApp = ({ promptsImages, updatePromptImages }) => (
+export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, handleKeyDown }) => (
   <div data-testid="appContainer" className="app">
     <div className="header">
       <div className="title">
@@ -26,6 +27,8 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages }) => (
           key={image.id}
           onDoubleClick={() => updatePromptImages(image.id)}
           image={image}
+          comments={image.comments}
+          onKeyDown={(e) => handleKeyDown(e, image.id)}
         />)}
     </div>
   </div>
@@ -37,8 +40,16 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updatePromptImages: (imageId) => dispatch({
-    type: 'UPDATE_PROMPT_IMAGES', payload: {
+    type: TYPES.UPDATE_PROMPT_IMAGES, payload: {
       imageId
+    }
+  }),
+  handleKeyDown: (e, imageId) => dispatch({
+    type: TYPES.ADD_COMMENT,
+    payload: {
+      event: e,
+      imageId: imageId,
+      value: e.target.value
     }
   })
 })

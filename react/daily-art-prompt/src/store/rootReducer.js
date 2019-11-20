@@ -11,12 +11,36 @@ export const promptImagesReducer = (state = promptsImages, action) => {
                         ...image,
                         liked: !image.liked,
                     }
-                } else {
+                }
+                else {
                     return image;
                 }
             })
             return updatedPromptImages
+        case TYPES.ADD_COMMENT:
 
+            action.payload.event.persist()
+            if (action.payload.event.keyCode === 13) {
+                const updatedPromptImages = state.map(image => {
+                    if (image.id === action.payload.imageId) {
+                        const newComment = {
+                            id: image.comments.length + 1,
+                            text: action.payload.value
+                        }
+                        return {
+                            ...image,
+                            comments: [...image.comments, newComment]
+                        }
+                    }
+                    else {
+                        return image;
+                    }
+                })
+                return updatedPromptImages
+            }
+            else {
+                return state
+            }
         default:
             return state
     }
