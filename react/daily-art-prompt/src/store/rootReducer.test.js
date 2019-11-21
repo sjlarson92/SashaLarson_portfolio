@@ -2,7 +2,7 @@ import { promptImagesReducer, indexReducer } from './rootReducer'
 import * as TYPES from './actions'
 
 describe('promptImagesReducer', () => {
-    describe('when the action.type equals UPDATE_PROMPT_IMAGES', () => {
+    describe('when the action.type equals TYPES.UPDATE_PROMPT_IMAGES', () => {
         describe('when image.id equals payload.imageId and image.liked  is false', () => {
             it('should update image.liked  to true', () => {
                 const state = [
@@ -76,6 +76,19 @@ describe('promptImagesReducer', () => {
                     expect(promptImagesReducer(state, action)).toEqual(state)
                 })
             })
+        })
+    })
+
+    describe('when the action.type equals TYPES.ADD_COMMENT', () => {
+        describe('when key clicked equals ENTER', () => {
+            describe('when image.id equals payload.imageId', () => {
+                it('should add newComment to image.comments', () => {
+
+                })
+            })
+        })
+        describe('when key clicked is not ENTER', () => {
+
         })
     })
 })

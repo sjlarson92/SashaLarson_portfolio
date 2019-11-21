@@ -6,33 +6,43 @@ import ImageLayout from './components/ImageLayout.js'
 import PromptLayout from './components/PromptLayout.js'
 import * as TYPES from './store/actions'
 
-export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, handleKeyDown }) => (
-  <div data-testid="appContainer" className="app">
-    <div className="header">
-      <div className="title">
-        <h1 data-testid="header" style={{ color: 'red' }}>Daily Art Prompt</h1>
+export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addComment }) => {
+
+  const handleKeyDown = (e, imageId) => {
+    if (e.keyCode === 13) {
+      addComment(e, imageId)
+    }
+  }
+
+  return (
+    <div data-testid="appContainer" className="app">
+      <div className="header">
+        <div className="title">
+          <h1 data-testid="header" style={{ color: 'red' }}>Daily Art Prompt</h1>
+        </div>
+      </div>
+      <PromptLayout data-testid="promptLayout" />
+      <hr></hr>
+      <h1
+        data-testid="artGalleryHeader"
+        className="title">
+        Art Gallery
+          </h1>
+      <div className="row">
+        {promptsImages.map(image =>
+          <ImageLayout
+            data-testid={`image-${image.id}`}
+            key={image.id}
+            onDoubleClick={() => updatePromptImages(image.id)}
+            image={image}
+            comments={image.comments}
+            onKeyDown={(e) => handleKeyDown(e, image.id)}
+          />)}
       </div>
     </div>
-    <PromptLayout data-testid="promptLayout" />
-    <hr></hr>
-    <h1
-      data-testid="artGalleryHeader"
-      className="title">
-      Art Gallery
-        </h1>
-    <div className="row">
-      {promptsImages.map(image =>
-        <ImageLayout
-          data-testid={`image-${image.id}`}
-          key={image.id}
-          onDoubleClick={() => updatePromptImages(image.id)}
-          image={image}
-          comments={image.comments}
-          onKeyDown={(e) => handleKeyDown(e, image.id)}
-        />)}
-    </div>
-  </div>
-)
+  )
+}
+
 
 const mapStateToProps = (state) => ({
   promptsImages: state.promptsImages
@@ -44,7 +54,7 @@ const mapDispatchToProps = (dispatch) => ({
       imageId
     }
   }),
-  handleKeyDown: (e, imageId) => dispatch({
+  addComment: (e, imageId) => dispatch({
     type: TYPES.ADD_COMMENT,
     payload: {
       event: e,
