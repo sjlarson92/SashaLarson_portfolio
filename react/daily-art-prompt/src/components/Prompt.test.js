@@ -17,11 +17,11 @@ describe('<Prompt>', () => {
   // const wrapper = shallow(<Prompt {...defaultProps}/>)
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<Prompt {...defaultProps}/>)
+    wrapper = shallow(<Prompt {...defaultProps} />)
   })
 
   it('should render correct date from prompt', () => {
-    expect(wrapper.find({testID:'promptDate'}).text()).toEqual(defaultProps.prompt.date)
+    expect(wrapper.find({ 'data-testid': 'promptDate' }).text()).toEqual(defaultProps.prompt.date)
   })
 
   // it('should render COOL DATE when prompt does not have a date', () => {
@@ -42,11 +42,11 @@ describe('<Prompt>', () => {
   //   expect(wrapper.find({testID:'promptDate'}).text()).toEqual('COOL DATE')
   // })
 
-  it('should render correct id from prompt',() => {
-    expect(wrapper.find({testID:'promptId'}).text()).toEqual(`Prompt #${defaultProps.prompt.id}`)
+  it('should render correct id from prompt', () => {
+    expect(wrapper.find({ 'data-testid': 'promptId' }).text()).toEqual(`Prompt #${defaultProps.prompt.id}`)
   })
 
   it('should render correct text from prompt', () => {
-    expect(wrapper.find({testID:'promptText'}).text()).toEqual(defaultProps.prompt.text)
+    expect(wrapper.find({ 'data-testid': 'promptText' }).text()).toEqual(defaultProps.prompt.text)
   })
 })

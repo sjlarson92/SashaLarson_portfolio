@@ -63,3 +63,8 @@ img {
 .hidden {
   display: none;
 }
+
+.likedText {
+  vertical-align: super;
+  color: red;
+}

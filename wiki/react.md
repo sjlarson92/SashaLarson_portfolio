@@ -16,9 +16,92 @@
 
 NOTE: do not push dependencies to gitHub, these are installed by using `yarn` or `yarn install` and looking at the yarn.lock file
 
-4. Testing with Jest:
+## Testing with Jest:
 
-`yarn test` or `npm test`
+- Run all tests`yarn test`
+
+- Test specific file `yarn test -- fileName`
+
+## Redux
+
+- Global state used to share with multiple components
+
+- Set up boilerplate first
+
+```js
+export const rootReducer = combineReducers({
+    globalStateProp : data
+})
+```
+- rootReducer contains the data that is saved to redux, now we pass this into creatStore() and save it as store
+
+`const store = createStore(rootReducer)`
+
+- Wrap Application in <Provider> and pass in store as a prop
+
+```js
+ReactDOM.render(
+  <Provider store={store}>
+    <DailyArtPromptApp />
+  </Provider>,
+  document.getElementById('root')
+);
+```
+
+- Connect your store to the compenents that will be need it
+
+```js
+const mapStateToProps = (state) => ({
+  stateProp: state.prop
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  actionProp: (var) => dispatch({
+    type: 'ACTION_TYPE', payload: {
+      var
+    }
+  })
+})
+
+const ConnnectedDailyArtPrompt = connect(mapStateToProps, mapDispatchToProps)(App)
+```
+- Now you are able to pull these from props in the current file
+
+- The global state can be changed by using reducers that are called by using actions (a switch case if preferred to be used for this because of the different action.types):
+
+```js
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'ACTION_TYPE':
+            const updatedProps = state.map(object => {
+                if (object.id === action.payload.givenId) {
+                    return {
+                        ...object,
+                        attribute: 'updatedAttribute',
+                    }
+                } else {
+                    return object;
+                }
+            })
+            return updatedProps
+
+        default:
+            return defaultProps
+    }
+}
+```
+
+### Set Up
+To setup Redux, these packages are required: redux, react-redux, and redux-thunk
+
+`yarn add redux` `yarn add react-redux` `yarn add redux-thunk`
+
+# Hooks
+
+- Allows developer to use state and lifecycle methods in a functional component.
+
+- Import useState from react 
+`const [stateVar, setStateVar] = useState(initialValue)`
 
 ## Notes
 

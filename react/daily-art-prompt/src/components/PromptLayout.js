@@ -1,44 +1,45 @@
-import React, { useState } from 'react';
-
-import {prompts} from '../data.js'
+import { connect } from 'react-redux';
+import React from 'react';
 import PromptButton from './PromptButton.js'
 import Prompt from './Prompt.js'
+import { prompts } from '../data.js'
+import * as TYPES from '../store/actions'
 
-const PromptLayout = (props) => {
-  const [index, setIndex] = useState(0)
 
-  const handlePreviousButtonClick = () => {
-    const newIndex = index - 1;
-    if (newIndex >= 0){
-      setIndex(newIndex)
+export const PromptLayout = ({ index, handleNextButtonClick, handlePreviousButtonClick }) =>
+  (
+    <div data-testid="mainContentContainer" className="prompt-row">
+      <PromptButton
+        data-testid="previousButton"
+        onClick={() => handlePreviousButtonClick(index)}
+        text="Previous"
+      />
+      <Prompt
+        prompt={prompts[index]}
+      />
+      <PromptButton
+        data-testid="nextButton"
+        onClick={() => handleNextButtonClick(index)}
+        text="Next"
+      />
+    </div>
+  )
+
+const mapStateToProps = (state) => ({
+  index: state.index
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  handleNextButtonClick: (index) => dispatch({
+    type: TYPES.UPDATE_NEXT_INDEX, payload: {
+      index
     }
-  }
-
-  const handleNextButtonClick = () => {
-    const newIndex = index + 1;
-    if(newIndex <= prompts.length - 1){
-      setIndex(newIndex)
+  }),
+  handlePreviousButtonClick: (index) => dispatch({
+    type: TYPES.UPDATE_PREVIOUS_INDEX, payload: {
+      index
     }
-  }
+  })
+})
 
-    return (
-      <div testID="mainContentContainer" className="prompt-row">
-        <PromptButton
-          testID="previousButton"
-          onClick={handlePreviousButtonClick}
-          text="Previous"
-        />
-        <Prompt
-          prompt={prompts[index]}
-        />
-        <PromptButton
-          testID="nextButton"
-          onClick={handleNextButtonClick}
-          text="Next"
-        />
-      </div>
-      )
-}
-
-
-export default PromptLayout;
+export default connect(mapStateToProps, mapDispatchToProps)(PromptLayout);
