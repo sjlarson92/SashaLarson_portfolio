@@ -108,3 +108,4 @@ venv.bak/
 *.pyc
 
 node_modules
+yarn.lock
