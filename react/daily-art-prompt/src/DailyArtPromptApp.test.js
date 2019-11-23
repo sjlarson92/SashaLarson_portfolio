@@ -17,11 +17,12 @@ const defaultProps = {
       liked: false
     }
   ],
-  updatePromptImages: jest.fn()
+  updatePromptImages: jest.fn(),
+  addComment: jest.fn()
 }
 
 describe('<DailyArtPromptApp>', () => {
-
+  beforeEach(() => { jest.clearAllMocks() })
   describe('<div> for app', () => {
 
     describe('header', () => {
@@ -59,7 +60,7 @@ describe('<DailyArtPromptApp>', () => {
       })
 
       describe('image prop', () => {
-        it('should pass obj to component', () => {
+        it('should pass image obj to component', () => {
           const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
           expect(wrapper.find({ "data-testid": 'image-1' }).prop('image')).toEqual({
             id: 1,
@@ -73,6 +74,25 @@ describe('<DailyArtPromptApp>', () => {
             wrapper.find({ 'data-testid': 'image-1' }).simulate('doubleClick', 1)
             expect(defaultProps.updatePromptImages).toHaveBeenCalledWith(1)
           })
+        })
+
+        describe('when user clicks key in comment input box', () => {
+          describe('when user clicks enter', () => {
+            it('should call addComment with correct params', () => {
+              const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
+              wrapper.find({ 'data-testid': 'image-1' }).simulate('keyDown', { keyCode: 13, target: { value: 'text' } })
+              expect(defaultProps.addComment).toHaveBeenCalledWith('text', 1)
+            })
+          })
+
+          describe('when user does not click enter', () => {
+            it('should not call addComment', () => {
+              const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
+              wrapper.find({ 'data-testid': 'image-1' }).simulate('keyDown', { keyCode: 10 })
+              expect(defaultProps.addComment).not.toHaveBeenCalled()
+            })
+          })
+
         })
       })
     })

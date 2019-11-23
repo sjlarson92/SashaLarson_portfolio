@@ -19,10 +19,12 @@ export const promptImagesReducer = (state = promptsImages, action) => {
             return updatedPromptImages
 
         case TYPES.ADD_COMMENT:
-            const updatePromptImages = state.map(image => {
+            return state.map(image => {
                 if (image.id === action.payload.imageId) {
                     const newComment = {
-                        id: image.comments.length + 1,
+                        id: image.comments.length > 0
+                            ? image.comments[image.comments.length - 1].id + 1
+                            : 1,
                         text: action.payload.value
                     }
                     return {
@@ -34,7 +36,7 @@ export const promptImagesReducer = (state = promptsImages, action) => {
                     return image;
                 }
             })
-            return updatePromptImages
+
         default:
             return state
     }

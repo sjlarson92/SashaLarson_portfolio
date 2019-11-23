@@ -65,6 +65,87 @@ describe('promptImagesReducer', () => {
             })
         })
 
+        describe('when the action.type equals TYPES.ADD_COMMENT', () => {
+            describe('when image.id equals payload.imageId', () => {
+                describe('when there are no previous comments', () => {
+                    it('should return image with new comment added', () => {
+                        const state = [
+                            {
+                                id: 1,
+                                comments: []
+                            }
+                        ]
+                        const action = {
+                            type: TYPES.ADD_COMMENT,
+                            payload: {
+                                imageId: 1,
+                                value: 'new comment'
+                            }
+                        }
+                        expect(promptImagesReducer(state, action)).toEqual(
+                            [
+                                {
+                                    id: 1,
+                                    comments: [{
+                                        id: 1,
+                                        text: 'new comment'
+                                    }]
+                                }
+                            ]
+                        )
+                    })
+                })
+                describe('when there are previous comments', () => {
+                    it('should return image with new comment added', () => {
+                        const state = [
+                            {
+                                id: 1,
+                                comments: [{ id: 1 }]
+                            }
+                        ]
+                        const action = {
+                            type: TYPES.ADD_COMMENT,
+                            payload: {
+                                imageId: 1,
+                                value: 'new comment'
+                            }
+                        }
+                        expect(promptImagesReducer(state, action)).toEqual(
+                            [
+                                {
+                                    id: 1,
+                                    comments: [
+                                        {
+                                            id: 1
+                                        },
+                                        {
+                                            id: 2,
+                                            text: 'new comment'
+                                        }]
+                                }
+                            ]
+                        )
+                    })
+                })
+            })
+            describe('when image.id does not equal payload.imageId', () => {
+                it('should return image unchanged', () => {
+                    const state = [{
+                        id: 1,
+                        comments: []
+                    }]
+                    const action = {
+                        type: TYPES.ADD_COMMENT,
+                        payload: {
+                            imageId: 2,
+                            value: 'new comment'
+                        }
+                    }
+                    expect(promptImagesReducer(state, action)).toEqual(state)
+                })
+            })
+        })
+
         describe('when action.type does not equal any of the cases', () => {
             describe('when goes to the default case', () => {
                 it('should return the state unchanged', () => {
@@ -76,19 +157,6 @@ describe('promptImagesReducer', () => {
                     expect(promptImagesReducer(state, action)).toEqual(state)
                 })
             })
-        })
-    })
-
-    describe('when the action.type equals TYPES.ADD_COMMENT', () => {
-        describe('when key clicked equals ENTER', () => {
-            describe('when image.id equals payload.imageId', () => {
-                it('should add newComment to image.comments', () => {
-
-                })
-            })
-        })
-        describe('when key clicked is not ENTER', () => {
-
         })
     })
 })

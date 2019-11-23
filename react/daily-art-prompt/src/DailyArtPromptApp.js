@@ -10,7 +10,8 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
 
   const handleKeyDown = (e, imageId) => {
     if (e.keyCode === 13) {
-      addComment(e, imageId)
+      const value = e.target.value
+      addComment(value, imageId)
     }
   }
 
@@ -35,7 +36,6 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
             key={image.id}
             onDoubleClick={() => updatePromptImages(image.id)}
             image={image}
-            comments={image.comments}
             onKeyDown={(e) => handleKeyDown(e, image.id)}
           />)}
       </div>
@@ -54,12 +54,11 @@ const mapDispatchToProps = (dispatch) => ({
       imageId
     }
   }),
-  addComment: (e, imageId) => dispatch({
+  addComment: (value, imageId) => dispatch({
     type: TYPES.ADD_COMMENT,
     payload: {
-      event: e,
-      imageId: imageId,
-      value: e.target.value
+      imageId,
+      value
     }
   })
 })
