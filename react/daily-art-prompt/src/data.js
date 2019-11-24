@@ -15,12 +15,7 @@ export const promptsImages = [
     src: beachPuppy,
     name: 'beachPuppy',
     liked: false,
-    comments: [
-      {
-        id: 1,
-        text: 'So Cute!'
-      }
-    ]
+    comments: []
   },
   {
     id: 2,
@@ -31,7 +26,8 @@ export const promptsImages = [
     comments: [
       {
         id: 1,
-        text: 'puppies'
+        text: 'puppies',
+        deleted: false
       }
     ]
   },
@@ -44,7 +40,8 @@ export const promptsImages = [
     comments: [
       {
         id: 1,
-        text: 'Love this'
+        text: 'Love this',
+        deleted: false
       }
     ]
   },

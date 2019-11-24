@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from './Image.js'
-import Comment from './Comment.js'
+import CommentLayout from './CommentLayout'
 
 const ImageLayout = ({ onDoubleClick, image, onKeyDown }) =>
   <div className="column">
@@ -15,10 +15,11 @@ const ImageLayout = ({ onDoubleClick, image, onKeyDown }) =>
     <div>
       <div>
         {image.comments && image.comments.map(comment =>
-          <Comment
+          <CommentLayout
             key={`comment-${comment.id}-${image.id}`}
-            comment={comment.text}
-          />)}
+            comment={comment}
+          />
+        )}
       </div>
       <input
         data-testid='inputBox'

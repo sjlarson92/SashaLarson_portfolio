@@ -43,7 +43,6 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
   )
 }
 
-
 const mapStateToProps = (state) => ({
   promptsImages: state.promptsImages
 })
