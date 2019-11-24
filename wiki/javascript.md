@@ -33,6 +33,8 @@ const something = (1 === 2) ? 'They are equal' : 'They are not equal'
 
 ## Inline Logical && Operator
 
+- Logical operators allow you to define a statement and then if that statement is true it will execute the following code after &&
+
 ```js
 return randomVariable === anotherVariable && true;
 /*
@@ -43,6 +45,21 @@ return true
 }
 */
 ```
+
+or 
+
+```js
+image.comments && image.comments.map(comment =>
+          !comment.deleted && (
+            <CommentLayout
+              key={`comment-${comment.id}-${image.id}`}
+              comment={comment}
+              onClick={() => deleteComment(image.id, comment.id)}
+            />
+          )
+        )
+```
+
 
 ## String Literals
 

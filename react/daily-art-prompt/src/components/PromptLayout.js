@@ -7,29 +7,27 @@ import * as TYPES from '../store/actions'
 
 
 export const PromptLayout = ({ index, handleNextButtonClick, handlePreviousButtonClick }) =>
-  (
-    <div data-testid="mainContentContainer" className="prompt-row">
-      <PromptButton
-        data-testid="previousButton"
-        onClick={() => handlePreviousButtonClick(index)}
-        text="Previous"
-      />
-      <Prompt
-        prompt={prompts[index]}
-      />
-      <PromptButton
-        data-testid="nextButton"
-        onClick={() => handleNextButtonClick(index)}
-        text="Next"
-      />
-    </div>
-  )
+  <div data-testid="mainContentContainer" className="prompt-row">
+    <PromptButton
+      data-testid="previousButton"
+      onClick={() => handlePreviousButtonClick(index)}
+      text="Previous"
+    />
+    <Prompt
+      prompt={prompts[index]}
+    />
+    <PromptButton
+      data-testid="nextButton"
+      onClick={() => handleNextButtonClick(index)}
+      text="Next"
+    />
+  </div>
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   index: state.index
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   handleNextButtonClick: (index) => dispatch({
     type: TYPES.UPDATE_NEXT_INDEX, payload: {
       index

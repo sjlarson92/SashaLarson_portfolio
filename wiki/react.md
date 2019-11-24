@@ -22,6 +22,8 @@ NOTE: do not push dependencies to gitHub, these are installed by using `yarn` or
 
 - Test specific file `yarn test -- fileName`
 
+- Test specific test in file `yarn test -- fileName -t 'testName' `
+
 ## Redux
 
 - Global state used to share with multiple components
