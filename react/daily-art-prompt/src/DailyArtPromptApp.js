@@ -32,6 +32,7 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
       <div className="row">
         {promptsImages.map(image =>
           <ImageLayout
+            data-className='imageLayout'
             data-testid={`image-${image.id}`}
             key={image.id}
             onDoubleClick={() => updatePromptImages(image.id)}
@@ -43,14 +44,14 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
   )
 }
 
-
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   promptsImages: state.promptsImages
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   updatePromptImages: (imageId) => dispatch({
-    type: TYPES.UPDATE_PROMPT_IMAGES, payload: {
+    type: TYPES.UPDATE_PROMPT_IMAGES,
+    payload: {
       imageId
     }
   }),

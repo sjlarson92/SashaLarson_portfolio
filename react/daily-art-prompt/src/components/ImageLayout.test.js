@@ -1,24 +1,28 @@
 import React from 'react';
-import ImageLayout from './ImageLayout'
+import { ImageLayout, mapDispatchToProps } from './ImageLayout'
 import { shallow } from 'enzyme';
+import * as TYPES from '../store/actions'
+
 
 const defaultProps = {
+  deleteComment: jest.fn(),
   onDoubleClick: jest.fn(),
   onKeyDown: jest.fn(),
   image: {
     id: 1,
     liked: true,
-    comments: [{
-      id: 1,
-      text: 'comment'
-    }]
+    comments: [
+      {
+        id: 1,
+        text: 'comment'
+      },
+      {
+        id: 2,
+        text: 'tests are fun',
+        deleted: true
+      }
+    ]
   },
-  comments: [
-    {
-      id: 1,
-      text: 'comment'
-    }
-  ]
 }
 
 describe('<ImageLayout />', () => {
@@ -53,15 +57,22 @@ describe('<ImageLayout />', () => {
     })
   })
 
-  describe('<Comment />', () => {
-    it('should render Comment for each comment in array', () => {
+  describe('<CommentLayout/>', () => {
+    it('should render CommentLayout for each comment in array that is not deleted', () => {
       const wrapper = shallow(<ImageLayout {...defaultProps} />)
-      expect(wrapper.find('Comment')).toHaveLength(1)
+      expect(wrapper.find('CommentLayout')).toHaveLength(1)
     })
 
     it('should pass correct comment prop', () => {
       const wrapper = shallow(<ImageLayout {...defaultProps} />)
-      expect(wrapper.find('Comment').prop('comment')).toEqual(defaultProps.comments[0].text)
+      expect(wrapper.find({ 'data-testid': 1 }).prop('comment')).toEqual(defaultProps.image.comments[0])
+    })
+    describe('when clicked', () => {
+      it('should call deleteComment with correct params', () => {
+        const wrapper = shallow(<ImageLayout {...defaultProps} />)
+        wrapper.find({ 'data-testid': 1 }).simulate('click')
+        expect(defaultProps.deleteComment).toHaveBeenCalledWith(1, 1)
+      })
     })
   })
 
@@ -73,3 +84,20 @@ describe('<ImageLayout />', () => {
     })
   })
 })
+
+describe('mapDispatchToProps', () => {
+  const dispatch = jest.fn()
+  it('should call dispatch with type: DELETE_COMMENT and correct payload', () => {
+    mapDispatchToProps(dispatch).deleteComment(1, 1)
+    expect(dispatch).toHaveBeenCalledWith({
+      type: TYPES.DELETE_COMMENT,
+      payload: {
+        imageId: 1,
+        commentId: 1
+      }
+    })
+  })
+
+})
+
+

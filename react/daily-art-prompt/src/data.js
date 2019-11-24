@@ -15,12 +15,7 @@ export const promptsImages = [
     src: beachPuppy,
     name: 'beachPuppy',
     liked: false,
-    comments: [
-      {
-        id: 1,
-        text: 'So Cute!'
-      }
-    ]
+    comments: []
   },
   {
     id: 2,

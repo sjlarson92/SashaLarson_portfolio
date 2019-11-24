@@ -2,7 +2,7 @@ import { promptImagesReducer, indexReducer } from './rootReducer'
 import * as TYPES from './actions'
 
 describe('promptImagesReducer', () => {
-    describe('when the action.type equals TYPES.UPDATE_PROMPT_IMAGES', () => {
+    describe('when the action.type equals UPDATE_PROMPT_IMAGES', () => {
         describe('when image.id equals payload.imageId and image.liked  is false', () => {
             it('should update image.liked  to true', () => {
                 const state = [
@@ -64,98 +64,174 @@ describe('promptImagesReducer', () => {
                 }])
             })
         })
+    })
 
-        describe('when the action.type equals TYPES.ADD_COMMENT', () => {
-            describe('when image.id equals payload.imageId', () => {
-                describe('when there are no previous comments', () => {
-                    it('should return image with new comment added', () => {
-                        const state = [
-                            {
-                                id: 1,
-                                comments: []
-                            }
-                        ]
-                        const action = {
-                            type: TYPES.ADD_COMMENT,
-                            payload: {
-                                imageId: 1,
-                                value: 'new comment'
-                            }
+    describe('when the action.type equals ADD_COMMENT', () => {
+        describe('when image.id equals payload.imageId', () => {
+            describe('when there are no previous comments', () => {
+                it('should return image with new comment added', () => {
+                    const state = [
+                        {
+                            id: 1,
+                            comments: []
                         }
-                        expect(promptImagesReducer(state, action)).toEqual(
-                            [
-                                {
-                                    id: 1,
-                                    comments: [{
-                                        id: 1,
-                                        text: 'new comment'
-                                    }]
-                                }
-                            ]
-                        )
-                    })
-                })
-                describe('when there are previous comments', () => {
-                    it('should return image with new comment added', () => {
-                        const state = [
-                            {
-                                id: 1,
-                                comments: [{ id: 1 }]
-                            }
-                        ]
-                        const action = {
-                            type: TYPES.ADD_COMMENT,
-                            payload: {
-                                imageId: 1,
-                                value: 'new comment'
-                            }
-                        }
-                        expect(promptImagesReducer(state, action)).toEqual(
-                            [
-                                {
-                                    id: 1,
-                                    comments: [
-                                        {
-                                            id: 1
-                                        },
-                                        {
-                                            id: 2,
-                                            text: 'new comment'
-                                        }]
-                                }
-                            ]
-                        )
-                    })
-                })
-            })
-            describe('when image.id does not equal payload.imageId', () => {
-                it('should return image unchanged', () => {
-                    const state = [{
-                        id: 1,
-                        comments: []
-                    }]
+                    ]
                     const action = {
                         type: TYPES.ADD_COMMENT,
                         payload: {
-                            imageId: 2,
+                            imageId: 1,
                             value: 'new comment'
                         }
                     }
-                    expect(promptImagesReducer(state, action)).toEqual(state)
+                    expect(promptImagesReducer(state, action)).toEqual(
+                        [
+                            {
+                                id: 1,
+                                comments: [{
+                                    id: 1,
+                                    text: 'new comment'
+                                }]
+                            }
+                        ]
+                    )
+                })
+            })
+            describe('when there are previous comments', () => {
+                it('should return image with new comment added', () => {
+                    const state = [
+                        {
+                            id: 1,
+                            comments: [{ id: 1 }]
+                        }
+                    ]
+                    const action = {
+                        type: TYPES.ADD_COMMENT,
+                        payload: {
+                            imageId: 1,
+                            value: 'new comment'
+                        }
+                    }
+                    expect(promptImagesReducer(state, action)).toEqual(
+                        [
+                            {
+                                id: 1,
+                                comments: [
+                                    {
+                                        id: 1
+                                    },
+                                    {
+                                        id: 2,
+                                        text: 'new comment'
+                                    }]
+                            }
+                        ]
+                    )
                 })
             })
         })
+        describe('when image.id does not equal payload.imageId', () => {
+            it('should return image unchanged', () => {
+                const state = [{
+                    id: 1,
+                    comments: []
+                }]
+                const action = {
+                    type: TYPES.ADD_COMMENT,
+                    payload: {
+                        imageId: 2,
+                        value: 'new comment'
+                    }
+                }
+                expect(promptImagesReducer(state, action)).toEqual(state)
+            })
+        })
+    })
 
-        describe('when action.type does not equal any of the cases', () => {
-            describe('when goes to the default case', () => {
-                it('should return the state unchanged', () => {
+    describe('when action.type equals DELETE_COMMENT', () => {
+        describe('when image.id equals imageId given', () => {
+            describe('when comment.id equals commentId given', () => {
+                it('should return comment with deleted attribute true', () => {
                     const state = [
+                        {
+                            id: 1,
+                            comments: [
+                                {
+                                    id: 1,
+                                }
+                            ]
+                        }
                     ]
                     const action = {
-                        type: '',
+                        type: TYPES.DELETE_COMMENT,
+                        payload: {
+                            imageId: 1,
+                            commentId: 1
+                        }
                     }
-                    expect(promptImagesReducer(state, action)).toEqual(state)
+                    const result = promptImagesReducer(state, action)
+                    expect(result[0].comments[0].deleted).toEqual(true)
                 })
+            })
+            describe('when comment.id does not equal commentId given', () => {
+                it('should return comment unchanged', () => {
+                    const state = [
+                        {
+                            id: 1,
+                            comments: [
+                                {
+                                    id: 1,
+                                }
+                            ]
+                        }
+                    ]
+                    const action = {
+                        type: TYPES.DELETE_COMMENT,
+                        payload: {
+                            imageId: 1,
+                            commentId: 2
+                        }
+                    }
+                    const result = promptImagesReducer(state, action)
+                    expect(result[0].comments[0]).toEqual(state[0].comments[0])
+                })
+
+            })
+        })
+        describe('when image.id does not equal imageId given', () => {
+            it('should return image unchanged', () => {
+                const state = [
+                    {
+                        id: 1,
+                        comments: [
+                            {
+                                id: 1,
+                            }
+                        ]
+                    }
+                ]
+                const action = {
+                    type: TYPES.DELETE_COMMENT,
+                    payload: {
+                        imageId: 2,
+                        commentId: 1
+                    }
+                }
+                const result = promptImagesReducer(state, action)
+                expect(result[0]).toEqual(state[0])
+            })
+
+        })
+    })
+
+    describe('when action.type does not equal any of the cases', () => {
+        describe('when goes to the default case', () => {
+            it('should return the state unchanged', () => {
+                const state = [
+                ]
+                const action = {
+                    type: '',
+                }
+                expect(promptImagesReducer(state, action)).toEqual(state)
             })
         })
     })

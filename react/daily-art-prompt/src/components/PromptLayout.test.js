@@ -1,15 +1,14 @@
 import React from 'react';
-import { PromptLayout } from './PromptLayout.js'
+import { PromptLayout, mapStateToProps, mapDispatchToProps } from './PromptLayout.js'
 import { shallow } from 'enzyme';
+import * as TYPES from '../store/actions'
 
 describe('<PromptLayout>', () => {
 
   const defaultProps = {
-    prompts: [
-      { id: 1, date: "October 11", text: "Puppy" },
-      { id: 2, date: "October 12", text: "Kitten" },
-      { id: 3, date: "October 13", text: "Birds" }
-    ]
+    index: 0,
+    handleNextButtonClick: jest.fn(),
+    handlePreviousButtonClick: jest.fn()
   }
   describe('<div> for mainContentContainer', () => {
     it('should have a prompt-row className', () => {
@@ -31,63 +30,19 @@ describe('<PromptLayout>', () => {
         expect(wrapper.find('Prompt').prop('prompt')).toEqual({ id: 1, date: "October 11", text: "Puppy" })
       })
 
-      describe('when no previous prompts', () => {
-        it('should not change prompt on previous buttonClick', () => {
+      describe('Previous Button', () => {
+        it('should call handlePreviousButtonClick with correct params', () => {
           const wrapper = shallow(<PromptLayout {...defaultProps} />);
           wrapper.find({ 'data-testid': 'previousButton' }).simulate('click')
-          expect(wrapper.find('Prompt').prop('prompt')).toEqual(
-            {
-              id: 1,
-              date: "October 11",
-              text: "Puppy"
-            }
-          )
+          expect(defaultProps.handlePreviousButtonClick).toHaveBeenCalledWith(defaultProps.index)
         })
       })
 
-      describe('when there are previous prompts', () => {
-        it('should render previous prompt on previous buttonClick', () => {
+      describe('Next Button', () => {
+        it('should call handleNextButtonClick with correct params', () => {
           const wrapper = shallow(<PromptLayout {...defaultProps} />);
-          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click');
-          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click');
-          wrapper.find({ 'data-testid': 'previousButton' }).simulate('click');
-          expect(wrapper.find('Prompt').prop('prompt')).toEqual(
-            {
-              id: 2,
-              date: "October 12",
-              text: "Kitten"
-            }
-          )
-        })
-      })
-
-      describe('when there are no next prompts', () => {
-        it('should not change the prompt on nextButton click', () => {
-          const wrapper = shallow(<PromptLayout {...defaultProps} />);
-          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click');
-          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click');
-          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click');
-          expect(wrapper.find('Prompt').prop('prompt')).toEqual(
-            {
-              id: 3,
-              date: "October 13",
-              text: "Birds"
-            }
-          )
-        })
-      })
-
-      describe('when there is a next prompt', () => {
-        it('should change prompt when nextButton is clicked', () => {
-          const wrapper = shallow(<PromptLayout {...defaultProps} />);
-          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click');
-          expect(wrapper.find('Prompt').prop('prompt')).toEqual(
-            {
-              id: 2,
-              date: "October 12",
-              text: "Kitten"
-            }
-          )
+          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click')
+          expect(defaultProps.handleNextButtonClick).toHaveBeenCalledWith(defaultProps.index)
         })
       })
     })
@@ -100,3 +55,39 @@ describe('<PromptLayout>', () => {
     })
   })
 })
+
+describe('mapStateToProps', () => {
+  it('should map index to props', () => {
+    const result = mapStateToProps({ index: 1 })
+    expect(result).toEqual({ index: 1 })
+  })
+})
+
+describe('mapDispatchToProps', () => {
+  const dispatch = jest.fn()
+  describe('handleNextButtonClick', () => {
+    it('should dispatch type: UPDATE_NEXT_INDEX and correct payload ', () => {
+      mapDispatchToProps(dispatch).handleNextButtonClick(1)
+      expect(dispatch).toHaveBeenCalledWith({
+        type: TYPES.UPDATE_NEXT_INDEX,
+        payload: { index: 1 }
+      })
+    })
+  })
+
+  describe('handlePreviousButtonClick', () => {
+    it('should dispatch type: UPDATE_PREVIOUS_INDEX and correct payload ', () => {
+      mapDispatchToProps(dispatch).handlePreviousButtonClick(1)
+      expect(dispatch).toHaveBeenCalledWith({
+        type: TYPES.UPDATE_PREVIOUS_INDEX,
+        payload: { index: 1 }
+      })
+    })
+
+  })
+
+
+
+})
+
+

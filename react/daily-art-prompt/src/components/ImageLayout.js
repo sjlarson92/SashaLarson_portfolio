@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import Image from './Image.js'
-import Comment from './Comment.js'
+import CommentLayout from './CommentLayout'
+import * as TYPES from '../store/actions'
 
-const ImageLayout = ({ onDoubleClick, image, onKeyDown }) =>
+export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment }) =>
   <div className="column">
     <Image
       image={image}
@@ -15,10 +17,15 @@ const ImageLayout = ({ onDoubleClick, image, onKeyDown }) =>
     <div>
       <div>
         {image.comments && image.comments.map(comment =>
-          <Comment
-            key={`comment-${comment.id}-${image.id}`}
-            comment={comment.text}
-          />)}
+          !comment.deleted && (
+            <CommentLayout
+              data-testid={comment.id}
+              key={`comment-${comment.id}-${image.id}`}
+              comment={comment}
+              onClick={() => deleteComment(image.id, comment.id)}
+            />
+          )
+        )}
       </div>
       <input
         data-testid='inputBox'
@@ -29,4 +36,16 @@ const ImageLayout = ({ onDoubleClick, image, onKeyDown }) =>
     </div>
   </div>
 
-export default ImageLayout
+export const mapDispatchToProps = (dispatch) => ({
+  deleteComment: (imageId, commentId) => dispatch({
+    type: TYPES.DELETE_COMMENT,
+    payload: {
+      imageId,
+      commentId
+    }
+  })
+})
+
+const ConnectedImageLayout = connect(null, mapDispatchToProps)(ImageLayout)
+
+export default ConnectedImageLayout;
