@@ -1,44 +1,48 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import Image from './Image.js'
 import CommentLayout from './CommentLayout'
+import * as TYPES from '../store/actions'
 
-const ImageLayout = ({ onDoubleClick, image, onKeyDown }) => {
-
-  const handleDeleteButton = (imageId, commentId) => {
-    console.log('imageId is: ', imageId)
-    console.log('commentId is: ', commentId)
-  }
-
-  return (
-    <div className="column">
-      <Image
-        image={image}
-        onDoubleClick={() => onDoubleClick(image.id)}
-      />
-      <div
-        data-testid="likedDiv" className={image.liked ? "likedText" : "hidden"}>
-        Liked
+export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment }) =>
+  <div className="column">
+    <Image
+      image={image}
+      onDoubleClick={() => onDoubleClick(image.id)}
+    />
+    <div
+      data-testid="likedDiv" className={image.liked ? "likedText" : "hidden"}>
+      Liked
     </div>
+    <div>
       <div>
-        <div>
-          {image.comments && image.comments.map(comment =>
-            <CommentLayout
-              key={`comment-${comment.id}-${image.id}`}
-              comment={comment}
-              onClick={() => handleDeleteButton(image.id, comment.id)}
-            />
-          )}
-        </div>
-        <input
-          data-testid='inputBox'
-          type='text'
-          name='commentBox'
-          onKeyDown={(e) => onKeyDown(e, image.id)}
-          placeholder='Add Comment' />
+        {image.comments && image.comments.map(comment =>
+          <CommentLayout
+            key={`comment-${comment.id}-${image.id}`}
+            comment={comment}
+            onClick={() => deleteComment(image.id, comment.id)}
+          />
+        )}
       </div>
+      <input
+        data-testid='inputBox'
+        type='text'
+        name='commentBox'
+        onKeyDown={(e) => onKeyDown(e, image.id)}
+        placeholder='Add Comment' />
     </div>
-  )
-}
+  </div>
 
+const mapDispatchToProps = (dispatch) => ({
+  deleteComment: (imageId, commentId) => dispatch({
+    type: TYPES.DELETE_COMMENT,
+    payload: {
+      imageId,
+      commentId
+    }
+  })
+})
 
-export default ImageLayout
+const ConnectedImageLayout = connect(null, mapDispatchToProps)(ImageLayout)
+
+export default ConnectedImageLayout;

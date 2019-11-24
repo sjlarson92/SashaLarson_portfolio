@@ -37,6 +37,10 @@ export const promptImagesReducer = (state = promptsImages, action) => {
                 }
             })
 
+        case TYPES.DELETE_COMMENT:
+            console.log('DELETE_COMMENT case')
+            return state
+
         default:
             return state
     }

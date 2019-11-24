@@ -26,8 +26,7 @@ export const promptsImages = [
     comments: [
       {
         id: 1,
-        text: 'puppies',
-        deleted: false
+        text: 'puppies'
       }
     ]
   },
@@ -40,8 +39,7 @@ export const promptsImages = [
     comments: [
       {
         id: 1,
-        text: 'Love this',
-        deleted: false
+        text: 'Love this'
       }
     ]
   },
