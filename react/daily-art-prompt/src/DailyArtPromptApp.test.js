@@ -1,6 +1,7 @@
 import React from 'react';
-import { DailyArtPromptApp } from './DailyArtPromptApp.js'
+import { DailyArtPromptApp, mapDispatchToProps, mapStateToProps } from './DailyArtPromptApp.js'
 import { shallow } from 'enzyme';
+import * as TYPES from './store/actions'
 
 const defaultProps = {
   promptsImages: [
@@ -98,3 +99,48 @@ describe('<DailyArtPromptApp>', () => {
     })
   })
 })
+
+describe('mapStateToProps', () => {
+  it('should map promptImages', () => {
+    const state = {
+      promptsImages: 'promptsImages'
+    }
+    const result = mapStateToProps(state)
+    expect(result.promptsImages).toEqual('promptsImages')
+  })
+
+})
+
+describe('mapDispatchToProps', () => {
+  const dispatch = jest.fn()
+  describe('updatePromptImages', () => {
+    it('should dispatch type: UPDATE_PROMPT_IMAGE and correct payload ', () => {
+      const imageId = 2
+      mapDispatchToProps(dispatch).updatePromptImages(imageId)
+      expect(dispatch).toHaveBeenCalledWith({
+        type: TYPES.UPDATE_PROMPT_IMAGES,
+        payload: { imageId }
+      })
+    })
+  })
+
+  describe('addComment', () => {
+    it('should call dispatch with type: ADD_COMMENT and correct payload', () => {
+      mapDispatchToProps(dispatch).addComment('text', 1)
+      expect(dispatch).toHaveBeenCalledWith({
+        type: TYPES.ADD_COMMENT,
+        payload: {
+          imageId: 1,
+          value: 'text'
+        }
+      })
+    })
+
+
+
+  })
+
+
+
+})
+

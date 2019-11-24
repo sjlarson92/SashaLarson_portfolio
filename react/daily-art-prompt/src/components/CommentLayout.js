@@ -2,14 +2,14 @@ import React from 'react';
 
 import Comment from './Comment.js'
 
-const CommentLayout = ({ comment }) =>
+const CommentLayout = ({ comment, onClick }) =>
     <div>
         <Comment
             comment={comment.text}
         />
-        <button onClick={() => console.log('delete button clicked')}>
+        <button onClick={onClick}>
             Delete
         </button>
-    </div>
+    </div >
 
 export default CommentLayout    
