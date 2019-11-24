@@ -13,12 +13,6 @@ const defaultProps = {
       text: 'comment'
     }]
   },
-  comments: [
-    {
-      id: 1,
-      text: 'comment'
-    }
-  ]
 }
 
 describe('<ImageLayout />', () => {
@@ -53,15 +47,15 @@ describe('<ImageLayout />', () => {
     })
   })
 
-  describe('<Comment />', () => {
-    it('should render Comment for each comment in array', () => {
+  describe('<CommentLayout/>', () => {
+    it('should render CommentLayout for each comment in array', () => {
       const wrapper = shallow(<ImageLayout {...defaultProps} />)
-      expect(wrapper.find('Comment')).toHaveLength(1)
+      expect(wrapper.find('CommentLayout')).toHaveLength(1)
     })
 
     it('should pass correct comment prop', () => {
       const wrapper = shallow(<ImageLayout {...defaultProps} />)
-      expect(wrapper.find('Comment').prop('comment')).toEqual(defaultProps.comments[0].text)
+      expect(wrapper.find({ 'data-testid': 1 }).prop('comment')).toEqual(defaultProps.image.comments[0])
     })
   })
 

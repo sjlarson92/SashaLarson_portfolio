@@ -57,7 +57,7 @@ describe('<DailyArtPromptApp>', () => {
     describe('<ImageLayout>', () => {
       it('should renders imageLayout for each image in array', () => {
         const wrapper = shallow(<DailyArtPromptApp {...defaultProps} />);
-        expect(wrapper.find('ImageLayout').exists()).toBe(true)
+        expect(wrapper.find({ 'data-className': 'imageLayout' })).toHaveLength(3)
       })
 
       describe('image prop', () => {
@@ -135,12 +135,6 @@ describe('mapDispatchToProps', () => {
         }
       })
     })
-
-
-
   })
-
-
-
 })
 

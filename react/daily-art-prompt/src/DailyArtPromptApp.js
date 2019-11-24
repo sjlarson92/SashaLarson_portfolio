@@ -32,6 +32,7 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
       <div className="row">
         {promptsImages.map(image =>
           <ImageLayout
+            data-className='imageLayout'
             data-testid={`image-${image.id}`}
             key={image.id}
             onDoubleClick={() => updatePromptImages(image.id)}

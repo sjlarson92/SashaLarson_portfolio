@@ -19,6 +19,7 @@ export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment }) 
         {image.comments && image.comments.map(comment =>
           !comment.deleted && (
             <CommentLayout
+              data-testid={comment.id}
               key={`comment-${comment.id}-${image.id}`}
               comment={comment}
               onClick={() => deleteComment(image.id, comment.id)}
