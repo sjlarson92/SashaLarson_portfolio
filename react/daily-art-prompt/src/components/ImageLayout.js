@@ -36,7 +36,7 @@ export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment }) 
     </div>
   </div>
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   deleteComment: (imageId, commentId) => dispatch({
     type: TYPES.DELETE_COMMENT,
     payload: {
