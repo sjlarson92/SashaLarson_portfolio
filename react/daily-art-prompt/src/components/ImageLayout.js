@@ -17,11 +17,13 @@ export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment }) 
     <div>
       <div>
         {image.comments && image.comments.map(comment =>
-          <CommentLayout
-            key={`comment-${comment.id}-${image.id}`}
-            comment={comment}
-            onClick={() => deleteComment(image.id, comment.id)}
-          />
+          !comment.deleted && (
+            <CommentLayout
+              key={`comment-${comment.id}-${image.id}`}
+              comment={comment}
+              onClick={() => deleteComment(image.id, comment.id)}
+            />
+          )
         )}
       </div>
       <input

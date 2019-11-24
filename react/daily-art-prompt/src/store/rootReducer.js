@@ -38,8 +38,28 @@ export const promptImagesReducer = (state = promptsImages, action) => {
             })
 
         case TYPES.DELETE_COMMENT:
-            console.log('DELETE_COMMENT case')
-            return state
+            return state.map(image => {
+                if (image.id === action.payload.imageId) {
+                    const updatedComments = image.comments.map(comment => {
+                        if (comment.id === action.payload.commentId) {
+                            return {
+                                ...comment,
+                                deleted: true
+                            }
+                        }
+                        else {
+                            return comment
+                        }
+                    })
+                    return {
+                        ...image,
+                        comments: updatedComments
+                    }
+                }
+                else {
+                    return image
+                }
+            })
 
         default:
             return state
