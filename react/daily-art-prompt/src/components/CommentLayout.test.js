@@ -21,15 +21,21 @@ describe('<CommentLayout />', () => {
 
     describe('Delete comment button', () => {
         it('should call props onClick when clicked', () => {
-            wrapper.find('button').simulate('click')
+            wrapper.find({ name: 'deleteButton' }).simulate('click')
             expect(defaultProps.onClick).toHaveBeenCalledWith()
         })
         it('should render button with correct text', () => {
-            expect(wrapper.find('button').text()).toEqual('Delete')
+            expect(wrapper.find({ name: 'deleteButton' }).text()).toEqual('Delete')
+        })
+    })
+
+    describe('Edit comment Button', () => {
+        it('should render button with correct text', () => {
+            expect(wrapper.find({ name: 'editButton' }).text()).toEqual('Edit')
         })
 
-
     })
+
 
 
 })

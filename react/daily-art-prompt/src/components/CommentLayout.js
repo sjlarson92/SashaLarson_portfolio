@@ -7,8 +7,11 @@ const CommentLayout = ({ comment, onClick }) =>
         <Comment
             comment={comment.text}
         />
-        <button onClick={onClick}>
+        <button name='deleteButton' onClick={onClick}>
             Delete
+        </button>
+        <button name='editButton'>
+            Edit
         </button>
     </div >
 
