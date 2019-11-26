@@ -90,9 +90,23 @@ export const indexReducer = (state = 0, action) => {
 
 }
 
+export const classNamesReducer = (state = { editingClassName: 'hidden', notEditingClassName: '' }, action) => {
+    switch (action.type) {
+        case TYPES.UPDATE_CLASS_NAMES:
+            return {
+                editingClassName: '',
+                notEditingClassName: 'hidden'
+            }
+        default:
+            return state
+    }
+
+}
+
 export const rootReducer = combineReducers({
     promptsImages: promptImagesReducer,
-    index: indexReducer
+    index: indexReducer,
+    classNames: classNamesReducer
 
 })
 

@@ -4,7 +4,8 @@ import Image from './Image.js'
 import CommentLayout from './CommentLayout'
 import * as TYPES from '../store/actions'
 
-export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment }) =>
+export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment, editingClassName, notEditingClassName, handleEditButton }) =>
+
   <div className="column">
     <Image
       image={image}
@@ -22,7 +23,10 @@ export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment }) 
               data-testid={comment.id}
               key={`comment-${comment.id}-${image.id}`}
               comment={comment}
-              onClick={() => deleteComment(image.id, comment.id)}
+              handleDeleteButton={() => deleteComment(image.id, comment.id)}
+              handleEditButton={() => handleEditButton(image.id, comment.id)}
+              editingClassName={editingClassName}
+              notEditingClassName={notEditingClassName}
             />
           )
         )}
@@ -32,9 +36,14 @@ export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment }) 
         type='text'
         name='commentBox'
         onKeyDown={(e) => onKeyDown(e, image.id)}
-        placeholder='Add Comment' />
+        placeholder='Add Comment...' />
     </div>
   </div>
+
+export const maptStateToProps = (state) => ({
+  editingClassName: state.classNames.editingClassName,
+  notEditingClassName: state.classNames.notEditingClassName
+})
 
 export const mapDispatchToProps = (dispatch) => ({
   deleteComment: (imageId, commentId) => dispatch({
@@ -43,9 +52,16 @@ export const mapDispatchToProps = (dispatch) => ({
       imageId,
       commentId
     }
+  }),
+  handleEditButton: (imageId, commentId) => dispatch({
+    type: TYPES.UPDATE_CLASS_NAMES,
+    payload: {
+      imageId,
+      commentId
+    }
   })
 })
 
-const ConnectedImageLayout = connect(null, mapDispatchToProps)(ImageLayout)
+const ConnectedImageLayout = connect(maptStateToProps, mapDispatchToProps)(ImageLayout)
 
 export default ConnectedImageLayout;
