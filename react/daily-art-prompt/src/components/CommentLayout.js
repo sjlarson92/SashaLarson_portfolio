@@ -2,7 +2,13 @@ import React from 'react';
 
 import Comment from './Comment.js'
 
-const CommentLayout = ({ comment, handleDeleteButton, handleCancelButton, handleEditButton }) => {
+const CommentLayout = ({
+    comment,
+    handleDeleteButton,
+    handleCancelButton,
+    handleEditButton,
+    handleSubmit
+}) => {
 
     return (
         <div>
@@ -24,12 +30,8 @@ const CommentLayout = ({ comment, handleDeleteButton, handleCancelButton, handle
             <div className={comment.editing ? '' : 'hidden'}>
                 <input
                     defaultValue={comment.text}
+                    onKeyDown={handleSubmit}
                 />
-                <button
-                    name='submitButton'
-                    onClick={() => console.log('submit button clicked')}>
-                    Submit
-                </button>
                 <button
                     name='cancelButton'
                     onClick={handleCancelButton}>
