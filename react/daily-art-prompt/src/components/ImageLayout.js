@@ -17,7 +17,6 @@ export const ImageLayout = ({
   const handleSubmit = (e, imageId, commentId) => {
     if (e.keyCode === 13) {
       const value = e.target.value
-      console.log('updated comment is: ', value)
       editComment(imageId, commentId, value)
     }
   }

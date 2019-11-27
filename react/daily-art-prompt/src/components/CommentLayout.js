@@ -15,7 +15,7 @@ const CommentLayout = ({
             <Comment
                 comment={comment.text}
             />
-            <div className={comment.editing ? 'hidden' : ''}>
+            <div name='defaultButtonDiv' className={comment.editing ? 'hidden' : ''}>
                 <button
                     name='deleteButton'
                     onClick={handleDeleteButton}>

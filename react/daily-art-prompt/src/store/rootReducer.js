@@ -109,7 +109,6 @@ export const promptImagesReducer = (state = promptsImages, action) => {
             })
 
         case TYPES.EDIT_COMMENT:
-            console.log('case Edit Comment')
             return state.map(image => {
                 if (image.id === action.payload.imageId) {
                     const updatedComments = image.comments.map(comment => {
