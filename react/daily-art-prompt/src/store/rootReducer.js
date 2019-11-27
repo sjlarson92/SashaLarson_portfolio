@@ -116,7 +116,8 @@ export const promptImagesReducer = (state = promptsImages, action) => {
                         if (comment.id === action.payload.commentId) {
                             return {
                                 ...comment,
-                                text: action.payload.value
+                                text: action.payload.value,
+                                editing: false
                             }
                         }
                         else {
