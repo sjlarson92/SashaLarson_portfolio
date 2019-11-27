@@ -4,7 +4,7 @@ import Image from './Image.js'
 import CommentLayout from './CommentLayout'
 import * as TYPES from '../store/actions'
 
-export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment, handleCancelButton, updateCommentClassNames }) =>
+export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment, cancelCommentClassNames, editingCommentClassNames }) =>
 
   <div className="column">
     <Image
@@ -24,8 +24,8 @@ export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment, ha
               key={`comment-${comment.id}-${image.id}`}
               comment={comment}
               handleDeleteButton={() => deleteComment(image.id, comment.id)}
-              handleEditButton={() => updateCommentClassNames(image.id, comment.id)}
-              handleCancelButton={() => handleCancelButton()}
+              handleEditButton={() => editingCommentClassNames(image.id, comment.id)}
+              handleCancelButton={() => cancelCommentClassNames(image.id, comment.id)}
             />
           )
         )}
@@ -50,17 +50,18 @@ export const mapDispatchToProps = (dispatch) => ({
       commentId
     }
   }),
-  updateCommentClassNames: (imageId, commentId) => dispatch({
+  editingCommentClassNames: (imageId, commentId) => dispatch({
     type: TYPES.EDIT_COMMENT_CLASS_NAMES,
     payload: {
       imageId,
       commentId
     }
   }),
-  handleCancelButton: () => dispatch({
-    type: TYPES.DEFAULT_CLASS_NAMES,
+  cancelCommentClassNames: (imageId, commentId) => dispatch({
+    type: TYPES.CANCEL_EDIT_COMMENT_CLASS_NAMES,
     payload: {
-
+      imageId,
+      commentId
     }
   })
 })
