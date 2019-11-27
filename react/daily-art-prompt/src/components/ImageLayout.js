@@ -4,7 +4,7 @@ import Image from './Image.js'
 import CommentLayout from './CommentLayout'
 import * as TYPES from '../store/actions'
 
-export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment, editingClassName, notEditingClassName, handleEditButton }) =>
+export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment, handleCancelButton, updateCommentClassNames }) =>
 
   <div className="column">
     <Image
@@ -24,9 +24,8 @@ export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment, ed
               key={`comment-${comment.id}-${image.id}`}
               comment={comment}
               handleDeleteButton={() => deleteComment(image.id, comment.id)}
-              handleEditButton={() => handleEditButton(image.id, comment.id)}
-              editingClassName={editingClassName}
-              notEditingClassName={notEditingClassName}
+              handleEditButton={() => updateCommentClassNames(image.id, comment.id)}
+              handleCancelButton={() => handleCancelButton()}
             />
           )
         )}
@@ -41,8 +40,6 @@ export const ImageLayout = ({ onDoubleClick, image, onKeyDown, deleteComment, ed
   </div>
 
 export const maptStateToProps = (state) => ({
-  editingClassName: state.classNames.editingClassName,
-  notEditingClassName: state.classNames.notEditingClassName
 })
 
 export const mapDispatchToProps = (dispatch) => ({
@@ -53,11 +50,17 @@ export const mapDispatchToProps = (dispatch) => ({
       commentId
     }
   }),
-  handleEditButton: (imageId, commentId) => dispatch({
-    type: TYPES.UPDATE_CLASS_NAMES,
+  updateCommentClassNames: (imageId, commentId) => dispatch({
+    type: TYPES.EDIT_COMMENT_CLASS_NAMES,
     payload: {
       imageId,
       commentId
+    }
+  }),
+  handleCancelButton: () => dispatch({
+    type: TYPES.DEFAULT_CLASS_NAMES,
+    payload: {
+
     }
   })
 })

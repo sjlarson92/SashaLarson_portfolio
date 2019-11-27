@@ -61,6 +61,30 @@ export const promptImagesReducer = (state = promptsImages, action) => {
                 }
             })
 
+        case TYPES.EDIT_COMMENT_CLASS_NAMES:
+            return state.map(image => {
+                if (image.id === action.payload.imageId) {
+                    const updatedCommentsClassName = image.comments.map(comment => {
+                        if (comment.id === action.payload.commentId) {
+                            return {
+                                ...comment,
+                                editing: true
+                            }
+                        }
+                        else {
+                            return comment
+                        }
+                    })
+                    return {
+                        ...image,
+                        comments: updatedCommentsClassName
+                    }
+                }
+                else {
+                    return image
+                }
+            })
+
         default:
             return state
     }
@@ -90,23 +114,28 @@ export const indexReducer = (state = 0, action) => {
 
 }
 
-export const classNamesReducer = (state = { editingClassName: 'hidden', notEditingClassName: '' }, action) => {
-    switch (action.type) {
-        case TYPES.UPDATE_CLASS_NAMES:
-            return {
-                editingClassName: '',
-                notEditingClassName: 'hidden'
-            }
-        default:
-            return state
-    }
+// export const classNamesReducer = (state = { editingClassName: 'hidden', notEditingClassName: '' }, action) => {
+//     switch (action.type) {
+//         // case TYPES.EDIT_CLASS_NAMES:
+//         //     return {
+//         //         editingClassName: '',
+//         //         notEditingClassName: 'hidden'
+//         //     }
+//         // case TYPES.DEFAULT_CLASS_NAMES:
+//         //     return {
+//         //         editingClassName: 'hidden',
+//         //         notEditingClassName: ''
+//         //     }
+//         default:
+//             return state
+//     }
 
-}
+// }
 
 export const rootReducer = combineReducers({
     promptsImages: promptImagesReducer,
     index: indexReducer,
-    classNames: classNamesReducer
+    // classNames: classNamesReducer
 
 })
 
