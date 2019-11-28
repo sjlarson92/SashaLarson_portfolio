@@ -5,9 +5,12 @@ import * as TYPES from '../store/actions'
 
 
 const defaultProps = {
-  deleteComment: jest.fn(),
   onDoubleClick: jest.fn(),
   onKeyDown: jest.fn(),
+  deleteComment: jest.fn(),
+  cancelCommentClassNames: jest.fn(),
+  editComment: jest.fn(),
+  editingCommentClassNames: jest.fn(),
   image: {
     id: 1,
     liked: true,
@@ -26,14 +29,17 @@ const defaultProps = {
 }
 
 describe('<ImageLayout />', () => {
+  let wrapper
+  beforeEach(() => {
+    wrapper = shallow(<ImageLayout {...defaultProps} />)
+  })
+
   describe('<Image />', () => {
     it('should render with correct image', () => {
-      const wrapper = shallow(<ImageLayout {...defaultProps} />)
       expect(wrapper.find('Image').prop('image')).toEqual(defaultProps.image)
     })
 
     it('should call onDoubleClick with imageId when image is doubleClicked', () => {
-      const wrapper = shallow(<ImageLayout {...defaultProps} />)
       wrapper.find('Image').simulate('doubleClick')
       expect(defaultProps.onDoubleClick).toHaveBeenCalledWith(defaultProps.image.id)
     })
@@ -42,17 +48,15 @@ describe('<ImageLayout />', () => {
 
   describe('<div> LikedDiv', () => {
     it('has a className of hidden when image is not liked', () => {
-      const wrapper = shallow(<ImageLayout {...defaultProps} image={{ ...defaultProps.image, liked: false }} />)
+      wrapper = shallow(<ImageLayout {...defaultProps} image={{ ...defaultProps.image, liked: false }} />)
       expect(wrapper.find({ 'data-testid': 'likedDiv' }).prop("className")).toEqual("hidden")
     })
 
     it('has a className of an empty string when image is liked', () => {
-      const wrapper = shallow(<ImageLayout {...defaultProps} />)
       expect(wrapper.find({ 'data-testid': 'likedDiv' }).prop('className')).toEqual('likedText')
     })
 
     it('should render correct text for likedDiv', () => {
-      const wrapper = shallow(<ImageLayout {...defaultProps} />)
       expect(wrapper.find({ 'data-testid': 'likedDiv' }).text()).toEqual('Liked')
     })
   })
@@ -64,16 +68,51 @@ describe('<ImageLayout />', () => {
     })
 
     it('should pass correct comment prop', () => {
-      const wrapper = shallow(<ImageLayout {...defaultProps} />)
       expect(wrapper.find({ 'data-testid': 1 }).prop('comment')).toEqual(defaultProps.image.comments[0])
     })
-    describe('when clicked', () => {
-      it('should call deleteComment with correct params', () => {
-        const wrapper = shallow(<ImageLayout {...defaultProps} />)
-        wrapper.find({ 'data-testid': 1 }).simulate('click')
+
+    describe('onDelete', () => {
+      it('should call deleteComment with correct params onDelete', () => {
+        wrapper.find({ 'data-testid': 1 }).simulate('delete')
         expect(defaultProps.deleteComment).toHaveBeenCalledWith(1, 1)
       })
     })
+
+    describe('onEdit', () => {
+      it('should call editingCommentClassNames with correct params onEdit', () => {
+        wrapper.find({ 'data-testid': 1 }).simulate('edit')
+        expect(defaultProps.editingCommentClassNames).toHaveBeenCalledWith(1, 1)
+      })
+    })
+
+    describe('onCancel', () => {
+      it('should call cancelCommentClassNames with correct params onCancel', () => {
+        wrapper.find({ 'data-testid': 1 }).simulate('cancel')
+        expect(defaultProps.cancelCommentClassNames).toHaveBeenCalledWith(1, 1)
+      })
+    })
+
+    describe('onSubmit', () => {
+      describe('when user clicks enter', () => {
+        it('should call editComment with correct params onSubmit', () => {
+          wrapper.find({ 'data-testid': 1 }).simulate('submit', { keyCode: 13, target: { value: 'updated comment' } })
+          expect(defaultProps.editComment).toHaveBeenCalledWith(1, 1, 'updated comment')
+        })
+      })
+
+      describe('when user does not click enter', () => {
+        it('should not call editComment', () => {
+          wrapper.find({ 'data-testid': 1 }).simulate('submit', { keyCode: 10 })
+          expect(defaultProps.editComment).not.toHaveBeenCalledWith()
+        })
+
+      })
+
+
+
+    })
+
+
   })
 
   describe('<Input>', () => {
@@ -87,16 +126,65 @@ describe('<ImageLayout />', () => {
 
 describe('mapDispatchToProps', () => {
   const dispatch = jest.fn()
-  it('should call dispatch with type: DELETE_COMMENT and correct payload', () => {
-    mapDispatchToProps(dispatch).deleteComment(1, 1)
-    expect(dispatch).toHaveBeenCalledWith({
-      type: TYPES.DELETE_COMMENT,
-      payload: {
-        imageId: 1,
-        commentId: 1
-      }
+
+  describe('deleteComment', () => {
+    it('should call dispatch with type: DELETE_COMMENT and correct payload', () => {
+      mapDispatchToProps(dispatch).deleteComment(1, 1)
+      expect(dispatch).toHaveBeenCalledWith({
+        type: TYPES.DELETE_COMMENT,
+        payload: {
+          imageId: 1,
+          commentId: 1
+        }
+      })
     })
   })
+
+  describe('editingCommentClassNames', () => {
+    it('should call dispatch with type: EDIT_COMMENT_CLASS_NAMES and correct payload', () => {
+      mapDispatchToProps(dispatch).editingCommentClassNames(1, 1)
+      expect(dispatch).toHaveBeenCalledWith({
+        type: TYPES.EDIT_COMMENT_CLASS_NAMES,
+        payload: {
+          imageId: 1,
+          commentId: 1
+        }
+      })
+    })
+  })
+
+  describe('cancelCommentClassNames', () => {
+    it('should call dispatch with type: CANCEL_EDIT_COMMENT_CLASS_NAMES and correct params', () => {
+      mapDispatchToProps(dispatch).cancelCommentClassNames(1, 1)
+      expect(dispatch).toHaveBeenCalledWith({
+        type: TYPES.CANCEL_EDIT_COMMENT_CLASS_NAMES,
+        payload: {
+          imageId: 1,
+          commentId: 1
+        }
+      })
+    })
+  })
+
+  describe('editComment', () => {
+    it('should call dispatch with type: EDIT_COMMENT and correct params', () => {
+      mapDispatchToProps(dispatch).editComment(1, 1, 'updated comment')
+      expect(dispatch).toHaveBeenCalledWith({
+        type: TYPES.EDIT_COMMENT,
+        payload: {
+          imageId: 1,
+          commentId: 1,
+          value: 'updated comment'
+        }
+      })
+    })
+
+  })
+
+
+
+
+
 
 })
 

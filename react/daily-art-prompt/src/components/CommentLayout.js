@@ -4,10 +4,10 @@ import Comment from './Comment.js'
 
 const CommentLayout = ({
     comment,
-    handleDeleteButton,
-    handleCancelButton,
-    handleEditButton,
-    handleSubmit
+    onDelete,
+    onCancel,
+    onEdit,
+    onSubmit
 }) => {
 
     return (
@@ -18,12 +18,12 @@ const CommentLayout = ({
             <div name='nonEditingDiv' className={comment.editing ? 'hidden' : ''}>
                 <button
                     name='deleteButton'
-                    onClick={handleDeleteButton}>
+                    onClick={onDelete}>
                     Delete
                 </button>
                 <button
                     name='editButton'
-                    onClick={handleEditButton}>
+                    onClick={onEdit}>
                     Edit
                 </button>
             </div>
@@ -31,11 +31,11 @@ const CommentLayout = ({
                 <input
                     name='editInputBox'
                     defaultValue={comment.text}
-                    onKeyDown={handleSubmit}
+                    onKeyDown={onSubmit}
                 />
                 <button
                     name='cancelButton'
-                    onClick={handleCancelButton}>
+                    onClick={onCancel}>
                     Cancel
                 </button>
             </div>

@@ -38,10 +38,10 @@ export const ImageLayout = ({
                 data-testid={comment.id}
                 key={`comment-${comment.id}-${image.id}`}
                 comment={comment}
-                handleDeleteButton={() => deleteComment(image.id, comment.id)}
-                handleEditButton={() => editingCommentClassNames(image.id, comment.id)}
-                handleCancelButton={() => cancelCommentClassNames(image.id, comment.id)}
-                handleSubmit={(e) => handleSubmit(e, image.id, comment.id)}
+                onDelete={() => deleteComment(image.id, comment.id)}
+                onEdit={() => editingCommentClassNames(image.id, comment.id)}
+                onCancel={() => cancelCommentClassNames(image.id, comment.id)}
+                onSubmit={(e) => handleSubmit(e, image.id, comment.id)}
               />
             )
           )}

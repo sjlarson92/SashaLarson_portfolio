@@ -6,10 +6,10 @@ const defaultProps = {
     comment: {
         text: 'I am a comment'
     },
-    handleDeleteButton: jest.fn(),
-    handleCancelButton: jest.fn(),
-    handleEditButton: jest.fn(),
-    handleSubmit: jest.fn()
+    onDelete: jest.fn(),
+    onCancel: jest.fn(),
+    onEdit: jest.fn(),
+    onSubmit: jest.fn()
 }
 describe('<CommentLayout />', () => {
     let wrapper
@@ -41,7 +41,7 @@ describe('<CommentLayout />', () => {
         describe('Delete comment button', () => {
             it('should call props handleDeleteButton when clicked', () => {
                 wrapper.find({ name: 'deleteButton' }).simulate('click')
-                expect(defaultProps.handleDeleteButton).toHaveBeenCalledWith()
+                expect(defaultProps.onDelete).toHaveBeenCalledWith()
             })
             it('should render button with correct text', () => {
                 expect(wrapper.find({ name: 'deleteButton' }).text()).toEqual('Delete')
@@ -53,9 +53,9 @@ describe('<CommentLayout />', () => {
                 expect(wrapper.find({ name: 'editButton' }).text()).toEqual('Edit')
             })
 
-            it('should call handleEditButton when clicked', () => {
+            it('should call onEdit when clicked', () => {
                 wrapper.find({ name: 'editButton' }).simulate('click')
-                expect(defaultProps.handleEditButton).toHaveBeenCalledWith()
+                expect(defaultProps.onEdit).toHaveBeenCalledWith()
             })
 
 
@@ -84,9 +84,9 @@ describe('<CommentLayout />', () => {
                 expect(wrapper.find({ name: 'editInputBox' }).prop('defaultValue')).toEqual(defaultProps.comment.text)
             })
 
-            it('should call handleSubmit onKeyDown', () => {
+            it('should call onSubmit onKeyDown', () => {
                 wrapper.find({ name: 'editInputBox' }).simulate('keyDown')
-                expect(defaultProps.handleSubmit).toHaveBeenCalledWith()
+                expect(defaultProps.onSubmit).toHaveBeenCalledWith()
             })
         })
 
@@ -95,9 +95,9 @@ describe('<CommentLayout />', () => {
                 expect(wrapper.find({ name: 'cancelButton' }).text()).toEqual('Cancel')
             })
 
-            it('should call handleCancelButton when clicked', () => {
+            it('should call onCancel when clicked', () => {
                 wrapper.find({ name: 'cancelButton' }).simulate('click')
-                expect(defaultProps.handleCancelButton).toHaveBeenCalledWith()
+                expect(defaultProps.onCancel).toHaveBeenCalledWith()
             })
         })
     })
