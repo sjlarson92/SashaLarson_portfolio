@@ -15,7 +15,7 @@ const CommentLayout = ({
             <Comment
                 comment={comment.text}
             />
-            <div name='defaultButtonDiv' className={comment.editing ? 'hidden' : ''}>
+            <div name='nonEditingDiv' className={comment.editing ? 'hidden' : ''}>
                 <button
                     name='deleteButton'
                     onClick={handleDeleteButton}>
@@ -27,8 +27,9 @@ const CommentLayout = ({
                     Edit
                 </button>
             </div>
-            <div className={comment.editing ? '' : 'hidden'}>
+            <div name='editingDiv' className={comment.editing ? '' : 'hidden'}>
                 <input
+                    name='editInputBox'
                     defaultValue={comment.text}
                     onKeyDown={handleSubmit}
                 />
@@ -38,8 +39,6 @@ const CommentLayout = ({
                     Cancel
                 </button>
             </div>
-
-
         </div >
     )
 }
