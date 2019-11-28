@@ -84,6 +84,7 @@ export const promptImagesReducer = (state = promptsImages, action) => {
                     return image
                 }
             })
+
         case TYPES.CANCEL_EDIT_COMMENT_CLASS_NAMES:
             return state.map(image => {
                 if (image.id === action.payload.imageId) {
