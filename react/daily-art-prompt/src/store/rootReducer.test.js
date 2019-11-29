@@ -223,6 +223,163 @@ describe('promptImagesReducer', () => {
         })
     })
 
+    describe('when action.type equals UPDATE_COMMENT_EDITING', () => {
+        describe('when image.id === imageId given', () => {
+            describe('when comment.id === commentId given', () => {
+                it('should return comment with editing attribute updated', () => {
+                    const state = [
+                        {
+                            id: 1,
+                            comments: [
+                                {
+                                    id: 1,
+                                }
+                            ]
+                        }
+                    ]
+                    const action = {
+                        type: TYPES.UPDATE_COMMENT_EDITING,
+                        payload: {
+                            imageId: 1,
+                            commentId: 1,
+                            editing: false
+                        }
+                    }
+                    const result = promptImagesReducer(state, action)
+                    expect(result[0].comments[0].editing).toEqual(!action.payload.editing)
+                })
+
+            })
+            describe('when comment.id does not equal commentId given', () => {
+                it('should return comment unchanged', () => {
+                    const state = [
+                        {
+                            id: 1,
+                            comments: [
+                                {
+                                    id: 1,
+                                }
+                            ]
+                        }
+                    ]
+                    const action = {
+                        type: TYPES.UPDATE_COMMENT_EDITING,
+                        payload: {
+                            imageId: 1,
+                            commentId: 2
+                        }
+                    }
+                    const result = promptImagesReducer(state, action)
+                    expect(result[0].comments[0]).toEqual(state[0].comments[0])
+                })
+            })
+        })
+        describe('when image.id does not equal imageId given', () => {
+            it('should return image unchanged', () => {
+                const state = [
+                    {
+                        id: 1,
+                        comments: [
+                            {
+                                id: 1,
+                            }
+                        ]
+                    }
+                ]
+                const action = {
+                    type: TYPES.UPDATE_COMMENT_EDITING,
+                    payload: {
+                        imageId: 2,
+                        commentId: 1
+                    }
+                }
+                const result = promptImagesReducer(state, action)
+                expect(result[0]).toEqual(state[0])
+            })
+
+        })
+    })
+
+    describe('when action.type equals EDIT_COMMENT', () => {
+        describe('when image.id equals imageId given', () => {
+            describe('when comment.id equals commentId given', () => {
+                it('should return comment with updated text value and editing attribute set to false', () => {
+                    const state = [
+                        {
+                            id: 1,
+                            comments: [
+                                {
+                                    id: 1,
+                                }
+                            ]
+                        }
+                    ]
+                    const action = {
+                        type: TYPES.EDIT_COMMENT,
+                        payload: {
+                            imageId: 1,
+                            commentId: 1,
+                            value: 'updated comment'
+                        }
+                    }
+                    const result = promptImagesReducer(state, action)
+                    expect(result[0].comments[0]).toEqual({
+                        id: 1,
+                        text: 'updated comment',
+                        editing: false
+                    })
+                })
+            })
+            describe('when commend.id does not equal commentId given', () => {
+                it('should return comment unchanged', () => {
+                    const state = [
+                        {
+                            id: 1,
+                            comments: [
+                                {
+                                    id: 1,
+                                }
+                            ]
+                        }
+                    ]
+                    const action = {
+                        type: TYPES.EDIT_COMMENT,
+                        payload: {
+                            imageId: 1,
+                            commentId: 2
+                        }
+                    }
+                    const result = promptImagesReducer(state, action)
+                    expect(result[0].comments[0]).toEqual(state[0].comments[0])
+                })
+            })
+        })
+        describe('when image.id does not equal imageId given', () => {
+            it('should return image unchanged', () => {
+                const state = [
+                    {
+                        id: 1,
+                        comments: [
+                            {
+                                id: 1,
+                            }
+                        ]
+                    }
+                ]
+                const action = {
+                    type: TYPES.EDIT_COMMENT,
+                    payload: {
+                        imageId: 2,
+                        commentId: 1
+                    }
+                }
+                const result = promptImagesReducer(state, action)
+                expect(result[0]).toEqual(state[0])
+            })
+
+        })
+    })
+
     describe('when action.type does not equal any of the cases', () => {
         describe('when goes to the default case', () => {
             it('should return the state unchanged', () => {

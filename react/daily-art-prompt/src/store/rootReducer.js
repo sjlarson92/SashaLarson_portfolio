@@ -61,6 +61,56 @@ export const promptImagesReducer = (state = promptsImages, action) => {
                 }
             })
 
+        case TYPES.UPDATE_COMMENT_EDITING:
+            return state.map(image => {
+                if (image.id === action.payload.imageId) {
+                    const updatedCommentsClassName = image.comments.map(comment => {
+                        if (comment.id === action.payload.commentId) {
+                            return {
+                                ...comment,
+                                editing: !comment.editing
+                            }
+                        }
+                        else {
+                            return comment
+                        }
+                    })
+                    return {
+                        ...image,
+                        comments: updatedCommentsClassName
+                    }
+                }
+                else {
+                    return image
+                }
+            })
+
+        case TYPES.EDIT_COMMENT:
+            return state.map(image => {
+                if (image.id === action.payload.imageId) {
+                    const updatedComments = image.comments.map(comment => {
+                        if (comment.id === action.payload.commentId) {
+                            return {
+                                ...comment,
+                                text: action.payload.value,
+                                editing: false
+                            }
+                        }
+                        else {
+                            return comment
+                        }
+                    })
+                    return {
+                        ...image,
+                        comments: updatedComments
+                    }
+                }
+                else {
+                    return image
+                }
+            })
+
+
         default:
             return state
     }
@@ -90,9 +140,10 @@ export const indexReducer = (state = 0, action) => {
 
 }
 
+
 export const rootReducer = combineReducers({
     promptsImages: promptImagesReducer,
-    index: indexReducer
+    index: indexReducer,
 
 })
 

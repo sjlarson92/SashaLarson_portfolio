@@ -16,7 +16,7 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
   }
 
   return (
-    <div data-testid="appContainer" className="app">
+    <div data-testid="appContainer" className={"app"}>
       <div className="header">
         <div className="title">
           <h1 data-testid="header" style={{ color: 'red' }}>Daily Art Prompt</h1>
