@@ -8,7 +8,7 @@ const defaultProps = {
   onDoubleClick: jest.fn(),
   onKeyDown: jest.fn(),
   deleteComment: jest.fn(),
-  updateClassName: jest.fn(),
+  updateCommentEditing: jest.fn(),
   editComment: jest.fn(),
   image: {
     id: 1,
@@ -74,7 +74,7 @@ describe('<ImageLayout />', () => {
     })
 
     describe('onEdit', () => {
-      it('should call updateClassName with correct params', () => {
+      it('should call updateCommentEditing with correct params', () => {
         const props = {
           ...defaultProps,
           image: {
@@ -89,7 +89,7 @@ describe('<ImageLayout />', () => {
         }
         wrapper = shallow(<ImageLayout {...props} />)
         wrapper.find({ 'data-testid': 'comment-1' }).simulate('edit')
-        expect(defaultProps.updateClassName).toHaveBeenCalledWith(
+        expect(defaultProps.updateCommentEditing).toHaveBeenCalledWith(
           props.image.id,
           props.image.comments[0].id,
           props.image.comments[0].editing)
@@ -97,7 +97,7 @@ describe('<ImageLayout />', () => {
     })
 
     describe('onCancel', () => {
-      it('should call updateClassName with correct params onCancel', () => {
+      it('should call updateCommentEditing with correct params onCancel', () => {
         const props = {
           ...defaultProps,
           image: {
@@ -110,7 +110,7 @@ describe('<ImageLayout />', () => {
         }
         wrapper = shallow(<ImageLayout {...props} />)
         wrapper.find({ 'data-testid': 'comment-1' }).simulate('cancel')
-        expect(defaultProps.updateClassName).toHaveBeenCalledWith(
+        expect(defaultProps.updateCommentEditing).toHaveBeenCalledWith(
           props.image.id,
           props.image.comments[0].id,
           props.image.comments[0].editing)
@@ -163,9 +163,9 @@ describe('mapDispatchToProps', () => {
     })
   })
 
-  describe('updateClassName', () => {
+  describe('updateCommentEditing', () => {
     it('should call dispatch with type: UPDATE_COMMENT_EDITING and correct payload', () => {
-      mapDispatchToProps(dispatch).updateClassName(1, 1, false)
+      mapDispatchToProps(dispatch).updateCommentEditing(1, 1, false)
       expect(dispatch).toHaveBeenCalledWith({
         type: TYPES.UPDATE_COMMENT_EDITING,
         payload: {
