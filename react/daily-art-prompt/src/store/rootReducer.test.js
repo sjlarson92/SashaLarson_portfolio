@@ -223,10 +223,10 @@ describe('promptImagesReducer', () => {
         })
     })
 
-    describe('when action.type equals EDIT_COMMENT_CLASS_NAMES', () => {
+    describe('when action.type equals UPDATE_COMMENT_EDITING', () => {
         describe('when image.id === imageId given', () => {
             describe('when comment.id === commentId given', () => {
-                it('should return comment with editing attribute true', () => {
+                it('should return comment with editing attribute updated', () => {
                     const state = [
                         {
                             id: 1,
@@ -238,14 +238,15 @@ describe('promptImagesReducer', () => {
                         }
                     ]
                     const action = {
-                        type: TYPES.EDIT_COMMENT_CLASS_NAMES,
+                        type: TYPES.UPDATE_COMMENT_EDITING,
                         payload: {
                             imageId: 1,
-                            commentId: 1
+                            commentId: 1,
+                            editing: false
                         }
                     }
                     const result = promptImagesReducer(state, action)
-                    expect(result[0].comments[0].editing).toEqual(true)
+                    expect(result[0].comments[0].editing).toEqual(!action.payload.editing)
                 })
 
             })
@@ -262,7 +263,7 @@ describe('promptImagesReducer', () => {
                         }
                     ]
                     const action = {
-                        type: TYPES.EDIT_COMMENT_CLASS_NAMES,
+                        type: TYPES.UPDATE_COMMENT_EDITING,
                         payload: {
                             imageId: 1,
                             commentId: 2
@@ -286,82 +287,7 @@ describe('promptImagesReducer', () => {
                     }
                 ]
                 const action = {
-                    type: TYPES.EDIT_COMMENT_CLASS_NAMES,
-                    payload: {
-                        imageId: 2,
-                        commentId: 1
-                    }
-                }
-                const result = promptImagesReducer(state, action)
-                expect(result[0]).toEqual(state[0])
-            })
-
-        })
-    })
-
-    describe('when action.type equals CANCEL_EDIT_COMMENT_CLASS_NAMES', () => {
-        describe('when image.id equals imageId given', () => {
-            describe('when comment.id equals commentId given', () => {
-                it('should return comment with editing attribute set to false', () => {
-                    const state = [
-                        {
-                            id: 1,
-                            comments: [
-                                {
-                                    id: 1,
-                                }
-                            ]
-                        }
-                    ]
-                    const action = {
-                        type: TYPES.CANCEL_EDIT_COMMENT_CLASS_NAMES,
-                        payload: {
-                            imageId: 1,
-                            commentId: 1
-                        }
-                    }
-                    const result = promptImagesReducer(state, action)
-                    expect(result[0].comments[0].editing).toEqual(false)
-                })
-            })
-            describe('when commend.id does not equal commentId given', () => {
-                it('should return comment unchanged', () => {
-                    const state = [
-                        {
-                            id: 1,
-                            comments: [
-                                {
-                                    id: 1,
-                                }
-                            ]
-                        }
-                    ]
-                    const action = {
-                        type: TYPES.CANCEL_EDIT_COMMENT_CLASS_NAMES,
-                        payload: {
-                            imageId: 1,
-                            commentId: 2
-                        }
-                    }
-                    const result = promptImagesReducer(state, action)
-                    expect(result[0].comments[0]).toEqual(state[0].comments[0])
-                })
-            })
-        })
-        describe('when image.id does not equal imageId given', () => {
-            it('should return image unchanged', () => {
-                const state = [
-                    {
-                        id: 1,
-                        comments: [
-                            {
-                                id: 1,
-                            }
-                        ]
-                    }
-                ]
-                const action = {
-                    type: TYPES.CANCEL_EDIT_COMMENT_CLASS_NAMES,
+                    type: TYPES.UPDATE_COMMENT_EDITING,
                     payload: {
                         imageId: 2,
                         commentId: 1

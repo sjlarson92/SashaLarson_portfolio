@@ -61,38 +61,14 @@ export const promptImagesReducer = (state = promptsImages, action) => {
                 }
             })
 
-        case TYPES.EDIT_COMMENT_CLASS_NAMES:
+        case TYPES.UPDATE_COMMENT_EDITING:
             return state.map(image => {
                 if (image.id === action.payload.imageId) {
                     const updatedCommentsClassName = image.comments.map(comment => {
                         if (comment.id === action.payload.commentId) {
                             return {
                                 ...comment,
-                                editing: true
-                            }
-                        }
-                        else {
-                            return comment
-                        }
-                    })
-                    return {
-                        ...image,
-                        comments: updatedCommentsClassName
-                    }
-                }
-                else {
-                    return image
-                }
-            })
-
-        case TYPES.CANCEL_EDIT_COMMENT_CLASS_NAMES:
-            return state.map(image => {
-                if (image.id === action.payload.imageId) {
-                    const updatedCommentsClassName = image.comments.map(comment => {
-                        if (comment.id === action.payload.commentId) {
-                            return {
-                                ...comment,
-                                editing: false
+                                editing: !comment.editing
                             }
                         }
                         else {

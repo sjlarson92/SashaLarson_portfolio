@@ -23,23 +23,24 @@ describe('<CommentLayout />', () => {
     })
 
     describe('<div> for when user is not editing comment', () => {
+
         describe('when comment.editing is true', () => {
-            it('should have className hidden', () => {
+            it('should not render', () => {
                 wrapper = shallow(<CommentLayout {...defaultProps} comment={{ editing: true }} />)
-                expect(wrapper.find({ name: 'nonEditingDiv' }).prop('className')).toEqual('hidden')
+                expect(wrapper.find({ name: 'nonEditingDiv' })).toHaveLength(0)
             })
 
         })
         describe('when comment.editing is false', () => {
-            it('should have className empty', () => {
+            it('should render', () => {
                 wrapper = shallow(<CommentLayout {...defaultProps} comment={{ editing: false }} />)
-                expect(wrapper.find({ name: 'nonEditingDiv' }).prop('className')).toEqual('')
+                expect(wrapper.find({ name: 'nonEditingDiv' })).toHaveLength(1)
             })
 
         })
 
         describe('Delete comment button', () => {
-            it('should call props handleDeleteButton when clicked', () => {
+            it('should call props onDelete when clicked', () => {
                 wrapper.find({ name: 'deleteButton' }).simulate('click')
                 expect(defaultProps.onDelete).toHaveBeenCalledWith()
             })
@@ -65,26 +66,27 @@ describe('<CommentLayout />', () => {
     describe('<div> for when user is editing comment', () => {
 
         describe('when comment.editing is true', () => {
-            it('should have className: \'\' ', () => {
+            it('should render ', () => {
                 wrapper = shallow(<CommentLayout {...defaultProps} comment={{ editing: true }} />)
-                expect(wrapper.find({ name: 'editingDiv' }).prop('className')).toEqual('')
+                expect(wrapper.find({ name: 'editingDiv' })).toHaveLength(1)
             })
-
         })
-        describe('when comment.editing is false', () => {
-            it('should have className: hidden', () => {
-                wrapper = shallow(<CommentLayout {...defaultProps} comment={{ editing: false }} />)
-                expect(wrapper.find({ name: 'editingDiv' }).prop('className')).toEqual('hidden')
-            })
 
+        describe('when comment.editing is false', () => {
+            it('should not render', () => {
+                wrapper = shallow(<CommentLayout {...defaultProps} comment={{ editing: false }} />)
+                expect(wrapper.find({ name: 'editingDiv' })).toHaveLength(0)
+            })
         })
 
         describe('<input> for updating comment', () => {
             it('should render with defaultValue of current comment text', () => {
-                expect(wrapper.find({ name: 'editInputBox' }).prop('defaultValue')).toEqual(defaultProps.comment.text)
+                wrapper = shallow(<CommentLayout {...defaultProps} comment={{ text: 'currentComment', editing: true }} />)
+                expect(wrapper.find({ name: 'editInputBox' }).prop('defaultValue')).toEqual('currentComment')
             })
 
             it('should call onSubmit onKeyDown', () => {
+                wrapper = shallow(<CommentLayout {...defaultProps} comment={{ editing: true }} />)
                 wrapper.find({ name: 'editInputBox' }).simulate('keyDown')
                 expect(defaultProps.onSubmit).toHaveBeenCalledWith()
             })
@@ -92,10 +94,12 @@ describe('<CommentLayout />', () => {
 
         describe('<button> for cancel updating comment', () => {
             it('should render with correct text', () => {
+                wrapper = shallow(<CommentLayout {...defaultProps} comment={{ editing: true }} />)
                 expect(wrapper.find({ name: 'cancelButton' }).text()).toEqual('Cancel')
             })
 
             it('should call onCancel when clicked', () => {
+                wrapper = shallow(<CommentLayout {...defaultProps} comment={{ editing: true }} />)
                 wrapper.find({ name: 'cancelButton' }).simulate('click')
                 expect(defaultProps.onCancel).toHaveBeenCalledWith()
             })

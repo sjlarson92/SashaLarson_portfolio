@@ -9,9 +9,8 @@ export const ImageLayout = ({
   image,
   onKeyDown,
   deleteComment,
-  cancelCommentClassNames,
+  updateClassName,
   editComment,
-  editingCommentClassNames
 }) => {
 
   const handleSubmit = (e, imageId, commentId) => {
@@ -26,21 +25,23 @@ export const ImageLayout = ({
         image={image}
         onDoubleClick={() => onDoubleClick(image.id)}
       />
-      <div
-        data-testid="likedDiv" className={image.liked ? "likedText" : "hidden"}>
-        Liked
-    </div>
+      {image.liked && (
+        <div
+          data-testid="likedDiv" className="likedText">
+          Liked
+        </div>
+      )}
       <div>
         <div>
           {image.comments && image.comments.map(comment =>
             !comment.deleted && (
               <CommentLayout
-                data-testid={comment.id}
+                data-testid={`comment-${comment.id}`}
                 key={`comment-${comment.id}-${image.id}`}
                 comment={comment}
                 onDelete={() => deleteComment(image.id, comment.id)}
-                onEdit={() => editingCommentClassNames(image.id, comment.id)}
-                onCancel={() => cancelCommentClassNames(image.id, comment.id)}
+                onEdit={() => updateClassName(image.id, comment.id, comment.editing)}
+                onCancel={() => updateClassName(image.id, comment.id, comment.editing)}
                 onSubmit={(e) => handleSubmit(e, image.id, comment.id)}
               />
             )
@@ -65,18 +66,12 @@ export const mapDispatchToProps = (dispatch) => ({
       commentId
     }
   }),
-  editingCommentClassNames: (imageId, commentId) => dispatch({
-    type: TYPES.EDIT_COMMENT_CLASS_NAMES,
+  updateClassName: (imageId, commentId, editing) => dispatch({
+    type: TYPES.UPDATE_COMMENT_EDITING,
     payload: {
       imageId,
-      commentId
-    }
-  }),
-  cancelCommentClassNames: (imageId, commentId) => dispatch({
-    type: TYPES.CANCEL_EDIT_COMMENT_CLASS_NAMES,
-    payload: {
-      imageId,
-      commentId
+      commentId,
+      editing
     }
   }),
   editComment: (imageId, commentId, value) => dispatch({

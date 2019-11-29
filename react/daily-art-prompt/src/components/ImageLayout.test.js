@@ -8,9 +8,8 @@ const defaultProps = {
   onDoubleClick: jest.fn(),
   onKeyDown: jest.fn(),
   deleteComment: jest.fn(),
-  cancelCommentClassNames: jest.fn(),
+  updateClassName: jest.fn(),
   editComment: jest.fn(),
-  editingCommentClassNames: jest.fn(),
   image: {
     id: 1,
     liked: true,
@@ -47,12 +46,8 @@ describe('<ImageLayout />', () => {
   })
 
   describe('<div> LikedDiv', () => {
-    it('has a className of hidden when image is not liked', () => {
-      wrapper = shallow(<ImageLayout {...defaultProps} image={{ ...defaultProps.image, liked: false }} />)
-      expect(wrapper.find({ 'data-testid': 'likedDiv' }).prop("className")).toEqual("hidden")
-    })
 
-    it('has a className of an empty string when image is liked', () => {
+    it('has correct className', () => {
       expect(wrapper.find({ 'data-testid': 'likedDiv' }).prop('className')).toEqual('likedText')
     })
 
@@ -68,41 +63,71 @@ describe('<ImageLayout />', () => {
     })
 
     it('should pass correct comment prop', () => {
-      expect(wrapper.find({ 'data-testid': 1 }).prop('comment')).toEqual(defaultProps.image.comments[0])
+      expect(wrapper.find({ 'data-testid': 'comment-1' }).prop('comment')).toEqual(defaultProps.image.comments[0])
     })
 
     describe('onDelete', () => {
       it('should call deleteComment with correct params onDelete', () => {
-        wrapper.find({ 'data-testid': 1 }).simulate('delete')
-        expect(defaultProps.deleteComment).toHaveBeenCalledWith(1, 1)
+        wrapper.find({ 'data-testid': 'comment-1' }).simulate('delete')
+        expect(defaultProps.deleteComment).toHaveBeenCalledWith(defaultProps.image.id, defaultProps.image.comments[0].id)
       })
     })
 
     describe('onEdit', () => {
-      it('should call editingCommentClassNames with correct params onEdit', () => {
-        wrapper.find({ 'data-testid': 1 }).simulate('edit')
-        expect(defaultProps.editingCommentClassNames).toHaveBeenCalledWith(1, 1)
+      it('should call updateClassName with correct params', () => {
+        const props = {
+          ...defaultProps,
+          image: {
+            ...defaultProps.image,
+            comments: [
+              {
+                id: 1,
+                editing: false
+              }
+            ]
+          }
+        }
+        wrapper = shallow(<ImageLayout {...props} />)
+        wrapper.find({ 'data-testid': 'comment-1' }).simulate('edit')
+        expect(defaultProps.updateClassName).toHaveBeenCalledWith(
+          props.image.id,
+          props.image.comments[0].id,
+          props.image.comments[0].editing)
       })
     })
 
     describe('onCancel', () => {
-      it('should call cancelCommentClassNames with correct params onCancel', () => {
-        wrapper.find({ 'data-testid': 1 }).simulate('cancel')
-        expect(defaultProps.cancelCommentClassNames).toHaveBeenCalledWith(1, 1)
+      it('should call updateClassName with correct params onCancel', () => {
+        const props = {
+          ...defaultProps,
+          image: {
+            ...defaultProps.image,
+            comments: [{
+              id: 1,
+              editing: true
+            }]
+          }
+        }
+        wrapper = shallow(<ImageLayout {...props} />)
+        wrapper.find({ 'data-testid': 'comment-1' }).simulate('cancel')
+        expect(defaultProps.updateClassName).toHaveBeenCalledWith(
+          props.image.id,
+          props.image.comments[0].id,
+          props.image.comments[0].editing)
       })
     })
 
     describe('onSubmit', () => {
       describe('when user clicks enter', () => {
         it('should call editComment with correct params onSubmit', () => {
-          wrapper.find({ 'data-testid': 1 }).simulate('submit', { keyCode: 13, target: { value: 'updated comment' } })
+          wrapper.find({ 'data-testid': 'comment-1' }).simulate('submit', { keyCode: 13, target: { value: 'updated comment' } })
           expect(defaultProps.editComment).toHaveBeenCalledWith(1, 1, 'updated comment')
         })
       })
 
       describe('when user does not click enter', () => {
         it('should not call editComment', () => {
-          wrapper.find({ 'data-testid': 1 }).simulate('submit', { keyCode: 10 })
+          wrapper.find({ 'data-testid': 'comment-1' }).simulate('submit', { keyCode: 10 })
           expect(defaultProps.editComment).not.toHaveBeenCalledWith()
         })
 
@@ -112,14 +137,12 @@ describe('<ImageLayout />', () => {
 
     })
 
-
-  })
-
-  describe('<Input>', () => {
-    it('should call onKeyDown when user clicks a key with correct params', () => {
-      const wrapper = shallow(<ImageLayout {...defaultProps} />)
-      wrapper.find({ 'data-testid': 'inputBox' }).simulate('keyDown', 'event')
-      expect(defaultProps.onKeyDown).toHaveBeenCalledWith('event', 1)
+    describe('<Input>', () => {
+      it('should call onKeyDown when user clicks a key with correct params', () => {
+        const wrapper = shallow(<ImageLayout {...defaultProps} />)
+        wrapper.find({ 'data-testid': 'inputBox' }).simulate('keyDown', 'event')
+        expect(defaultProps.onKeyDown).toHaveBeenCalledWith('event', 1)
+      })
     })
   })
 })
@@ -140,27 +163,15 @@ describe('mapDispatchToProps', () => {
     })
   })
 
-  describe('editingCommentClassNames', () => {
-    it('should call dispatch with type: EDIT_COMMENT_CLASS_NAMES and correct payload', () => {
-      mapDispatchToProps(dispatch).editingCommentClassNames(1, 1)
+  describe('updateClassName', () => {
+    it('should call dispatch with type: UPDATE_COMMENT_EDITING and correct payload', () => {
+      mapDispatchToProps(dispatch).updateClassName(1, 1, false)
       expect(dispatch).toHaveBeenCalledWith({
-        type: TYPES.EDIT_COMMENT_CLASS_NAMES,
+        type: TYPES.UPDATE_COMMENT_EDITING,
         payload: {
           imageId: 1,
-          commentId: 1
-        }
-      })
-    })
-  })
-
-  describe('cancelCommentClassNames', () => {
-    it('should call dispatch with type: CANCEL_EDIT_COMMENT_CLASS_NAMES and correct params', () => {
-      mapDispatchToProps(dispatch).cancelCommentClassNames(1, 1)
-      expect(dispatch).toHaveBeenCalledWith({
-        type: TYPES.CANCEL_EDIT_COMMENT_CLASS_NAMES,
-        payload: {
-          imageId: 1,
-          commentId: 1
+          commentId: 1,
+          editing: false
         }
       })
     })
@@ -178,14 +189,7 @@ describe('mapDispatchToProps', () => {
         }
       })
     })
-
   })
-
-
-
-
-
-
 })
 
 
