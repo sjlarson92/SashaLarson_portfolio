@@ -9,7 +9,7 @@ export const ImageLayout = ({
   image,
   onKeyDown,
   deleteComment,
-  updateClassName,
+  updateCommentEditing,
   editComment,
 }) => {
 
@@ -40,8 +40,8 @@ export const ImageLayout = ({
                 key={`comment-${comment.id}-${image.id}`}
                 comment={comment}
                 onDelete={() => deleteComment(image.id, comment.id)}
-                onEdit={() => updateClassName(image.id, comment.id, comment.editing)}
-                onCancel={() => updateClassName(image.id, comment.id, comment.editing)}
+                onEdit={() => updateCommentEditing(image.id, comment.id, comment.editing)}
+                onCancel={() => updateCommentEditing(image.id, comment.id, comment.editing)}
                 onSubmit={(e) => handleSubmit(e, image.id, comment.id)}
               />
             )
@@ -66,7 +66,7 @@ export const mapDispatchToProps = (dispatch) => ({
       commentId
     }
   }),
-  updateClassName: (imageId, commentId, editing) => dispatch({
+  updateCommentEditing: (imageId, commentId, editing) => dispatch({
     type: TYPES.UPDATE_COMMENT_EDITING,
     payload: {
       imageId,
