@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './DailyArtPromptApp.css';
+import Api from './components/Api'
 import ImageLayout from './components/ImageLayout.js'
 import PromptLayout from './components/PromptLayout.js'
 import * as TYPES from './store/actions'
@@ -39,6 +40,9 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
             image={image}
             onKeyDown={(e) => handleKeyDown(e, image.id)}
           />)}
+      </div>
+      <div name='apiTestDiv'>
+        <Api />
       </div>
     </div>
   )
