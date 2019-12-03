@@ -67,3 +67,20 @@ image.comments && image.comments.map(comment =>
 testID = {`image-${image.id}`}
 // use single ticks not quotations
 ```
+
+## Promises
+
+- A way to combat asynchronous functions by allowing code to run and then return to the promise and execute after
+
+- Promises can be resolved or rejected. If a promise is resolved it can continue to the .then . If the promise is rejected then it goes to the .catch block
+
+```js
+axios.get('https://dog.ceo/api/breeds/image/random')
+            .then((response) => {
+                console.log('inside the then()')
+                setDogImage(response.data.message)
+            })
+            .catch((error) => {
+                console.log("Error fetching picsture", error)
+            })
+```

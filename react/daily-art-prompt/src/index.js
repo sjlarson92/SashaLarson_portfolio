@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DailyArtPromptApp from './DailyArtPromptApp';
+import EntryScreen from './EntryScreen'
 import { Provider } from 'react-redux';
 import { store } from './store/rootReducer'
 
 ReactDOM.render(
   <Provider store={store}>
-    <DailyArtPromptApp />
+    <EntryScreen />
   </Provider>,
   document.getElementById('root')
 );
