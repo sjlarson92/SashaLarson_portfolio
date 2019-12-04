@@ -2,7 +2,9 @@ import DailyArtPromptApp from './DailyArtPromptApp';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { times } from 'lodash'
 import * as TYPES from './store/actions'
+
 
 export const EntryScreen = ({ setInitialImages }) => {
 
@@ -20,10 +22,8 @@ export const EntryScreen = ({ setInitialImages }) => {
         axios.get('https://dog.ceo/api/breed/doberman/images/random')
             .then((response) => {
                 dogImages.push(response.data.message)
-                console.log('dogImages is: ', dogImages)
                 setInitialImages(dogImages)
             })
-
     }, [])
 
 
