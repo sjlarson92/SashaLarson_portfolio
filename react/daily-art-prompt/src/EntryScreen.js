@@ -20,10 +20,10 @@ export const EntryScreen = ({ setInitialImages }) => {
         axios.get('https://dog.ceo/api/breed/doberman/images/random')
             .then((response) => {
                 dogImages.push(response.data.message)
-
+                console.log('dogImages is: ', dogImages)
+                setInitialImages(dogImages)
             })
-        console.log('dogImages is: ', dogImages)
-        setInitialImages(dogImages)
+
     }, [])
 
 

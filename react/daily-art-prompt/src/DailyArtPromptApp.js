@@ -28,7 +28,7 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
         className="title">
         Art Gallery
           </h1>
-      <div className="row">
+      {/* <div className="row">
         {promptsImages.map(image =>
           <ImageLayout
             data-className='imageLayout'
@@ -38,6 +38,14 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
             image={image}
             onKeyDown={(e) => handleKeyDown(e, image.id)}
           />)}
+      </div> */}
+      <div>
+        {promptsImages.map(image =>
+          <img
+            src={image}
+            alt='dog'
+          />
+        )}
       </div>
     </div>
   )
