@@ -4,6 +4,10 @@ import * as TYPES from './actions'
 
 export const promptImagesReducer = (state = promptsImages, action) => {
     switch (action.type) {
+        case TYPES.SET_INITIAL_IMAGES:
+            const imageArray = action.payload.imageArray
+            console.log('imageArray is: ', imageArray[0])
+            return action.payload.imageArray
         case TYPES.UPDATE_PROMPT_IMAGES:
             const updatedPromptImages = state.map(image => {
                 if (image.id === action.payload.imageId) {

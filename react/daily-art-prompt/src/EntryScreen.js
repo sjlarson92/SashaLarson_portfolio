@@ -1,8 +1,10 @@
 import DailyArtPromptApp from './DailyArtPromptApp';
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
+import * as TYPES from './store/actions'
 
-const EntryScreen = () => {
+export const EntryScreen = ({ setInitialImages }) => {
 
     let dogImages = []
 
@@ -10,19 +12,21 @@ const EntryScreen = () => {
         axios.get('https://dog.ceo/api/breed/doberman/images/random')
             .then((response) => {
                 dogImages.push(response.data.message)
-                console.log('dogImages is: ', dogImages)
             })
         axios.get('https://dog.ceo/api/breed/doberman/images/random')
             .then((response) => {
                 dogImages.push(response.data.message)
-                console.log('dogImages is: ', dogImages)
             })
         axios.get('https://dog.ceo/api/breed/doberman/images/random')
             .then((response) => {
                 dogImages.push(response.data.message)
-                console.log('dogImages is: ', dogImages)
+
             })
+        console.log('dogImages is: ', dogImages)
+        setInitialImages(dogImages)
     }, [])
+
+
 
     return (
         <div>
@@ -31,6 +35,15 @@ const EntryScreen = () => {
     )
 }
 
-export default EntryScreen;
+export const mapDispatchToProps = (dispatch) => ({
+    setInitialImages: (imageArray) => dispatch({
+        type: TYPES.SET_INITIAL_IMAGES,
+        payload: {
+            imageArray
+        }
+    })
+})
 
-// TODO: connect this app and dispatch an action with TYPE 'SET_INITIAL_IMAGES' for promptimages
+const ConnectedEntryScreen = connect(null, mapDispatchToProps)(EntryScreen)
+
+export default ConnectedEntryScreen;
