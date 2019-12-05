@@ -1,11 +1,18 @@
-import { promptsImages, prompts } from '../data.js'
+import { prompts } from '../data.js'
 import { createStore, combineReducers } from 'redux';
 import * as TYPES from './actions'
 
 export const promptImagesReducer = (state = [], action) => {
     switch (action.type) {
         case TYPES.SET_INITIAL_IMAGES:
-            const image = action.payload.image
+            const image = {
+                id: state.length > 0
+                    ? state[state.length - 1].id + 1
+                    : 1,
+                src: action.payload.image,
+                liked: false,
+                comments: []
+            }
             console.log('image is: ', image)
             const updatedImages = [...state, image]
             console.log('state is: ', updatedImages)
