@@ -1,46 +1,27 @@
 import DailyArtPromptApp from './DailyArtPromptApp';
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
-import _ from 'lodash'
-import * as TYPES from './store/actions'
+import { getImagesAction } from './requests/imageApi'
 
+export const EntryScreen = ({ getImages }) => {
 
-export const EntryScreen = ({ setInitialImages }) => {
-
-    const getInitialImages = useCallback(
-        () => {
-            _.times(3, () => axios.get('https://dog.ceo/api/breeds/image/random')
-                .then((response) => {
-                    console.log("api call")
-                    setInitialImages(response.data.message)
-                })
-            )
-        },
-        [setInitialImages],
-    )
     useEffect(() => {
-        getInitialImages()
-    }, [getInitialImages])
-
-
+        getImages()
+    }, [])
 
     return (
         <div>
-            <DailyArtPromptApp />
+            <DailyArtPromptApp data-testid="dailyArtPromptApp" />
         </div>
     )
 }
 
-export const mapDispatchToProps = (dispatch) => ({
-    setInitialImages: (src) => dispatch({
-        type: TYPES.SET_INITIAL_IMAGES,
-        payload: {
-            src
-        }
-    })
-})
+const dispatchFunctions = {
+    getImages: getImagesAction
+}
 
-const ConnectedEntryScreen = connect(null, mapDispatchToProps)(EntryScreen)
+const ConnectedEntryScreen = connect(null, dispatchFunctions)(EntryScreen)
 
 export default ConnectedEntryScreen;
+
+//write tests for this file!

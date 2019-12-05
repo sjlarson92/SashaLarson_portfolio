@@ -1,5 +1,6 @@
 import { prompts } from '../data.js'
-import { createStore, combineReducers } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import * as TYPES from './actions'
 
 export const promptImagesReducer = (state = [], action) => {
@@ -161,5 +162,8 @@ export const rootReducer = combineReducers({
 
 export const store = createStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    compose(
+        applyMiddleware(thunkMiddleware),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
 )
