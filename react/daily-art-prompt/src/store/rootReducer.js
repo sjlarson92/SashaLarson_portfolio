@@ -9,14 +9,13 @@ export const promptImagesReducer = (state = [], action) => {
                 id: state.length > 0
                     ? state[state.length - 1].id + 1
                     : 1,
-                src: action.payload.image,
+                src: action.payload.src,
                 liked: false,
                 comments: []
             }
-            console.log('image is: ', image)
             const updatedImages = [...state, image]
-            console.log('state is: ', updatedImages)
             return updatedImages
+
         case TYPES.UPDATE_PROMPT_IMAGES:
             const updatedPromptImages = state.map(image => {
                 if (image.id === action.payload.imageId) {

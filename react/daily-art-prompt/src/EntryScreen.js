@@ -33,10 +33,10 @@ export const EntryScreen = ({ setInitialImages }) => {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-    setInitialImages: (image) => dispatch({
+    setInitialImages: (src) => dispatch({
         type: TYPES.SET_INITIAL_IMAGES,
         payload: {
-            image
+            src
         }
     })
 })

@@ -2,6 +2,55 @@ import { promptImagesReducer, indexReducer } from './rootReducer'
 import * as TYPES from './actions'
 
 describe('promptImagesReducer', () => {
+    describe('when action.type equals SET_INITIAL_IMAGES', () => {
+        describe('when there is no images in state', () => {
+            it('should return updatedImages with correct attributes', () => {
+                const state = []
+                const action = {
+                    type: TYPES.SET_INITIAL_IMAGES,
+                    payload: {
+                        src: "apiCall"
+                    }
+                }
+                expect(promptImagesReducer(state, action)).toEqual([{
+                    id: 1,
+                    src: action.payload.src,
+                    liked: false,
+                    comments: []
+                }])
+            })
+        })
+        describe('when there are images in state', () => {
+            it('should return updatedImages with previous state and new Image', () => {
+                const state = [{
+                    id: 2,
+                    src: "firstImage",
+                    liked: false,
+                    comments: []
+                }]
+                const action = {
+                    type: TYPES.SET_INITIAL_IMAGES,
+                    payload: {
+                        src: "apiCall"
+                    }
+                }
+                expect(promptImagesReducer(state, action)).toEqual([
+                    ...state,
+                    {
+                        id: 3,
+                        src: action.payload.src,
+                        liked: false,
+                        comments: []
+                    }
+
+                ])
+            })
+
+        })
+
+
+    })
+
     describe('when the action.type equals UPDATE_PROMPT_IMAGES', () => {
         describe('when image.id equals payload.imageId and image.liked  is false', () => {
             it('should update image.liked  to true', () => {

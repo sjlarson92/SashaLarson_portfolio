@@ -39,14 +39,6 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
             onKeyDown={(e) => handleKeyDown(e, image.id)}
           />)}
       </div>
-      {/* <div>
-        {promptsImages && promptsImages.map(image =>
-          <img
-            src={image.src}
-            alt='dog'
-          />
-        )}
-      </div> */}
     </div>
   )
 }
