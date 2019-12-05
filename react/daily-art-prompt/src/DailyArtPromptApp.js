@@ -40,7 +40,7 @@ export const DailyArtPromptApp = ({ promptsImages, updatePromptImages, addCommen
           />)}
       </div> */}
       <div>
-        {promptsImages.map(image =>
+        {promptsImages && promptsImages.map(image =>
           <img
             src={image}
             alt='dog'

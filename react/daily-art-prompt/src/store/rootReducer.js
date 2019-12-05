@@ -2,12 +2,14 @@ import { promptsImages, prompts } from '../data.js'
 import { createStore, combineReducers } from 'redux';
 import * as TYPES from './actions'
 
-export const promptImagesReducer = (state = promptsImages, action) => {
+export const promptImagesReducer = (state = [], action) => {
     switch (action.type) {
         case TYPES.SET_INITIAL_IMAGES:
-            const imageArray = action.payload.imageArray
-            console.log('imageArray is: ', imageArray[0])
-            return imageArray
+            const image = action.payload.image
+            console.log('image is: ', image)
+            const updatedImages = [...state, image]
+            console.log('state is: ', updatedImages)
+            return updatedImages
         case TYPES.UPDATE_PROMPT_IMAGES:
             const updatedPromptImages = state.map(image => {
                 if (image.id === action.payload.imageId) {
