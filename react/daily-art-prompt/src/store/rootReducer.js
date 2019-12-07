@@ -1,9 +1,22 @@
-import { promptsImages, prompts } from '../data.js'
-import { createStore, combineReducers } from 'redux';
+import { prompts } from '../data.js'
+import thunkMiddleware from 'redux-thunk';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import * as TYPES from './actions'
 
-export const promptImagesReducer = (state = promptsImages, action) => {
+export const promptImagesReducer = (state = [], action) => {
     switch (action.type) {
+        case TYPES.SET_INITIAL_IMAGES:
+            const image = {
+                id: state.length > 0
+                    ? state[state.length - 1].id + 1
+                    : 1,
+                src: action.payload.src,
+                liked: false,
+                comments: []
+            }
+            const updatedImages = [...state, image]
+            return updatedImages
+
         case TYPES.UPDATE_PROMPT_IMAGES:
             const updatedPromptImages = state.map(image => {
                 if (image.id === action.payload.imageId) {
@@ -149,5 +162,8 @@ export const rootReducer = combineReducers({
 
 export const store = createStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    compose(
+        applyMiddleware(thunkMiddleware),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
 )

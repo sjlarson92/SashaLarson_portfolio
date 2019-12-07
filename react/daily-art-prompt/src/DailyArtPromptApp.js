@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import './DailyArtPromptApp.css';
 import ImageLayout from './components/ImageLayout.js'
 import PromptLayout from './components/PromptLayout.js'
@@ -64,6 +63,6 @@ export const mapDispatchToProps = (dispatch) => ({
   })
 })
 
-const ConnnectedDailyArtPrompt = connect(mapStateToProps, mapDispatchToProps)(DailyArtPromptApp)
+export default connect(mapStateToProps, mapDispatchToProps)(DailyArtPromptApp)
 
-export default ConnnectedDailyArtPrompt;
+
