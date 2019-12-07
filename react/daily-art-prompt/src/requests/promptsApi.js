@@ -11,7 +11,7 @@ export const getPromptsAction = () => (dispatch) => {
 
     })
         .then((response) => {
-            console.log('response is: ', response.data.drinks)
+            console.log('response is: ', response.data.drinks[0])
             dispatch({
                 type: TYPES.SET_INITIAL_PROMPTS,
                 payload: {
