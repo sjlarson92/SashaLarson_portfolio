@@ -63,6 +63,6 @@ export const mapDispatchToProps = (dispatch) => ({
   })
 })
 
-const ConnnectedDailyArtPrompt = connect(mapStateToProps, mapDispatchToProps)(DailyArtPromptApp)
+export default connect(mapStateToProps, mapDispatchToProps)(DailyArtPromptApp)
 
-export default ConnnectedDailyArtPrompt;
+

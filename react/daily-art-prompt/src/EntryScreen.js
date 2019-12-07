@@ -20,8 +20,8 @@ export const dispatchFunctions = {
     getImages: getImagesAction
 }
 
+export const returnsHi = () => 'hi'
+
 const ConnectedEntryScreen = connect(null, dispatchFunctions)(EntryScreen)
 
 export default ConnectedEntryScreen;
-
-//write tests for this file!
