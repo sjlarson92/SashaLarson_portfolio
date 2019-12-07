@@ -5,7 +5,6 @@ import * as TYPES from '../store/actions'
 export const getImagesAction = () => (dispatch) => {
     _.times(3, () => axios.get('https://dog.ceo/api/breeds/image/random')
         .then((response) => {
-            console.log("api call")
             dispatch({
                 type: TYPES.SET_INITIAL_IMAGES,
                 payload: {

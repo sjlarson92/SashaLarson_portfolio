@@ -16,7 +16,7 @@ export const EntryScreen = ({ getImages }) => {
     )
 }
 
-const dispatchFunctions = {
+export const dispatchFunctions = {
     getImages: getImagesAction
 }
 
