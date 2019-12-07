@@ -22,6 +22,5 @@ export const dispatchFunctions = {
 
 export const returnsHi = () => 'hi'
 
-const ConnectedEntryScreen = connect(null, dispatchFunctions)(EntryScreen)
+export default connect(null, dispatchFunctions)(EntryScreen)
 
-export default ConnectedEntryScreen;
