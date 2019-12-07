@@ -9,19 +9,6 @@ jest.mock('../EntryScreen')
 
 const dispatch = jest.fn()
 
-describe('callHi', () => {
-    it('should call returnsHi', () => {
-        callHi()
-        expect(returnsHi).toHaveBeenCalledWith()
-    })
-    it('should return hi', () => {
-        returnsHi.mockReturnValue('this is the return')
-        const result = callHi()
-        expect(result).toEqual('this is the return')
-    })
-})
-
-
 describe('getImagesAction', () => {
     beforeEach(() => { jest.clearAllMocks() })
 
