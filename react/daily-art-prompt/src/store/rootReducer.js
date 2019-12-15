@@ -156,12 +156,11 @@ export const promptsReducer = (state = [], action) => {
     switch (action.type) {
         case TYPES.SET_INITIAL_PROMPTS:
             const date = new Date()
-            const currentDate = `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`
             const prompt = {
                 id: state.length > 0
                     ? state[state.length - 1].id + 1
                     : 1,
-                date: currentDate,
+                date: `${date.getMonth()}-${date.getDate() + state.length}-${date.getFullYear()}`,
                 text: action.payload.text
             }
             console.log('prompt is: ', prompt)
