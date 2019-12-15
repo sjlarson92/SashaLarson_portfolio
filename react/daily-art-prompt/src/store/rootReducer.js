@@ -163,7 +163,6 @@ export const promptsReducer = (state = [], action) => {
                 date: `${date.getMonth()}-${date.getDate() + state.length}-${date.getFullYear()}`,
                 text: action.payload.text
             }
-            console.log('prompt is: ', prompt)
             return [...state, prompt]
         default:
             return state
