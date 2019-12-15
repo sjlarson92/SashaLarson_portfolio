@@ -155,11 +155,13 @@ export const indexReducer = (state = 0, action) => {
 export const promptsReducer = (state = [], action) => {
     switch (action.type) {
         case TYPES.SET_INITIAL_PROMPTS:
+            const date = new Date()
+            const currentDate = `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`
             const prompt = {
                 id: state.length > 0
                     ? state[state.length - 1].id + 1
                     : 1,
-                date: Date(),
+                date: currentDate,
                 text: action.payload.text
             }
             console.log('prompt is: ', prompt)

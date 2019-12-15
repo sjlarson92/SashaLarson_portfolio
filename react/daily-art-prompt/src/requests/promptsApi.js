@@ -4,7 +4,7 @@ import * as TYPES from '../store/actions'
 
 export const getPromptsAction = () => (dispatch) => {
     let i = 0
-    _.times(3, () =>
+    _.times(4, () =>
         axios.get('https://the-cocktail-db.p.rapidapi.com/list.php?i=list', {
             main: 'GET',
             headers: {
@@ -25,4 +25,3 @@ export const getPromptsAction = () => (dispatch) => {
             })
     )
 }
-
