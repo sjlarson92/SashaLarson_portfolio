@@ -137,7 +137,6 @@ export const indexReducer = (state = 0, action) => {
                 return newIndex
             }
             else {
-                console.log('hi')
                 return state
             }
         case TYPES.UPDATE_PREVIOUS_INDEX:

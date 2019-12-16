@@ -32,7 +32,7 @@ describe('<PromptLayout>', () => {
       it('should call handlePreviousButtonClick with correct params', () => {
         const wrapper = shallow(<PromptLayout {...defaultProps} />);
         wrapper.find({ 'data-testid': 'previousButton' }).simulate('click')
-        expect(defaultProps.handlePreviousButtonClick).toHaveBeenCalledWith(defaultProps.index, defaultProps.prompts.length)
+        expect(defaultProps.handlePreviousButtonClick).toHaveBeenCalledWith(defaultProps.index)
       })
     })
 
