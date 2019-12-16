@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FizzBuzz",
+            "request": "launch",
+            "mainClass": "java.practice.FizzBuzz",
+            "projectName": "SashaLarson_portfolio_c5332064"
+        }
+    ]
+}

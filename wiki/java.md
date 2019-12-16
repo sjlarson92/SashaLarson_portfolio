@@ -14,7 +14,8 @@ public class HelloWorld {
 ## Running Java Code
 
 - To run java code you first need to compile it. To compile code in the terminal use command: `javac fileName.java`
-- Then once it is succefully compiled run the command: `java fileName` to run it
+- If the file is succesfully compiled it will create a fileName.class file that can be run
+- To run this file use the command: `java fileName`
 
 ## Comments
 
