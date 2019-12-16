@@ -22,5 +22,8 @@ export const getPromptsAction = () => (dispatch) => {
                 })
                 i += 1
             })
+            .catch((error) => {
+                console.log('Failed to fetch prompt data from API with error: ', error)
+            })
     )
 }

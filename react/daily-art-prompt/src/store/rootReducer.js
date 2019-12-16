@@ -2,6 +2,7 @@ import thunkMiddleware from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import * as TYPES from './actions'
 
+
 export const promptImagesReducer = (state = [], action) => {
     switch (action.type) {
         case TYPES.SET_INITIAL_IMAGES:
@@ -132,10 +133,11 @@ export const indexReducer = (state = 0, action) => {
     switch (action.type) {
         case TYPES.UPDATE_NEXT_INDEX:
             const newIndex = action.payload.index + 1;
-            if (newIndex <= action.payload.promptCount - 1) {
+            if (newIndex <= action.payload.promptslength - 1) {
                 return newIndex
             }
             else {
+                console.log('hi')
                 return state
             }
         case TYPES.UPDATE_PREVIOUS_INDEX:
@@ -177,10 +179,10 @@ export const rootReducer = combineReducers({
 
 })
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(
     rootReducer,
-    compose(
+    composeEnhancers(
         applyMiddleware(thunkMiddleware),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
 )

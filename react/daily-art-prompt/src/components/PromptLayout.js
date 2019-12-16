@@ -9,7 +9,7 @@ export const PromptLayout = ({ prompts, index, handleNextButtonClick, handlePrev
   <div data-testid="mainContentContainer" className="prompt-row">
     <PromptButton
       data-testid="previousButton"
-      onClick={() => handlePreviousButtonClick(index, prompts.length)}
+      onClick={() => handlePreviousButtonClick(index)}
       text="Previous"
     />
 
@@ -36,14 +36,13 @@ export const mapDispatchToProps = (dispatch) => ({
     type: TYPES.UPDATE_NEXT_INDEX,
     payload: {
       index,
-      promptCount: promptslength
+      promptslength: promptslength
     }
   }),
-  handlePreviousButtonClick: (index, promptslength) => dispatch({
+  handlePreviousButtonClick: (index) => dispatch({
     type: TYPES.UPDATE_PREVIOUS_INDEX,
     payload: {
-      index,
-      promptCount: promptslength
+      index
     }
   })
 })

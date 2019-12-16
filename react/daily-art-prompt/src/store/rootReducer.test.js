@@ -1,4 +1,4 @@
-import { promptImagesReducer, indexReducer } from './rootReducer'
+import { promptImagesReducer, indexReducer, promptsReducer } from './rootReducer'
 import * as TYPES from './actions'
 
 describe('promptImagesReducer', () => {
@@ -447,32 +447,32 @@ describe('indexReducer', () => {
     describe('when action.type equals UPDATE_NEXT_INDEX', () => {
         describe('when there is a next prompt', () => {
             it('should return newIndex', () => {
-                const state = [
-                    {
-                        index: 0
-                    }
-                ]
+                const state =
+                {
+                    index: 0
+                }
                 const action = {
                     type: TYPES.UPDATE_NEXT_INDEX,
                     payload: {
-                        index: state[0].index
+                        index: state.index,
+                        promptslength: 2
                     }
                 }
-                expect(indexReducer(state, action)).toEqual(state[0].index + 1)
+                expect(indexReducer(state, action)).toEqual(state.index + 1)
             })
         })
 
         describe('when there is no next prompt', () => {
             it('should return state unchanged', () => {
-                const state = [
-                    {
-                        index: 2
-                    }
-                ]
+                const state =
+                {
+                    index: 2
+                }
                 const action = {
                     type: TYPES.UPDATE_NEXT_INDEX,
                     payload: {
-                        index: 2
+                        index: 2,
+                        promptslength: 1
                     }
                 }
                 expect(indexReducer(state, action)).toEqual(state)
@@ -527,3 +527,39 @@ describe('indexReducer', () => {
         })
     })
 })
+
+describe('promptsReducer', () => {
+    describe('when action.type is SET_INITIAL_PROMPTS', () => {
+        it('should return previous state with new prompt', () => {
+            const date = new Date()
+            const state = []
+            const action = {
+                type: TYPES.SET_INITIAL_PROMPTS,
+                payload: {
+                    text: 'prompt text'
+                }
+            }
+            expect(promptsReducer(state, action)).toEqual(
+                [{
+                    id: 1,
+                    date: `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`,
+                    text: 'prompt text'
+                }]
+            )
+        })
+
+    })
+    describe('when action.type is default', () => {
+        it('should return state', () => {
+            const state = []
+            const action = {
+                type: ''
+            }
+            expect(promptsReducer(state, action)).toEqual(state)
+        })
+
+    })
+
+
+})
+
