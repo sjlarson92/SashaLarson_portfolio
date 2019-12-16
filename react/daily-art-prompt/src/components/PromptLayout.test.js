@@ -6,7 +6,14 @@ import * as TYPES from '../store/actions'
 describe('<PromptLayout>', () => {
 
   const defaultProps = {
-    index: 0,
+    prompts: [
+      {
+        id: 1,
+        date: '11-15-19',
+        text: 'this is text for defaultProps.prompts'
+      }
+    ],
+    index: 1,
     handleNextButtonClick: jest.fn(),
     handlePreviousButtonClick: jest.fn()
   }
@@ -22,28 +29,10 @@ describe('<PromptLayout>', () => {
         const wrapper = shallow(<PromptLayout {...defaultProps} />);
         expect(wrapper.find({ 'data-testid': 'previousButton' }).prop('text')).toEqual('Previous');
       })
-    })
-
-    describe('<Prompt>', () => {
-      it('should render correct initial prompt', () => {
+      it('should call handlePreviousButtonClick with correct params', () => {
         const wrapper = shallow(<PromptLayout {...defaultProps} />);
-        expect(wrapper.find('Prompt').prop('prompt')).toEqual({ id: 1, date: "October 11", text: "Puppy" })
-      })
-
-      describe('Previous Button', () => {
-        it('should call handlePreviousButtonClick with correct params', () => {
-          const wrapper = shallow(<PromptLayout {...defaultProps} />);
-          wrapper.find({ 'data-testid': 'previousButton' }).simulate('click')
-          expect(defaultProps.handlePreviousButtonClick).toHaveBeenCalledWith(defaultProps.index)
-        })
-      })
-
-      describe('Next Button', () => {
-        it('should call handleNextButtonClick with correct params', () => {
-          const wrapper = shallow(<PromptLayout {...defaultProps} />);
-          wrapper.find({ 'data-testid': 'nextButton' }).simulate('click')
-          expect(defaultProps.handleNextButtonClick).toHaveBeenCalledWith(defaultProps.index)
-        })
+        wrapper.find({ 'data-testid': 'previousButton' }).simulate('click')
+        expect(defaultProps.handlePreviousButtonClick).toHaveBeenCalledWith(defaultProps.index, defaultProps.prompts.length)
       })
     })
 
@@ -51,6 +40,11 @@ describe('<PromptLayout>', () => {
       it('renders correct text', () => {
         const wrapper = shallow(<PromptLayout {...defaultProps} />);
         expect(wrapper.find({ 'data-testid': 'nextButton' }).prop('text')).toEqual('Next');
+      })
+      it('should call handleNextButtonClick with correct params', () => {
+        const wrapper = shallow(<PromptLayout {...defaultProps} />);
+        wrapper.find({ 'data-testid': 'nextButton' }).simulate('click')
+        expect(defaultProps.handleNextButtonClick).toHaveBeenCalledWith(defaultProps.index, defaultProps.prompts.length)
       })
     })
   })

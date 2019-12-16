@@ -160,7 +160,7 @@ export const promptsReducer = (state = [], action) => {
                 id: state.length > 0
                     ? state[state.length - 1].id + 1
                     : 1,
-                date: `${date.getMonth()}-${date.getDate() + state.length}-${date.getFullYear()}`,
+                date: `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`,
                 text: action.payload.text
             }
             return [...state, prompt]

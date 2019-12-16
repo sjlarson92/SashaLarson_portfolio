@@ -1,6 +1,5 @@
-import { callHi, getImagesAction } from './imageApi'
+import { getImagesAction } from './imageApi'
 import axios from 'axios';
-import { returnsHi } from '../EntryScreen'
 import * as TYPES from '../store/actions'
 
 jest.mock('axios')

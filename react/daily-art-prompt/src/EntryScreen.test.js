@@ -2,11 +2,13 @@ import React from 'react';
 import { EntryScreen, dispatchFunctions } from './EntryScreen'
 import { mount, shallow } from 'enzyme';
 import { getImagesAction } from './requests/imageApi'
+import { getPromptsAction } from './requests/promptsApi';
 
 jest.mock('./DailyArtPromptApp')
 
 const defaultProps = {
-    getImages: jest.fn()
+    getImages: jest.fn(),
+    getPrompts: jest.fn()
 }
 
 describe('<EntryScreen>', () => {
@@ -27,7 +29,8 @@ describe('<EntryScreen>', () => {
 describe('dispatchFunctions', () => {
     it('should equal an object with key: getImages and value: getImagesAction', () => {
         expect(dispatchFunctions).toEqual({
-            getImages: getImagesAction
+            getImages: getImagesAction,
+            getPrompts: getPromptsAction
         })
     })
 
