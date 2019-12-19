@@ -4,7 +4,6 @@ import PromptButton from './PromptButton.js'
 import Prompt from './Prompt.js'
 import * as TYPES from '../store/actions'
 
-
 export const PromptLayout = ({ prompts, index, handleNextButtonClick, handlePreviousButtonClick }) =>
   <div data-testid="mainContentContainer" className="prompt-row">
     <PromptButton
@@ -12,13 +11,12 @@ export const PromptLayout = ({ prompts, index, handleNextButtonClick, handlePrev
       onClick={() => handlePreviousButtonClick(index)}
       text="Previous"
     />
-
     {prompts.length > 0 &&
-      (< Prompt
+      (<Prompt
+        data-testid="prompt"
         prompt={prompts[index]}
       />)
     }
-
     <PromptButton
       data-testid="nextButton"
       onClick={() => handleNextButtonClick(index, prompts.length)}

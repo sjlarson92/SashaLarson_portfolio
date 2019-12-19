@@ -11,6 +11,11 @@ describe('<PromptLayout>', () => {
         id: 1,
         date: '11-15-19',
         text: 'this is text for defaultProps.prompts'
+      },
+      {
+        id: 2,
+        date: '12-18-19',
+        text: 'i love testing my code'
       }
     ],
     index: 1,
@@ -36,6 +41,35 @@ describe('<PromptLayout>', () => {
       })
     })
 
+    describe('<Prompt>', () => {
+      describe('when prompts.length is greater than 0', () => {
+        it('should render', () => {
+          const wrapper = shallow(<PromptLayout {...defaultProps} />);
+          const result = wrapper.find({ 'data-testid': 'prompt' })
+          console.log('result is: ', result)
+          expect(result).toHaveLength(1)
+        })
+        it('should render with correct props', () => {
+          const wrapper = shallow(<PromptLayout {...defaultProps} />)
+          const result = wrapper.find({ 'data-testid': 'prompt' }).prop('prompt')
+          expect(result).toEqual(defaultProps.prompts[defaultProps.index])
+        })
+      })
+
+      describe('when prompts.length is 0', () => {
+        it('should not render  <Prompt>', () => {
+          const props = {
+            ...defaultProps,
+            prompts: []
+          }
+          const wrapper = shallow(<PromptLayout {...props} />)
+          const result = wrapper.find({ 'data-testid': 'prompt' })
+          expect(result).toHaveLength(0)
+        })
+      })
+    })
+
+
     describe('<button> for nextButton', () => {
       it('renders correct text', () => {
         const wrapper = shallow(<PromptLayout {...defaultProps} />);
@@ -55,16 +89,26 @@ describe('mapStateToProps', () => {
     const result = mapStateToProps({ index: 1 })
     expect(result).toEqual({ index: 1 })
   })
+  it('should map prompts to props', () => {
+    const result = mapStateToProps({ prompts: [{ text: 'prompt' }] })
+    expect(result).toEqual({ prompts: [{ text: 'prompt' }] })
+  })
+
 })
 
 describe('mapDispatchToProps', () => {
   const dispatch = jest.fn()
   describe('handleNextButtonClick', () => {
     it('should dispatch type: UPDATE_NEXT_INDEX and correct payload ', () => {
-      mapDispatchToProps(dispatch).handleNextButtonClick(1)
+      const index = 0
+      const promptslength = 1
+      mapDispatchToProps(dispatch).handleNextButtonClick(index, promptslength)
       expect(dispatch).toHaveBeenCalledWith({
         type: TYPES.UPDATE_NEXT_INDEX,
-        payload: { index: 1 }
+        payload: {
+          index,
+          promptslength
+        }
       })
     })
   })
