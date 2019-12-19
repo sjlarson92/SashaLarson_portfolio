@@ -46,10 +46,9 @@ describe('<PromptLayout>', () => {
         it('should render', () => {
           const wrapper = shallow(<PromptLayout {...defaultProps} />);
           const result = wrapper.find({ 'data-testid': 'prompt' })
-          console.log('result is: ', result)
           expect(result).toHaveLength(1)
         })
-        it('should render with correct props', () => {
+        it('should render with correct prompt prop', () => {
           const wrapper = shallow(<PromptLayout {...defaultProps} />)
           const result = wrapper.find({ 'data-testid': 'prompt' }).prop('prompt')
           expect(result).toEqual(defaultProps.prompts[defaultProps.index])
