@@ -1,4 +1,3 @@
-import { prompts } from '../data.js'
 import thunkMiddleware from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import * as TYPES from './actions'
@@ -133,7 +132,7 @@ export const indexReducer = (state = 0, action) => {
     switch (action.type) {
         case TYPES.UPDATE_NEXT_INDEX:
             const newIndex = action.payload.index + 1;
-            if (newIndex <= prompts.length - 1) {
+            if (newIndex <= action.payload.promptslength - 1) {
                 return newIndex
             }
             else {
@@ -153,17 +152,35 @@ export const indexReducer = (state = 0, action) => {
 
 }
 
+export const promptsReducer = (state = [], action) => {
+    switch (action.type) {
+        case TYPES.SET_INITIAL_PROMPTS:
+            const date = new Date()
+            const prompt = {
+                id: state.length > 0
+                    ? state[state.length - 1].id + 1
+                    : 1,
+                date: `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`,
+                text: action.payload.text
+            }
+            return [...state, prompt]
+        default:
+            return state
+    }
+}
+
 
 export const rootReducer = combineReducers({
     promptsImages: promptImagesReducer,
     index: indexReducer,
+    prompts: promptsReducer
 
 })
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(
     rootReducer,
-    compose(
+    composeEnhancers(
         applyMiddleware(thunkMiddleware),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
 )

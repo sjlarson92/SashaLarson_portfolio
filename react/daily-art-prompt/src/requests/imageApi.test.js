@@ -1,6 +1,5 @@
-import { callHi, getImagesAction } from './imageApi'
+import { getImagesAction } from './imageApi'
 import axios from 'axios';
-import { returnsHi } from '../EntryScreen'
 import * as TYPES from '../store/actions'
 
 jest.mock('axios')
@@ -8,19 +7,6 @@ jest.mock('axios')
 jest.mock('../EntryScreen')
 
 const dispatch = jest.fn()
-
-describe('callHi', () => {
-    it('should call returnsHi', () => {
-        callHi()
-        expect(returnsHi).toHaveBeenCalledWith()
-    })
-    it('should return hi', () => {
-        returnsHi.mockReturnValue('this is the return')
-        const result = callHi()
-        expect(result).toEqual('this is the return')
-    })
-})
-
 
 describe('getImagesAction', () => {
     beforeEach(() => { jest.clearAllMocks() })

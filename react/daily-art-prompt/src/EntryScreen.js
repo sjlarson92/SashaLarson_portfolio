@@ -2,12 +2,14 @@ import DailyArtPromptApp from './DailyArtPromptApp';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getImagesAction } from './requests/imageApi'
+import { getPromptsAction } from './requests/promptsApi'
 
-export const EntryScreen = ({ getImages }) => {
+export const EntryScreen = ({ getImages, getPrompts }) => {
 
     useEffect(() => {
         getImages()
-    }, [])
+        getPrompts()
+    }, [getImages, getPrompts])
 
     return (
         <div>
@@ -17,10 +19,9 @@ export const EntryScreen = ({ getImages }) => {
 }
 
 export const dispatchFunctions = {
-    getImages: getImagesAction
+    getImages: getImagesAction,
+    getPrompts: getPromptsAction
 }
-
-export const returnsHi = () => 'hi'
 
 export default connect(null, dispatchFunctions)(EntryScreen)
 

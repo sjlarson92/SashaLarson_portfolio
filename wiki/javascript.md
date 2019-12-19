@@ -64,7 +64,7 @@ image.comments && image.comments.map(comment =>
 ## String Literals
 
 ```js
-testID = {`image-${image.id}`}
+testID = `image-${image.id}`
 // use single ticks not quotations
 ```
 
