@@ -454,7 +454,7 @@ describe('indexReducer', () => {
                 const action = {
                     type: TYPES.UPDATE_NEXT_INDEX,
                     payload: {
-                        index: state.index,
+                        index: 0,
                         promptslength: 2
                     }
                 }
@@ -472,7 +472,7 @@ describe('indexReducer', () => {
                     type: TYPES.UPDATE_NEXT_INDEX,
                     payload: {
                         index: 2,
-                        promptslength: 1
+                        promptslength: 2
                     }
                 }
                 expect(indexReducer(state, action)).toEqual(state)
@@ -532,7 +532,11 @@ describe('promptsReducer', () => {
     describe('when action.type is SET_INITIAL_PROMPTS', () => {
         it('should return previous state with new prompt', () => {
             const date = new Date()
-            const state = []
+            const state = [{
+                id: 1,
+                date: '12-19-19',
+                text: 'draw me like one of your french girls'
+            }]
             const action = {
                 type: TYPES.SET_INITIAL_PROMPTS,
                 payload: {
@@ -540,11 +544,15 @@ describe('promptsReducer', () => {
                 }
             }
             expect(promptsReducer(state, action)).toEqual(
-                [{
-                    id: 1,
-                    date: `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`,
-                    text: 'prompt text'
-                }]
+                [
+                    ...state,
+                    {
+                        id: 2,
+                        date: `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`,
+                        text: 'prompt text'
+                    }
+                ]
+
             )
         })
 

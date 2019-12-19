@@ -2,7 +2,6 @@ import thunkMiddleware from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import * as TYPES from './actions'
 
-
 export const promptImagesReducer = (state = [], action) => {
     switch (action.type) {
         case TYPES.SET_INITIAL_IMAGES:

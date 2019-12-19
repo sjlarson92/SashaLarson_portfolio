@@ -3,7 +3,7 @@ import _ from 'lodash'
 import * as TYPES from '../store/actions'
 
 export const getPromptsAction = () => (dispatch) => {
-    let i = 0
+    let count = 0
     _.times(4, () =>
         axios.get('https://the-cocktail-db.p.rapidapi.com/list.php?i=list', {
             headers: {
@@ -16,10 +16,10 @@ export const getPromptsAction = () => (dispatch) => {
                 dispatch({
                     type: TYPES.SET_INITIAL_PROMPTS,
                     payload: {
-                        text: response.data.drinks[i].strIngredient1
+                        text: response.data.drinks[count].strIngredient1
                     }
                 })
-                i += 1
+                count += 1
             })
             .catch((error) => {
                 console.log('Failed to fetch prompt data from API with error: ', error)
