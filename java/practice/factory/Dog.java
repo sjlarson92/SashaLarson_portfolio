@@ -16,6 +16,14 @@ public class Dog {
         this.isGoodDog = false;
         this.breed = Breed.BEAGLE;
     }
+
+    public Dog(String firstName, String lastName, int age, Boolean goodDog) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.isGoodDog = goodDog;
+        // this.breed = breed;
+    }
     // any attributes - min: firstName, lastName, age, breed [specific type (enum,
     // not a string)], isGoodDog
     // any getters/setters/ maybe other stuff?
