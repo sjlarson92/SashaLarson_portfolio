@@ -13,21 +13,21 @@ This application displays some of my skills with:
 <div align="center">
 
 ### HOME
-<img src= "/c\#/TechJobsOO/images/Home.png" width= 60% length= 60%>
+<img src= "/c#/TechJobsOO/images/Home.png" width= 60% length= 60%>
 
 ### SEARCH
-<img src= "/c\#/TechJobsOO/images/Search.png" width= 60% length= 60%>
+<img src= "/c#/TechJobsOO/images/Search.png" width= 60% length= 60%>
 
 ### SEARCH RESULT
-<img src= "/c\#/TechJobsOO/images/SearchResult.png" width= 60% length= 60%>
+<img src= "/c#/TechJobsOO/images/SearchResult.png" width= 60% length= 60%>
 
 ### LIST
-<img src= "/c\#/TechJobsOO/images/List.png" width= 60% length= 60%>
+<img src= "/c#/TechJobsOO/images/List.png" width= 60% length= 60%>
 
 ### LIST ALL JOBS
-<img src= "/c\#/TechJobsOO/images/ListAll.png" width= 60% length= 60%>
+<img src= "/c#/TechJobsOO/images/ListAll.png" width= 60% length= 60%>
 
 ### LIST JOBS BY EMPLOYER
-<img src= "/c\#/TechJobsOO/images/ListByEmployer.png" width= 60% length= 60%>
+<img src= "/c#/TechJobsOO/images/ListByEmployer.png" width= 60% length= 60%>
 
 </div>
