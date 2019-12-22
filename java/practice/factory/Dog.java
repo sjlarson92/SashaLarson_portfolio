@@ -12,7 +12,7 @@ public class Dog {
     public Dog() {
         this.firstName = "HeWhoShall";
         this.lastName = "NotBeNamed";
-        this.age = 90;
+        this.age = 666;
         this.isGoodDog = false;
         this.breed = Breed.BEAGLE;
     }
@@ -24,10 +24,13 @@ public class Dog {
         this.isGoodDog = goodDog;
         this.breed = breed;
     }
-    // any attributes - min: firstName, lastName, age, breed [specific type (enum,
-    // not a string)], isGoodDog
-    // any getters/setters/ maybe other stuff?
 
-    // 1- no args should have funny first/last names, breed: beagle, isGoodDog false
+    public int getAge() {
+        return this.age;
+    }
+
+    public Boolean getIsGoodDog() {
+        return this.isGoodDog;
+    }
 
 }
