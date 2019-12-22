@@ -11,12 +11,7 @@ public class Factory {
         }
     };
 
-    public static void main(String[] args) {
-        Dog myDog = new Dog();
-        System.out.println("\n---------------Dog Default Constructor------------");
-        System.out.println("\nfirstName: " + myDog.firstName + "\nlastName: " + myDog.lastName + "\n Age is: "
-                + myDog.age + "\n isGoodBoy: " + myDog.isGoodDog + "\n Breed is: " + myDog.breed);
-
+    static Dog createNewDog() {
         Scanner myObj = new Scanner(System.in);
         Scanner in = new Scanner(System.in);
 
@@ -36,8 +31,49 @@ public class Factory {
         String userInput = myObj.nextLine();
         Dog.Breed breed = getBreed(userInput);
 
-        Dog userDog = new Dog(firstName, lastName, age, isGoodDog, breed);
-        System.out.println("\n--------------------" + "\nYou new Dog is: " + userDog.firstName + " " + userDog.lastName
-                + "\nAge: " + userDog.age + "\nisGoodBoy: " + userDog.isGoodDog + "\nBreed: " + userDog.breed);
+        return new Dog(firstName, lastName, age, isGoodDog, breed);
+    }
+
+    static void engine() {
+        Boolean gameRunning = true;
+        Dog[] dogList;
+        Scanner myObj = new Scanner(System.in);
+        Dog defaultDog = new Dog();
+        System.out.println("\n------------DEFAULT DOG------------");
+        System.out.println("\nfirstName: " + defaultDog.firstName + "\nlastName: " + defaultDog.lastName + "\n Age is: "
+                + defaultDog.age + "\n isGoodBoy: " + defaultDog.isGoodDog + "\n Breed is: " + defaultDog.breed);
+
+        do {
+            System.out.println(
+                    "\n----------CHOOSE WHAT TO DO NEXT:------------ \nA: CREATE NEW DOG  B: COMPARE DOGS C: QUIT");
+            String userDecision = myObj.nextLine();
+
+            if (userDecision.equals("a")) {
+                Dog newDog = createNewDog();
+                System.out.println("\n---------NEW DOG-----------" + "\nName: " + newDog.firstName + " "
+                        + newDog.lastName + "\nAge: " + newDog.age + "\nisGoodBoy: " + newDog.isGoodDog + "\nBreed: "
+                        + newDog.breed);
+            } else if (userDecision.equals("b")) {
+                System.out.println("\n-------Compare feature is under construction-----");
+            } else {
+                gameRunning = false;
+            }
+        } while (gameRunning);
+    }
+
+    public static void main(String[] args) {
+        engine();
+
+        // Dog dog1 = createNewDog();
+        // System.out.println("\n---------NEW DOG-----------" + "\nName: " +
+        // dog1.firstName + " " + dog1.lastName
+        // + "\nAge: " + dog1.age + "\nisGoodBoy: " + dog1.isGoodDog + "\nBreed: " +
+        // dog1.breed);
+
+        // Dog dog2 = createNewDog();
+        // System.out.println("\n---------NEW DOG 2-----------" + "\nName: " +
+        // dog2.firstName + " " + dog2.lastName
+        // + "\nAge: " + dog2.age + "\nisGoodBoy: " + dog2.isGoodDog + "\nBreed: " +
+        // dog2.breed);
     }
 }
