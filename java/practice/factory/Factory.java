@@ -1,7 +1,16 @@
-import java.practice.factory.Dog.Breed;
 import java.util.Scanner;
 
 public class Factory {
+    static Dog.Breed getBreed(String args) {
+        if (args.equals("a")) {
+            return Dog.Breed.BEAGLE;
+        } else if (args.equals("b")) {
+            return Dog.Breed.MUTT;
+        } else {
+            return Dog.Breed.WESTIE;
+        }
+    };
+
     public static void main(String[] args) {
         Dog myDog = new Dog();
         System.out.println("\n---------------Dog Default Constructor------------");
@@ -23,13 +32,12 @@ public class Factory {
         String goodBoy = myObj.nextLine();
         Boolean isGoodDog = goodBoy.equals("a") ? true : false;
 
-        // YOU ARE HERE! Solve the enume problem
         System.out.println("\nDog Breed: \nA: Beagle B: Mutt C: Westie ");
         String userInput = myObj.nextLine();
-        Breed breed = userInput.equals("a") ? Breed.BEAGLE : Breed.MUTT;
+        Dog.Breed breed = getBreed(userInput);
 
-        Dog userDog = new Dog(firstName, lastName, age, isGoodDog);
-        System.out.println("You new Dog is: " + userDog.firstName + " " + userDog.lastName + "\nAge: " + userDog.age
-                + "\nisGoodBoy: " + userDog.isGoodDog);
+        Dog userDog = new Dog(firstName, lastName, age, isGoodDog, breed);
+        System.out.println("\n--------------------" + "\nYou new Dog is: " + userDog.firstName + " " + userDog.lastName
+                + "\nAge: " + userDog.age + "\nisGoodBoy: " + userDog.isGoodDog + "\nBreed: " + userDog.breed);
     }
 }

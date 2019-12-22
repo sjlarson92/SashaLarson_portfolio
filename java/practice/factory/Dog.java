@@ -17,12 +17,12 @@ public class Dog {
         this.breed = Breed.BEAGLE;
     }
 
-    public Dog(String firstName, String lastName, int age, Boolean goodDog) {
+    public Dog(String firstName, String lastName, int age, Boolean goodDog, Breed breed) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.isGoodDog = goodDog;
-        // this.breed = breed;
+        this.breed = breed;
     }
     // any attributes - min: firstName, lastName, age, breed [specific type (enum,
     // not a string)], isGoodDog
