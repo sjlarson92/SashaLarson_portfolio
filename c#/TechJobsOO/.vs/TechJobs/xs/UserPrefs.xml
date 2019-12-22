@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{14778719-D230-4A24-BD3B-704D11DA20D8}|Default">
+  <MonoDevelop.Ide.ItemProperties.src.TechJobs PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/TechJobs/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="src/TechJobs/Controllers/HomeController.cs" Line="1" Column="7" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
