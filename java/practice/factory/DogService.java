@@ -23,19 +23,25 @@ public class DogService {
         Scanner myObj = new Scanner(System.in);
         Scanner in = new Scanner(System.in);
 
-        out.println("\n----------------Create Your Own Dog---------------- \nEnter First Name: ");
+        out.println("----------------Create Your Own Dog----------------");
+        out.println("Enter First Name: ");
         String firstName = myObj.nextLine();
-        out.println("\nLast Name: ");
+        out.println();
+        out.println("Last Name: ");
         String lastName = myObj.nextLine();
-
-        out.println("\nAge: ");
+        out.println();
+        out.println("Age: ");
         int age = in.nextInt();
-
-        out.println("\n Is this dog a Good Dog? \na: Yes \nb: No");
+        out.println();
+        out.println("Is this dog a Good Dog?");
+        out.println();
+        out.println("Yes or No");
         String goodBoy = myObj.nextLine();
-        Boolean goodDog = goodBoy.equals("a") ? true : false;
-
-        out.println("\nDog Breed: \nA: Beagle B: Mutt C: Westie ");
+        Boolean goodDog = goodBoy.equals("y") ? true : false;
+        out.println();
+        out.println("Dog Breed:");
+        out.println("A: Beagle B: Mutt C: Westie ");
+        out.println();
         String userInput = myObj.nextLine();
         Dog.Breed breed = setBreed(userInput);
 
@@ -61,6 +67,7 @@ public class DogService {
         for (int i = 0; i < allDogs.size(); i++) {
             if (allDogs.get(i).isGoodDog()) {
                 out.println(allDogs.get(i).getFullName());
+                out.println();
             }
         }
     };
