@@ -1,9 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.Collections;
 
 import static java.lang.System.out;
 
@@ -37,7 +34,7 @@ public class DogService {
         out.println();
         out.println("Yes or No");
         String goodBoy = myObj.nextLine();
-        Boolean goodDog = goodBoy.equals("y") ? true : false;
+        boolean goodDog = goodBoy.equals("y") ? true : false;
         out.println();
         out.println("Dog Breed:");
         out.println("A: Beagle B: Mutt C: Westie ");

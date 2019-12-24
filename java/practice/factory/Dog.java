@@ -6,7 +6,7 @@ public class Dog {
     String firstName;
     String lastName;
     int age;
-    Boolean goodDog;
+    boolean goodDog;
     Breed breed;
 
     public Dog() {
@@ -33,7 +33,7 @@ public class Dog {
         return this.firstName + " " + this.lastName;
     }
 
-    public Boolean isGoodDog() {
+    public boolean isGoodDog() {
         return this.goodDog;
     }
 
