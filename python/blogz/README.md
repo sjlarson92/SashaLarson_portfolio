@@ -1,8 +1,9 @@
 # Blogz
 <!-- Project BIO -->
-Blogz is a standard web application that is meant to allow users to sign up to the application and create blog posts that are posted and shared on the app.
+A social media web application with blogging and posting capabilities.
+Users can create their own account, and share anything on their app.
+They can also see other posts, filtering them by different users.
 
-This app was made in roughly 2 months, I did this project as an assignment by LaunchCode a non-profit organization that provides free coding lessons to the community.
 
 This application displays some of my skills with:
 
