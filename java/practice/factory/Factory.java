@@ -10,24 +10,15 @@ public class Factory {
         DogService dogService = new DogService();
 
         out.println("------------DEFAULT DOG------------");
-        out.println("Name: " + defaultDog.firstName + " " + defaultDog.lastName);
-        out.println("Age: " + defaultDog.age);
-        out.println("Good Dog: " + defaultDog.isGoodDog());
-        out.println("Breed: " + defaultDog.breed);
+        dogService.printDog(defaultDog);
 
         Dog dog1 = dogService.createNewDog();
         out.println("---------NEW DOG #1-----------");
-        out.println("Name: " + dog1.firstName + " " + dog1.lastName);
-        out.println("Age: " + dog1.age);
-        out.println("Good Dog: " + dog1.isGoodDog());
-        out.println("Breed: " + dog1.breed);
+        dogService.printDog(dog1);
 
         Dog dog2 = dogService.createNewDog();
         out.println("---------NEW DOG #2-----------");
-        out.println("Name: " + dog2.firstName + " " + dog1.lastName);
-        out.println("Age: " + dog2.age);
-        out.println("Good Dog: " + dog2.isGoodDog());
-        out.println("Breed: " + dog2.breed);
+        dogService.printDog(dog2);
 
         out.println("--------Dog Comparisons--------");
         out.println("Oldest Dog is: " + dogService.getOldestDog(defaultDog, dog1, dog2));
