@@ -43,9 +43,6 @@ public class DogService {
     }
 
     public String getOldestDog(List<Dog> allDogs) {
-        // List<Integer> dogAges = allDogs.stream().map(dog -> {
-        // return dog.getAge();
-        // }).collect(Collectors.toList());
         int max = allDogs.get(0).getAge();
         int index = 0;
         for (int i = 0; i < allDogs.size(); i++) {
@@ -60,15 +57,11 @@ public class DogService {
         return oldestDog;
     };
 
-    public void getGoodDogs(Dog dog1, Dog dog2, Dog dog3) {
-        if (dog1.isGoodDog()) {
-            out.println(dog1.firstName);
-        }
-        if (dog2.isGoodDog()) {
-            out.println(dog2.firstName);
-        }
-        if (dog3.isGoodDog()) {
-            out.println(dog3.firstName);
+    public void getGoodDogs(List<Dog> allDogs) {
+        for (int i = 0; i < allDogs.size(); i++) {
+            if (allDogs.get(i).isGoodDog()) {
+                out.println(allDogs.get(i).getFullName());
+            }
         }
     };
 
@@ -77,5 +70,6 @@ public class DogService {
         out.println("Age: " + dog.age);
         out.println("Good Dog: " + dog.isGoodDog());
         out.println("Breed: " + dog.breed);
+        out.println();
     }
 }
