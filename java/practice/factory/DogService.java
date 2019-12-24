@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
 import static java.lang.System.out;
 
 public class DogService {
+
     private static Dog.Breed setBreed(String args) {
         if (args.equals("a")) {
             return Dog.Breed.BEAGLE;
@@ -66,4 +69,12 @@ public class DogService {
             out.println(dog3.firstName);
         }
     };
+
+    public void printDog(Dog dog) {
+        out.println("---------NEW DOG #1-----------");
+        out.println("Name: " + dog.firstName + " " + dog.lastName);
+        out.println("Age: " + dog.age);
+        out.println("Good Dog: " + dog.isGoodDog());
+        out.println("Breed: " + dog.breed);
+    }
 }
