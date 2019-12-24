@@ -1,4 +1,9 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.Collections;
 
 import static java.lang.System.out;
 
@@ -37,24 +42,21 @@ public class DogService {
         return new Dog(firstName, lastName, age, goodDog, breed);
     }
 
-    public String getOldestDog(Dog dog1, Dog dog2, Dog dog3) {
-        int d1Age = dog1.getAge();
-        int d2Age = dog2.getAge();
-        int d3Age = dog3.getAge();
-        String oldestDog;
-        if (d1Age > d2Age) {
-            if (d1Age > d3Age) {
-                oldestDog = dog1.firstName;
-            } else {
-                oldestDog = dog3.firstName;
-            }
-        } else {
-            if (d2Age > d3Age) {
-                oldestDog = dog2.firstName;
-            } else {
-                oldestDog = dog3.firstName;
+    public String getOldestDog(List<Dog> allDogs) {
+        // List<Integer> dogAges = allDogs.stream().map(dog -> {
+        // return dog.getAge();
+        // }).collect(Collectors.toList());
+        int max = allDogs.get(0).getAge();
+        int index = 0;
+        for (int i = 0; i < allDogs.size(); i++) {
+            if (allDogs.get(i).getAge() > max) {
+                max = allDogs.get(i).getAge();
+                index = i;
             }
         }
+        ;
+
+        String oldestDog = allDogs.get(index).getFullName();
         return oldestDog;
     };
 
@@ -71,7 +73,6 @@ public class DogService {
     };
 
     public void printDog(Dog dog) {
-        out.println("---------NEW DOG #1-----------");
         out.println("Name: " + dog.firstName + " " + dog.lastName);
         out.println("Age: " + dog.age);
         out.println("Good Dog: " + dog.isGoodDog());

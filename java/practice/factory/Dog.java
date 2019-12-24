@@ -29,6 +29,10 @@ public class Dog {
         return this.age;
     }
 
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
+    }
+
     public Boolean isGoodDog() {
         return this.goodDog;
     }
