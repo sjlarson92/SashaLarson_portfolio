@@ -5,14 +5,12 @@ import java.util.List;
 import static java.lang.System.out;
 
 public class Factory {
-
     public static void main(String[] args) {
+        DogService dogService = new DogService();
         Scanner myObj = new Scanner(System.in);
         List<Dog> allDogs = new ArrayList<>();
         Dog defaultDog = new Dog();
         allDogs.add(defaultDog);
-
-        DogService dogService = new DogService();
 
         out.println("------------DEFAULT DOG------------");
         dogService.printDog(defaultDog);
@@ -28,9 +26,9 @@ public class Factory {
         dogService.printDog(dog2);
 
         out.println("--------Dog Comparisons--------");
-        out.println("Oldest Dog is: " + dogService.getOldestDog(allDogs));
+        out.println("Oldest Dog is: " + dogService.getOldestDog(allDogs).getFullName());
 
         out.println("All the good dogs are: ");
-        dogService.getGoodDogs(allDogs);
+        dogService.printGoodDogs(allDogs);
     }
 }

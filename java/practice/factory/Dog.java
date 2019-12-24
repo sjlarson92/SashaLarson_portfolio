@@ -37,4 +37,8 @@ public class Dog {
         return this.goodDog;
     }
 
+    public Breed getBreed() {
+        return this.breed;
+    }
+
 }
