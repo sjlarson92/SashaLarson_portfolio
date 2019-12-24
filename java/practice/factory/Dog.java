@@ -6,14 +6,14 @@ public class Dog {
     String firstName;
     String lastName;
     int age;
-    Boolean isGoodDog;
+    Boolean goodDog;
     Breed breed;
 
     public Dog() {
         this.firstName = "HeWhoShall";
         this.lastName = "NotBeNamed";
         this.age = 666;
-        this.isGoodDog = false;
+        this.goodDog = false;
         this.breed = Breed.BEAGLE;
     }
 
@@ -21,7 +21,7 @@ public class Dog {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.isGoodDog = goodDog;
+        this.goodDog = goodDog;
         this.breed = breed;
     }
 
@@ -29,8 +29,8 @@ public class Dog {
         return this.age;
     }
 
-    public Boolean getIsGoodDog() {
-        return this.isGoodDog;
+    public Boolean isGoodDog() {
+        return this.goodDog;
     }
 
 }

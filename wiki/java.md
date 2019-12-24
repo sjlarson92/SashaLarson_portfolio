@@ -21,3 +21,8 @@ public class HelloWorld {
 
 - When comments are short we use the single-line syntax: `//`
 - When comments are long we use the multi-line syntax: `/*  */`
+
+## Spring Boot
+
+- use Spring Initializr to Bootstrap your application at https://start.spring.io/
+- 
