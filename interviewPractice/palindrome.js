@@ -1,36 +1,16 @@
-// const isPalindrome = (word) => {
-//     const originalWord = [];
-//     for (let i = 0; i < word.length; i++) {
-//         const letter = word[i]
-//         originalWord.push(letter)
-//     }
-//     const reverse = [];
-//     for (let i = 0; i < word.length; i++) {
-//         const letter = word[i]
-//         reverse.unshift(letter);
-//     }
-//     console.log("originalWord", originalWord)
-//     console.log("reverse", reverse)
-
-//     if (originalWord == reverse) {
-//         console.log("This word is a palindrome")
-//         return true
-//     }
-//     else {
-//         console.log("This word is not a palindrome")
-//         return false
-//     }
-// }
-
 const isPalindrome = (word) => {
     console.log("word: ", word)
-    let reverseWord;
-    for (letter in word) {
-        reverseWord.unshift(letter)
+    const reverseWord = word.split("").reverse().join("")
+    if (word === reverseWord) {
+        return true
     }
-    console.log("reverseWord: ", reverseWord)
-    return true
+    else {
+        return false
+    }
 }
 
-const result = isPalindrome("dog")
+const result = isPalindrome("abccba")
 console.log("result: ", result)
+
+const result2 = isPalindrome("dog")
+console.log("result2: ", result2)
