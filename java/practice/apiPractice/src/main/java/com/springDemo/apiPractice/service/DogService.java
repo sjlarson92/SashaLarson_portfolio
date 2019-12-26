@@ -1,8 +1,14 @@
 package com.springDemo.apiPractice.service;
 
+import com.springDemo.apiPractice.model.Dog;
+
 public class DogService {
     public String getDogGreeting() {
-        System.out.println("I am hungry :D");
         return "Woof";
+    }
+
+    public Dog getDefaultDog() {
+        Dog defaultDog = new Dog();
+        return defaultDog;
     }
 }

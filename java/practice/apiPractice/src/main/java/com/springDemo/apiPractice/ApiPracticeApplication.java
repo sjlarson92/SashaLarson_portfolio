@@ -9,10 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ApiPracticeApplication {
 
 	public static void main(String[] args) {
-		DogController dogController = new DogController();
 		SpringApplication.run(ApiPracticeApplication.class, args);
-		dogController.test();
-
 	}
 
 }
