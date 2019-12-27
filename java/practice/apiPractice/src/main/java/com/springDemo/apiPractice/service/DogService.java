@@ -8,7 +8,16 @@ public class DogService {
     }
 
     public Dog getDefaultDog() {
-        Dog defaultDog = new Dog();
-        return defaultDog;
+        return new Dog();
+    }
+
+    public Dog createNewDog(
+        String firstName, 
+        String lastName, 
+        int age, 
+        Boolean goodDog, 
+        Dog.Breed breed
+        ) {
+        return new Dog(firstName, lastName, age, goodDog, breed);
     }
 }

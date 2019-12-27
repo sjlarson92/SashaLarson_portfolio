@@ -1,7 +1,7 @@
 package com.springDemo.apiPractice.model;
 
 public class Dog {
-    enum Breed {
+    public enum Breed {
         BEAGLE, MUTT, WESTIE
     }
 
@@ -19,7 +19,13 @@ public class Dog {
         this.breed = Breed.BEAGLE;
     }
 
-    public Dog(String firstName, String lastName, int age, Boolean goodDog, Breed breed) {
+    public Dog(
+        String firstName, 
+        String lastName, 
+        int age, 
+        Boolean goodDog, 
+        Breed breed
+        ) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -27,12 +33,16 @@ public class Dog {
         this.breed = breed;
     }
 
-    public int getAge() {
-        return this.age;
+    public String getFirstName() {
+        return this.firstName;
     }
 
-    public String getFullName() {
-        return this.firstName + " " + this.lastName;
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public int getAge() {
+        return this.age;
     }
 
     public boolean isGoodDog() {
@@ -41,6 +51,10 @@ public class Dog {
 
     public Breed getBreed() {
         return this.breed;
+    }
+
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
     }
 
 }

@@ -52,8 +52,34 @@ public class HelloWorld {
 
 ## Restful Web Service
 
-- import org.springframework.web.bind.annotation.RequestMapping;
+```java
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@RestController // Use RestController and RequestMapping to add listeners to the route
+@RequestMapping("/dog")
+public class DogController {
+    DogService dogService = new DogService();
+
+    @RequestMapping("/greeting")
+    public String dogGreeting() {
+        return dogService.getDogGreeting();
+    }
+
+    @RequestMapping("/newDog")
+    public Dog newDog( // Use RequestParam to be able to pass parameters to api call
+        @RequestParam String firstName, 
+        @RequestParam String lastName, 
+        @RequestParam int age, 
+        @RequestParam boolean goodDog, 
+        @RequestParam Dog.Breed breed
+        ) {
+        return dogService.createNewDog(firstName, lastName, age, goodDog, breed);
+    }
+}
+```
+
 ## Testing
 
 - a file like `fileName.java` will have a test file with a name of `fileNameTest.java`
