@@ -5,11 +5,11 @@ public class Dog {
         BEAGLE, MUTT, WESTIE
     }
 
-    String firstName;
-    String lastName;
-    int age;
-    boolean goodDog;
-    Breed breed;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private boolean goodDog;
+    private Breed breed;
 
     public Dog() {
         this.firstName = "HeWhoShall";
