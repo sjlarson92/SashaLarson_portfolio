@@ -18,6 +18,7 @@ public class DogController {
 
     @RequestMapping("/defaultDog")
     public Dog defaultDog() {
+        System.out.println("getting defaultDog");
         return dogService.getDefaultDog();
     }
 
@@ -30,5 +31,19 @@ public class DogController {
         @RequestParam Dog.Breed breed
         ) {
         return dogService.createNewDog(firstName, lastName, age, goodDog, breed);
+    }
+
+    @RequestMapping("/compareDogs")
+    public void compare(
+        @RequestParam String firstName, 
+        @RequestParam String lastName, 
+        @RequestParam int age, 
+        @RequestParam boolean goodDog, 
+        @RequestParam Dog.Breed breed
+    ) {
+        System.out.println("compareDogs");
+        Dog defaultDog = dogService.getDefaultDog();
+        Dog dog1 = dogService.createNewDog(firstName, lastName, age, goodDog, breed);
+        dogService.compareDogs(defaultDog, dog1);
     }
 }
