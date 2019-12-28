@@ -22,9 +22,9 @@ public class DogService {
         return new Dog(firstName, lastName, age, goodDog, breed);
     }
 
-    public void compareDogs(Dog defaultDog, Dog dog1) {
+    public DogCompareResponse compareDogs(Dog defaultDog, Dog dog1) {
         System.out.println("dog1 name is: " + dog1.getFullName());
         Dog oldestDog = defaultDog.getAge() > dog1.getAge() ? defaultDog : dog1 ;
-        System.out.println("oldestDog: " + oldestDog.getFullName());
+        return new DogCompareResponse(oldestDog);
     }
 }

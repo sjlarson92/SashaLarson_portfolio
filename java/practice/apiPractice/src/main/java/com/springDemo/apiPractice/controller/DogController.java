@@ -2,6 +2,7 @@ package com.springDemo.apiPractice.controller;
 
 import com.springDemo.apiPractice.service.DogService;
 import com.springDemo.apiPractice.model.Dog;
+import com.springDemo.apiPractice.model.DogCompareResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,16 +35,15 @@ public class DogController {
     }
 
     @RequestMapping("/compareDogs")
-    public void compare(
+    public DogCompareResponse compare(
         @RequestParam String firstName, 
         @RequestParam String lastName, 
         @RequestParam int age, 
         @RequestParam boolean goodDog, 
         @RequestParam Dog.Breed breed
     ) {
-        System.out.println("compareDogs");
         Dog defaultDog = dogService.getDefaultDog();
         Dog dog1 = dogService.createNewDog(firstName, lastName, age, goodDog, breed);
-        dogService.compareDogs(defaultDog, dog1);
+        return dogService.compareDogs(defaultDog, dog1);
     }
 }
