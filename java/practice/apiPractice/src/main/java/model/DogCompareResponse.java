@@ -1,13 +1,22 @@
 package com.springDemo.apiPractice.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DogCompareResponse {
     String oldestDogName;
-    
-    public DogCompareResponse(Dog oldestDog) {
+    List<String> goodDogs;
+
+    public DogCompareResponse(Dog oldestDog, List<String> goodDogs) {
         this.oldestDogName = oldestDog.getFullName();
+        this.goodDogs = goodDogs;
     }
 
     public String getOldestDogName() {
         return this.oldestDogName;
+    }
+
+    public List<String> getGoodDogs() {
+        return this.goodDogs;
     }
 }

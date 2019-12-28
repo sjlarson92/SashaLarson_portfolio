@@ -15,7 +15,7 @@ public class Dog {
         this.firstName = "HeWhoShall";
         this.lastName = "NotBeNamed";
         this.age = 666;
-        this.goodDog = false;
+        this.goodDog = true;
         this.breed = Breed.BEAGLE;
     }
 
