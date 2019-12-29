@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DogCompareResponse {
-    String oldestDogName;
-    List<String> goodDogs;
+    private String oldestDogName;
+    private List<String> goodDogs;
 
     public DogCompareResponse(Dog oldestDog, List<String> goodDogs) {
         this.oldestDogName = oldestDog.getFullName();

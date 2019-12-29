@@ -1,7 +1,7 @@
 package com.springDemo.apiPractice.model;
 
 public class Dog {
-    public enum Breed {
+    private enum Breed {
         BEAGLE, MUTT, WESTIE
     }
 
