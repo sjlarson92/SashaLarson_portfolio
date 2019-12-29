@@ -1,5 +1,7 @@
 # JavaScript
 
+- run javascript from terminial with ` node filename.js`
+
 ## Arrow Function:
 
 ```js
