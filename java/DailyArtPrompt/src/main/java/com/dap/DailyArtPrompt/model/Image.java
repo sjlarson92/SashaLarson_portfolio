@@ -7,7 +7,7 @@ public class Image {
     private int id;
     private String src;
     private boolean liked;
-    private List<String> comments;
+    private List<String> comments = new ArrayList<>();
 
     public Image() {
     }
