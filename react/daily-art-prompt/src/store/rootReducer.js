@@ -5,15 +5,17 @@ import * as TYPES from './actions'
 export const promptImagesReducer = (state = [], action) => {
     switch (action.type) {
         case TYPES.SET_INITIAL_IMAGES:
-            const image = {
-                id: state.length > 0
-                    ? state[state.length - 1].id + 1
-                    : 1,
-                src: action.payload.src,
-                liked: false,
-                comments: []
-            }
-            const updatedImages = [...state, image]
+            console.log("test string: ", action.payload.src)
+            // const image = {
+            //     id: state.length > 0
+            //         ? state[state.length - 1].id + 1
+            //         : 1,
+            //     src: action.payload.src,
+            //     liked: false,
+            //     comments: []
+            // }
+            // const updatedImages = [...state, image]
+            const updatedImages = [state]
             return updatedImages
 
         case TYPES.UPDATE_PROMPT_IMAGES:
