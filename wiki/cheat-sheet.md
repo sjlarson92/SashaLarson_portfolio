@@ -9,6 +9,12 @@ open -a "Google Chrome" /pathToFile # open file from terminal to web browser:
 rm -rf folderName  # recursive force removal to remove everything inside that folder
 ```
 
+- Useful Commands
+
+```sh
+ls -la | grep whatever # allows user to search for whatever
+```
+
 ## Git
 
 - Basics
