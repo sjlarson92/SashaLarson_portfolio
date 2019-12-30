@@ -1,14 +1,12 @@
 package com.dap.DailyArtPrompt.controller;
 
 import com.dap.DailyArtPrompt.service.ImageService;
-import com.dap.DailyArtPrompt.model.ImageResponse;
 import com.dap.DailyArtPrompt.model.Image;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpHeaders;
 
@@ -21,11 +19,8 @@ public class ImageController {
     public ResponseEntity<Image> allimages() {
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-        final String uri = "https://dog.ceo/api/breeds/image/random";
-        RestTemplate restTemplate = new RestTemplate();
-        ImageResponse image = restTemplate.getForObject(uri, ImageResponse.class);
 
-        Image responseBody = imageService.getImage(image.getMessage());
+        Image responseBody = imageService.getImage();
 
         return ResponseEntity.ok().headers(headers).body(responseBody);
     }

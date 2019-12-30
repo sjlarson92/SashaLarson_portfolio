@@ -67,7 +67,7 @@ public class DogController {
         return dogService.getDogGreeting();
     }
 
-    @RequestMapping("/newDog")
+    @GetMapping("/newDog")
     public Dog newDog( // Use RequestParam to be able to pass parameters to api call
         @RequestParam String firstName, 
         @RequestParam String lastName, 
