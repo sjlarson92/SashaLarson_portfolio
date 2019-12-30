@@ -37,7 +37,7 @@ public class DogController {
         return dogService.createNewDog(firstName, lastName, age, goodDog, breed);
     }
 
-    @GettMapping("/compare")
+    @GetMapping("/compare")
     public DogCompareResponse compare(
         @RequestParam String firstName, 
         @RequestParam String lastName, 
