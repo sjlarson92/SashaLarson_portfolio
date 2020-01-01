@@ -1,0 +1,5 @@
+
+#Aliases
+
+alias la='ls -la'
+alias sl='cd ~/Desktop/SashaLarson_portfolio'
