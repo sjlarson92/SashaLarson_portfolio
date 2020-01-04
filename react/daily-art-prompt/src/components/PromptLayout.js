@@ -11,10 +11,11 @@ export const PromptLayout = ({ prompts, index, handleNextButtonClick, handlePrev
       onClick={() => handlePreviousButtonClick(index)}
       text="Previous"
     />
-    {prompts.length > 0 &&
+    
+    {Object.keys(prompts).length > 0 &&
       (<Prompt
         data-testid="prompt"
-        prompt={prompts[index]}
+        prompt={prompts["2019-12-31"]}
       />)
     }
     <PromptButton
