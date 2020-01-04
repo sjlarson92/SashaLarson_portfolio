@@ -148,15 +148,16 @@ export const indexReducer = (state = 0, action) => {
 export const promptsReducer = (state = [], action) => {
     switch (action.type) {
         case TYPES.SET_INITIAL_PROMPTS:
-            const date = new Date()
-            const prompt = {
-                id: state.length > 0
-                    ? state[state.length - 1].id + 1
-                    : 1,
-                date: `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`,
-                text: action.payload.text
-            }
-            return [...state, prompt]
+            console.log("prompts", action.payload.prompts)
+            // const date = new Date()
+            // const prompt = {
+            //     id: state.length > 0
+            //         ? state[state.length - 1].id + 1
+            //         : 1,
+            //     date: `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`,
+            //     text: action.payload.text
+            // }
+            return state
         default:
             return state
     }
