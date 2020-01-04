@@ -2,7 +2,6 @@ package com.dap.DailyArtPrompt.service;
 
 import com.dap.DailyArtPrompt.model.Image;
 import org.springframework.web.client.RestTemplate;
-import com.dap.DailyArtPrompt.model.ImageResponse;
 
 public class ImageService {
     public Image getImage() {

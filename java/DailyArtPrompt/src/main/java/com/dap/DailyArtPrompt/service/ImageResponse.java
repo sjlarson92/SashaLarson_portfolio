@@ -1,4 +1,4 @@
-package com.dap.DailyArtPrompt.model;
+package com.dap.DailyArtPrompt.service;
 
 public class ImageResponse {
     private String message;
