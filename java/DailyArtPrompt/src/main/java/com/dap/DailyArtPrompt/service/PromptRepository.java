@@ -1,6 +1,5 @@
 package com.dap.DailyArtPrompt.service;
 
-// Import the HashMap class
 import com.dap.DailyArtPrompt.model.Prompt;
 
 import java.util.HashMap;
@@ -8,7 +7,6 @@ import java.time.LocalDate;
 
 public class PromptRepository {
     public HashMap<LocalDate, Prompt> getAllPrompts(){
-        // Create a HashMap object called capitalCities
         HashMap<LocalDate, Prompt> prompts = new HashMap<>();
 
         LocalDate date = LocalDate.now();
