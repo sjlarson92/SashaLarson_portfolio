@@ -1,12 +1,13 @@
 const isPalindrome = (word) => {
     console.log("word: ", word)
     const reverseWord = word.split("").reverse().join("")
-    if (word === reverseWord) {
-        return true
-    }
-    else {
-        return false
-    }
+    // if (word === reverseWord) {
+    //     return true
+    // }
+    // else {
+    //     return false
+    // }
+    return word === reverseWord
 }
 
 const result = isPalindrome("abccba")

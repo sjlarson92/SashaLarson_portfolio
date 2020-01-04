@@ -3,13 +3,13 @@
 
 const removeChar = (char, word) => {
     let wordArray = word.split("")
-    for(letter in wordArray){
-        if(wordArray[letter] === char){
-            delete wordArray[letter]
+    for(let index in wordArray){
+        if(wordArray[index] === char){
+            delete wordArray[index]
         }
     }
     return wordArray.join("")
 }
 
-const result = removeChar("h", "sasha")
+const result = removeChar("s", "sasha")
 console.log("result is: ", result)
