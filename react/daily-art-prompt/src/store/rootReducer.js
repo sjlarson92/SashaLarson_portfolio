@@ -1,6 +1,7 @@
 import thunkMiddleware from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import * as TYPES from './actions'
+import moment from 'moment';
 
 export const promptImagesReducer = (state = [], action) => {
     switch (action.type) {
@@ -121,8 +122,10 @@ export const promptImagesReducer = (state = [], action) => {
     }
 }
 
-export const indexReducer = (state = 0, action) => {
+export const dateReducer = (state = null, action) => {
     switch (action.type) {
+        case TYPES.SET_INITIAL_DATE:
+            return moment().format('YYYY-MM-DD')
         case TYPES.UPDATE_NEXT_INDEX:
             const newIndex = action.payload.index + 1;
             if (newIndex <= action.payload.promptslength - 1) {
@@ -158,7 +161,7 @@ export const promptsReducer = (state = {}, action) => {
 
 export const rootReducer = combineReducers({
     promptsImages: promptImagesReducer,
-    index: indexReducer,
+    date: dateReducer,
     prompts: promptsReducer
 
 })
