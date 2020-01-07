@@ -139,7 +139,6 @@ export const dateReducer = (state = null, action) => {
 export const promptsReducer = (state = {}, action) => {
     switch (action.type) {
         case TYPES.SET_INITIAL_PROMPTS:
-            console.log("prompts", action.payload.prompts)
             return action.payload.prompts
         default:
             return state
