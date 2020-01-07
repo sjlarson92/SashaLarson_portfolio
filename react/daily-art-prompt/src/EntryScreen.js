@@ -3,13 +3,15 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getImagesAction } from './requests/imageApi'
 import { getPromptsAction } from './requests/promptsApi'
+import { getDateAction} from './requests/getDate'
 
-export const EntryScreen = ({ getImages, getPrompts }) => {
+export const EntryScreen = ({ getImages, getPrompts, getDate }) => {
 
     useEffect(() => {
         getImages()
         getPrompts()
-    }, [getImages, getPrompts])
+        getDate()
+    }, [getImages, getPrompts, getDate])
 
     return (
         <div>
@@ -20,7 +22,8 @@ export const EntryScreen = ({ getImages, getPrompts }) => {
 
 export const dispatchFunctions = {
     getImages: getImagesAction,
-    getPrompts: getPromptsAction
+    getPrompts: getPromptsAction,
+    getDate: getDateAction
 }
 
 export default connect(null, dispatchFunctions)(EntryScreen)
