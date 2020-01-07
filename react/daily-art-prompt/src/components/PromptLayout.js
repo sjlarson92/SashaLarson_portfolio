@@ -2,13 +2,13 @@ import { connect } from 'react-redux';
 import React from 'react';
 import PromptButton from './PromptButton.js'
 import Prompt from './Prompt.js'
-import * as TYPES from '../store/actions'
+import {updateNextDateAction, updatePreviousDateAction} from '../store/dispatchFunctions'
 
-export const PromptLayout = ({ prompts, date, handleNextButtonClick, handlePreviousButtonClick }) =>
+export const PromptLayout = ({ prompts, date, updateNextDate, updatePreviousDate }) =>
   <div data-testid="mainContentContainer" className="prompt-row">
     <PromptButton
       data-testid="previousButton"
-      onClick={() => handlePreviousButtonClick()}
+      onClick={() => updatePreviousDate()}
       text="Previous"
     />
     
@@ -20,7 +20,7 @@ export const PromptLayout = ({ prompts, date, handleNextButtonClick, handlePrevi
     }
     <PromptButton
       data-testid="nextButton"
-      onClick={() => handleNextButtonClick()}
+      onClick={() => updateNextDate()}
       text="Next"
     />
   </div>
@@ -30,13 +30,10 @@ export const mapStateToProps = (state) => ({
   prompts: state.prompts
 })
 
-export const mapDispatchToProps = (dispatch) => ({
-  handleNextButtonClick: (date) => dispatch({
-    type: TYPES.UPDATE_NEXT_INDEX
-  }),
-  handlePreviousButtonClick: (date) => dispatch({
-    type: TYPES.UPDATE_PREVIOUS_INDEX
-  })
-})
+export const dispatchFunctions = {
+  updateNextDate: updateNextDateAction,
+  updatePreviousDate: updatePreviousDateAction
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(PromptLayout);
+export default connect(mapStateToProps, dispatchFunctions)(PromptLayout);
+

@@ -126,12 +126,10 @@ export const dateReducer = (state = null, action) => {
     switch (action.type) {
         case TYPES.SET_INITIAL_DATE:
             return moment().format('YYYY-MM-DD')
-        case TYPES.UPDATE_NEXT_INDEX:
-            const currentDate = moment(state)
-            return currentDate.add(1, 'day').format('YYYY-MM-DD')
-        case TYPES.UPDATE_PREVIOUS_INDEX:
-            const date = moment(state)
-            return date.subtract(1, 'day').format('YYYY-MM-DD')
+        case TYPES.UPDATE_NEXT_DATE:
+            return action.payload.date
+        case TYPES.UPDATE_PREVIOUS_DATE:
+            return action.payload.date
         default:
             return state
     }
