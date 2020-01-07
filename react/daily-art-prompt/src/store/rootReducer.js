@@ -127,13 +127,11 @@ export const dateReducer = (state = null, action) => {
         case TYPES.SET_INITIAL_DATE:
             return moment().format('YYYY-MM-DD')
         case TYPES.UPDATE_NEXT_INDEX:
-            const newIndex = action.payload.index + 1;
-            if (newIndex <= action.payload.promptslength - 1) {
-                return newIndex
-            }
-            else {
-                return state
-            }
+            console.log("state: ", state)
+            const currentDate = moment(state)
+            const newDate = currentDate.add(1, 'day').format('YYYY-MM-DD')
+            console.log("newDate: ", newDate)
+            return newDate
         case TYPES.UPDATE_PREVIOUS_INDEX:
             const updatedIndex = action.payload.index - 1;
             if (updatedIndex >= 0) {

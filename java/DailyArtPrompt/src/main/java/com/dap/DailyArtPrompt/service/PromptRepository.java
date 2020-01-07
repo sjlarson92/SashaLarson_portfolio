@@ -19,8 +19,8 @@ public class PromptRepository {
         prompts.put(date.plusDays(1), new Prompt(6, date.plusDays(1), "If Peter Piper picked a pack of pickled peppers"));
         prompts.put(date.minusDays(5), new Prompt(7, date.minusDays(5), "then where's the pack of picked peppers"));
         prompts.put(date.minusDays(6), new Prompt(8, date.minusDays(6), "Peter Piper picked?!"));
-        prompts.put(date.plusDays(2), new Prompt(9, date.plusDays(1), "MARTHA!!!!!"));
-        prompts.put(date.plusDays(3), new Prompt(10, date.plusDays(1), "Why would you say that name?!"));
+        prompts.put(date.plusDays(2), new Prompt(9, date.plusDays(2), "MARTHA!!!!!"));
+        prompts.put(date.plusDays(3), new Prompt(10, date.plusDays(3), "Why would you say that name?!"));
         return prompts;
     }
 }

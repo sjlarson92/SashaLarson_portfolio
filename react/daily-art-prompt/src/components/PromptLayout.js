@@ -20,7 +20,7 @@ export const PromptLayout = ({ prompts, date, handleNextButtonClick, handlePrevi
     }
     <PromptButton
       data-testid="nextButton"
-      onClick={() => handleNextButtonClick(date, prompts.length)}
+      onClick={() => handleNextButtonClick(date)}
       text="Next"
     />
   </div>
@@ -31,11 +31,10 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  handleNextButtonClick: (date, promptslength) => dispatch({
+  handleNextButtonClick: (date) => dispatch({
     type: TYPES.UPDATE_NEXT_INDEX,
     payload: {
-      date,
-      promptslength: promptslength
+      date
     }
   }),
   handlePreviousButtonClick: (date) => dispatch({
