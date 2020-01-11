@@ -9,15 +9,12 @@ describe('promptImagesReducer', () => {
                 const action = {
                     type: TYPES.SET_INITIAL_IMAGES,
                     payload: {
-                        src: "apiCall"
+                        image: "some image"
                     }
                 }
-                expect(promptImagesReducer(state, action)).toEqual([{
-                    id: 1,
-                    src: action.payload.src,
-                    liked: false,
-                    comments: []
-                }])
+                expect(promptImagesReducer(state, action)).toEqual([
+                    "some image"
+                ])
             })
         })
         describe('when there are images in state', () => {
