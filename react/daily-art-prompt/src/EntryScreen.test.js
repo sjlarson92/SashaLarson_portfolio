@@ -14,8 +14,6 @@ const defaultProps = {
   getDate: jest.fn()
 };
 
-const dispatch = jest.fn();
-
 describe("<EntryScreen>", () => {
   it("should call getImages upon initial render", () => {
     mount(<EntryScreen {...defaultProps} />);
@@ -47,9 +45,9 @@ describe("dispatchFunctions", () => {
     expect(dispatchFunctions.getPrompts).toEqual(getPromptsAction);
   });
   it("should have getDate that dispatches and action SET_INITIAL_DATE", () => {
-    const result = dispatchFunctions.getDate();
-    console.log("result: ", result);
-    result();
+    const dispatch = jest.fn();
+    const anonymousFunction2 = dispatchFunctions.getDate();
+    anonymousFunction2(dispatch);
     expect(dispatch).toHaveBeenCalledWith({ type: TYPES.SET_INITIAL_DATE });
   });
 });
