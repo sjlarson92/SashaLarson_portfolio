@@ -2,14 +2,14 @@ import * as TYPES from "../store/actions";
 import moment from "moment";
 
 export const updateNextDateAction = () => (dispatch, getState) => {
-  const date = moment(getState().date)
+  const tomorrow = moment(getState().date)
     .add(1, "day")
     .format("YYYY-MM-DD");
-  if (getState().prompts[date] !== undefined) {
+  if (getState().prompts[tomorrow] !== undefined) {
     dispatch({
       type: TYPES.UPDATE_NEXT_DATE,
       payload: {
-        date
+        date: tomorrow
       }
     });
   }
