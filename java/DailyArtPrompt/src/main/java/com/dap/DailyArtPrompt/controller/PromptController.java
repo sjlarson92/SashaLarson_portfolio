@@ -11,8 +11,8 @@ import java.time.LocalDate;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/prompt")
-public class PromptController {
+@RequestMapping("/prompts")
+public class PromptsController {
     PromptRepository promptRepository = new PromptRepository();
 
     @GetMapping("/all")
