@@ -2,47 +2,38 @@ import { connect } from 'react-redux';
 import React from 'react';
 import PromptButton from './PromptButton.js'
 import Prompt from './Prompt.js'
-import * as TYPES from '../store/actions'
+import {updateNextDateAction, updatePreviousDateAction} from '../store/dispatchFunctions'
 
-export const PromptLayout = ({ prompts, index, handleNextButtonClick, handlePreviousButtonClick }) =>
+export const PromptLayout = ({ prompts, date, updateNextDate, updatePreviousDate }) =>
   <div data-testid="mainContentContainer" className="prompt-row">
     <PromptButton
       data-testid="previousButton"
-      onClick={() => handlePreviousButtonClick(index)}
+      onClick={() => updatePreviousDate()}
       text="Previous"
     />
-    {prompts.length > 0 &&
+    
+    {Object.keys(prompts).length > 0 &&
       (<Prompt
         data-testid="prompt"
-        prompt={prompts[index]}
+        prompt={prompts[date]}
       />)
     }
     <PromptButton
       data-testid="nextButton"
-      onClick={() => handleNextButtonClick(index, prompts.length)}
+      onClick={() => updateNextDate()}
       text="Next"
     />
   </div>
 
 export const mapStateToProps = (state) => ({
-  index: state.index,
+  date: state.date,
   prompts: state.prompts
 })
 
-export const mapDispatchToProps = (dispatch) => ({
-  handleNextButtonClick: (index, promptslength) => dispatch({
-    type: TYPES.UPDATE_NEXT_INDEX,
-    payload: {
-      index,
-      promptslength: promptslength
-    }
-  }),
-  handlePreviousButtonClick: (index) => dispatch({
-    type: TYPES.UPDATE_PREVIOUS_INDEX,
-    payload: {
-      index
-    }
-  })
-})
+export const dispatchFunctions = {
+  updateNextDate: updateNextDateAction,
+  updatePreviousDate: updatePreviousDateAction
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(PromptLayout);
+export default connect(mapStateToProps, dispatchFunctions)(PromptLayout);
+
