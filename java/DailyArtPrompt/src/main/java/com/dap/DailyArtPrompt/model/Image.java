@@ -9,8 +9,7 @@ public class Image {
     private boolean liked;
     private List<String> comments = new ArrayList<>();
 
-    public Image() {
-    }
+    public Image() {}
 
     public Image(String src) {
         this.id = 1;

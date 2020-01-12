@@ -4,7 +4,7 @@ import * as TYPES from "../store/actions";
 
 export const getImagesAction = () => dispatch => {
   _.times(3, () =>
-    axios.get("http://localhost:8080/images/").then(response => {
+    axios.get("http://localhost:8080/image").then(response => {
       dispatch({
         type: TYPES.SET_INITIAL_IMAGES,
         payload: {

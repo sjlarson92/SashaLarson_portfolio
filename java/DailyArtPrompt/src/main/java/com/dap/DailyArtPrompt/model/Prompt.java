@@ -7,8 +7,8 @@ public class Prompt {
     private LocalDate date;
     private String text;
 
-    public Prompt() {
-    }
+    public Prompt() {}
+
     public Prompt(int id, LocalDate date, String text) {
         this.id = id;
         this.date = date;

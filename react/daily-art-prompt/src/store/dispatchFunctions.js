@@ -2,28 +2,28 @@ import * as TYPES from "../store/actions";
 import moment from "moment";
 
 export const updateNextDateAction = () => (dispatch, getState) => {
-  const tomorrow = moment(getState().date)
+  const nextDate = moment(getState().date)
     .add(1, "day")
     .format("YYYY-MM-DD");
-  if (getState().prompts[tomorrow] !== undefined) {
+  if (getState().prompts[nextDate] !== undefined) {
     dispatch({
-      type: TYPES.UPDATE_NEXT_DATE,
+      type: TYPES.UPDATE_DATE,
       payload: {
-        date: tomorrow
+        date: nextDate
       }
     });
   }
 };
 
 export const updatePreviousDateAction = () => (dispatch, getState) => {
-  const date = moment(getState().date)
+  const previousDate = moment(getState().date)
     .subtract(1, "day")
     .format("YYYY-MM-DD");
-  if (getState().prompts[date] !== undefined) {
+  if (getState().prompts[previousDate] !== undefined) {
     dispatch({
-      type: TYPES.UPDATE_PREVIOUS_DATE,
+      type: TYPES.UPDATE_DATE,
       payload: {
-        date
+        date: previousDate
       }
     });
   }

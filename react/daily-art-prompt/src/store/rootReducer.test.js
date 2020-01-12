@@ -9,7 +9,7 @@ import moment from "moment";
 describe("promptImagesReducer", () => {
   describe("when action.type equals SET_INITIAL_IMAGES", () => {
     describe("when there is no images in state", () => {
-      it("should return updatedImages with correct attributes", () => {
+      it("should return new images", () => {
         const state = [];
         const action = {
           type: TYPES.SET_INITIAL_IMAGES,
@@ -42,11 +42,27 @@ describe("promptImagesReducer", () => {
         ]);
       });
     });
+    describe("when image received is null or undefined", () => {
+      it("should return state unchanged", () => {
+        const state = [
+          {
+            image: "shake it like a polaroid picture!"
+          }
+        ];
+        const action = {
+          type: TYPES.SET_INITIAL_IMAGES,
+          payload: {
+            image: null
+          }
+        };
+        expect(promptImagesReducer(state, action)).toEqual(state);
+      });
+    });
   });
 
   describe("when the action.type equals UPDATE_PROMPT_IMAGES", () => {
-    describe("when image.id equals payload.imageId and image.liked  is false", () => {
-      it("should update image.liked  to true", () => {
+    describe("when image.id equals payload.imageId and image.liked is false", () => {
+      it("should update image.liked to true", () => {
         const state = [
           {
             id: 1,
@@ -448,10 +464,10 @@ describe("dateReducer", () => {
       expect(dateReducer(null, action)).toEqual(moment().format("YYYY-MM-DD"));
     });
   });
-  describe("when action.type is UPDATE_NEXT_DATE", () => {
+  describe("when action.type is UPDATE_DATE", () => {
     it("should return the date from action payload", () => {
       const action = {
-        type: TYPES.UPDATE_NEXT_DATE,
+        type: TYPES.UPDATE_DATE,
         payload: {
           date: "2020-01-12"
         }
@@ -459,18 +475,8 @@ describe("dateReducer", () => {
       expect(dateReducer(null, action)).toEqual("2020-01-12");
     });
   });
-  describe("when action.type is UPDATE_PREVIOUS_DATE", () => {
-    it("should return the date from action.payload", () => {
-      const action = {
-        type: TYPES.UPDATE_PREVIOUS_DATE,
-        payload: {
-          date: "2020-01-10"
-        }
-      };
-      expect(dateReducer(null, action)).toEqual("2020-01-10");
-    });
-  });
-  describe("when the case type defaults", () => {
+
+  describe("when default case occurs", () => {
     it("should return state", () => {
       const state = "2020-01-11";
       const action = {
@@ -488,10 +494,10 @@ describe("promptsReducer", () => {
       const action = {
         type: TYPES.SET_INITIAL_PROMPTS,
         payload: {
-          prompts: ["array of prompts"]
+          prompts: "NOT an array of prompts"
         }
       };
-      expect(promptsReducer(state, action)).toEqual(["array of prompts"]);
+      expect(promptsReducer(state, action)).toEqual("NOT an array of prompts");
     });
   });
   describe("when action.type is default", () => {

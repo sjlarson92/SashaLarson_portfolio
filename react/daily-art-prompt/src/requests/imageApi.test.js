@@ -15,9 +15,7 @@ describe("getImagesAction", () => {
 
   it("should call the api 3 times", () => {
     axios.get.mockResolvedValue({
-      data: {
-        message: "dogPic"
-      }
+      data: "this test was written by a hungry developer"
     });
     const secondFunc = getImagesAction();
     secondFunc(dispatch);
@@ -25,12 +23,10 @@ describe("getImagesAction", () => {
   });
   it("should call api with correct params", () => {
     axios.get.mockResolvedValue({
-      data: {
-        message: "dogPic"
-      }
+      data: "are you suggesting that coconuts migrate?"
     });
     getImagesAction()(dispatch);
-    expect(axios.get).toHaveBeenCalledWith("http://localhost:8080/images/");
+    expect(axios.get).toHaveBeenCalledWith("http://localhost:8080/image");
   });
 
   describe("when api response is resolved", () => {

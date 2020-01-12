@@ -7,8 +7,12 @@ export const promptImagesReducer = (state = [], action) => {
   switch (action.type) {
     case TYPES.SET_INITIAL_IMAGES:
       const image = action.payload.image;
-      const updatedImages = [...state, image];
-      return updatedImages;
+      if (image === null || undefined) {
+        return state;
+      } else {
+        const updatedImages = [...state, image];
+        return updatedImages;
+      }
 
     case TYPES.UPDATE_PROMPT_IMAGES:
       const updatedPromptImages = state.map(image => {
@@ -118,9 +122,7 @@ export const dateReducer = (state = null, action) => {
   switch (action.type) {
     case TYPES.SET_INITIAL_DATE:
       return moment().format("YYYY-MM-DD");
-    case TYPES.UPDATE_NEXT_DATE:
-      return action.payload.date;
-    case TYPES.UPDATE_PREVIOUS_DATE:
+    case TYPES.UPDATE_DATE:
       return action.payload.date;
     default:
       return state;

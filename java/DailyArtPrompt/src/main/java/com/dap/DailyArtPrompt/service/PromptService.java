@@ -5,7 +5,7 @@ import com.dap.DailyArtPrompt.model.Prompt;
 import java.util.HashMap;
 import java.time.LocalDate;
 
-public class PromptRepository {
+public class PromptService {
     public HashMap<LocalDate, Prompt> getAllPrompts(){
         HashMap<LocalDate, Prompt> prompts = new HashMap<>();
 

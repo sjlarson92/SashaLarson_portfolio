@@ -1,12 +1,10 @@
-package com.dap.DailyArtPrompt.service;
+package com.dap.DailyArtPrompt.model;
 
 public class ImageResponse {
     private String message;
     private String status;
 
-    public ImageResponse() {
-
-    }
+    public ImageResponse() {}
 
     public ImageResponse(String message, String status) {
         this.message = message;

@@ -12,18 +12,9 @@ import {
 
 describe("<PromptLayout>", () => {
   const defaultProps = {
-    prompts: [
-      {
-        id: 1,
-        date: "2019-11-19",
-        text: "i am a prompt"
-      },
-      {
-        id: 2,
-        date: "2019-01-19",
-        text: "i love testing my code"
-      }
-    ],
+    prompts: {
+      text: "na na na na na na na na BATMAN!!!"
+    },
     date: "2020-01-11",
     updateNextDate: jest.fn(),
     updatePreviousDate: jest.fn()
@@ -33,7 +24,7 @@ describe("<PromptLayout>", () => {
       const wrapper = shallow(<PromptLayout {...defaultProps} />);
       const result = wrapper
         .find({ "data-testid": "mainContentContainer" })
-        .props().className;
+        .prop("className");
       expect(result).toEqual("prompt-row");
     });
 
@@ -44,7 +35,7 @@ describe("<PromptLayout>", () => {
           wrapper.find({ "data-testid": "previousButton" }).prop("text")
         ).toEqual("Previous");
       });
-      it("should call updatePreviousDate", () => {
+      it("should call updatePreviousDate when clicked", () => {
         const wrapper = shallow(<PromptLayout {...defaultProps} />);
         wrapper.find({ "data-testid": "previousButton" }).simulate("click");
         expect(defaultProps.updatePreviousDate).toHaveBeenCalledWith();
@@ -52,9 +43,15 @@ describe("<PromptLayout>", () => {
     });
 
     describe("<Prompt>", () => {
-      describe("when prompts.length is greater than 0", () => {
+      describe("when there are prompts", () => {
         it("should render", () => {
-          const wrapper = shallow(<PromptLayout {...defaultProps} />);
+          const props = {
+            ...defaultProps,
+            prompts: {
+              mood: "I'm up all night to get lucky"
+            }
+          };
+          const wrapper = shallow(<PromptLayout {...props} />);
           const result = wrapper.find({ "data-testid": "prompt" });
           expect(result).toHaveLength(1);
         });
@@ -67,11 +64,11 @@ describe("<PromptLayout>", () => {
         });
       });
 
-      describe("when prompts.length is 0", () => {
-        it("should not render  <Prompt>", () => {
+      describe("when there are no prompts", () => {
+        it("should not render <Prompt>", () => {
           const props = {
             ...defaultProps,
-            prompts: []
+            prompts: {}
           };
           const wrapper = shallow(<PromptLayout {...props} />);
           const result = wrapper.find({ "data-testid": "prompt" });
@@ -87,7 +84,7 @@ describe("<PromptLayout>", () => {
           wrapper.find({ "data-testid": "nextButton" }).prop("text")
         ).toEqual("Next");
       });
-      it("should call updateNextDate with correct params", () => {
+      it("should call updateNextDate with correct params when clicked", () => {
         const wrapper = shallow(<PromptLayout {...defaultProps} />);
         wrapper.find({ "data-testid": "nextButton" }).simulate("click");
         expect(defaultProps.updateNextDate).toHaveBeenCalledWith();
@@ -98,12 +95,22 @@ describe("<PromptLayout>", () => {
 
 describe("mapStateToProps", () => {
   it("should map date to props", () => {
-    const result = mapStateToProps({ date: "2020-01-11" });
-    expect(result).toEqual({ date: "2020-01-11" });
+    const date = "my favorite dates are when I get to stay home and drink wine";
+    const result = mapStateToProps({
+      date
+    });
+    expect(result).toEqual({
+      date
+    });
   });
   it("should map prompts to props", () => {
-    const result = mapStateToProps({ prompts: [{ text: "prompt" }] });
-    expect(result).toEqual({ prompts: [{ text: "prompt" }] });
+    const text = "did you know elephants can't jump?";
+    const result = mapStateToProps({
+      prompts: { text }
+    });
+    expect(result).toEqual({
+      prompts: { text }
+    });
   });
 });
 

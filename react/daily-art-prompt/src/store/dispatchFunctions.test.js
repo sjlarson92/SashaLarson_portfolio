@@ -21,7 +21,7 @@ describe("updateNextDateAction", () => {
         date: "2020-01-18"
       });
       updateNextDateAction()(dispatch, getState);
-      expect(dispatch).toHaveBeenCalledTimes(0);
+      expect(dispatch).not.toHaveBeenCalledWith();
     });
   });
   describe("if prompts does have tomorrows date", () => {
@@ -36,7 +36,7 @@ describe("updateNextDateAction", () => {
       });
       updateNextDateAction()(dispatch, getState);
       expect(dispatch).toHaveBeenCalledWith({
-        type: TYPES.UPDATE_NEXT_DATE,
+        type: TYPES.UPDATE_DATE,
         payload: {
           date: "2020-01-19"
         }
@@ -72,7 +72,7 @@ describe("updatePreviousDateAction", () => {
         });
         updatePreviousDateAction()(dispatch, getState);
         expect(dispatch).toHaveBeenCalledWith({
-          type: TYPES.UPDATE_PREVIOUS_DATE,
+          type: TYPES.UPDATE_DATE,
           payload: {
             date: "2020-01-18"
           }

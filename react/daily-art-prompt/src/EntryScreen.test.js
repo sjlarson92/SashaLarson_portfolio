@@ -44,7 +44,7 @@ describe("dispatchFunctions", () => {
   it("should have getPrompts equal to getPromptsAction", () => {
     expect(dispatchFunctions.getPrompts).toEqual(getPromptsAction);
   });
-  it("should have getDate that dispatches and action SET_INITIAL_DATE", () => {
+  it("should dispatch when getDate is called with correct params", () => {
     const dispatch = jest.fn();
     const anonymousFunction2 = dispatchFunctions.getDate();
     anonymousFunction2(dispatch);

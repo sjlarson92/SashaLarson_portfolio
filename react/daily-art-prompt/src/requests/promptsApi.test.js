@@ -19,11 +19,6 @@ describe("getPromptsAction", () => {
     jest.clearAllMocks();
   });
 
-  it("should call the api 1 time", async () => {
-    axios.get.mockResolvedValue(response);
-    await getPromptsAction()(dispatch);
-    expect(axios.get).toHaveBeenCalledTimes(1);
-  });
   it("should call api with correct params", () => {
     axios.get.mockResolvedValue(response);
     getPromptsAction()(dispatch);
@@ -35,7 +30,7 @@ describe("when api response is resolved", () => {
   it("should call dispatch with correct parameters", () => {
     axios.get.mockResolvedValue(response);
     getPromptsAction()(dispatch);
-    expect(dispatch).toHaveBeenNthCalledWith(1, {
+    expect(dispatch).toHaveBeenCalledWith({
       type: TYPES.SET_INITIAL_PROMPTS,
       payload: {
         prompts: response.data

@@ -10,18 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpHeaders;
 
 @RestController
-@RequestMapping("/images")
+@RequestMapping("/image")
 public class ImageController {
     ImageService imageService = new ImageService();
-
-    @GetMapping("/")
-    public ResponseEntity<Image> allimages() {
+    @GetMapping("")
+    public ResponseEntity<Image> getImage() {
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-
-
         Image responseBody = imageService.getImage();
-
         return ResponseEntity.ok().headers(headers).body(responseBody);
     }
 }

@@ -1,7 +1,7 @@
 package com.dap.DailyArtPrompt.controller;
 
 import com.dap.DailyArtPrompt.model.Prompt;
-import com.dap.DailyArtPrompt.service.PromptRepository;
+import com.dap.DailyArtPrompt.service.PromptService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,9 +11,9 @@ import java.time.LocalDate;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/prompts")
-public class PromptsController {
-    PromptRepository promptRepository = new PromptRepository();
+@RequestMapping("/prompt")
+public class PromptController {
+    PromptService promptRepository = new PromptService();
 
     @GetMapping("/all")
     public ResponseEntity<HashMap<LocalDate, Prompt>> getAllPrompts() {

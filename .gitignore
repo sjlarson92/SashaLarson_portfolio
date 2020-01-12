@@ -78,6 +78,8 @@ target/
 # celery beat schedule file
 celerybeat-schedule
 
+.idea/workspace.xml
+
 # SageMath parsed files
 *.sage.py
 
