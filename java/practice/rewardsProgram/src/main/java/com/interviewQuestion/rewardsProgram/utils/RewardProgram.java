@@ -12,7 +12,16 @@ import java.util.stream.Stream;
 
 public class RewardProgram {
 
-    public double getTotalRewards(double purchaseAmount){
-      return purchaseAmount;
+    public double getPurchaseRewards(double purchaseAmount){
+
+        if(50 < purchaseAmount && purchaseAmount <= 100){
+            return Math.floor(purchaseAmount - 50);
+        }
+        else if(purchaseAmount > 100) {
+            return Math.floor((purchaseAmount - 100)*2 + 50);
+        }
+        else {
+            return 0;
+        }
     }
 }

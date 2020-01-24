@@ -15,7 +15,7 @@ public class RewardsProgramService {
 
         HashMap<Integer, CustomerReward> customerData = new HashMap<>();
 
-        double totalRewards = rewardProgram.getTotalRewards(transactionRequestBodies.get(0).getPurchaseAmount());
+        double totalRewards = rewardProgram.getPurchaseRewards(transactionRequestBodies.get(0).getPurchaseAmount());
 
         CustomerReward customerReward = new CustomerReward(
                 transactionRequestBodies.get(0).getId(),
