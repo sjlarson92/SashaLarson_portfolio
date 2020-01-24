@@ -1,6 +1,5 @@
 package com.interviewQuestion.rewardsProgram.model;
 
-import java.time.LocalDate;
 import java.time.Month;
 import java.util.HashMap;
 
@@ -29,9 +28,7 @@ public class CustomerReward {
 
     public int getId() {return this.id; }
     public String getFirstName() { return this.firstName;}
-
     public String getLastName() { return this.lastName; }
-
     public double getTotalRewards() { return this.totalRewards; }
 
     public void setTotalRewards(double totalRewards) {

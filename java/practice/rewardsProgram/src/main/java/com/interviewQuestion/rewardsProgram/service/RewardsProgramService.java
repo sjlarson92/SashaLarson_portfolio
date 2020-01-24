@@ -4,7 +4,6 @@ import com.interviewQuestion.rewardsProgram.model.CustomerReward;
 import com.interviewQuestion.rewardsProgram.model.TransactionRequestBody;
 import com.interviewQuestion.rewardsProgram.utils.RewardProgram;
 
-import java.time.LocalDate;
 import java.time.Month;
 import java.util.HashMap;
 import java.util.List;
