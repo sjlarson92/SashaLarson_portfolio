@@ -20,7 +20,6 @@ public class RewardsProgramService {
         for(TransactionRequestBody transactionRequestBody : transactionRequestBodies){
             double purchaseRewards = rewardProgram.getPurchaseRewards(transactionRequestBody.getPurchaseAmount());
             if(customerData.containsKey(transactionRequestBody.getId())){
-                System.out.println("this customer is a double");
 
                 if(customerData.get(transactionRequestBody.getId()).getRewardsHistory().
                         containsKey(transactionRequestBody.getDate().getMonth())){
@@ -33,9 +32,12 @@ public class RewardsProgramService {
                     customerData.get(transactionRequestBody.getId()).getRewardsHistory().put(
                             transactionRequestBody.getDate().getMonth(),purchaseRewards);
                 }
-
+            //update total rewards
+                Double updatedTotalRewards = rewardProgram.getTotalRewards(customerData.get(transactionRequestBody.getId()).getRewardsHistory());
+                customerData.get(transactionRequestBody.getId()).setTotalRewards(updatedTotalRewards);
             }
             else {
+
                 HashMap<Month, Double> rewardsHistory = new HashMap<>();
                 rewardsHistory.put(transactionRequestBody.getDate().getMonth(), purchaseRewards);
                 CustomerReward customerReward = new CustomerReward(

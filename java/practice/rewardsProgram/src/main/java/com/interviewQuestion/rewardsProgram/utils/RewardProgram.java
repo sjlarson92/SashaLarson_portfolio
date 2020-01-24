@@ -1,14 +1,8 @@
 package com.interviewQuestion.rewardsProgram.utils;
 
-import com.interviewQuestion.rewardsProgram.model.CustomerProfile;
-import com.interviewQuestion.rewardsProgram.model.CustomerReward;
-import com.interviewQuestion.rewardsProgram.model.TransactionRequestBody;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.Month;
 import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Stream;
+
 
 public class RewardProgram {
 
@@ -24,4 +18,14 @@ public class RewardProgram {
             return 0;
         }
     }
+
+    public Double getTotalRewards(HashMap<Month, Double> rewardsHistory) {
+        double sum = 0.0f;
+        for (double f : rewardsHistory.values()) {
+            sum += f;
+        }
+        return sum;
+    }
 }
+
+
