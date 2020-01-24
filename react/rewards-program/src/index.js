@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
+import RewardsProgram from "./components/RewardsProgram";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<RewardsProgram />, document.getElementById("root"));
