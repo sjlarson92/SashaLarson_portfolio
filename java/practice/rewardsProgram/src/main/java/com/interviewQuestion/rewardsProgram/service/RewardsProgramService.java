@@ -4,6 +4,8 @@ import com.interviewQuestion.rewardsProgram.model.CustomerReward;
 import com.interviewQuestion.rewardsProgram.model.TransactionRequestBody;
 import com.interviewQuestion.rewardsProgram.utils.RewardProgram;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,15 +17,38 @@ public class RewardsProgramService {
 
         HashMap<Integer, CustomerReward> customerData = new HashMap<>();
 
-        double totalRewards = rewardProgram.getPurchaseRewards(transactionRequestBodies.get(0).getPurchaseAmount());
+        for(TransactionRequestBody transactionRequestBody : transactionRequestBodies){
+            double purchaseRewards = rewardProgram.getPurchaseRewards(transactionRequestBody.getPurchaseAmount());
+            if(customerData.containsKey(transactionRequestBody.getId())){
+                System.out.println("this customer is a double");
 
-        CustomerReward customerReward = new CustomerReward(
-                transactionRequestBodies.get(0).getId(),
-                transactionRequestBodies.get(0).getFirstName(),
-                transactionRequestBodies.get(0).getLastName(),
-                totalRewards
-        );
-        customerData.put(transactionRequestBodies.get(0).getId(), customerReward);
+                if(customerData.get(transactionRequestBody.getId()).getRewardsHistory().
+                        containsKey(transactionRequestBody.getDate().getMonth())){
+                    Double newRewardsMonthTotal = customerData.get(transactionRequestBody.getId()).getRewardsHistory()
+                            .get(transactionRequestBody.getDate().getMonth()) + purchaseRewards;
+                    customerData.get(transactionRequestBody.getId()).getRewardsHistory().put(
+                            transactionRequestBody.getDate().getMonth(),newRewardsMonthTotal);
+                }
+                else {
+                    customerData.get(transactionRequestBody.getId()).getRewardsHistory().put(
+                            transactionRequestBody.getDate().getMonth(),purchaseRewards);
+                }
+
+            }
+            else {
+                HashMap<Month, Double> rewardsHistory = new HashMap<>();
+                rewardsHistory.put(transactionRequestBody.getDate().getMonth(), purchaseRewards);
+                CustomerReward customerReward = new CustomerReward(
+                        transactionRequestBody.getId(),
+                        transactionRequestBody.getFirstName(),
+                        transactionRequestBody.getLastName(),
+                        purchaseRewards,
+                        rewardsHistory
+                );
+                customerData.put(transactionRequestBody.getId(), customerReward);
+            }
+
+        }
 
         return customerData;
     }
