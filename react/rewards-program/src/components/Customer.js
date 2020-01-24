@@ -1,10 +1,13 @@
 import React from "react";
 
 const Customer = ({ customer }) => {
+    //lets use hooks to save things in state
+    const rewardshistory = []
+
   return (
-    <div>
+    <div className="customer-body">
         <div>
-            Customer Name: {customer.firstName}
+            Customer Name: {customer.firstName} {customer.lastName}
         </div>
         <div>
             Total Rewards:

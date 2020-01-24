@@ -4,7 +4,7 @@ import Customer from "./Customer";
 
 const RewardsProgram = () => {
   return (
-    <div>
+    <div className="app">
       <div>Rewards Program!</div>
 
       {transactionBodies.map(transactionBody => (
