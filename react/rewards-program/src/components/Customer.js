@@ -1,7 +1,6 @@
 import React from "react";
 
 const Customer = ({ customer }) => {
-    const rewardshistory = []
 
   return (
     <div className="customer-body">

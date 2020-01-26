@@ -10,7 +10,7 @@ export const transactionBodies = [
     id: 2,
     firstName: "martha",
     lastName: "steward",
-    purchaseAmount: 10.25,
+    purchaseAmount: 200.25,
     date: "2020-01-17"
   },
   {
