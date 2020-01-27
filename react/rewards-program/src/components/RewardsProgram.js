@@ -1,80 +1,89 @@
 import React, {useState} from "react";
-import { transactionBodies } from "../data";
-import Customer from "./Customer";
+import { transactions } from "../data";
 import moment from "moment";
+import _ from "lodash";
+
 
 const RewardsProgram = () => {
-  const [customerData, setCustomerData] = useState({})
+  const [customerData, setCustomerData] = useState([])
 
-  const getRewards = (transactionBody) => {
+  const getRewards = (transaction) => {
     let rewards
-    if(transactionBody.purchaseAmount > 100){
-      rewards = (transactionBody.purchaseAmount - 100)*2 + 50
+    if(transaction.purchaseAmount > 100){
+      rewards = (transaction.purchaseAmount - 100)*2 + 50
     }
-    else if(transactionBody.purchaseAmount <= 100 && transactionBody.purchaseAmount > 50){
-      rewards = transactionBody.purchaseAmount - 50
+    else if(transaction.purchaseAmount <= 100 && transaction.purchaseAmount > 50){
+      rewards = transaction.purchaseAmount - 50
     }
     else { rewards = 0 }
     
     return Math.floor(rewards)
   }
-  
-  const getTotalRewards = (rewardsHistory) => {
-    let sum = 0
-    for( var el in rewardsHistory ) {
-      if( rewardsHistory.hasOwnProperty( el ) ) {
-        sum += parseFloat( rewardsHistory[el] );
+
+  const provideTransactions = () => {
+    const groupedTransactions = _.groupBy(transactions, 'id')
+    // TODO: do this for all customers
+    console.log("groupedTransactions[1]: ", groupedTransactions[1])
+    let totalRewards = 0
+    let rewardsByMonthAndYear = {}
+    
+    for(let transaction of groupedTransactions["2"]){
+      console.log('transaction: ', transaction)
+      const rewards = getRewards(transaction)
+      console.log("rewards: ", rewards)
+      totalRewards += rewards
+
+
+      const date = moment(transaction.date).format('MMM-YYYY')
+      console.log('date: ', date)
+     if(date in rewardsByMonthAndYear){
+       const updatedTotalRewardsByMonthAndYear = rewardsByMonthAndYear[date] + rewards
+       rewardsByMonthAndYear = {
+         ...rewardsByMonthAndYear,
+         [date]: updatedTotalRewardsByMonthAndYear
+       }
+     }
+     else {
+        rewardsByMonthAndYear = {
+          ...rewardsByMonthAndYear,
+          [date]: rewards
+        }
       }
     }
-    return sum;
+    console.log('totalRewards: ', totalRewards)
+    console.log('rewardsByMonthAndYear: ', rewardsByMonthAndYear)
+    const customerData1 = {
+      id: groupedTransactions["2"][0].id,
+      firstName: groupedTransactions["2"][0].firstName,
+      lastName: groupedTransactions["2"][0].lastName,
+      totalRewards,
+      rewardsByMonthAndYear
+    }
+    console.log("customerData1: ", customerData1)
+    const updatedCustomerData = customerData.concat(customerData1)
+    console.log("updatedCustomerData: ", updatedCustomerData)
+    setCustomerData(updatedCustomerData)
   }
-
-  const addTransactionsToCustomerData = (transactionBodies) => {
-    transactionBodies.map(transactionBody => {
-      const rewards = getRewards(transactionBody)
-      if(transactionBody.id in customerData) {
-        //check if months match and if so add rewards
-        const addReward = customerData[transactionBody.id].rewardsHistory[moment(transactionBody.date).format('MMM')] =rewards
-        setCustomerData(addReward)
-
-        //update total rewards
-        const newTotalRewards = getTotalRewards(customerData[transactionBody.id].rewardsHistory)
-
-        const updateTotalRewards = customerData[transactionBody.id].totalRewards = newTotalRewards
-        setCustomerData(updateTotalRewards)
-      }
-      else {
-        const newCustomerData = customerData[transactionBody.id] = {
-          firstName: transactionBody.firstName,
-          lastName: transactionBody.lastName,
-          totalRewards: rewards,
-          rewardsHistory: {
-            [moment(transactionBody.date).format('MMM')] : rewards
-          }
-        }
-        setCustomerData(newCustomerData)
-      }
-
-      console.log("customerData: ", customerData)
-    })
-    
-  }
+   
   return (
     <div className="app">
       <div>Rewards Program!</div>
 
       <button
-        onClick={() => addTransactionsToCustomerData(transactionBodies)}
+        onClick={() => provideTransactions()}
       >
         Calculate Rewards
-      </button>  
+      </button> 
 
-      {/* {transactionBodies.map(transactionBody => (
-        //if customerData includes transactionBody add transaction to customer else create new customer reward
-        <Customer customer={transactionBody} />
-      ))} */}
+      {customerData.length > 0 && customerData.map(customer =>
+        <div key={customer.id}>
+          <div>{customer.firstName}</div>
+        </div>
+      )
+      }
+
     </div>
-  );
-};
+  )
+}
 
 export default RewardsProgram;

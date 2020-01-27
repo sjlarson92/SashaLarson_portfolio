@@ -1,4 +1,4 @@
-export const transactionBodies = [
+export const transactions = [
   {
     id: 1,
     firstName: "marco",
