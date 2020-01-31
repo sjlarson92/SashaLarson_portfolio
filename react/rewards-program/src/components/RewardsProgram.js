@@ -29,14 +29,10 @@ const RewardsProgram = () => {
       let rewardsByMonthAndYear = {}
       
       for(let transaction of groupedTransactions[customer]){
-        console.log('transaction: ', transaction)
         const rewards = getRewards(transaction)
-        console.log("rewards: ", rewards)
         totalRewards += rewards
 
-
         const date = moment(transaction.date).format('MMM-YYYY')
-        console.log('date: ', date)
       if(date in rewardsByMonthAndYear){
         const updatedTotalRewardsByMonthAndYear = rewardsByMonthAndYear[date] + rewards
         rewardsByMonthAndYear = {
@@ -52,8 +48,6 @@ const RewardsProgram = () => {
         }
       }
 
-    console.log('totalRewards: ', totalRewards)
-    console.log('rewardsByMonthAndYear: ', rewardsByMonthAndYear)
     const customerData1 = {
       id: groupedTransactions[customer][0].id,
       firstName: groupedTransactions[customer][0].firstName,
@@ -61,11 +55,9 @@ const RewardsProgram = () => {
       totalRewards,
       rewardsByMonthAndYear
     }
-    console.log("customerData1: ", customerData1)
     updatedCustomerData = updatedCustomerData.concat(customerData1)
     }
     
-    console.log("updatedCustomerData: ", updatedCustomerData)
     setCustomerData(updatedCustomerData)
   }
    
@@ -81,8 +73,8 @@ const RewardsProgram = () => {
 
       {customerData.length > 0 && customerData.map(customer =>
         <Customer 
-        key={customer.id}
-        customer={customer}
+          key={customer.id}
+          customer={customer}
         />
       )
       }

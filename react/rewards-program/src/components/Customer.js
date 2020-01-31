@@ -4,7 +4,7 @@ const Customer = ({ customer }) => {
 
   const getRewardsByMonthAndYear = () => {
     let rewardsByMonthAndYear = []
-    for (var key of Object.keys(customer.rewardsByMonthAndYear)) {
+    for (let key of Object.keys(customer.rewardsByMonthAndYear)) {
        rewardsByMonthAndYear.push(
        <div key={key}>
          {(key + " : " + customer.rewardsByMonthAndYear[key])}
@@ -23,7 +23,7 @@ const Customer = ({ customer }) => {
         <div>
             Rewards by Month: 
             <div>
-            {getRewardsByMonthAndYear()}
+              {getRewardsByMonthAndYear()}
             </div>
         </div>
     </div>
