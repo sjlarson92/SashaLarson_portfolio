@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { transactions } from "../data";
 import moment from "moment";
 import _ from "lodash";
-
+import Customer from './Customer'
 
 const RewardsProgram = () => {
   const [customerData, setCustomerData] = useState([])
@@ -80,9 +80,10 @@ const RewardsProgram = () => {
       </button> 
 
       {customerData.length > 0 && customerData.map(customer =>
-        <div key={customer.id}>
-          <div>{customer.firstName}</div>
-        </div>
+        <Customer 
+        key={customer.id}
+        customer={customer}
+        />
       )
       }
 
