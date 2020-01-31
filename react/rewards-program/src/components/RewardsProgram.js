@@ -22,45 +22,49 @@ const RewardsProgram = () => {
 
   const provideTransactions = () => {
     const groupedTransactions = _.groupBy(transactions, 'id')
-    // TODO: do this for all customers
-    console.log("groupedTransactions[1]: ", groupedTransactions[1])
-    let totalRewards = 0
-    let rewardsByMonthAndYear = {}
-    
-    for(let transaction of groupedTransactions["2"]){
-      console.log('transaction: ', transaction)
-      const rewards = getRewards(transaction)
-      console.log("rewards: ", rewards)
-      totalRewards += rewards
+
+    let updatedCustomerData = []
+    for(let customer in groupedTransactions){
+      let totalRewards = 0
+      let rewardsByMonthAndYear = {}
+      
+      for(let transaction of groupedTransactions[customer]){
+        console.log('transaction: ', transaction)
+        const rewards = getRewards(transaction)
+        console.log("rewards: ", rewards)
+        totalRewards += rewards
 
 
-      const date = moment(transaction.date).format('MMM-YYYY')
-      console.log('date: ', date)
-     if(date in rewardsByMonthAndYear){
-       const updatedTotalRewardsByMonthAndYear = rewardsByMonthAndYear[date] + rewards
-       rewardsByMonthAndYear = {
-         ...rewardsByMonthAndYear,
-         [date]: updatedTotalRewardsByMonthAndYear
-       }
-     }
-     else {
+        const date = moment(transaction.date).format('MMM-YYYY')
+        console.log('date: ', date)
+      if(date in rewardsByMonthAndYear){
+        const updatedTotalRewardsByMonthAndYear = rewardsByMonthAndYear[date] + rewards
         rewardsByMonthAndYear = {
           ...rewardsByMonthAndYear,
-          [date]: rewards
+          [date]: updatedTotalRewardsByMonthAndYear
         }
       }
-    }
+      else {
+          rewardsByMonthAndYear = {
+            ...rewardsByMonthAndYear,
+            [date]: rewards
+          }
+        }
+      }
+
     console.log('totalRewards: ', totalRewards)
     console.log('rewardsByMonthAndYear: ', rewardsByMonthAndYear)
     const customerData1 = {
-      id: groupedTransactions["2"][0].id,
-      firstName: groupedTransactions["2"][0].firstName,
-      lastName: groupedTransactions["2"][0].lastName,
+      id: groupedTransactions[customer][0].id,
+      firstName: groupedTransactions[customer][0].firstName,
+      lastName: groupedTransactions[customer][0].lastName,
       totalRewards,
       rewardsByMonthAndYear
     }
     console.log("customerData1: ", customerData1)
-    const updatedCustomerData = customerData.concat(customerData1)
+    updatedCustomerData = updatedCustomerData.concat(customerData1)
+    }
+    
     console.log("updatedCustomerData: ", updatedCustomerData)
     setCustomerData(updatedCustomerData)
   }
