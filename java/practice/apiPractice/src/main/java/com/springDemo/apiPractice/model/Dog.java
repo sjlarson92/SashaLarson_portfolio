@@ -1,8 +1,8 @@
 package com.springDemo.apiPractice.model;
 
 public class Dog {
-    private enum Breed {
-        BEAGLE, MUTT, WESTIE
+    public enum Breed {
+        BEAGLE, MUTT, WESTIE;
     }
 
     private String firstName;

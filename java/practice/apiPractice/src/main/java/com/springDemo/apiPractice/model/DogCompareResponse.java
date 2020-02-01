@@ -1,12 +1,12 @@
 package com.springDemo.apiPractice.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DogCompareResponse {
     private String oldestDogName;
     private List<String> goodDogs;
 
+    public DogCompareResponse() {}
     public DogCompareResponse(Dog oldestDog, List<String> goodDogs) {
         this.oldestDogName = oldestDog.getFullName();
         this.goodDogs = goodDogs;

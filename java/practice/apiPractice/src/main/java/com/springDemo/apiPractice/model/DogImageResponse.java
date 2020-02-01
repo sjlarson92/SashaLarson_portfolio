@@ -4,9 +4,7 @@ public class DogImageResponse {
     private String message;
     private String status;
 
-    public DogImageResponse(){
-
-    }
+    public DogImageResponse(){}
     public DogImageResponse(
         String message,
         String status
