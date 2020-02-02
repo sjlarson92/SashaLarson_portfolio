@@ -1,5 +1,7 @@
 package com.springDemo.apiPractice.controller;
 
+import com.springDemo.apiPractice.model.DogCompareResponse;
+import com.springDemo.apiPractice.model.DogImageResponse;
 import com.springDemo.apiPractice.service.DogService;
 import com.springDemo.apiPractice.model.Dog;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,24 +37,24 @@ public class DogController {
         return dogService.createNewDog(firstName, lastName, age, goodDog, breed);
     }
 
-//    @GetMapping("/compare")
-//    public DogCompareResponse compare(
-//        @RequestParam String firstName,
-//        @RequestParam String lastName,
-//        @RequestParam int age,
-//        @RequestParam boolean goodDog,
-//        @RequestParam Dog.Breed breed
-//    ) {
-//        Dog defaultDog = dogService.getDefaultDog();
-//        Dog dog1 = dogService.createNewDog(firstName, lastName, age, goodDog, breed);
-//        return dogService.compareDogs(defaultDog, dog1);
-//    }
-//
-//    @GetMapping("/images")
-//    private DogImageResponse getDogImages(){
-//        final String uri = "https://dog.ceo/api/breeds/image/random";
-//        RestTemplate restTemplate = new RestTemplate();
-//        DogImageResponse result = restTemplate.getForObject(uri, DogImageResponse.class);
-//        return result;
-//    }
+    @GetMapping("/compare")
+    public DogCompareResponse compare(
+        @RequestParam String firstName,
+        @RequestParam String lastName,
+        @RequestParam int age,
+        @RequestParam boolean goodDog,
+        @RequestParam Dog.Breed breed
+    ) {
+        Dog defaultDog = dogService.getDefaultDog();
+        Dog dog1 = dogService.createNewDog(firstName, lastName, age, goodDog, breed);
+        return dogService.compareDogs(defaultDog, dog1);
+    }
+
+    @GetMapping("/images")
+    private DogImageResponse getDogImages(){
+        final String uri = "https://dog.ceo/api/breeds/image/random";
+        RestTemplate restTemplate = new RestTemplate();
+        DogImageResponse result = restTemplate.getForObject(uri, DogImageResponse.class);
+        return result;
+    }
 }

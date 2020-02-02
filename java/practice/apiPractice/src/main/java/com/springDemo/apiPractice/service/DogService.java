@@ -24,7 +24,10 @@ public class DogService {
         return new Dog(firstName, lastName, age, goodDog, breed);
     }
 
-    public DogCompareResponse compareDogs(Dog defaultDog, Dog dog1) {
+    public DogCompareResponse compareDogs(
+            Dog defaultDog,
+            Dog dog1
+    ) {
         List<String> goodDogs = new ArrayList<>();
         if(defaultDog.isGoodDog()){
             goodDogs.add(defaultDog.getFullName());

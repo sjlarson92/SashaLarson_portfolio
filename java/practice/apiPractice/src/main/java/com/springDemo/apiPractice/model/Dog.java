@@ -1,15 +1,15 @@
 package com.springDemo.apiPractice.model;
 
 public class Dog {
-    public enum Breed {
-        BEAGLE, MUTT, WESTIE;
-    }
-
     private String firstName;
     private String lastName;
     private int age;
     private boolean goodDog;
     private Breed breed;
+
+    public enum Breed {
+        BEAGLE, MUTT, WESTIE;
+    }
 
     public Dog() {
         this.firstName = "HeWhoShall";
