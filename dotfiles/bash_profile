@@ -1,5 +1,7 @@
-
-#Aliases
+# Aliases
 
 alias la='ls -la'
 alias sl='cd ~/Desktop/SashaLarson_portfolio'
+
+# Exports
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin/
