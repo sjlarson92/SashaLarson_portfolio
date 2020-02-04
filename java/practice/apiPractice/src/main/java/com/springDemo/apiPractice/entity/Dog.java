@@ -24,4 +24,14 @@ public class Dog {
     @Column(name = "breed")
     private String breed;
 
+    public String getFirstName() {return firstName;}
+
+    public String getLastName() {return lastName;}
+
+    public int getAge() {return age;}
+
+    public boolean isGoodDog() {return goodDog;}
+
+    public String getBreed() {return breed;}
+
 }
