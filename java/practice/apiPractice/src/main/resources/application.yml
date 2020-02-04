@@ -1,0 +1,10 @@
+### Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dogsdb # any your db name here in the end. in our case, dogsdb
+    username: sasha #default is set to your computer username can find this by typing command `whoami` in your terminal
+    password: # if you have one
+    driverClassName: org.postgresql.Driver
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect # The SQL dialect makes Hibernate generate better SQL for the chosen database
+    hibernate.ddl-auto: update # Hibernate ddl auto (create, create-drop, validate, update)
