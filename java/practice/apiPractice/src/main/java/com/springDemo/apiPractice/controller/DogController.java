@@ -39,28 +39,4 @@ public class DogController {
         System.out.println("api to create new dog");
      return dogService.newDog(firstName,lastName, age, goodDog, breed);
     }
-//
-//    @GetMapping("/new")
-//    public Dog newDog(
-//        @RequestParam String firstName,
-//        @RequestParam String lastName,
-//        @RequestParam int age,
-//        @RequestParam boolean goodDog,
-//        @RequestParam Dog.Breed breed
-//        ) {
-//        return dogService.createNewDog(firstName, lastName, age, goodDog, breed);
-//    }
-//
-//    @GetMapping("/compare")
-//    public DogCompareResponse compare(
-//        @RequestParam String firstName,
-//        @RequestParam String lastName,
-//        @RequestParam int age,
-//        @RequestParam boolean goodDog,
-//        @RequestParam Dog.Breed breed
-//    ) {
-//        Dog defaultDog = dogService.getDefaultDog();
-//        Dog dog1 = dogService.createNewDog(firstName, lastName, age, goodDog, breed);
-//        return dogService.compareDogs(defaultDog, dog1);
-//    }
 }
