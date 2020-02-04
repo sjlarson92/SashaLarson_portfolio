@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name="dog")
 public class Dog {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
     @Column(name = "firstName")
@@ -23,6 +23,16 @@ public class Dog {
 
     @Column(name = "breed")
     private String breed;
+
+    public Dog(String firstName, String lastName, int age, boolean goodDog, String breed) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.goodDog = goodDog;
+        this.breed = breed;
+    }
+
+    public long getId() {return id;}
 
     public String getFirstName() {return firstName;}
 

@@ -5,6 +5,7 @@ import com.springDemo.apiPractice.repository.DogRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class DogService {
@@ -21,9 +22,27 @@ public class DogService {
         return allDogs;
     }
 
-//    public String getDogGreeting() {
-//        return "Woof";
-//    }
+    public Dog getDogById(long id) {
+        System.out.println("getting dog by id: " + id);
+        Optional<Dog> optionalDog = dogRepository.findById(id);
+        System.out.println(optionalDog.isPresent()
+                ? optionalDog.get().getFirstName()
+                : "No dogs by that id");
+        return optionalDog.orElse(null);
+    }
+
+    public Dog newDog(
+            String firstName,
+            String lastName,
+            int age,
+            boolean goodDog,
+            String breed
+    ) {
+        System.out.println("creating new dog");
+        Dog newDog = dogRepository.save( new Dog(firstName, lastName, age, goodDog, breed));
+        System.out.println("newDog: " + newDog.getFirstName());
+        return newDog;
+    }
 //
 //    public Dog getDefaultDog() {
 //        return new Dog();
