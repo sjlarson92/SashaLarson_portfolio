@@ -9,10 +9,12 @@
 ### Useful commands:
 
 ```sql
+
 \l # list all databases
-\c dbname # change database
+\c dbname # change to database
 \dt #shows all tables
-SELECT * FROM tableName; #shows selected table
+CREATE DATABASE dbname; # creates database
+SELECT * FROM tableName; # shows selected table
 DROP DATABASE dbName; # deletes database
 CREATE TABLE tablename(col1 type1, col2 type2); # creates a table with columns with their names and types (ex: int, text, varchar)
 INSERT INTO table(column1,column2,...)
@@ -21,12 +23,19 @@ VALUES(value_1,value_2,...); # adds values to table (strings must be in '')
 
 ## DB Connection with Spring
 
-- This goes in the application.properites file
+- You should have a application.properties file delete this and create a application.yml file instead and and the below code to it
 
 ```sh
-spring.datasource.url=jdbc:postgresql://localhost:5432/dogsdb
-spring.datasource.username=sasha
-spring.datasource.password=
+### Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dogsdb # add your db name here in the end. in our case, dogsdb / port number default to 5432
+    username: sasha #default is set to your computer username can find this by typing command `whoami` in your terminal
+    password: # if you have one
+    driverClassName: org.postgresql.Driver
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect # The SQL dialect makes Hibernate generate better SQL for the chosen database
+    hibernate.ddl-auto: update # Hibernate ddl auto (create, create-drop, validate, update)
 ```
 
 - Add these depenedcies/drivers to the build.gradle file (if this a gradle project)
