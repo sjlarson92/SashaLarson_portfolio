@@ -111,5 +111,5 @@ venv.bak/
 
 node_modules
 yarn.lock
-.gradle/
-java/practice/apiPractice/.gradle/ 
+.gradle
+java/practice/apiPractice/.gradle
