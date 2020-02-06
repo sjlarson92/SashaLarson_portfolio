@@ -17,6 +17,7 @@ CREATE DATABASE dbname; # creates database
 SELECT * FROM tableName; # shows selected table
 DROP DATABASE dbName; # deletes database
 CREATE TABLE tablename(col1 type1, col2 type2); # creates a table with columns with their names and types (ex: int, text, varchar)
+
 INSERT INTO table(column1,column2,...)
 VALUES(value_1,value_2,...); # adds values to table (strings must be in '')
 ```
@@ -43,6 +44,36 @@ spring:
 ```sh
 implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 implementation 'org.postgresql:postgresql'
+```
+
+- Make sure to properly link service to controller and pass service to controller in constructor
+
+```java
+
+# Controller
+
+@RestController
+@RequestMapping("/prompt")
+public class PromptController {
+
+    private final PromptService promptService;
+
+    @Autowired
+    public PromptController(PromptService promptService) {
+        this.promptService = promptService;
+    }
+
+# Service
+@Component
+public class PromptService {
+
+    final PromptRepository promptRepository;
+
+    public PromptService(PromptRepository promptRepository) {
+        this.promptRepository = promptRepository;
+    }
+
+
 ```
 
 ## Hibernate
