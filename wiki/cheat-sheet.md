@@ -15,6 +15,10 @@ rm -rf folderName  # recursive force removal to remove everything inside that fo
 ls -la | grep whatever # allows user to search for whatever
 ```
 
+```sh
+source fileName  #executes file so that file will be read and terminal will be aware of it
+```
+
 ## Git
 
 - Basics

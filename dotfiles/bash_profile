@@ -2,6 +2,10 @@
 
 alias la='ls -la'
 alias sl='cd ~/Desktop/SashaLarson_portfolio'
+alias gs='git status'
+alias ga='git add . && git status'
+alias gcm='git commit -m'
 
 # Exports
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin/
+export PATH="/usr/local/opt/libpq/bin:$PATH"
