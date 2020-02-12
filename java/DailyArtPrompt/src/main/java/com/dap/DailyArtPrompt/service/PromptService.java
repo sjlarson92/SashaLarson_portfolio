@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class PromptService {
@@ -18,16 +19,16 @@ public class PromptService {
         this.promptRepository = promptRepository;
     }
 
-    public HashMap<LocalDate, Prompt> getAllPrompts() {
+    public Map<LocalDate, Prompt> getAllPrompts() {
         List<Prompt> allPromptsList = promptRepository.findAll();
 
-        HashMap<LocalDate, Prompt> allPromptsHashMap = new HashMap<>();
+        Map<LocalDate, Prompt> allPromptsMap = new HashMap<>();
 
         for (Prompt prompt : allPromptsList) {
             LocalDate date = LocalDate.parse(prompt.getDate());
-            allPromptsHashMap.put(date, prompt);
+            allPromptsMap.put(date, prompt);
         }
 
-        return allPromptsHashMap;
+        return allPromptsMap;
     }
 }
