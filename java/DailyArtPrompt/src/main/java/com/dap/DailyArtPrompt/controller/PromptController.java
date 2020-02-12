@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.http.HttpHeaders;
-import java.util.List;
+
+import java.time.LocalDate;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/prompt")
@@ -22,10 +24,16 @@ public class PromptController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Prompt>> getAllPrompts() {
+    public ResponseEntity<HashMap<LocalDate, Prompt>> getAllPrompts() {
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-        List<Prompt> responseBody = promptService.getAllPrompts();
+        HashMap<LocalDate, Prompt> responseBody = promptService.getAllPrompts();
+
+        System.out.println("Api /all returns map with following prompts: ");
+        for (Prompt prompt: responseBody.values()) {
+            System.out.println("id: " + prompt.getId() + " date: " + prompt.getDate() + " text: " + prompt.getText());
+        }
+
         return ResponseEntity.ok().headers(headers).body(responseBody);
     }
 }
