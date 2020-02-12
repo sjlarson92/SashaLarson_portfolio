@@ -2,7 +2,6 @@ package com.dap.DailyArtPrompt.controller;
 
 import com.dap.DailyArtPrompt.entity.Prompt;
 import com.dap.DailyArtPrompt.service.PromptService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,9 +15,8 @@ import java.util.HashMap;
 @RequestMapping("/prompt")
 public class PromptController {
 
-    private final PromptService promptService;
+    final PromptService promptService;
 
-    @Autowired
     public PromptController(PromptService promptService) {
         this.promptService = promptService;
     }
