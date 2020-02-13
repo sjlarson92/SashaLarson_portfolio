@@ -19,6 +19,11 @@ ls -la | grep whatever # allows user to search for whatever
 source fileName  #executes file so that file will be read and terminal will be aware of it
 ```
 
+```sh
+ln -sv ~/Desktop/SashaCodingProjects/SashaLarson_portforlio/dotfiles/bash_profile ~/.bash_profile # create a symlink
+
+```
+
 ## Git
 
 - Basics
@@ -39,7 +44,7 @@ git branch -d branchName # delete branch branchName
 
 ## Markdown for Wiki (MD files)
 
-All files in this folder should have the extension  .md
+All files in this folder should have the extension .md
 
 To do a inline codeblock use a single tick
 `code space here`
@@ -50,10 +55,13 @@ To do a multiline codeblock use triple ticks and you can specify the language us
 for x in array:
   print(x)
 ```
+
 You can use 1# 2# 3# and also numbers followed by a period (1. 2. 3.) to style your md file
 
 # Title 1
+
 ## Title 2
+
 ### Title 3
 
 1. One Dot

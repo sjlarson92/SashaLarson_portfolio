@@ -1,7 +1,7 @@
 # Aliases
 
 alias la='ls -la'
-alias sl='cd ~/Desktop/SashaLarson_portfolio'
+alias sl='cd ~/Desktop/SashaCodingProjects/SashaLarson_portfolio'
 alias gs='git status'
 alias ga='git add . && git status'
 alias gcm='git commit -m'
