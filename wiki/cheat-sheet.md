@@ -20,8 +20,7 @@ source fileName  #executes file so that file will be read and terminal will be a
 ```
 
 ```sh
-ln -sv ~/Desktop/SashaCodingProjects/SashaLarson_portforlio/dotfiles/bash_profile ~/.bash_profile # create a symlink
-
+ln -sv ~/Desktop/SashaCodingProjects/SashaLarson_portfolio/dotfiles/bash_profile ~/.bash_profile # create a symlink
 ```
 
 ## Git
