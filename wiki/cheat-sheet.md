@@ -1,5 +1,10 @@
 # Cheat Sheet
 
+## Acronyms
+
+- SDK -> Software Development Kit
+- JDK -> Java Development Kit
+
 ## Bash/ZSH
 
 - Basics
@@ -28,6 +33,11 @@ ln -sv ~/Desktop/SashaCodingProjects/SashaLarson_portfolio/dotfiles/bash_profile
 - Basics
 
 ```sh
+
+git init # initialize folder to empty git repo. this adds .git folder to project
+
+git remote add origin https://github.com/repoName.git # connects empty .git folder to online repo for project
+
 git branch -a # To view all branches:
 
 git checkout "branchName" # To checkout to a different branch called branchName
