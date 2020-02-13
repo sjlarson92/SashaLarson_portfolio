@@ -11,6 +11,7 @@ public class HelloWorld {
   }
 }
 ```
+
 ## Running Java Code
 
 - To run java code you first need to compile it. To compile code in the terminal use command: `javac fileName.java`
@@ -20,7 +21,7 @@ public class HelloWorld {
 ## Comments
 
 - When comments are short we use the single-line syntax: `//`
-- When comments are long we use the multi-line syntax: `/*  */`
+- When comments are long we use the multi-line syntax: `/* */`
 
 ## Tips
 
@@ -30,25 +31,29 @@ public class HelloWorld {
 ## Spring Boot
 
 - Spring is a Java Framework that makes creating Java applications faster and easier:
+
   - Sets up the boilerplate for an application that gets it up and running quickly
   - Automates configuration
-  - Spring initializer is used to generate and application with customizable dependencies of your choice 
+  - Spring initializer is used to generate and application with customizable dependencies of your choice
 
 - use Spring Initializr to Bootstrap your application at https://start.spring.io/
 
-- Maven VS Gradle: 
+- Maven VS Gradle:
+
   - Maven is a rigid model while Gradle is more flexible and easily customizable
   - Google is using Gradle as the build system for Android Studio
   - For more details about these two build automations visit https://dzone.com/articles/gradle-vs-maven
 
-- .war vs .jar: 
+- .war vs .jar:
   - A .war file is a Web Application Archive which runs inside an application server while a .jar is Java Application Archive that runs a desktop application on a user's machine. A war file is a special jar file that is used to package a web application to make it easy to deploy it on an application server.
 
 ### Gradle
 
 - To run a build initially use command `gradle build` to add dependencies
 - Use command `gradle bootRun` to execute file
-- Add the dependency of `implementation 'org.springframework.boot:spring-boot-starter-web'` to have web development dependency this will make your application run on localhost: 8080 when application is executed  
+- Add the dependency of `implementation 'org.springframework.boot:spring-boot-starter-web'` to have web development dependency this will make your application run on localhost: 8080 when application is executed
+
+- when opening gradle project in IntelliJ two finger click the build.gradle file and click `import gradle project` to import as a gradle project
 
 ## Restful Web Service
 
@@ -69,10 +74,10 @@ public class DogController {
 
     @GetMapping("/newDog")
     public Dog newDog( // Use RequestParam to be able to pass parameters to api call
-        @RequestParam String firstName, 
-        @RequestParam String lastName, 
-        @RequestParam int age, 
-        @RequestParam boolean goodDog, 
+        @RequestParam String firstName,
+        @RequestParam String lastName,
+        @RequestParam int age,
+        @RequestParam boolean goodDog,
         @RequestParam Dog.Breed breed
         ) {
         return dogService.createNewDog(firstName, lastName, age, goodDog, breed);
