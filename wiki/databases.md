@@ -6,6 +6,12 @@
 - use postgres app to start the server
 - access the database: terminal with psql or use dbeaver
 
+- To connect remotely to a database:
+
+```sh
+psql -h hostName -p portNumber dbName -U userName # after this you will be prompted for the password
+```
+
 ### Useful commands:
 
 ```sql
