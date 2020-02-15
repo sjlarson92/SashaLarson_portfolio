@@ -55,6 +55,14 @@ public class HelloWorld {
 
 - when opening gradle project in IntelliJ two finger click the build.gradle file and click `import gradle project` to import as a gradle project
 
+- Run gradle application using profiles
+
+```sh
+
+gradle bootRun --args="--spring.profiles.active=local" # local is the profile name in this example which is application-local.yml
+
+```
+
 ## Restful Web Service
 
 ```java

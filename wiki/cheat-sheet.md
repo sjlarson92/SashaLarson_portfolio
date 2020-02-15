@@ -79,4 +79,7 @@ You can use 1# 2# 3# and also numbers followed by a period (1. 2. 3.) to style y
 
 ## IDE's
 
-- Cmd + Shift + F to search globally in project
+# IntelliJ IDEA
+
+- Cmd + Shift + F to search for specific string/text globally
+- Cmd + Shift + O to search for file name globally

@@ -20,6 +20,9 @@ CREATE TABLE tablename(col1 type1, col2 type2); # creates a table with columns w
 
 INSERT INTO table(column1,column2,...)
 VALUES(value_1,value_2,...); # adds values to table (strings must be in '')
+
+UPDATE tableName SET columnName = value # this edits row in table where depicted
+WHERE columnName = value;
 ```
 
 ## DB Connection with Spring
@@ -154,10 +157,10 @@ USE dbname;
 
 create a table:
 CREATE TABLE tablename (
-    ID int NOT NULL PRIMARY KEY,
-    LastName varchar(255) NOT NULL,
-    FirstName varchar(255),
-    Age int
+ID int NOT NULL PRIMARY KEY,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Age int
 );
 
 Booleans:
@@ -171,30 +174,28 @@ Booleans in mysql are saved as ints
 To start an application that uses a SqlServer database
 you must first start up the database before you can run the application
 
-
 1. Turn on Docker
 
 2. Start Server
-  docker start nameOfServer
+   docker start nameOfServer
 
-  docker start sql_server_demo
+docker start sql_server_demo
 
 3. run DotNet
-  dotnet run  
+   dotnet run
 
 To login to database
-  I am using MsSQL for this project
+I am using MsSQL for this project
 
-  `mssql -u username -p password`
+`mssql -u username -p password`
 
 ### DBeaver
 
 DBeaver is a GUI to show databases that I am using for this project
-  Can be used just like commands in the terminal but with graphical user interface.
-  Schema are "folders" used to organize tables in a database.
+Can be used just like commands in the terminal but with graphical user interface.
+Schema are "folders" used to organize tables in a database.
 
-   - application should begin running on localhost
-
+- application should begin running on localhost
 
 ## Pending (must do)
 
