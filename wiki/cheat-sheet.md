@@ -32,7 +32,7 @@ ln -sv ~/Desktop/SashaCodingProjects/SashaLarson_portfolio/dotfiles/bash_profile
 
 - Basics
 
-```sh
+```shell script
 
 git init # initialize folder to empty git repo. this adds .git folder to project
 
