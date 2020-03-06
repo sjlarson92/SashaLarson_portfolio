@@ -86,7 +86,7 @@ psql -h hostName -p portNumber dbName -U userName # after this you will be promp
 
 ### Useful commands:
 
-```sql
+```shell script
 
 \l # list all databases
 \c dbname # change to database
