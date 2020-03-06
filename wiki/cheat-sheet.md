@@ -9,22 +9,22 @@
 
 - Basics
 
-```sh
+```shell script
 open -a "Google Chrome" /pathToFile # open file from terminal to web browser:
 rm -rf folderName  # recursive force removal to remove everything inside that folder
 ```
 
 - Useful Commands
 
-```sh
+```shell script
 ls -la | grep whatever # allows user to search for whatever
 ```
 
-```sh
+```shell script
 source fileName  #executes file so that file will be read and terminal will be aware of it
 ```
 
-```sh
+```shell script
 ln -sv ~/Desktop/SashaCodingProjects/SashaLarson_portfolio/dotfiles/bash_profile ~/.bash_profile # create a symlink
 ```
 
@@ -60,26 +60,159 @@ To do a inline codeblock use a single tick
 
 To do a multiline codeblock use triple ticks and you can specify the language used in the first line
 
-```python
+```py
 for x in array:
   print(x)
 ```
-
-You can use 1# 2# 3# and also numbers followed by a period (1. 2. 3.) to style your md file
-
-# Title 1
-
-## Title 2
-
-### Title 3
-
-1. One Dot
-2. Two Dot
-3. Three Dot
-
-## IDE's
 
 # IntelliJ IDEA
 
 - Cmd + Shift + F to search for specific string/text globally
 - Cmd + Shift + O to search for file name globally
+
+# DATABASES
+
+## Postgres/PSQL
+
+- install PSQL Mac `homebrew install libpq`
+- use postgres app to start the server
+- access the database: terminal with psql or use dbeaver
+
+- To connect remotely to a database:
+
+```shell script
+psql -h hostName -p portNumber dbName -U userName # after this you will be prompted for the password
+```
+
+### Useful commands:
+
+```sql
+
+\l # list all databases
+\c dbname # change to database
+\dt #shows all tables
+CREATE DATABASE dbname; # creates database
+SELECT * FROM tableName; # shows selected table
+DROP DATABASE dbName; # deletes database
+CREATE TABLE tablename(col1 type1, col2 type2); # creates a table with columns with their names and types (ex: int, text, varchar)
+
+INSERT INTO table(column1,column2,...)
+VALUES(value_1,value_2,...); # adds values to table (strings must be in '')
+
+UPDATE tableName SET columnName = value # this edits row in table where depicted
+WHERE columnName = value;
+```
+
+## MySQL
+
+log in to MySQLdb:
+mysql -u root -p
+(root = username)
+create new database:
+CREATE DATABASE dbname;
+
+switch databses:
+USE dbname;
+
+create a table:
+CREATE TABLE tablename (
+ID int NOT NULL PRIMARY KEY,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Age int
+);
+
+Booleans:
+Booleans in mysql are saved as ints
+
+1 = True
+0 = False
+
+### How to start SQL from docker
+
+To start an application that uses a SqlServer database
+you must first start up the database before you can run the application
+
+1. Turn on Docker
+
+2. Start Server
+   docker start nameOfServer
+
+docker start sql_server_demo
+
+3. run DotNet
+   dotnet run
+
+To login to database
+I am using MsSQL for this project
+
+`mssql -u username -p password`
+
+### DBeaver
+
+DBeaver is a GUI to show databases that I am using for this project
+Can be used just like commands in the terminal but with graphical user interface.
+Schema are "folders" used to organize tables in a database.
+
+- application should begin running on localhost
+
+# Virtual Env
+
+
+## How To install a virtual environment
+
+1. go into project folder and run 'pipenv install' command
+
+    This will create a pipfile
+
+2. Next you will need to add packages to the environment
+
+    Common packages to add to your project are:
+    Python
+    Flask
+    MySQL
+
+3. To add a package run the command 'pipenv install <package>'
+
+
+# Deploy App with Heroku
+
+- Dyno = Server (essentially)
+
+- If moving app from inside a repo make sure to connect to GitHub and then connect to Heroku
+
+```shell script
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/sjlarson92/app-name.git
+git push -u origin master
+```
+
+- `heroku git:remote -a app-name` connects project repo to Heroku
+
+- check `git remote -v` to make sure you are pushing/fetchign from both Github and heroku
+
+- use `git push heroku` to push to heroku
+
+
+
+# Best Practices
+
+- Clean app more and refactor while working
+
+- Improve name conventions
+
+- Methods should be named after what they do.
+   - Example: handleImageClick()
+   - Should be able to determine what it does just by reading name
+
+- Remove console.logs after use, to clean up code
+
+- Make code pretty (IDE's have plugins to help with this)
+   - Spacing and removing unused variables
+
+- Stay DRY (Don't Repeat Yourself)
+   - Reuse code when able.
+
+- Functions should not return multiple unrelated things (like a bool and a string)
