@@ -70,6 +70,138 @@ for x in array:
 - Cmd + Shift + F to search for specific string/text globally
 - Cmd + Shift + O to search for file name globally
 
+# Java
+
+- check version `java -version`
+
+```java
+public class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println("Hello World!");
+  }
+}
+```
+   
+- To run java code you first need to compile it. To compile code in the terminal use command: `javac fileName.java`
+- If the file is successfully compiled it will create a fileName.class file that can be run
+- To run this file use the command: `java fileName`
+- When comments are short we use the single-line syntax: `//`
+- When comments are long we use the multi-line syntax: `/* */`
+
+### Gradle
+
+- To run a build initially use command `gradle build` to add dependencies
+- Use command `gradle bootRun` to execute file
+- Add the dependency of `implementation 'org.springframework.boot:spring-boot-starter-web'` to have web development dependency this will make your application run on localhost: 8080 when application is executed
+
+- when opening gradle project in IntelliJ two finger click the build.gradle file and click `import gradle project` to import as a gradle project
+
+- Run gradle application using profiles
+
+```shell script
+
+gradle bootRun --args="--spring.profiles.active=local" # local is the profile name in this example which is application-local.yml
+
+```
+
+# JavaScript React
+
+- run javascript from terminal with ` node filename.js`
+
+## Arrow Function:
+
+```js
+// const functionName = parameter => return
+const functionName = () => "Hello"
+
+const addNumbers = (x, y) => x + y
+```
+
+## String Literals
+
+```js
+`You can use a variable inside a string by ${variable}`
+// Must use single ticks for this
+```
+
+## Ternary
+
+- Shorthand for an If/ Else statements
+
+```js
+
+const something = (1 === 2) ? 'return if true' : 'return if false'
+
+// if (1 === 2) {
+// return 'They are equal'
+// } else {
+// return 'They are not equal'
+// }
+
+```
+
+## Inline Logical && Operator
+
+- Logical operators allow you to define a statement and then if that statement is true it will execute the following code after &&
+
+```js
+return randomVariable === anotherVariable && true;
+/*
+if (randomVariable === anotherVariable){
+return true
+} else {
+ return false
+}
+*/
+```
+
+or 
+
+```js
+image.comments && image.comments.map(comment =>
+          !comment.deleted && (
+            <CommentLayout
+              key={`comment-${comment.id}-${image.id}`}
+              comment={comment}
+              onClick={() => deleteComment(image.id, comment.id)}
+            />
+          )
+        )
+```
+
+## Promises
+
+- Promises are a way to combat asynchronous functions by allowing code to run and then return to the promise and execute after
+
+- Promises can either be resolved or rejected. If a promise is resolved it can continue to the .then . If the promise is rejected then it goes to the .catch block
+
+```js
+axios.get('https://dog.ceo/api/breeds/image/random')
+            .then((response) => {
+                console.log('inside the then()')
+                setDogImage(response.data.message)
+            })
+            .catch((error) => {
+                console.log("Error fetching picsture", error)
+            })
+```
+
+## Setting up react app with Create React App
+
+1. Create an js app with Create React App with command:
+
+`yarn create react-app app-name`
+
+2. To install dependencies:
+
+`yarn add dependencyName`
+
+3. Start app (you must be in the app folder)
+
+`yarn start`
+
+NOTE: do not push dependencies to gitHub, these are installed by using `yarn` or `yarn install` and looking at the yarn.lock file
+
 # DATABASES
 
 ## Postgres/PSQL
