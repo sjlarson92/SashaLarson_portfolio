@@ -16,9 +16,9 @@ Steps to set up Monorepo for Github
 
 -Each technology folder has a brief summary and features the showcase projects in that technology
 
--each big project has thier summary within their folder
+-each big project has their summary within their folder
 
--practice folders do not need summarys
+-practice folders do not need summaries
  -->
 
  <!-- BANNER -->
