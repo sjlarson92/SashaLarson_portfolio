@@ -5,6 +5,7 @@ alias sl='cd ~/Desktop/SashaCodingProjects/SashaLarson_portfolio'
 alias gs='git status'
 alias ga='git add . && git status'
 alias gcm='git commit -m'
+alias gclean='echo "Doing a git pull, git fetch --all --prune and a gclean" && git pull && git fetch --all --prune && git branch --merged | grep -v "\*" | grep -Ev "(\*|master|develop|staging)" | xargs -n 1 git branch -d'
 
 # Exports
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin/
