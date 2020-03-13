@@ -133,12 +133,14 @@ CREATE DATABASE dbname; # creates database
 SELECT * FROM tableName; # shows selected table
 DROP DATABASE dbName; # deletes database
 CREATE TABLE tablename(col1 type1, col2 type2); # creates a table with columns with their names and types (ex: int, text, varchar)
-
+DELETE FROM table
+WHERE condition; #deletes specified row from table
 INSERT INTO table(column1,column2,...)
 VALUES(value_1,value_2,...); # adds values to table (strings must be in '')
 
 UPDATE tableName SET columnName = value # this edits row in table where depicted
 WHERE columnName = value;
+ALTER TABLE the_table ADD CONSTRAINT constraint_name UNIQUE (thecolumn); # adds contstraint
 ```
 
 ## MySQL
