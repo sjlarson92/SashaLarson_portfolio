@@ -104,9 +104,24 @@ gradle bootRun --args="--spring.profiles.active=local" # local is the profile na
 
 ```
 
-# JavaScript React
+# JavaScript
 
 - run javascript from terminal with ` node filename.js`
+
+## Chaining Operators
+
+```javascript
+// daily-art-prompt LoginScreen
+
+{location?.state?.message && ( // allows to check if previous values exist in object without having to check each one (see below for long hand)
+        <div data-testid="message">{location.state.message}</div>
+      )}
+
+// long way: 
+{location && location.state && location.state.message (
+    <div>{location.state.message}</div>
+)}
+```
 
 # DATABASES
 
