@@ -7,7 +7,12 @@
 - 1Password
 - Sophos
 
-- iTerm2
+- iTerm2: 
+    - Download your color theme (I'm using Cobalt2)
+    - Update in iTerm:
+        - Preferences>Profiles>Colors>ColorPresets>Import
+        - Choose your theme and Import
+    - Reopen iTerm window to view changes
 - VS Code Studio
 - IntelliJ
 - Postman
