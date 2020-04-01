@@ -28,6 +28,10 @@ source fileName  #executes file so that file will be read and terminal will be a
 ln -sv ~/Desktop/SashaCodingProjects/SashaLarson_portfolio/dotfiles/bash_profile ~/.bash_profile # create a symlink
 ```
 
+## Vim
+
+- To search in Vim use `/whatyoursearchingfor`
+
 ## Git
 
 - Basics
