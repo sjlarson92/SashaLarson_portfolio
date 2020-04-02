@@ -27,7 +27,16 @@ source fileName  #executes file so that file will be read and terminal will be a
 ```shell script
 ln -sv ~/Desktop/SashaCodingProjects/SashaLarson_portfolio/dotfiles/bash_profile ~/.bash_profile # create a symlink
 ```
+- Processes
 
+# MacOS terminal
+
+```shell script
+lsof -i:portNumber # find process running on portNumber
+lsof -i:portnumber -t # gets PID of process running on that port
+kill -9 pid_number  # kills process running with pid_number
+kill -9 `lsof -i:portNumber` # kills process on that specific portNumber
+```
 ## Vim
 
 - To search in Vim use `/whatyoursearchingfor`
