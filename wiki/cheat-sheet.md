@@ -108,6 +108,10 @@ gradle bootRun --args="--spring.profiles.active=local" # local is the profile na
 
 ```
 
+- Fix IntelliJ SDK Version
+   - Intellij>Preferences>Build,Execution,Deployment>Gradle>
+   - Set Gradle JVM to 13
+
 # JavaScript
 
 - run javascript from terminal with ` node filename.js`
