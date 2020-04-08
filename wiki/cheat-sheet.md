@@ -107,6 +107,11 @@ public class HelloWorld {
 - When comments are short we use the single-line syntax: `//`
 - When comments are long we use the multi-line syntax: `/* */`
 
+## Spring Boot
+
+- Spring Boot allows you to get your project up and running quickily: 
+    - You can create run configuration easily by going to the main project file and running the main function with the green play button (if you are using IntelliJ)
+
 ### Gradle
 
 - To run a build initially use command `gradle build` to add dependencies
@@ -130,6 +135,8 @@ gradle bootRun --args="--spring.profiles.active=local" # local is the profile na
 ### Maven
 
 - Dependencies are saved in a pom.xml file in root of project
+
+- To import Maven project right click on the pom.xml>Add as a Maven Project
 
 # JavaScript
 
