@@ -53,6 +53,12 @@
 
 - System Preferences -> Mission Control -> Uncheck box to 'Automatically rearrange spaces'
 
+# Show hidden files
+
+- In Finder, open up your Macintosh HD folder
+- Press Command+Shift+Dot
+- Your hidden files will become visible. Repeat step 2 to hide them again!
+
 # Creating Aliases
 
 - Aliases can be created in the .bash_profile `alias sl='cd ~/Desktop/folderName'` 

@@ -51,6 +51,12 @@ git init # initialize folder to empty git repo. this adds .git folder to project
 
 git remote add origin https://github.com/repoName.git # connects empty .git folder to online repo for project
 
+git remote -v # shows configuration for this repo
+
+git config --local user.email "my.email.here@gmail.com" # changes this specific repos email to push from (do it from proj root folder)
+
+git config user.email # checks what user email you are using 
+
 git branch -a # To view all branches:
 
 git checkout "branchName" # To checkout to a different branch called branchName
@@ -120,6 +126,10 @@ gradle bootRun --args="--spring.profiles.active=local" # local is the profile na
 - Fix IntelliJ SDK Version
    - Intellij>Preferences>Build,Execution,Deployment>Gradle>
    - Set Gradle JVM to 13
+
+### Maven
+
+- Dependencies are saved in a pom.xml file in root of project
 
 # JavaScript
 
