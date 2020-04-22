@@ -42,8 +42,9 @@
     - Clone repositories locally
     - On the first push you will need to login to GitHub
 
-- Link Terminal Aliases (/dotfiles/.bash_profile)
+- Symlink .bash_profile Terminal Aliases (/dotfiles/.bash_profile)
     - Copy text in bash_profile (in dotfiles) to local /.bash_profile OR create alias for .bash_profile to directly link it to bash_profile in dotfiles
+    - In terminal type following command: `ln -sfn ~/Desktop/SashasProjects/SashaLarson_portfolio/dotfiles/bash_profile ~/.bash_profile`
     - add this line to the bottom of .zshrc file `source ~/.bash_profile`
     - then run `source ~/.zshrc` to get updated bash_profile
 
