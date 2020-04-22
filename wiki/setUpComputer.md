@@ -18,7 +18,10 @@
 
 - VS Code Studio
 
-- IntelliJ
+- IntelliJ:
+    - Plugins: 
+        - Lombok
+        - One Dark Theme 
 
 - Postman
 
@@ -27,20 +30,20 @@
 
 - zsh
 
-- Oh My Zsh: follow these directions -> https://www.smashingmagazine.com/2015/07/become-command-line-power-user-oh-my-zsh-z/
-    - See themes at https://github.com/ohmyzsh/ohmyzsh/wiki/Themes (I'm using "cobalt2")
-    - Change ✝ symbol by going to `~/.oh-my-zsh/themes/cobalt2.zsh-theme` and edit the symbol directly (source after)
+- Oh My Zsh: 
+    - clone this repository and follow directions on this page: https://github.com/wesbos/Cobalt2-iterm
+    - See other themes at https://github.com/ohmyzsh/ohmyzsh/wiki/Themes (I'm using "cobalt2")
+    - Change ✝ symbol by going to `~/.oh-my-zsh/themes/cobalt2.zsh-theme` and edit the symbol directly (source after to show changes/ I have changed this symbol to 'SL')
     - You can search for the symbol in vim by using `/✝` 
 
 - Homebrew
-
-- yarn 
-    - `brew install yarn`
-- java
-
+    - java: I have since found that it is better to install java using SDK man instead of Homebrew as it is easier to switch versions with this
+    - yarn 
+        - `brew install yarn`
+        
 - Link/Sync Github
     - Clone repositories locally
-    - On the first push you will need to login to GitHub
+    - On the first push you will need to login to GitHub with credentials
 
 - Symlink .bash_profile Terminal Aliases (/dotfiles/.bash_profile)
     - Copy text in bash_profile (in dotfiles) to local /.bash_profile OR create alias for .bash_profile to directly link it to bash_profile in dotfiles
