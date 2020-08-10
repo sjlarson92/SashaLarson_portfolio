@@ -44,7 +44,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - Files that end in .scss are the styling files (CSS)
 
-- To create a new component run this command in terminal `ng generate component components/todos `. this will automatically generate the components folder and all the files for the todos component within the src/app folder
+- To create a new component run this command in terminal `ng generate component components/todos ` or `ng g c components/todos`. this will automatically generate the components folder and all the files for the todos component within the src/app folder
 
 - String interpolations is dynamic strings inside of html files:
 
@@ -98,6 +98,20 @@ export class AppComponent {
 constructor() {
     this.name='Bill' // this will change the var name to Bill since this runs before the app renders
   }
+```
+
+### For loop
+
+- *ngFor
+```js
+<div>
+  <h1>Todos:</h1>
+  <ul *ngFor="let todo of todos">
+    <li>
+      {{ todo.title }}
+    </li>
+  </ul>
+</div>
 ```
 
 # Utilizing Typescript

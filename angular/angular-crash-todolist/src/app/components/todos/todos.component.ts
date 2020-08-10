@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Todo} from '../../models/Todo';
+import { Todo } from '../../models/Todo';
 
 @Component({
   selector: 'app-todos', // this is used in the root component to have it rendered
@@ -13,8 +13,24 @@ export class TodosComponent implements OnInit {
 
   //ngOnInit is essentially a life cycle method similar to componentDidMounth in react
   // this runs right away
-
   ngOnInit(): void {
+    this.todos = [
+      {
+        id: 1,
+        title: 'Sweep',
+        completed: false
+      },
+      {
+        id: 2,
+        title: 'Vaccuum',
+        completed: true
+      },
+      {
+        id: 3,
+        title: 'Mop',
+        completed: false
+      }
+    ]
   }
 
 }
