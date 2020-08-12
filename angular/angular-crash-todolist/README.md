@@ -44,7 +44,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - Files that end in .scss are the styling files (CSS)
 
-- To create a new component run this command in terminal `ng generate component components/todos ` or `ng g c components/todos`. this will automatically generate the components folder and all the files for the todos component within the src/app folder
+- To create a new component run this command in terminal `ng generate component components/componentName ` or `ng g c components/componentName`. this will automatically generate the components folder and all the files for the todos component within the src/app folder
+
+- To create a new service run this command: `ng g s service/serviceName`
 
 - String interpolations is dynamic strings inside of html files:
 

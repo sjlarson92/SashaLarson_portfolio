@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService} from "../../services/todo.service";
 import { Todo } from '../../models/Todo';
 
 @Component({
@@ -9,28 +10,14 @@ import { Todo } from '../../models/Todo';
 export class TodosComponent implements OnInit {
   todos:Todo[];
 
-  constructor() { } // used to import servics
+  constructor(private ts: TodoService) { } // used to import servics
 
   //ngOnInit is essentially a life cycle method similar to componentDidMounth in react
   // this runs right away
   ngOnInit(): void {
-    this.todos = [
-      {
-        id: 1,
-        title: 'Sweep',
-        completed: false
-      },
-      {
-        id: 2,
-        title: 'Vaccuum',
-        completed: true
-      },
-      {
-        id: 3,
-        title: 'Mop',
-        completed: false
-      }
-    ]
+    this.ts.getTodos().subscribe( todos => {
+      this.todos = todos
+    }) // this method subscribes to the observable and we can then use the return to set todos
   }
 
 }

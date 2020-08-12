@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule} from "@angular/common/http"; // this will allow us to make api calls similar to axios
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,11 +12,12 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
     AppComponent,
     TodosComponent,
     TodoItemComponent
-    // must add your components here
+    // your components must be listed here and are added automatically when you create them with the CLI
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule // add import here to be utilized
   ],
   providers: [],
   bootstrap: [AppComponent]
