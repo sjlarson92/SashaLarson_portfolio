@@ -10,3 +10,4 @@ alias gclean='echo "Doing a git pull, git fetch --all --prune and a gclean" && g
 # Exports
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin/
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+export JAVA_HOME='/Users/sasha/Library/Java/JavaVirtualMachines/azul-13.0.6/Contents/Home'
