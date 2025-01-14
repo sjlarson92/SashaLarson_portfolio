@@ -53,6 +53,33 @@
 
 ## 
 
+# Setting up projects with GitHub
+- Clone repositories locally
+  - Clone repository from Github using the SSH link 
+  - For example this repo is `git@github.com:sjlarson92/SashaLarson_portfolio.git`
+  - The terminal command to clone this is: `git clone git@github.com:sjlarson92/SashaLarson_portfolio.git`
+  ##
+- Generate A New SSH Key and Add it to SSH Agent on local machine
+  - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+  1. Open Terminal
+  2. Paste the following text in the terminal, replacing the email used in the example with your GitHub email address.`ssh-keygen -t ed25519 -C "your_email@example.com"`
+  3. Computer will prompt you to enter a file in which to save the key. Press Enter, unless you are specifically designating a different file
+  4. Computer will prompt for passphrase, if not passphrase just press enter
+  5. Open the SSH config file on your computer `vim ~/.ssh.config` if it does not exist create it `touch ~/.ssh/config`
+  6. Modify file to contain the following lines. If you SSH key file has a different name or path modify the text to match.
+```
+Host github.com
+AddKeysToAgent yes
+UseKeychain yes
+IdentityFile ~/.ssh/id_ed25519
+```
+7. Add your SSH **Private** key to the SSH agent and store passphare in keychain (paste this command in the terminal)
+   `ssh-add --apple-use-keychain ~/.ssh/id_ed25519`
+8. Add your SSH **Public** key to your account on GitHub which is under your account > Access > SSH and GPG keys
+9. To verify this has been set up properly under the git folder in your cloned project check the user.name and user.email
+   `git config user.name`
+   `git config user.email`
+
 # Stop Mac from rearranging screen by most used
 
 - System Preferences -> Mission Control -> Uncheck box to 'Automatically rearrange spaces'
