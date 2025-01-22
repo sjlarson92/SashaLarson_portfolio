@@ -88,6 +88,7 @@ for x in array:
 
 - Cmd + Shift + F to search for specific string/text globally
 - Cmd + Shift + O to search for file name globally
+- Add Service to service tab for Spring Boot: Click to add service > Add Run Configuration Type > Spring Boot
 
 # Java
 
