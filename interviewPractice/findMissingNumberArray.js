@@ -3,14 +3,14 @@
 
 let refArray = []
 
-for (num = 1; num <=100 ; num++){
+for (let num = 1; num <=100 ; num++){
     refArray.push(num)
 }
 
 const findMissingNumber = (array) => {
-    for(num in array){
+    for(let num in array){
         console.log("num: ", num)
-        if(array[num] != refArray[num]){
+        if(array[num] !== refArray[num]){
             return refArray[num]
         }
     }
