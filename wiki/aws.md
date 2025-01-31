@@ -11,7 +11,16 @@ ECS is basically a logical grouping of EC2 machines/instances.
 Technically speaking ECS is a mere configuration for an efficient use and management of your EC2 instance(s) resources i.e. storage, memory, CPU, etc.
 
 ### On Prem vs Cloud
-
+| Feature           | On-Premises                                                    | Cloud Computing                                                        |
+|-------------------|----------------------------------------------------------------|------------------------------------------------------------------------|
+| Infrastructure    | Owned and maintained by the organization.                      | Hosted by third-party providers (AWS, Azure, etc.).                    |
+| Cost Structure    | High initial costs for hardware/software                       | Pay as you go or subscription model                                    |
+| Scalability       | Limited by physical capacity; slow and expensive to scale      | Highly scalable, wiht resources that can be added/removed quickly      |
+| Maintenance       | Organization is responsible for hardware, security and updates | Cloud provider handles hardware, updates and security.                 |
+| Accessibility     | Usually limited to local network/specific locations            | Accessible form anywhere with an internet connection                   |
+| Security          | Full control over security, but requires dedicated resources   | Cloud provider implements security measures, but customers must manage |
+| Customization     | Fully customizable                                             | Less customizable; cloud environment may have limited flexibility      |
+| Disaster Recovery | Must be set up and managed internally                          | Built-in disaster recovery features by cloud provider                  |
 
 ### ECS (Elastic Container Service)
 - Service to run and manage containers (Docker)

@@ -41,6 +41,65 @@ val person = Person("John", 25)
 println(person)  // Output: Person(name=John, age=25)
 ```
 
+### Testing
+- JUnit
+    - Most widely used testing framework for Java and Kotlin. Unit and integration tests in both Java and Kotlin, well-supported in Spring Boot.
+
+```kotlin
+import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
+import kotlin.test.assertEquals
+
+@SpringBootTest
+class MyServiceTests {
+
+    @Autowired
+    lateinit var myService: MyService
+
+    @Test
+    fun `should return expected value`() {
+        val result = myService.someMethod()
+        assertEquals("Expected Value", result)
+    }
+}
+```
+
+- Spring Boot Test
+  - Integration testing for Spring Boot apps
+  - Testing Spring Boot apps, controllers, services, and repositories in an integrated environment.
+
+- Mockito
+  - Most popular mocking framework used to create mock objects for unit testing
+  - Used in combination with JUnit and Spring Boot
+  - Mocking dependencies in unit tests to isolate behavior.
+
+```kotlin
+import org.junit.jupiter.api.Test
+import org.mockito.Mock
+import org.mockito.Mockito.*
+import org.springframework.boot.test.context.SpringBootTest
+
+@SpringBootTest
+class MyServiceTests {
+
+    @Mock
+    lateinit var myRepository: MyRepository
+
+    @Test
+    fun `should mock repository call`() {
+        val service = MyService(myRepository)
+        
+        `when`(myRepository.findById(1)).thenReturn(Optional.of(MyEntity(1)))
+
+        val result = service.getEntity(1)
+        
+        verify(myRepository).findById(1)
+        assert(result.id == 1)
+    }
+}
+```
+
 ### Kotlin vs Java
 #### Conciseness
 - Kotlin requires less boilerplate code than Java
