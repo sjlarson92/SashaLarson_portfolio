@@ -96,6 +96,16 @@ IdentityFile ~/.ssh/id_ed25519
 
 - Make sure to run `source .bash_profile` to refresh and add the new alias
 
+```
+alias la='ls -la'
+alias cs='cd ~/Desktop/{folderName}'
+alias gs='git status'
+alias ga='git add . && git status'
+alias gcm='git commit -m'
+alias gclean='echo "Doing a git pull, git fetch --all --prune and a gclean" && git pull && git fetch --all --prune && git branch --merged | grep -v "\*" | grep -Ev "(\*|master|develop|staging)" | xargs -n 1 git branch -d'
+alias python='python3'
+```
+
 
 # Adding Terminal Commands to PATH
 

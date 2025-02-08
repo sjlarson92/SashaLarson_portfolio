@@ -48,7 +48,7 @@ const mergeTwoLists = (list1, list2) => {
     if (current1) prev.next = current1;
     if (current2) prev.next = current2;
 
-    // why is dummnyNode.next return a list of the values and not just the next LinkedNode?????
+    // why is dummyNode.next return a list of the values and not just the next LinkedNode?????
     return dummyNode.next;
 };
 

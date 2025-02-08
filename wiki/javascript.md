@@ -68,6 +68,9 @@ function App() {
 8. React Native (Mobile Development)
     - Used to build cross-platform mobile apps for iOS and Android using the same React knowledge and components.
 
+### Testing
+- 
+
 ### React vs Other Frameworks (Angular, Vue)
 - Angular (full-fledged framework) comes with more built-in tools(form handling, routing) while React lets you pick your tools
 - Vue (another library) is similar to React but is less opinionated and is more flexible. Making it easier to get started with for smaller projects.
