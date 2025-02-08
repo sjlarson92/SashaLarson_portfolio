@@ -16,25 +16,19 @@ const twoSum = (numbers: number[], target: number) => {
         )
 
         if (secondIndex !== -1 && index !== secondIndex) {
-            console.log({ num, index, secondIndex })
             answers.push(index, secondIndex)
-            // return true
             break;
         }
-        console.log("answers: ", answers)
-        // return false
     }
-
-    console.log("answers after loop: ", answers)
 
     return answers
 };
 
 const example1 = twoSum([2,7,11,15], 9)
-console.log('example1: ', example1) // [0,1]
+console.log({ example1 }) // [0,1]
 
 const example2 = twoSum([3,2,4], 6)
-console.log('example2: ', example2) // [1,2]
+console.log({ example2 }) // [1,2]
 
 const example3 = twoSum([3,3], 6)
 console.log({ example3 }) // [0,1]
