@@ -24,8 +24,11 @@ const maxProfit = (prices: number[]) => {
 const example1 = maxProfit([7,1,5,3,6,4])
 const answer1 = 5
 console.log({ example1, answer1 })
-//Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-// Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+/*
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+*/
+
 
 const example2 = maxProfit([7,6,4,3,1])
 const answer2 = 0
