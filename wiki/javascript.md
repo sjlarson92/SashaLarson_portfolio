@@ -69,7 +69,8 @@ function App() {
     - Used to build cross-platform mobile apps for iOS and Android using the same React knowledge and components.
 
 ### Testing
-- 
+- React Testing Library (RTL)
+- Jest
 
 ### React vs Other Frameworks (Angular, Vue)
 - Angular (full-fledged framework) comes with more built-in tools(form handling, routing) while React lets you pick your tools

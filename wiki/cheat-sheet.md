@@ -285,8 +285,31 @@ git push -u origin master
 
 - use `git push heroku` to push to heroku
 
+# TypeScript
+- Adding TypeScript to Javascript file
+
+- Install Typescript globally
+```shell
+npm install typescript -g 
+```
+
+- Run a .ts file from terminal
+```shell
+npx tsx fileName.ts
+```
+
+- Install TypeScript Execute (tsx)
+```shell
+ npm install tsx -g
+```
 
 
+# Dependencies
+- Dependencies
+  - Packages needed to run the application
+- Dev Dependencies
+  - Packages that a developer needs to work on an application
+  - these are not pushed when app is deployed as an end user has no need for them and it will make the app heavier
 # Best Practices
 
 - Clean app more and refactor while working

@@ -108,3 +108,10 @@ class MyServiceTests {
 #### Data Classes
 - Kotlin has data classes that auto generate essential methods while in Java they must be manually written
 - Such as: getter, setters, constructors, equal, toString, etc.
+
+# Ktor
+- Ktor is a framework for building asynchronous server-side and client-side applications with ease.
+- Specifically designed for Kotlin. It's optimized for Kotlin’s features and syntax. Though it can be used with Java.
+- It's a lightweight framework. Ktor is designed to be minimal and flexible, allowing you to add only the components you need. Makes it great for small to medium-sized applications, where you don’t need a lot of boilerplate.
+- Since Ktor is lightweight and designed for high performance, it often performs faster out of the box, especially for microservices or when you need minimal overhead. Ktor’s asynchronous, non-blocking nature makes it very suitable for high-concurrency applications.
+- Does not have as many built-in integrations as Spring Boot.
