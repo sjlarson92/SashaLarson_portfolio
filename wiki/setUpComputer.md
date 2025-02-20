@@ -5,7 +5,6 @@
 - Itsycal
 - Spectacle
 - 1Password
-- Sophos
 
 - iTerm2: 
     - Download your color theme (I'm using Cobalt2)
@@ -22,6 +21,7 @@
     - Plugins: 
         - Lombok
         - One Dark Theme 
+        - Nyan Progress Bar
 
 - Postman
 
@@ -29,6 +29,7 @@
     - Download from: https://postgresapp.com/downloads.html
 
 - zsh
+  - https://ohmyz.sh/#install
 
 - Oh My Zsh: 
     - clone this repository and follow directions on this page: https://github.com/wesbos/Cobalt2-iterm
@@ -40,25 +41,14 @@
     - java: I have since found that it is better to install java using SDK man instead of Homebrew as it is easier to switch versions with this
     - yarn 
         - `brew install yarn`
-        
-- Link/Sync Github
-    - Clone repositories locally
-    - On the first push you will need to login to GitHub with credentials
 
 - Symlink .bash_profile Terminal Aliases (/dotfiles/.bash_profile)
-    - Copy text in bash_profile (in dotfiles) to local /.bash_profile OR create alias for .bash_profile to directly link it to bash_profile in dotfiles
-    - In terminal type following command: `ln -sfn ~/Desktop/SashasProjects/SashaLarson_portfolio/dotfiles/bash_profile ~/.bash_profile`
+    - Copy text in bash_profile (in dotfiles) to local /.bash_profile OR create alias for .bash_profile to directly link it to bash_profile in dotfiles of SashaLarson_portfolio (this must be cloned down to work)
+    - In terminal type following command: `ln -sfn ~/Desktop/SashaLarson_portfolio/dotfiles/bash_profile ~/.bash_profile`
     - add this line to the bottom of .zshrc file `source ~/.bash_profile`
     - then run `source ~/.zshrc` to get updated bash_profile
 
-## 
-
-# Setting up projects with GitHub
-- Clone repositories locally
-  - Clone repository from Github using the SSH link 
-  - For example this repo is `git@github.com:sjlarson92/SashaLarson_portfolio.git`
-  - The terminal command to clone this is: `git clone git@github.com:sjlarson92/SashaLarson_portfolio.git`
-  ##
+# Set up Permission for GitHub
 - Generate A New SSH Key and Add it to SSH Agent on local machine
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   1. Open Terminal
@@ -79,6 +69,12 @@ IdentityFile ~/.ssh/id_ed25519
 9. To verify this has been set up properly under the git folder in your cloned project check the user.name and user.email
    `git config user.name`
    `git config user.email`
+
+# Setting up projects with GitHub
+- Clone repositories locally
+    - Clone repository from Github using the SSH link
+    - For example this repo is `git@github.com:sjlarson92/SashaLarson_portfolio.git`
+    - The terminal command to clone this is: `git clone git@github.com:sjlarson92/SashaLarson_portfolio.git`
 
 # Stop Mac from rearranging screen by most used
 
