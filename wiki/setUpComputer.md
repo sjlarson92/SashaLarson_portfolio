@@ -5,6 +5,8 @@
 - Itsycal
 - Spectacle
 - 1Password
+- Scroll Reverser
+  - Only reverse scroll for mouse
 
 - iTerm2: 
     - Download your color theme (I'm using Cobalt2)
@@ -25,8 +27,9 @@
 
 - Postman
 
-- Postgres
+- Postgres/DB
     - Download from: https://postgresapp.com/downloads.html
+    - Set up password for superuser
 
 - zsh
   - https://ohmyz.sh/#install
@@ -35,12 +38,7 @@
     - clone this repository and follow directions on this page: https://github.com/wesbos/Cobalt2-iterm
     - See other themes at https://github.com/ohmyzsh/ohmyzsh/wiki/Themes (I'm using "cobalt2")
     - Change ✝ symbol by going to `~/.oh-my-zsh/themes/cobalt2.zsh-theme` and edit the symbol directly (source after to show changes/ I have changed this symbol to 'SL')
-    - You can search for the symbol in vim by using `/✝` 
-
-- Homebrew
-    - java: I have since found that it is better to install java using SDK man instead of Homebrew as it is easier to switch versions with this
-    - yarn 
-        - `brew install yarn`
+    - You can search for the symbol in vim by using `/✝`
 
 - Symlink .bash_profile Terminal Aliases (/dotfiles/.bash_profile)
     - Copy text in bash_profile (in dotfiles) to local /.bash_profile OR create alias for .bash_profile to directly link it to bash_profile in dotfiles of SashaLarson_portfolio (this must be cloned down to work)
@@ -77,7 +75,6 @@ IdentityFile ~/.ssh/id_ed25519
     - The terminal command to clone this is: `git clone git@github.com:sjlarson92/SashaLarson_portfolio.git`
 
 # Stop Mac from rearranging screen by most used
-
 - System Preferences -> Mission Control -> Uncheck box to 'Automatically rearrange spaces'
 
 # Show hidden files

@@ -53,6 +53,8 @@ git remote add origin https://github.com/repoName.git # connects empty .git fold
 
 git remote -v # shows configuration for this repo
 
+git remote set-url origin git@github.com:OWNER/REPOSITORY.git # Change your remote's URL from HTTPS to SSH
+
 git config --local user.email "my.email.here@gmail.com" # changes this specific repos email to push from (do it from proj root folder)
 
 git config user.email # checks what user email you are using 
@@ -162,7 +164,10 @@ gradle bootRun --args="--spring.profiles.active=local" # local is the profile na
 
 ## Postgres/PSQL
 
-- install PSQL Mac `homebrew install libpq`
+- install PSQL from website
+- update path in .bash_profile to properly point to /bin.
+  - Check this by running `psql -version` which should run properly
+  - If this return command not found then make sure to source .zshrc file and restart terminal
 - use postgres app to start the server
 - access the database: terminal with psql or use dbeaver
 
@@ -180,17 +185,26 @@ psql -h hostName -p portNumber dbName -U userName # after this you will be promp
 \c dbname # change to database
 \dt #shows all tables
 CREATE DATABASE dbname; # creates database
-SELECT * FROM tableName; # shows selected table
+
+CREATE USER user_name WITH PASSWORD 'securepassword';
+
+SELECT * FROM table_name; # shows selected table
+
 DROP DATABASE dbName; # deletes database
-CREATE TABLE tablename(col1 type1, col2 type2); # creates a table with columns with their names and types (ex: int, text, varchar)
-DELETE FROM table
+
+CREATE TABLE table_name(col1 type1, col2 type2); # creates a table with columns with their names and types (ex: int, text, varchar)
+
+DELETE FROM table_name
 WHERE condition; #deletes specified row from table
-INSERT INTO table(column1,column2,...)
+
+INSERT INTO table_name(column1,column2,...)
 VALUES(value_1,value_2,...); # adds values to table (strings must be in '')
 
-UPDATE tableName SET columnName = value # this edits row in table where depicted
+UPDATE table_name SET columnName = value # this edits row in table where depicted
 WHERE columnName = value;
-ALTER TABLE the_table ADD CONSTRAINT constraint_name UNIQUE (thecolumn); # adds contstraint
+
+ALTER TABLE table_name 
+ADD CONSTRAINT constraint_name UNIQUE (thecolumn); # adds contstraint
 ```
 
 ## MySQL
@@ -277,6 +291,9 @@ git add .
 git commit -m "first commit"
 git remote add origin https://github.com/sjlarson92/app-name.git
 git push -u origin master
+
+#remove file from commit
+git restore --staged path/to/unwanted_file 
 ```
 
 - `heroku git:remote -a app-name` connects project repo to Heroku

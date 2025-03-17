@@ -8,6 +8,6 @@ alias gcm='git commit -m'
 alias gclean='echo "Doing a git pull, git fetch --all --prune and a gclean" && git pull && git fetch --all --prune && git branch --merged | grep -v "\*" | grep -Ev "(\*|master|develop|staging)" | xargs -n 1 git branch -d'
 
 # Exports
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin/
+export PATH=$PATH:/Library/PostgreSQL/17/bin/
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export JAVA_HOME='/Users/sasha/Library/Java/JavaVirtualMachines/azul-13.0.6/Contents/Home'
