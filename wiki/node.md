@@ -10,6 +10,19 @@
 ## Main ORMs:
 1. Prisma
 2. Sequelize 
+3. TypeORM
+
+# Main Migration Tools: 
+1. Umzug - The most popular migration tool in the Sequelize ecosystem
+   - Highest npm downloads among Sequelize migration tools
+   - Well-maintained with good TypeScript support
+   - Doesn't auto-generate migrations, but provides a robust framework
+
+2. Atlas - Rising in popularity, especially in enterprise environments
+   - Highest GitHub stars and fastest growing
+   - Professional backing from Ariga
+   - Works across many ORMs, not just Sequelize
+   - Best for schema-driven development approach
 
 ## Middleware
 - Anything between the request and the response. Typically a function that intercepts incoming request-response cycle in an app.

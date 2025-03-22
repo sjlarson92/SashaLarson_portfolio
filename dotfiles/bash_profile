@@ -12,3 +12,6 @@ alias pu='psql -U sashalarson -d postgres'
 export PATH=$PATH:/Library/PostgreSQL/17/bin/
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export JAVA_HOME='/Users/sasha/Library/Java/JavaVirtualMachines/azul-13.0.6/Contents/Home'
+
+# For Homebrew:
+eval "$(/opt/homebrew/bin/brew shellenv)"
