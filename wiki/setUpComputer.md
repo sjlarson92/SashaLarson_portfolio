@@ -2,22 +2,17 @@
 
 # Applications to Download:
 
-- Itsycal
-- Spectacle
+- Rectangle
 - 1Password
+- 
 - Scroll Reverser
   - Only reverse scroll for mouse
 
 - iTerm2: 
-    - Download your color theme (I'm using Cobalt2)
-    - Update in iTerm:
-        - Preferences>Profiles>Colors>ColorPresets>Import
-        - Choose your theme and Import
+    - Update color theme (half-life)
     - Reopen iTerm window to view changes
 
 * Make sure you are downloading the latest compatible versions! Otherwise some apps may not run:
-
-- VS Code Studio
 
 - IntelliJ:
     - Plugins: 
